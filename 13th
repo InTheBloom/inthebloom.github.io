@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+  <head>
+    <meta charset="utf-8">
+    <title>演習1用のページ</title>
+
+    <style type="text/css">
+      body {
+	  margin : 0px
+      }
+      .pre {
+	  text-align : center
+      }	   
+      .normalpic {
+	  width : 500px;
+	  height : auto;
+	  padding : 3px
+      }
+      .flexcontainer {
+	  display : flex;
+	  flex-direction : row;
+	  flex-wrap : wrap;
+	  justify-content : center
+      }
+      .block {
+	  padding : 15px;
+	  margin : 30px;
+	  border-radius : 2em;
+	  background : rgb(169,169,169)
+      }
+      #backimg1 {
+	  padding : 15px;
+	  margin : 30px;
+	  border-radius : 2em;
+	  background-image : url(./pictures/tools.jpg)
+      }
+      #backimg2 {
+	  width : fit-content;
+	  background : white
+      }
+      #backimg3 {
+	  background-image : url(./pictures/woods.jpg);
+	  padding : 2em;
+	  color : white
+      }
+    </style>
+    
+    
+      </head>
+
+      <body>
+
+	<div class="pre">
+	  <h1>このページは演習1のためのページです</h1>
+	  <a href="index.html">インデックスに戻る</a>
+	</div>
+	
+	<div class="block">
+	<h1>演習1-a</h1>
+	
+      <div>
+	<p><a href="./pictures/bird.jpg" target="blunk">この文は鳥の画像へのリンクです</a></p>
+	<p><a href="./pictures/building.jpg" target="blunk">この文は建物の画像へのリンクです</a></p>
+	<p><a href="./pictures/city.jpg" target="blunk">この文は街のの画像へのリンクです</a></p>
+	<p><a href="./pictures/ocean.jpg" target="blunk">この文は海の画像へのリンクです</a></p>
+      </div>
+      </div>
+
+	<div class="block">
+	<h1>演習1-b</h1>
+	
+      <div class="flexcontainer">
+	<img src="./pictures/bird.jpg" alt="" class="normalpic">
+	<img src="./pictures/building.jpg" alt="" class="normalpic">
+	<img src="./pictures/city.jpg" alt="" class="normalpic">
+	<img src="./pictures/ocean.jpg" alt="" class="normalpic">
+      </div>
+	</div>
+
+	<div id="backimg1">
+	  <h1 id="backimg2">演習1-c</h1>
+
+	  <div id="backimg3">
+	    <p>この文は背景に画像を設定したことをわかりやすくするため，わざと長くしています．<br>
+	      このページに使用されている画像はすべて帰属表記の必要ないもののみです．</p>
+	  </div>
+	</div>
+
+	
+      </body>
+
+      
+</html>
