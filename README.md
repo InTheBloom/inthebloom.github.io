@@ -16,32 +16,32 @@ A.上で書いたように、Githubはプロジェクトを進める場として
 1. [Github](https://github.com/)にアクセスして、サインアップする。
 2. New repositoryを選択する。(repositoryとは、プロジェクトのコードをアップロードしておくための場所です。  )
   
-![ログインページ](pictures/githubloginpage.jpg)
+	![ログインページ](pictures/githubloginpage.jpg)
 
 3. 下の画像は手順2を行った画面です。ここで、いくつか入力します。詳しくは下の表を参照してください。
 
-![リポジトリ作成](pictures/githubmakerepository.jpg)
+	![リポジトリ作成](pictures/githubmakerepository.jpg)
 
-| 項目 | 説明 | 記入例 |
-| :--- | :--- | :--- |
-| Repository name | 作成するリポジトリの名前(必須)(下に追記あり) | test |
-| Descripption | リポジトリの説明 | This is for test. |
-| 公開設定 | ripositoryの公開範囲設定<br>public : 誰でも閲覧可能<br>private : 自分または許可のあるユーザーのみ | public |
-| Initialize this repository with Add a README file | 詳細は下に | Add a README file |
-| ~ with Add.gitignore | GitHubにアップしたくないファイルやディレクトリを指定(詳細は下に) | None |
-| ~ with Choose a license | Repositoryのファイルに対するライセンスを指定 | None |
+	| 項目 | 説明 | 記入例 |
+	| :--- | :--- | :--- |
+	| Repository name | 作成するリポジトリの名前(必須)(下に追記あり) | test |
+	| Descripption | リポジトリの説明 | This is for test. |
+	| 公開設定 | ripositoryの公開範囲設定<br>public : 誰でも閲覧可能<br>private : 自分または許可のあるユーザーのみ | public |
+	| Initialize this repository with Add a README file | 詳細は下に | Add a README file |
+	| ~ with Add.gitignore | GitHubにアップしたくないファイルやディレクトリを指定(詳細は下に) | None |
+	| ~ with Choose a license | Repositoryのファイルに対するライセンスを指定 | None |
 
-- Repository nameについて
+	- Repository nameについて
 
-これはRepositoryの名前を決める項目です。ここで選択した名前を用いてhttps://[ユーザー名].github.io/[決めたリポジトリ名]という公開ディレクトリが与えられます。ただし例外的に自分のユーザー名をリポジトリ名に定めた場合はurlがhttps://[ユーザー名].github.ioになります。
+	これはRepositoryの名前を決める項目です。ここで選択した名前を用いてhttps://[ユーザー名].github.io/[決めたリポジトリ名]という公開ディレクトリが与えられます。ただし例外的に自分のユーザー名をリポジトリ名に定めた場合はurlがhttps://[ユーザー名].github.ioになります。
 
-- Initialize this repository with Add a README fileについて
+	- Initialize this repository with Add a README fileについて
 
-上述したurlに対するアクセスがあった場合、(アクセスするファイルを定めなかった場合)Github pagesのエンジンはREADME.mdまたはindex.htmlまたはindex.mdを探します。つまり、https://[ユーザー名].github.io/[リポジトリ名]に対するアクセスがあったときに、このディレクトリにREADME.mdまたはindex.htmlまたはindex.mdがあればそれを表示してくれます。この項目は、そのファイルを先に作っておくか決める設定になります。どっちでもいいです。
+	上述したurlに対するアクセスがあった場合、(アクセスするファイルを定めなかった場合)Github pagesのエンジンはREADME.mdまたはindex.htmlまたはindex.mdを探します。つまり、https://[ユーザー名].github.io/[リポジトリ名]に対するアクセスがあったときに、このディレクトリにREADME.mdまたはindex.htmlまたはindex.mdがあればそれを表示してくれます。この項目は、そのファイルを先に作っておくか決める設定になります。どっちでもいいです。
 
-- Initialize this repository with Add.gitignoreについて
+	- Initialize this repository with Add.gitignoreについて
 
-gitシステムの真骨頂は、ローカルで作業したファイルをこのgithub上で(複数人で)管理するというものです。この設定は(多分)ローカルからネット上のリポジトリに戻すときにアップロードしたくないファイルを指定するものです。ただWebサイトで遊びたいだけの人は関係ないと思うのでNoneでいいと思います。(要出典)
+	gitシステムの真骨頂は、ローカルで作業したファイルをこのgithub上で(複数人で)管理するというものです。この設定は(多分)ローカルからネット上のリポジトリに戻すときにアップロードしたくないファイルを指定するものです。ただWebサイトで遊びたいだけの人は関係ないと思うのでNoneでいいと思います。(要出典)
 
 4. Create Repositoryを押して、リポジトリ作成完了です。
 5. 公開まであともう少しです！手順4まで終わったらおそらく次のような画面になっていると思います。
@@ -54,7 +54,7 @@ gitシステムの真骨頂は、ローカルで作業したファイルをこ�
 
 ![ファイル作成](pictures/githubmakenewfile.jpg)
 
-ファイル名とファイルの中身を打ち込んで下のほうの`Commit new file`を押しましょう。もちろん事前に準備したファイルをコピペしてもOKです。ちなみにCommit new fileという見出しの下に入力欄がありますが、多分今回のような使い方の場合関係ないと思います(気になる人は調べてみてね)。
+	ファイル名とファイルの中身を打ち込んで下のほうの`Commit new file`を押しましょう。もちろん事前に準備したファイルをコピペしてもOKです。ちなみにCommit new fileという見出しの下に入力欄がありますが、多分今回のような使い方の場合関係ないと思います(気になる人は調べてみてね)。
 
 7. ファイルの公開設定をしていきます。まずは画像下線部の`Settings`を選択してください。次に`Pages`を選択してください。
 
@@ -93,8 +93,6 @@ gitシステムの真骨頂は、ローカルで作業したファイルをこ�
 ![リポジトリ選択](pictures/myrepositories.jpg)
 
 次に`Add file`を選択します。
-
-![ファイル新規作成](pictures/repository.jpg)
 
 そのあと`Create new file`または`Upload files`を選択します。
 
