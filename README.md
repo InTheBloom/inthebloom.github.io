@@ -46,23 +46,23 @@ A.上で書いたように、Githubはプロジェクトを進める場として
 4. Create Repositoryを押して、リポジトリ作成完了です。
 5. 公開まであともう少しです！手順4まで終わったらおそらく次のような画面になっていると思います。
 
-![リポジトリ](pictures/githubrepository.jpg)
+	![リポジトリ](pictures/githubrepository.jpg)
 
-正直自分もGithubのこと全然わかっていないので、これらのメニューを正確に説明することができません。ごめんなさい。ただ、とりあえずWebサイトを公開するだけなら上の画像で赤線を引いてある所の`creating a new file`を選択すればOKです。
+	正直自分もGithubのこと全然わかっていないので、これらのメニューを正確に説明することができません。ごめんなさい。ただ、とりあえずWebサイトを公開するだけなら上の画像で赤線を引いてある所の`creating a new file`を選択すればOKです。
 
 6. 次の画像が手順5を実行した画面になります。
 
-![ファイル作成](pictures/githubmakenewfile.jpg)
+	![ファイル作成](pictures/githubmakenewfile.jpg)
 
 	ファイル名とファイルの中身を打ち込んで下のほうの`Commit new file`を押しましょう。もちろん事前に準備したファイルをコピペしてもOKです。ちなみにCommit new fileという見出しの下に入力欄がありますが、多分今回のような使い方の場合関係ないと思います(気になる人は調べてみてね)。
 
 7. ファイルの公開設定をしていきます。まずは画像下線部の`Settings`を選択してください。次に`Pages`を選択してください。
 
-![ファイル作成後](pictures/githubcode.jpg)
+	![ファイル作成後](pictures/githubcode.jpg)
 
-![Settings](pictures/githubsettings.jpg)
+	![Settings](pictures/githubsettings.jpg)
 
-![Pages](pictures/githubsettingspages.jpg)
+	![Pages](pictures/githubsettingspages.jpg)
 
 8. Branchの項目を`None`から`main`に変更してください。そのあと`save`を選択してください。Branchを`main`にすると横にもう一つ選択項目が出るかと思いますが、それは(おそらく)エントリファイル(README.mdみたいなやつ)を探すフォルダを定めるというものだと思うので、`root`のままで構いません。
 
@@ -86,7 +86,7 @@ A.上で書いたように、Githubはプロジェクトを進める場として
 
 1. GitHubログインページから`your repositories`を選択
 
-![メニュー選択](pictures/githubloginpage2.jpg)
+	![メニュー選択](pictures/githubloginpage2.jpg)
 
 2. 公開中のリポジトリを選択します。(今回であれば`test`を選びます。)
 
