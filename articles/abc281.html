@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="jp" prefix="og: http://ogp.me/ns#">
+	<head>
+		<title>ABC281参加記 ~迫りくる動的計画法~ - InTheDayDream</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=devicewidth, initial-scale=1">
+		<base href="../">
+		<link rel="stylesheet" href="default.css">
+		<link rel="icon" href="favicon.png">
+		<link ref="apple-touch-icon" href="favicon.png">
+		<meta name="description" content="ABC281参加記録です。">
+
+		<!-- 以下SNSのカード設定 -->
+		<meta property="og:url" content="https://inthebloom.github.io/articles/"> <!-- ページのURL -->
+		<meta property="og:title" content="ABC281参加記 ~迫りくる動的計画法~ - InTheDayDream"> <!-- ページタイトル -->
+		<meta property="og:description" content="ABC281に参加し，敗れた男の物語"> <!-- ページの説明 -->
+		<meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
+		<meta property="og:image" content="https://inthebloom.github.io/pictures/abc281/ogp.png"> <!-- 表示される画像(絶対パス) -->
+		<!-- Twitter用の設定 -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@UU9782wsEdANDhp">
+	</head>
+
+	<body>
+		<p><a href="home.html">ホームページに戻る</a></p>
+
+	<h1>ABC281に参加してきた。</h1>
+	<p>書いた日: 2022/12/10</p>
+	<p>最終更新日: N/A</p>
+
+	<h2>今週もABCに参加してきたよ</h2>
+		<p>こんにちは。あいも変わらず今週もABCに参加してきました。その結果報告の記事です。</p>
+	<h2>今回の戦績発表</h2>
+		<p>まずは今回の戦績です。以下は今回の私の提出です。</p>
+		<img src="pictures/abc281/result.png">
+		<p>今回は珍しくWAを出さずにコンテストを終えることができました。D問題は解けなかったので，実質コンテスト参加時間は30分でした笑</p>
+		<img src="pictures/abc281/rating.png">
+		<p>ちなみにレーティングは今回で+62でした。着々と上がっている感じが結構うれしいし，モチベーションになっているような気がします。</p>
+	<h2>解法など</h2>
+		<p>今回の記事も，自分がどうやって解いたかを残しておきます。</p>
+		<h3>A問題</h3>
+			<p>以下は問題文です。</p>
+			<img src="pictures/abc281/A.png">
+			<p>今回のA問題は最近の中では簡単なほうかな？っていうのが率直な意見です。この問題はforなどのループ構造を書ければ回答できそうですね。具体的には，受け取った数字分のループを回して，その中で変数をデクリメントしながら出力すればオーケーですね。以下は私の提出です。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+	int n;
+	scanf("%i", &n);
+
+	for(int i = n; i &gt;= 0; i--) {
+		printf("%i\n", i);
+	}
+	return 0;
+}
+</code></pre>
+			<p>c言語では<code>for</code>文でインデックス変数が利用できるので，比較的簡単に記述することができます。</p>
+		<h3>B問題</h3>
+			<p>まずは問題文です。</p>
+			<img src="pictures/abc281/B.png">
+			<p>文字列の照合問題ですね。正直この手の問題は結構苦手とするところですが，，，今回は何とか解けました。</p>
+			<p>方針としては，まず与えられた文字列を<code>scanf</code>関数で文字列型として読み取って，ASCIIコードで照合していきました。具体的に言うと，まず「先頭の文字が一文字の英大文字」という条件は，受け取った文字列が入っている配列の一つ目の要素が，「数値として」65以上かつ90以下という条件により判別することができます。このようなことを繰り返して判別していきます。以下はACが通ったコードです。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+	char s[11] = {0}; //全部ゼロで初期化する
+	scanf("%s", s);
+
+	if(!(s[0] &gt;= 65 && 90 &gt;= s[0])) { // 頭大文字チェック
+		printf("No\n");
+		return 0;
+	}
+
+	if(s[1] == 48) {
+		printf("No\n");
+		return 0;
+	}
+
+	for(int i = 1; 7 &lt; i; i++) {
+		if(!(s[i] &gt;= 48 && 57 &gt;= s[i])) {
+			printf("No\n");
+			return 0;
+		}
+	}
+
+	if(!(s[7] &gt;= 65 && 90 &gt;= s[7])) { // ラスト大文字チェック
+		printf("No\n");
+		return 0;
+	}
+	if(s[8] != 0) { // きっちり8文字かチェック
+		printf("No\n");
+		return 0;
+	}
+
+	printf("Yes\n");
+	return 0;
+}
+</code></pre>
+			<p>コメントで「きっちり8文字かチェック」と書かれている部分について少しだけ補足します。今回の問題の制約では，<em>ASCIIコードにおいて十進数表示で<code>0</code>になるような文字が入力されることがない</em>ので，この条件により確実に仕分けることができます。しかし，一般的な場合に関してはそうとは限らないので，注意が必要です。(今回0という条件にしたのはたまたま配列を0で初期化しようと思ったからというだけで特に深い理由はありません。)</p>
+			<p>C言語でこういう文字列処理をするのはかなり面倒くさいですね。。。もっといい方法があるのかもしれませんが。</p>
+		<h3>C問題</h3>
+			<p>以下問題文です。</p>
+			<img src="pictures/abc281/C.png">
+			<p>循環するプレイリストにおいて，与えられた時間が経過したときに何曲目が流れているかを考える問題ですね。</p>
+			<p>この問題を考える上でまず大切なのが，プレイリストの総再生時間よりも再生時間が大きくなるようなパターンが存在することです。この時，プレイリストの総再生時間分だけ経過したら一番最初の状態に戻るので，<em>再生時間を総再生時間で割った余り</em>を考えることで問題を簡単にすることができます。(なお，総再生時間が再生時間よりも大きいような場合には，再生時間がそのまま余りとなります。したがって，とりあえず剰余を考えるという方法でも大丈夫です。)</p>
+			<p>この後，その余りを，一つ一つの楽曲再生時間の和が超えたタイミングが答えの曲の位置になります。これはほぼ自明ですね。</p>
+			<p>以下は提出コードです。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+	int n;
+	long long int t;
+	long long int sum = 0; // 全曲の総再生時間
+
+	scanf("%i %lli", &n, &t);
+	int a[n];
+
+	for(int i = 0; n &gt; i; i++) {
+		scanf("%i", &a[i]);
+		sum = sum + a[i];
+	}
+
+	if(t &gt; sum) {
+		t = t % sum;
+	}
+
+	sum = 0; //sumリセット
+
+	int num;
+
+	for(int i = 0; ;i++) {
+		sum = sum + a[i];
+		if(sum &gt; t) {
+			num = i + 1;
+			sum = sum - a[i];
+			break;
+		}
+	}
+
+	printf("%i %lli\n", num, t - sum);
+	return 0;
+}
+</code></pre>
+			<p>やっていることはほとんど上で書いたことそのままです。ただし，<code>for</code>文のインデックス変数が(というより配列の要素が)0からスタートする一方，曲の順番は1からスタートするので気を付けましょう。</p>
+		<h3>D問題</h3>
+			<p><em>D問題は，解けなかったよ。。。(n回目)</em></p>
+			<p>とりあえず問題の紹介だけはします。以下問題文です。</p>
+			<img src="pictures/abc281/D.png">
+			<p>つまりは，Aの元から任意にK個を選んできて，それらを足したものの集合を考えるときに，与えたDの倍数であるようなもので最大のものを探すというものです。</p>
+			<p>この問題の恐ろしいところは，<em>Aの元から任意にK個を選ぶ組み合わせの数が非常に大きくなることがある</em>という点です。この問題において最悪ケースを考えると，</p>
+			<ul>
+				<li>Aの要素が100個</li>
+				<li>Kが50(詳細は省きます)</li>
+			</ul>
+			<p>となるときです。この時の組み合わせの数はなんと100,891,344,545,564,193,334,812,497,256になります。どう考えても愚直にやるのは無理です。</p>
+			<p>しかし現在の私ではこの問題に対する有効な解法はわかりませんでした。なのでC問題を解き終わってからコンテスト終了まで机の前でｳﾝｳﾝうなってました。う～ん，アホ！w<br>
+			なお，コンテスト終了後に公開される<a href="https://atcoder.jp/contests/abc281/editorial/5366">解説</a>によると，この問題は動的計画法なるもので解くことができるらしいです。<em>知らんが？</em></p>
+			<p>というわけでボロボロでした。精進します。</p>
+	<h2>終わりに</h2>
+		<p>今回の参加記は以上です。だんだんレートが上がっているとは言えども，専門的なアルゴリズムの知識なんてないのでこういう問題にぼこぼこにされる日々です。しかし，思ってる以上に競プロを通じて数学などに触れることは新鮮で楽しいと思っています。今のところは。ということでこれからも頑張っていけたらなと思います。</p>
+		<img src="pictures/abc281/hiroyuki.png">
+		<p><em>DPなんかねえよ</em>(K重<code>for</code>ループをおもむろに書き始める)</p>
+		<p>というわけで，ここまで読んでいただきありがとうございました。また次の記事でお会いしましょう。</p>
+	</body>
+</html>
