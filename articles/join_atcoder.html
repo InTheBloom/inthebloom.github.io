@@ -46,7 +46,7 @@
 	<p>まずはA問題です。以下が問題文です。</p>
 	<img src="pictures/join_atcoder/A.png">
 	<p>この問題は，配列を用意して数列を入れていき，操作の回数番目のところから出力して，0で水増しするような感じで解きました。以下コードです。</p>
-<code><pre>#include &lt;stdio.h&gt;
+<pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
 int main(void) {
@@ -78,12 +78,12 @@ int main(void) {
 
 	return 0;
 }
-</pre></code>
+</code></pre>
 	<p>この問題で，最初操作の回数が数列の長さを上回るパターンを見落としていて見事にWAを食らいました。あと，前にも書きましたが標準入力の取り扱いが分からないせいで1時間くらいかかりました。</p>
 	<p>次B問題です。</p>
 	<img src="pictures/join_atcoder/B.png">
 	<p>この問題は，きちんと考えるのが大変だったので取り合えず全探索をしようという方針で行きました。「見間違えやすい時刻」を評価するために，〇〇時△△分を十の位，一の位に分解してから初めて「時間として許容できる組み合わせ」に到達したらループを抜けるようにしました。なお，日付をまたいでも(24時以降)いいように，24で割った余りを利用しています。以下コードです。</p>
-	<code><pre>#include &lt;stdio.h&gt;
+<pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
 int main(void){
@@ -123,7 +123,7 @@ int main(void){
 	}
 	return 0;
 }
-</pre></code>
+</code></pre>
 	<p><em>絶対こんなに変数いらなかっただろ</em></p>
 	<p>ということでこれでAC通りました。もっと数学的に考察したら簡単に解けたかも？(面倒くさいからやらない)</p>
 	<h2>終わりに</h2>
