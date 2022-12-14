@@ -1,37 +1,41 @@
-@media screen and (max-width: 800px) {
-	html {
-	height: 100%;
-	padding: 10px;
-	background: #f8f8ff;
-	}
+html {
+	font-family: cursive;
+}
 
+@media screen and (max-width: 800px) {
 	body {
-		background: #fffafa;
-		box-shadow: 0px 0px 5px black;
 		padding: 10px;
 	}
 }
 @media screen and (min-width: 800px) {
-	html {
-		padding: 50px;
-		background: #f8f8ff;
-	}
-
 	body {
-		background: #fffafa;
-		box-shadow: 0px 0px 5px black;
-		padding: 15px;
+		margin: auto;
+		padding: 10px 50px;
+		max-width: 1200px;
 	}
 }
 
 pre {
 	overflow: scroll;
-	padding: 5px 20px;
-	background: #eee;
+	padding: 10px 20px;
+	background: black;
+	color: white;
+	border-radius: 10px;
+}
+
+pre code {
+	padding: 0px;
+	border-radius: 0px;
+	margin: 0;
+	background: black;
 }
 
 code {
-	background: #eee;
+	font-family: monospace;
+	padding: 1px 3px;
+	margin: 0px 2px;
+	background: #dcdcdc;
+	border-radius: 2px;
 }
 
 img {
@@ -56,9 +60,18 @@ blockquote p {
 
 h2 {
 	padding-bottom: 10px;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid gray;
 }
 
 h3 {
 	margin: 30px 0px;
+}
+
+strong {
+	color: red; /*できるだけstrong要素以外で赤色使わないでほしい*/
+}
+
+.date {
+	font-size: 13px;
+	color: dimgray;
 }

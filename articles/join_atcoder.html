@@ -24,7 +24,10 @@
 <body>
 <p><a href="home.html">ホームページに戻る</a></p>
 	<h1>ABC278に参加してみた！</h1>
-	<p>書いた日:2022/11/19</p>
+	<div class="date">
+		<p>書いた日: 2022/11/19</p>
+		<p>最終更新日: 2022/12/14</p>
+	</div>
 
 	<p>こんにちは。<a href="https://twitter.com/UU9782wsEdANDhp">In</a>です。この度初めて競技プログラミング，もといAtCoderに参加してみたので，その記録もかねてこの記事に残しておきます。<em>注意: 筆者はプログラミング初心者なので競プロ的には特に参考になる点はありません。</em></p>
 	<h2>競プロって何？</h2>
@@ -43,8 +46,7 @@
 	<p>まずはA問題です。以下が問題文です。</p>
 	<img src="pictures/join_atcoder/A.png">
 	<p>この問題は，配列を用意して数列を入れていき，操作の回数番目のところから出力して，0で水増しするような感じで解きました。以下コードです。</p>
-	<code><pre>
-#include &lt;stdio.h&gt;
+<code><pre>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
 int main(void) {
@@ -55,34 +57,33 @@ int main(void) {
 
 	scanf("%d %d", &length, &operation_times);
 
-	for(int i = 0; length > i; i++){
+	for(int i = 0; length &gt; i; i++){
 		scanf("%d", &input);
 		sequence[i] = input;
 	}
 
-	for(int i = operation_times; length > i; i++){
+	for(int i = operation_times; length &gt; i; i++){
 		printf("%d ", sequence[i]);
 	}
 
-	if (operation_times < length){
-		for(int i = 0; operation_times > i; i++){
+	if (operation_times &lt; length){
+		for(int i = 0; operation_times &gt; i; i++){
 			printf("0 ");
 		}
 	} else {
-		for(int i = 0; length > i; i++){
+		for(int i = 0; length &gt; i; i++){
 			printf("0 ");
 		}
 	}
 
 	return 0;
 }
-	</pre></code>
+</pre></code>
 	<p>この問題で，最初操作の回数が数列の長さを上回るパターンを見落としていて見事にWAを食らいました。あと，前にも書きましたが標準入力の取り扱いが分からないせいで1時間くらいかかりました。</p>
 	<p>次B問題です。</p>
 	<img src="pictures/join_atcoder/B.png">
 	<p>この問題は，きちんと考えるのが大変だったので取り合えず全探索をしようという方針で行きました。「見間違えやすい時刻」を評価するために，〇〇時△△分を十の位，一の位に分解してから初めて「時間として許容できる組み合わせ」に到達したらループを抜けるようにしました。なお，日付をまたいでも(24時以降)いいように，24で割った余りを利用しています。以下コードです。</p>
-	<code><pre>
-#include &lt;stdio.h&gt;
+	<code><pre>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
 int main(void){
@@ -99,17 +100,17 @@ int main(void){
 
 	scanf("%d %d", &hour, &min);
 
-	for(int i = hour; 48 > i; i++){
+	for(int i = hour; 48 &gt; i; i++){
 		hour_remain = i % 24;
 		hour_tens = hour_remain / 10;
 		hour_ones = hour_remain % 10;
 		if(flag == 1){
 			min = 0;
 		}
-		for(int j = min; 60 > j; j++){
+		for(int j = min; 60 &gt; j; j++){
 			min_tens = j / 10;
 			min_ones = j % 10;
-			if(24 > hour_tens * 10 + min_tens && 60 > hour_ones * 10 + min_ones){
+			if(24 &gt; hour_tens * 10 + min_tens && 60 &gt; hour_ones * 10 + min_ones){
 				printf("%d %d", hour_tens * 10 + hour_ones, min_tens * 10 + min_ones);
 				breakflag = 1;
 				break;
@@ -122,7 +123,7 @@ int main(void){
 	}
 	return 0;
 }
-	</pre></code>
+</pre></code>
 	<p><em>絶対こんなに変数いらなかっただろ</em></p>
 	<p>ということでこれでAC通りました。もっと数学的に考察したら簡単に解けたかも？(面倒くさいからやらない)</p>
 	<h2>終わりに</h2>

@@ -23,12 +23,17 @@
 
 	<body>
 	<p><a href="home.html">ホームページに戻る</a></p>
+
 	<h1>記事執筆時の注意点</h1>
-	<p>書いた日: 2022/11/23</p>
-	<p>最終更新日: N/A</p>
+
+	<div class="date">
+		<p>書いた日: 2022/11/23</p>
+		<p>最終更新日: 2022/12/14</p>
+	</div>
+
 	<h2>現在のディレクトリ構造</h2>
 	<p>11/23 ~ ディレクトリ構造は以下のようになっています。rootはhttps://inthebloom.github.io/です。</p>
-	<pre>
+<pre>
 root -
      | - home.html
      | - favicon.png
@@ -47,7 +52,7 @@ root -
      |
      | - README.md
      | - templete.html
-	 </pre>
+</pre>
 	<h2>記事作成の流れ</h2>
 	<ol>
 		<li>root直下にある<code>templete.html</code>を使用して，<code>articles</code>ディレクトリ内に<em>半角英語で</em>ファイルを作成しします。</li>
@@ -67,6 +72,7 @@ root -
 	<h2>cssの注意点</h2>
 		<p>現在このウェブサイトのすべてのページは，一括してroot直下にある<code>default.css</code>によって装飾されています。このcssに関して憶えておくべきことを書いておきます。</p>
 		<p>cssによって装飾される要素のリスト</p>
+		<p><strong>2022/12/14現在、最新の状況を反映できていません。</strong></p>
 		<ul>
 			<li>pre要素 &gt; <code>overflow: scroll;</code>が適用されています。主にプログラムを載せるときに，形を崩さずに，かつモバイルデバイスでの可視性向上を図っています。</li>
 			<li>img要素 &gt; <code>max-width: 100%; height: auto; border: 1px solid black;</code>が適用されています。画面の横幅が画像のサイズに対して小さい時に自動的に横幅に合わせるようになっています。</li>
@@ -76,6 +82,7 @@ root -
 		</ul>
 	<h2>htmlのややこしいもの</h2>
 		<p>よく使うだろうけど間違えそうなhtmlのお手本を載せておきます。</p>
+		<p><strong>2022/12/14現在、最新の状況を反映できていません。</strong></p>
 		<ul>
 			<li>引用
 				<pre><code>
