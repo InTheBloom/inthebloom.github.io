@@ -1,13 +1,14 @@
 body {
 	margin: 0;
-	width: 100%;
 }
 
 .home {
+	/*
 	background-image: url(pictures/home/background.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center 35%;
+	*/
 	height: 300px;
 	text-align: center;
 }
