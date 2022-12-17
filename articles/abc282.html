@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="jp" prefix="og: http://ogp.me/ns#">
+	<head>
+		<title>ABC282参加記録 ~もう終わりだよこのレート~ - InTheDayDream</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=devicewidth, initial-scale=1">
+		<base href="../">
+		<link rel="stylesheet" href="default.css">
+		<link rel="icon" href="favicon.png">
+		<link rel="apple-touch-icon" href="favicon.png">
+		<meta name="description" content="ABCに参加するIn。WAを出し過ぎたからか，不幸にも黒塗りのD問題に追突してしまう。">
+
+		<!-- 以下SNSのカード設定 -->
+		<meta property="og:url" content="https://inthebloom.github.io/articles/abc282.html"> <!-- ページのURL -->
+		<meta property="og:title" content="ABC282参加記録 ~もう終わりだよこのレート~ - InTheBloom"> <!-- ページタイトル -->
+		<meta property="og:description" content="ABCに参加するIn。WAを出し過ぎたからか，不幸にも黒塗りのD問題に追突してしまう。"> <!-- ページの説明 -->
+		<meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
+		<meta property="og:image" content="https://inthebloom.github.io/pictures/abc282/ogp.png"> <!-- 表示される画像(絶対パス) -->
+		<!-- Twitter用の設定 -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@UU9782wsEdANDhp">
+	</head>
+
+	<body>
+		<p><a href="home.html">ホームページに戻る</a></p>
+		<h1>ABC282参加記録</h1>
+		<div class="date">
+			<p>書いた日: 2022/12/18</p>
+			<p>最終更新日: N/A</p>
+		</div>
+
+		<h2>今週もABC参加してきた</h2>
+			<p>こんにちは，冷凍うどんを食べようとしたら鍋の口が小っちゃくて入らなかった<a href="https://twitter.com/UU9782wsEdANDhp">In</a>です。</p>
+			<img src="pictures/abc282/udon.jpg">
+			<p>毎週ABCに参加し続けて，今回の<a href="https://atcoder.jp/contests/abc282">ABC282</a>で5回目になりました。今週も結果報告と自分の忘備録を兼ねて記事を残しておきます。</p>
+		<h2>結果報告のコーナー</h2>
+			<p>まずはいつも通り結果報告からです。今回の提出状況はこのような感じでした。</p>
+			<img src="pictures/abc282/result.png">
+			<p>まずB問題で問題文の読み間違えが発生して無駄に悩んだ挙句，C問題で3WAを出して<em>爆死</em>しました。はい。結果的にはABCの三完でした。何とか途中で修正できてよかったです。ちなみにD以降は私にはもうちんぷんかんぷんでした。</p>
+			<p>今回のコンテストによるレーティング変動は，</p>
+
+		<h2>問題と解法</h2>
+			<p>どんなふうに問題を解いたかを紹介します。</p>
+			<h3><a href="https://atcoder.jp/contests/abc282/tasks/abc282_a">A問題</a></h3>
+				<p>問題文は以下の通りでした。</p>
+				<img src="pictures/abc282/A.png">
+				<p>与えられた整数Kの分だけ英大文字を出力する問題です。制約からZよりあとに関しては考えなくてもいいことが分かります。したがって，ASCIIコードを利用して<code>printf</code>関数で標準出力に出力していけばオーケーです。</p>
+				<p>もう少し具体的に言うと，<a href="http://www3.nit.ac.jp/~tamura/ex2/ascii.html">ASCIIコード表</a>によると，英大文字は65番にAから始まって，90番にZまで順番に割り当てられています。したがって，ループ毎に1ずつ増やしていけばオーケーです。以下AC通ったコードです。</p>
+<pre><code>#include &lt;stdio.h&gt;
+     
+int main(void) {
+	int k;
+	scanf("%i", &k);
+ 
+	for(int i = 0; k &gt; i; i++) {
+		printf("%c", 65 + i);
+	}
+ 
+	return 0;
+}
+</code></pre>
+				<p>最近のABCは毎回ASCIIコード表を見ながらやってる気がします。次B問題です。</p>
+			<h3><a href="https://atcoder.jp/contests/abc282/tasks/abc282_b">B問題</a></h3>
+				<p>問題文は以下の通りです。</p>
+				<img src="pictures/abc282/B.png">
+				<p>N人の人が，コンテストに出題される各問題を解けるかどうかのデータが渡されます。参加者から2人を選んで，コンテストの問題を<em>すべて</em>解けるペアを作るとするとき，<em>作ることができるペアの数</em>を調べる問題です。</p>
+				<p>この時，作ることができるペアとは，「同時に作ることができるペア」<em>ではない</em>ことに注意する必要があります。私はこれを勝手に同時に作ることができるペアの数のことだと勘違いして，永遠に悩んでいました。</p>
+				<p>また，この問題にはもう一つ注意する必要のある点があります。それは，ペアには<em>順序を考えない</em>ことです。具体的には，ある一人を選んで，その人が一緒に組むことで全問正解できるようなペアをすべて列挙していくコードで解こうとすると，気を付けないとA-BのペアとB-Aのペアを区別してカウントしてしまうということが起こります。私はこの方針で解きましたが，前述の問題は，二重<code>for</code>ループの二重目のループ変数を，一重目のループ変数で初期化することで対処しました。以下AC通ったコードです。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+	int n, m; // nが人，mが問題
+	scanf("%i %i", &n, &m);
+
+	char s[n][31];
+	for(int i = 0; n &gt; i; i++) {
+		scanf("%s", &s[i][0]);
+	}
+
+	int ans = 0;
+	char flag = 0;
+
+	for(int i = 0; n &gt; i; i++) {
+		for(int j = i; n &gt; j; j++) {
+			if(i == j) {
+				continue; //同じ番号同士は考えない
+			}
+
+			for(int k = 0; m &gt; k; k++) {
+				if(s[i][k] == 'x' && s[j][k] == 'x') { //ダメだった
+					flag = 1;
+					break;
+				}
+
+			}
+			if(flag == 0) {
+				ans++; // 可能ペア発見
+			} else {
+				flag = 0; //戻す
+			}
+		}
+	}
+
+	printf("%i", ans);
+
+	return 0;
+}
+</code></pre>
+				<p>少し見にくいかもしれません。すみません。途中3重<code>for</code>ループがありますが，最初の二つが人を選ぶところと対応しており，三つめが問題をすべて解けるかの判定になっています。</p>
+			<h3><a href="https://atcoder.jp/contests/abc282/tasks/abc282_c">C問題</a></h3>
+				<p>最後にC問題です。問題文は以下の通りです。</p>
+				<img src="pictures/abc282/C.png">
+				<p><code>"</code>に挟まれていない部分にのみ違う処理を施して，文字列を得る問題です。</p>
+				<p>正直，この問題はC問題の中では簡単なほうかなと思います。(簡単というのは，方針が思い浮かびやすいという意味です。)しかし，私はこの問題で大コケしてしまい，<em>順位が死にました。</em>結構ガチでショックです。</p>
+				<p>解法としては，文字列を配列で受け取り，<code>"</code>を発見したら，次の<code>"</code>までそのまま出力するようにするとオッケーです。この分岐の処理をいかに簡単にするかがキモだと思います。</p>
+				<p>まずは私がWAを出した<em>クソコード</em>を載せます。反面教師です。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+	int n;
+	scanf("%i", &n);
+
+	char s[n];
+	scanf("%s", &s[0]);
+
+	for(int i = 0; n &gt; i; i++) {
+		if(s[i] == '"') {
+			printf("%c", s[i]);
+			for(int j = i + 1; s[j] != '"'; j++) {
+				if(s[j] == ',') {
+					printf("%c", '.');
+				} else {
+					printf("%c", s[j]);
+				}
+				i++;
+			}
+			i++;
+			printf("%c", s[i]);
+		} else {
+			printf("%c", s[i]);
+		}
+	}
+
+	return 0;
+}
+</code></pre>
+				<p>まずはクソコードその一です。言うまでもなくこのコードの抱える一番の問題点は，<em>とにかくごちゃごちゃしている</em>点です。このコードは<code>printf</code>関数を5回も使っており，いかに事前にどうやって組むかを考えていなかったかがバレバレです。また，もう一つの重大な欠点は<em>問題の要求と逆の処理をしている</em>ことです。<em>問題文の読み違えには気を付けよう！</em>(公開ブログで<a href="https://www.nicovideo.jp/watch/sm34551123">ゆうさく</a>を貼れるほど度胸は無かった)</p>
+				<p>お次に，これをもう少し修正したけどダメだったコードです。</p>
+<pre><code>#include &lt;stdio.h&gt;
+ 
+int main(void) {
+	int n;
+	scanf("%i", &n);
+ 
+	char s[n];
+	scanf("%s", &s[0]);
+ 
+	for(int i = 0; n &gt; i; i++) {
+		if(s[i] == '"') {
+			printf("%c", s[i]);
+			i++;
+			for(; s[i] != '"'; i++) {
+				printf("%c", s[i]);
+			}
+			printf("%c", s[i]);
+			i++;
+		}
+		if(s[i] == ',') {
+			printf("%c", '.');
+		} else {
+			printf("%c", s[i]);
+		}
+	}
+ 
+	return 0;
+}
+</code></pre>
+				<p>このコードは，問題ページにあるテストケースは無事に突破しました。しかし，いまだ重大な問題を抱えています。それは<em>極端な入力に対してバッファーオーバーランが起こりえます。</em>これはヤバい(確信)</p>
+				<p>このコードは，最初に<code>"</code>が来たかどうかを判定して，来ていたら次の<code>"</code>までそのまま出力し続けるようにしてあります。これだけ聞くとまともそうですが，一番ダメなのは<em>インクリメントを管理しきれていない点</em>です。ループの途中に分岐点を作っていたりする関係上，コード中のあちこちでインクリメントが発生するせいでバグを追いきれませんでした。</p>
+				<p>例えば入力が<code>""""</code>だったりすると，余分なインクリメントが発生してバッファの外側に突き抜けます。そして次の<code>"</code>が見つかるまで止まることはありません。うーんこの</p>
+				<p>最後にAC通ったコードです。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+	int n;
+	scanf("%i", &n);
+
+	char s[n];
+	scanf("%s", &s[0]);
+
+	for(int i = 0; n &gt; i; i++) {
+		if(s[i] == '"') {
+			printf("%c", s[i]);
+			i++;
+			for(; s[i] != '"'; i++) {
+				printf("%c", s[i]);
+			}
+			printf("%c", s[i]);
+			continue;
+		}
+		if(s[i] == ',') {
+			printf("%c", '.');
+		} else {
+			printf("%c", s[i]);
+		}
+	}
+
+	return 0;
+}
+</code></pre>
+				<p>このコードはさっきのコードに<code>continue</code>処理を挟むことで(一時的なものですが)さっき挙げた不正なインクリメントを防止しています。</p>
+				<p><em>教訓: インクリメントはわかりやすい場所で管理しよう。</em><code>continue</code><em>や</em><code>break</code><em>をちゃんと使おう。</em></p>
+
+		<h2>完走した感想</h2>
+			<p>今回のコンテストはかなり残念な感じになってしまいました。しかしとりあえずC問題まででも解けて良かったです。結構実装の技術的な点でコケることが多いなと感じているので，もっと問題数を解いてデバッグなどに慣れたいです。また，D問題以降は数学的知識や競プロ的な技術がかなり問われる問題かなと(一見)思いました。したがって，大学での数学の勉強などはしっかり頑張りたいです。(願望)</p>
+			<p>ここまで読んでいただき，ありがとうございました。また次の記事でお会いしましょう。ちなみに一週間後のUECアドベントカレンダーに登録したはいいもののまだ一文字も書いていません(絶望)</p>
+	</body>
+</html>
