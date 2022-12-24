@@ -1,3 +1,7 @@
+html {
+	font-family: sans-serif;
+}
+
 body {
 	margin: 0;
 }
@@ -9,9 +13,11 @@ body {
 	background-position: center 35%;
 	height: 300px;
 	text-align: center;
+	margin 0;
 }
 
 .sitename {
+	font-family: serif;
 	color: white;
 	margin: 0;
 }
@@ -39,8 +45,8 @@ body {
 	gap: 0px 20px;
 }
 
+/*
 .sitemenu::before {
-	content: "";
 	display: block;
 	background: linear-gradient(to left, rgba(0,0,0,0), white, rgba(0,0,0,0));
 	position: absolute;
@@ -58,9 +64,11 @@ body {
 	height: 0.3mm;
 	width: 400px;
 }
+*/
 
 
 .menuitem {
+	font-family: serif;
 	font-size: 25px;
 	color: white;
 	margin: 0;
@@ -77,4 +85,49 @@ body {
 
 .menulink:hover {
 	color: gainsboro;
+}
+
+.headline {
+	text-align: center;
+	font-size: 35px;
+	margin: 50px;
+}
+
+.article_list {
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px 0;
+	padding: 0;
+}
+
+@media screen and (max-width: 800px) {
+	.article_outer {
+		display: block;
+		border: 1px solid black;
+		width: 90vw;
+		height: 80px;
+		border-radius: 10px;
+		background: gray;
+	}
+
+	.article_inner {
+		
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.article_outer {
+		display:block;
+		border: 1px solid black;
+		width: 720px;
+		height: 80px;
+		border-radius: 10px;
+		background: gray;
+	}
+
+	.article_inner {
+
+	}
 }
