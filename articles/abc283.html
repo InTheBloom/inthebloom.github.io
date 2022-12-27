@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="jp" prefix="og: http://ogp.me/ns#">
+	<head>
+		<title>ABC283参加 ~D問題が倒せない~ - InTheDayDream</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=devicewidth, initial-scale=1">
+		<base href="../">
+		<link rel="stylesheet" href="default.css">
+		<link rel="icon" href="favicon.png">
+		<link rel="apple-touch-icon" href="favicon.png">
+		<meta name="description" content="ABC283参加記録です。コンテスト中にD問題が解けません。">
+
+		<!-- 以下SNSのカード設定 -->
+		<meta property="og:url" content="https://inthebloom.github.io/articles/abc283.html"> <!-- ページのURL -->
+		<meta property="og:title" content="ABC283参加 ~D問題が倒せない~ - InTheDayDream"> <!-- ページタイトル -->
+		<meta property="og:description" content="ABC283参加記録です。コンテスト中にD問題が解けません。"> <!-- ページの説明 -->
+		<meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
+		<meta property="og:image" content="https://inthebloom.github.io/pictures/abc283/ogp.png"> <!-- 表示される画像(絶対パス) -->
+		<!-- Twitter用の設定 -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@UU9782wsEdANDhp">
+	</head>
+
+	<body>
+		<p><a href="home.html">ホームページに戻る</a></p>
+		<h1>ABC283参加記録！</h1>
+		<div class="date">
+			<p>書いた日: 2022/12/26</p>
+			<p>最終更新日: N/A</p>
+		</div>
+
+		<h2>ABC283参加してきた！</h2>
+			<p>こんにちは。最近近所のスーパーが扱っている冷凍パスタのメーカーが変わって一瞬焦った<a href="https://twitter.com/UU9782wsEdANDhp">In</a>です。(でもちゃんとおいしかったのでセーフ)</p>
+			<img src="pictures/abc283/pasuta.jpg">
+			<p><a href="articles/uec_adventcalendar.html">アドベントカレンダー</a>を執筆していた影響で遅れてしまいましたが，今週もちゃんと<a href="https://atcoder.jp/contests/abc283">ABC</a>に参加してきましたので，その参加記録を生やしておきます。</a>
+		<h2>今週の成績発表のコーナー</h2>
+			<p>まずは今週の成績です。前回<a href="articles/abc282.html"><em>爆死</em></a>したのが記憶に新しいですが，今回はこんな感じでした。</p>
+			<img src="pictures/abc283/result.png">
+			<p>大体16分でCまで通して，そのあとD問題に<em>敗北</em>しました。全体で3完です。</p>
+			<p>なお，今回のコンテストによるレート変動は以下の通りでした。</p>
+			<img src="pictures/abc283/rating.png">
+			<p>茶色まで折り返し地点といった感じでなかなかいいんじゃないでしょうか？今回は結構早解きに成功したので，3完ですがそこそこの順位になりました。<span style="text-decoration: line-through;">ペナルティも食らってないし</span></p>
+		<h2>各問題と解法</h2>
+			<p>いつも通り自分が解いた問題の説明を載せていきたいと思います。まずはA問題です。</p>
+			<h3><a href="https://atcoder.jp/contests/abc283/tasks/abc283_a">A - Power</a></h3>
+				<p>問題文は以下の通りでした。</p>
+				<img src="pictures/abc283/A.png">
+				<p>AのB乗を出力するだけのシンプルな問題です。ご存じの方も多いかもしれませんが一応書いておきますと，A<sup>B</sup>というのはBが自然数の場合は素朴に定義されており，<br>
+				A<sup>B</sup>=A×A×…×A (AがB個掛け算されている)<br>
+				というものです。</p>
+				<p>この問題の制約下では，A<sup>B</sup>の最小値はA=B=1の時1で，最大値はA=B=9の時387420489となります。これは<code>int</code>の範囲内に収まります。また，計算回数も9回程度に収まることが分かるので，定義通り計算して出力したらOKであることが分かります。以下にAC通ったコードを載せます。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+	int a, b;
+	scanf("%i %i", &a, &b);
+	int ans = 1;
+
+	for(int i = 0; b &gt; i; i++) {
+		ans *= a;
+	}
+
+	printf("%i", ans);
+	return 0;
+}
+</code></pre>
+				<p>このA問題はここ最近の中では簡単な問題だと思います。というかほとんどの言語が組み込みで冪乗計算の機能を備えているので，簡単に解けた人が多いんじゃないかと思います。</p>
+			<h3><a href="https://atcoder.jp/contests/abc283/tasks/abc283_b">B - First Query Problem</a></h3>
+				<p>問題文は以下の通りでした。</p>
+				<img src="pictures/abc283/B.png">
+				<p>この問題はAtCoderによくあるタイプのクエリを処理する奴ですね。この手の問題は工夫したら真面目にクエリを処理しなくてもいい場合があります。したがって，まずは条件をよく見ることが大切です。</p>
+				<p>問題文を見ると，クエリの件数の制約や，行う必要のある操作の制約がかなり緩いことが分かります。まず第一引数が<code>1</code>であるようなクエリは，受け取った数列を配列などに保持するだけでO(1)で行うことができます。また，第一引数が<code>2</code>であるようなクエリに対しても同様です。一つしか値を操作しないので軽いですね。操作回数も10<sup>5</sup>が上限となっており，愚直に処理しても十分間に合いそうです。</p>
+				<p>もしかしたら何らかの最適化があるのかもしれませんが，私は書いてある通りに実装して通りました。以下コードです。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+	int n, q;
+	scanf("%i", &n);
+
+	int a[n];
+
+	for(int i = 0; n &gt; i; i++) {
+		scanf("%i", &a[i]);
+	}
+	scanf("%i", &q);
+
+	int temp; //クエリ種類
+	int k; // インデックス
+	int num; // すり替え数字
+	for(int i = 0; q &gt; i; i++) {
+		scanf("%i", &temp);
+		scanf("%i", &k);
+
+		if(temp == 1) {
+			scanf("%i", &num);
+			a[k - 1] = num;
+		} else {
+			printf("%i\n", a[k - 1]);
+		}
+	}
+
+	return 0;
+}
+</code></pre>
+				<p>クエリの種類によって与えられる引数の数が変わるのに注意です。私の実装ではシンプルに<code>if</code>文で分岐してあります。あと完全に余談なのですが，うえのコードでは実行時で確定していない変数を用いて配列を宣言するというC言語(C99以降?)の機能を使っているのですが，便利だけど罪悪感があります(笑)</p>
+			<h3><a href="https://atcoder.jp/contests/abc283/tasks/abc283_c">C - Cash Register</a></h3>
+				<p>問題文は以下の通りでした。</p>
+				<img src="pictures/abc283/C.png">
+				<p>与えられた数字をレジの機械で打ち込むときに必要なストローク数を調べるという問題でした。ほとんどの人がまずは制約に目が行くのではないでしょうか？制約は整数が10<sup>100000</sup>らしいです。</p>
+	</body>
+</html>
