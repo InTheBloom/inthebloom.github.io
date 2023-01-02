@@ -4,6 +4,7 @@ html {
 
 body {
 	margin: 0;
+	background: #e8e8e8;
 }
 
 .home {
@@ -13,7 +14,7 @@ body {
 	background-position: center 35%;
 	height: 300px;
 	text-align: center;
-	margin 0;
+	margin: 0;
 }
 
 .sitename {
@@ -93,41 +94,68 @@ body {
 	margin: 50px;
 }
 
+.articles {
+	margin: 0 100px;
+}
+
 .article_list {
 	list-style-type: none;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 	align-items: center;
-	gap: 20px 0;
+	gap: 30px 30px;
 	padding: 0;
 }
 
-@media screen and (max-width: 800px) {
-	.article_outer {
-		display: block;
-		border: 1px solid black;
-		width: 90vw;
-		height: 80px;
-		border-radius: 10px;
-		background: gray;
-	}
-
-	.article_inner {
-		
-	}
+.article_outer {
+	display: block;
+	background: white;
+	width: 400px;
+	height: 150px;
+	border-radius: 10px;
 }
 
-@media screen and (min-width: 800px) {
-	.article_outer {
-		display:block;
-		border: 1px solid black;
-		width: 720px;
-		height: 80px;
-		border-radius: 10px;
-		background: gray;
-	}
+.article_outer:hover {
+	box-shadow: 1px 1px 30px -20px black;
+}
 
-	.article_inner {
+.article_outer:any-link {
+	text-decoration: none;
+	color: black;
+}
 
-	}
+.article_inner {
+	display: flex;
+	flex-direction: row;
+}
+
+.itempic {
+	height: 70px;
+	padding: 40px;
+}
+
+.description {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.date {
+	font-size: 13px;
+	color: gray;
+}
+
+footer {
+	background: dimgray;
+	margin-top: 100px;
+	height: 100px;
+}
+
+.copyright {
+	color: white;
+	font-size: 15px;
+	text-align: center;
+	padding-top: 70px;
+	margin: 0;
 }
