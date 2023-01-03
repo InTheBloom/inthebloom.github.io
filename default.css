@@ -2,13 +2,18 @@ html {
 	font-family: sans-serif;
 }
 
+body {
+	margin: 0;
+	width: 100%;
+}
+
 @media screen and (max-width: 800px) {
-	body {
+	.outer {
 		padding: 10px;
 	}
 }
 @media screen and (min-width: 800px) {
-	body {
+	.outer {
 		margin: auto;
 		padding: 10px 50px;
 		max-width: 1200px;
@@ -75,4 +80,19 @@ strong {
 .date {
 	font-size: 13px;
 	color: dimgray;
+}
+
+footer {
+	background: dimgray;
+	margin-top: 100px;
+	height: 100px;
+	width: 100%;
+}
+
+.copyright {
+	color: white;
+	font-size: 15px;
+	text-align: center;
+	padding-top: 70px;
+	margin: 0;
 }
