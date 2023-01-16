@@ -5,6 +5,13 @@ html {
 body {
 	margin: 0;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.outer {
+	flex-grow: 1;
 }
 
 @media screen and (max-width: 800px) {
