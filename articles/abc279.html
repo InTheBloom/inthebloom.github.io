@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=devicewidth, initial-scale=1">
 		<base href="../">
 		<link rel="stylesheet" href="default.css">
-		<link rel="icon" href="favicon.png">
-		<link ref="apple-touch-icon" href="favicon.png">
+		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<link ref="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<meta name="description" content="ABC279参加記録です。">
 
 		<!-- 以下SNSのカード設定 -->
@@ -15,7 +15,7 @@
 		<meta property="og:title" content="ABC279参加記録 ~文字列の逆襲 ~ - InTheDayDream"> <!-- ページタイトル -->
 		<meta property="og:description" content="ABC279参加記録です。"> <!-- ページの説明 -->
 		<meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
-		<meta property="og:image" content="https://inthebloom.github.io/pictures/abc279/ogp.png"> <!-- 表示される画像(絶対パス) -->
+		<meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/ogp_hbqzib.png"> <!-- 表示される画像(絶対パス) -->
 		<!-- Twitter用の設定 -->
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@UU9782wsEdANDhp">
@@ -33,13 +33,13 @@
 				<p>今回<a href="https://atcoder.jp/contests/abc279">ABC279</a>に参加してきましたので，その記録です。</p>
 			<h2>今回の成績</h2>
 				<p>まずは今回の成績からです。以下画像です。</p>
-				<img src="pictures/abc279/submission.png">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/submission_eudnju.png" alt="提出結果">
 				<p><em>AとBしか，解けませんでした！！！！(キース団長並感)</em></p>
 				<p>いや，文字列扱う問題多くないですか？？？？？？私は文字列を操作する練習を全然してなかったのでB問題で死ぬほど苦労しました...</p>
 				<p>今回はあまり語るようなことがないので，サクッと解法紹介と今回の反省のパートに行きたいと思います。</p>
 			<h2>解法</h2>
 				<p>(注意: 筆者はc言語使ってます。)まずはA問題からです。以下問題文です。</p>
-				<img src="pictures/abc279/A.png">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/A_jusgws.png" alt="A問題">
 				<p>これは文字列を扱う練習みたいな問題ですね。「下に尖った部分」というのはvは1箇所，wは2箇所なので，文字列を最初から見ていって，「vの個数」× 1と「wの個数」× 2を足したものを<code>printf</code>関数で標準出力で出したらオッケーですね。以下AC通ったコードです。</p>
 <pre><code>#include &lt;stdio.h&gt;
 
@@ -62,7 +62,7 @@ int main(void) {
 </code></pre>
 				<p>関係ない話ですが，問題の名前が「wwwvvvvvv」だったり問題文に平気で「尖っている部分」とか書いてあるのが地味にじわじわ来る問題ですね。</p>
 				<p>お次はB問題です。以下問題です。</p>
-				<img src="pictures/abc279/B.png">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/B_tzpohc.png" alt="B問題">
 				<p>この問題は全探索で解きました。簡単に流れを説明すると，まず最初に文字列Tの最初の文字を文字列Sの先頭から探します。見つかったら一文字ずつ後続も一致しているか確認して，もしTが<code>'\0'</code>(終端文字)になるまでずっと一致していたら，Sは条件を満たしていたということが分かるので，適当にフラグを立ててループを抜けます。ここで後続に一致しないものが存在した場合は，また先頭文字が一致するか順に確認していきます。このサイクルをSが終端文字になるまで続けてもフラグがたたなかった場合は，条件を満たさないということが分かります。以下AC通ったコードです。</p>
 <pre><code>#include &lt;stdio.h&gt;
 
@@ -100,7 +100,7 @@ int main(void) {
 				<p><em>もう<code>while</code>なんて使わない</em>(知らんけど)</p>
 				<p>ちなみに，この問題でつまずいた理由はおそらく配列の余った要素がすべて0であることを見逃していたことだと思います。<em>アホですか？</em></p>
 				<p>ラスト，ACは取れなかったもののC問題を紹介しておきます。以下問題です。</p>
-				<img src="pictures/abc279/C.png">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/C_nyzqi5.png" alt="C問題">
 				<p>この問題は正直知識不足でした。せっかくですので私の行おうとした解法を説明します。</p>
 				<p>与えられた図形SとTが「列の並べ替え」によって一致すればよいということですので，受け取ったデータをリアルタイムに処理することはできなさそうです。したがって，いったん配列に保持することにしました。この問題では行番号と列番号の情報が重要ですので，二次元配列を用意して代入しました。そして，「並べ替え」によって同じものが作れるということは，「Sのある列」を持ってくると，常に必ず一つ以上「Tのある列」が一致しているという言い換えが可能です。これなら全探索により実装可能だと判断したので，この方針で行きました。実はこの探索方法，ほとんどB問題と同じです。一番ACに近かったコードです。</p>
 <pre><code>#include &lt;stdio.h&gt;
@@ -174,7 +174,7 @@ int main(void) {
 				<p>このコードで最終的にTLEが2ケースでした。考え方自体は正解を出せるコードみたいです。</p>
 				<p><a href="https://atcoder.jp/contests/abc279/editorial/5283">公式解説</a>では，私のとった手順と似たようなものでしたが，最後の同じ列が存在するかの判定を「文字列のソート」にて実現していました。私は文字列の扱いに関してほとんど何もわかっていなかったので，選択肢にすらあがらなかったです。次頑張ります。</p>
 				<p>余談ですが，終了後に私のコードを見た並走者が，あまりの<code>for</code>ループの深さにびっくりしていました。こんな頭の悪い全探索しか書けないの正直ね。。</p>
-				<img src="pictures/abc279/meme.png">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/meme_iie0fa.png" alt="コラ画像">
 				<p><em>*True Programer* only use for statement and if statement.</em>(逆張り)</p>
 			<h2>終わりに</h2>
 				<p>正直にいうと，今回の結果は<em>非常に悔しかった</em>です。もっとほかの問題に時間をかけられると思っていたし，レーティングもあまり気にしていないとはいえ重要な指標の一つでしょう。「この悔しさをバネに～」みたいな文言めちゃくちゃ嫌いなんですが，今はそんな気分です。来週のABCに向けてできるだけ準備したいと思います。</p>

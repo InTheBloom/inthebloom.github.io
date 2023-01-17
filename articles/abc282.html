@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=devicewidth, initial-scale=1">
 		<base href="../">
 		<link rel="stylesheet" href="default.css">
-		<link rel="icon" href="favicon.png">
-		<link rel="apple-touch-icon" href="favicon.png">
+		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<meta name="description" content="ABCに参加するIn。WAを出し過ぎたからか，不幸にも黒塗りのD問題に追突してしまう。">
 
 		<!-- 以下SNSのカード設定 -->
@@ -15,7 +15,7 @@
 		<meta property="og:title" content="ABC282参加記録 ~もう終わりだよこのレート~ - InTheBloom"> <!-- ページタイトル -->
 		<meta property="og:description" content="ABCに参加するIn。WAを出し過ぎたからか，不幸にも黒塗りのD問題に追突してしまう。"> <!-- ページの説明 -->
 		<meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
-		<meta property="og:image" content="https://inthebloom.github.io/pictures/abc282/ogp.png"> <!-- 表示される画像(絶対パス) -->
+		<meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368341/pictures/abc282/ogp_jz5emo.png"> <!-- 表示される画像(絶対パス) -->
 		<!-- Twitter用の設定 -->
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@UU9782wsEdANDhp">
@@ -39,14 +39,14 @@
 
 			<h2>今週もABC参加してきた</h2>
 				<p>こんにちは，冷凍うどんを食べようとしたら鍋の口が小っちゃくて入らなかった<a href="https://twitter.com/UU9782wsEdANDhp">In</a>です。</p>
-				<img src="pictures/abc282/udon.jpg">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368341/pictures/abc282/udon_akwd5x.jpg" alt="冷凍うどん">
 				<p>毎週ABCに参加し続けて，今回の<a href="https://atcoder.jp/contests/abc282">ABC282</a>で5回目になりました。今週も結果報告と自分の忘備録を兼ねて記事を残しておきます。</p>
 			<h2>結果報告のコーナー</h2>
 				<p>まずはいつも通り結果報告からです。今回の提出状況はこのような感じでした。</p>
-				<img src="pictures/abc282/result.png">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368341/pictures/abc282/result_ouiway.png" alt="提出結果">
 				<p>まずB問題で問題文の読み間違えが発生して無駄に悩んだ挙句，C問題で3WAを出して<em>爆死</em>しました。はい。結果的にはABCの三完でした。何とか途中で修正できてよかったです。ちなみにD以降は私にはもうちんぷんかんぷんでした。</p>
 				<p>今回のコンテストによるレーティング変動は，以下の通りでした。ジャン！</p>
-				<img src="pictures/abc282/rating.png">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368341/pictures/abc282/rating_loxrlr.png" alt="レーティング変動">
 				<p><span style="color: red; font-size: 70px; font-weight: bold; word-wrap: anywhere;">コラ～～～～！！！！！！！</span></p>
 				<div id="wrap" style="width: 100%; position: relative;">
 					<iframe style="position: absolute; top: 0; left: 0; width: 100%; max-width: 1000px; height: 100%;" src="https://www.youtube.com/embed/13eeEmRpWMI" title="やばいクレーマーのSUSURU TV.（本人ver.）" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -58,7 +58,7 @@
 				<p>どんなふうに問題を解いたかを紹介します。</p>
 				<h3><a href="https://atcoder.jp/contests/abc282/tasks/abc282_a">A問題</a></h3>
 					<p>問題文は以下の通りでした。</p>
-					<img src="pictures/abc282/A.png">
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368340/pictures/abc282/A_aocqxn.png" alt="A問題">
 					<p>与えられた整数Kの分だけ英大文字を出力する問題です。制約からZよりあとに関しては考えなくてもいいことが分かります。したがって，ASCIIコードを利用して<code>printf</code>関数で標準出力に出力していけばオーケーです。</p>
 					<p>もう少し具体的に言うと，<a href="http://www3.nit.ac.jp/~tamura/ex2/ascii.html">ASCIIコード表</a>によると，英大文字は65番にAから始まって，90番にZまで順番に割り当てられています。したがって，ループ毎に1ずつ増やしていけばオーケーです。以下AC通ったコードです。</p>
 <pre><code>#include &lt;stdio.h&gt;
@@ -77,7 +77,7 @@ int main(void) {
 					<p>最近のABCは毎回ASCIIコード表を見ながらやってる気がします。次B問題です。</p>
 				<h3><a href="https://atcoder.jp/contests/abc282/tasks/abc282_b">B問題</a></h3>
 					<p>問題文は以下の通りです。</p>
-					<img src="pictures/abc282/B.png">
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368340/pictures/abc282/B_qdzfgg.png" alt="B問題">
 					<p>N人の人が，コンテストに出題される各問題を解けるかどうかのデータが渡されます。参加者から2人を選んで，コンテストの問題を<em>すべて</em>解けるペアを作るとするとき，<em>作ることができるペアの数</em>を調べる問題です。</p>
 					<p>この時，作ることができるペアとは，「同時に作ることができるペア」<em>ではない</em>ことに注意する必要があります。私はこれを勝手に同時に作ることができるペアの数のことだと勘違いして，永遠に悩んでいました。</p>
 					<p>また，この問題にはもう一つ注意する必要のある点があります。それは，ペアには<em>順序を考えない</em>ことです。具体的には，ある一人を選んで，その人が一緒に組むことで全問正解できるようなペアをすべて列挙していくコードで解こうとすると，気を付けないとA-BのペアとB-Aのペアを区別してカウントしてしまうということが起こります。私はこの方針で解きましたが，前述の問題は，二重<code>for</code>ループの二重目のループ変数を，一重目のループ変数で初期化することで対処しました。以下AC通ったコードです。</p>
@@ -124,7 +124,7 @@ int main(void) {
 					<p>少し見にくいかもしれません。すみません。途中3重<code>for</code>ループがありますが，最初の二つが人を選ぶところと対応しており，三つめが問題をすべて解けるかの判定になっています。</p>
 				<h3><a href="https://atcoder.jp/contests/abc282/tasks/abc282_c">C問題</a></h3>
 					<p>最後にC問題です。問題文は以下の通りです。</p>
-					<img src="pictures/abc282/C.png">
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368340/pictures/abc282/C_rdoqnm.png" alt="C問題">
 					<p><code>"</code>に挟まれていない部分にのみ違う処理を施して，文字列を得る問題です。</p>
 					<p>正直，この問題はC問題の中では簡単なほうかなと思います。(簡単というのは，方針が思い浮かびやすいという意味です。)しかし，私はこの問題で大コケしてしまい，<em>順位が死にました。</em>結構ガチでショックです。</p>
 					<p>解法としては，文字列を配列で受け取り，<code>"</code>を発見したら，次の<code>"</code>までそのまま出力するようにするとオッケーです。この分岐の処理をいかに簡単にするかがキモだと思います。</p>

@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=devicewidth, initial-scale=1">
 		<base href="../">
 		<link rel="stylesheet" href="default.css">
-		<link rel="icon" href="favicon.png">
-		<link rel="apple-touch-icon" href="favicon.png">
+		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<meta name="description" content="AtCoder初参加の感想です！">
 
 		<!-- 以下SNSのカード設定 -->
@@ -15,7 +15,7 @@
 		<meta property="og:title" content="Atcoder初参加してみた！ - InTheDayDream"> <!-- ページタイトル -->
 		<meta property="og:description" content="AtCoder初参加の感想です！"> <!-- ページの説明 -->
 		<meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
-		<meta property="og:image" content="https://inthebloom.github.io/pictures/join_atcoder/ogp.png"> <!-- 表示される画像(絶対パス) -->
+		<meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368343/pictures/join_atcoder/ogp_ix2ydq.png"> <!-- 表示される画像(絶対パス) -->
 		<!-- Twitter用の設定 -->
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@UU9782wsEdANDhp">
@@ -39,13 +39,13 @@
 		<p>だそうです。(適当)まぁ要するに与えられた問題をプログラムで解くんですね。私が参加したのは<a href="https://atcoder.jp/home">AtCoder</a>というサイトで行われているものです。正直私はあまり詳しくないです。</p>
 		<h2>初めて参加しての感想</h2>
 		<p>今回あまり下調べせずに適当に参加してみたんですけど，はっきり言ってボロボロでした。。。でも楽しかったです。まず結果から載せます。以下が今回の提出状況でした。</p>
-		<img src="pictures/join_atcoder/submission.png">
+		<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368343/pictures/join_atcoder/submission_pztk5z.png" alt="提出結果">
 		<p><em>A問題で躓きすぎだろ！！！！！</em></p>
 		<p>はい。ということで，AとBだけ通すことができまして，得点は3200点中200点取れました。こんなにAがボロボロだったのにも少し訳がありまして，今回私は何の下調べもせずに参加してしまったせいで，標準入力を受け取る方法をずっと模索してたんですよね。前半の何回かのWAはそれにやられました。ちなみに，B問題はコンテスト終了8秒前に提出完了したので，ほんとに奇跡的に通すことができたって感じでした。</p>
 		<h2>自分なりの解法(覚書)</h2>
 		<p>AとBしか通せない雑魚が何をいっちょ前にと思うかもしれませんが，せっかく考えたプログラムですので，どんな感じでやったのかを残しておこうと思います。使用言語はcで，コンパイラはClang10.0.0を使用しました。</p>
 		<p>まずはA問題です。以下が問題文です。</p>
-		<img src="pictures/join_atcoder/A.png">
+		<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368343/pictures/join_atcoder/A_ujy5vf.png" alt="A問題">
 		<p>この問題は，配列を用意して数列を入れていき，操作の回数番目のところから出力して，0で水増しするような感じで解きました。以下コードです。</p>
 <pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -82,7 +82,7 @@ int main(void) {
 </code></pre>
 		<p>この問題で，最初操作の回数が数列の長さを上回るパターンを見落としていて見事にWAを食らいました。あと，前にも書きましたが標準入力の取り扱いが分からないせいで1時間くらいかかりました。</p>
 		<p>次B問題です。</p>
-		<img src="pictures/join_atcoder/B.png">
+		<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368343/pictures/join_atcoder/B_zydl84.png" alt="B問題">
 		<p>この問題は，きちんと考えるのが大変だったので取り合えず全探索をしようという方針で行きました。「見間違えやすい時刻」を評価するために，〇〇時△△分を十の位，一の位に分解してから初めて「時間として許容できる組み合わせ」に到達したらループを抜けるようにしました。なお，日付をまたいでも(24時以降)いいように，24で割った余りを利用しています。以下コードです。</p>
 <pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;

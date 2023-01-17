@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=devicewidth, initial-scale=1">
 		<base href="../">
 		<link rel="stylesheet" href="default.css">
-		<link rel="icon" href="favicon.png">
-		<link ref="apple-touch-icon" href="favicon.png">
+		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<link ref="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<meta name="description" content="ABC281参加記録です。">
 
 		<!-- 以下SNSのカード設定 -->
@@ -15,7 +15,7 @@
 		<meta property="og:title" content="ABC281参加記 ~迫りくる動的計画法~ - InTheDayDream"> <!-- ページタイトル -->
 		<meta property="og:description" content="ABC281に参加し，敗れた男の物語"> <!-- ページの説明 -->
 		<meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
-		<meta property="og:image" content="https://inthebloom.github.io/pictures/abc281/ogp.png"> <!-- 表示される画像(絶対パス) -->
+		<meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368340/pictures/abc281/ogp_uln5io.png"> <!-- 表示される画像(絶対パス) -->
 		<!-- Twitter用の設定 -->
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@UU9782wsEdANDhp">
@@ -35,15 +35,15 @@
 			<p>こんにちは。あいも変わらず今週もABCに参加してきました。その結果報告の記事です。</p>
 		<h2>今回の戦績発表</h2>
 			<p>まずは今回の戦績です。以下は今回の私の提出です。</p>
-			<img src="pictures/abc281/result.png">
+			<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368340/pictures/abc281/result_adkhxi.png" alt="提出結果">
 			<p>今回は珍しくWAを出さずにコンテストを終えることができました。D問題は解けなかったので，実質コンテスト参加時間は30分でした笑</p>
-			<img src="pictures/abc281/rating.png">
+			<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368340/pictures/abc281/rating_vklg4b.png" alt="レート変動">
 			<p>ちなみにレーティングは今回で+62でした。着々と上がっている感じが結構うれしいし，モチベーションになっているような気がします。</p>
 		<h2>解法など</h2>
 			<p>今回の記事も，自分がどうやって解いたかを残しておきます。</p>
 			<h3>A問題</h3>
 				<p>以下は問題文です。</p>
-				<img src="pictures/abc281/A.png">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368339/pictures/abc281/A_jerebr.png" alt="A問題">
 				<p>今回のA問題は最近の中では簡単なほうかな？っていうのが率直な意見です。この問題はforなどのループ構造を書ければ回答できそうですね。具体的には，受け取った数字分のループを回して，その中で変数をデクリメントしながら出力すればオーケーですね。以下は私の提出です。</p>
 <pre><code>#include &lt;stdio.h&gt;
 
@@ -60,7 +60,7 @@ int main(void) {
 				<p>c言語では<code>for</code>文でインデックス変数が利用できるので，比較的簡単に記述することができます。</p>
 			<h3>B問題</h3>
 				<p>まずは問題文です。</p>
-				<img src="pictures/abc281/B.png">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368339/pictures/abc281/B_hayfjg.png" alt="B問題">
 				<p>文字列の照合問題ですね。正直この手の問題は結構苦手とするところですが，，，今回は何とか解けました。</p>
 				<p>方針としては，まず与えられた文字列を<code>scanf</code>関数で文字列型として読み取って，ASCIIコードで照合していきました。具体的に言うと，まず「先頭の文字が一文字の英大文字」という条件は，受け取った文字列が入っている配列の一つ目の要素が，「数値として」65以上かつ90以下という条件により判別することができます。このようなことを繰り返して判別していきます。以下はACが通ったコードです。</p>
 <pre><code>#include &lt;stdio.h&gt;
@@ -103,7 +103,7 @@ int main(void) {
 				<p>C言語でこういう文字列処理をするのはかなり面倒くさいですね。。。もっといい方法があるのかもしれませんが。</p>
 			<h3>C問題</h3>
 				<p>以下問題文です。</p>
-				<img src="pictures/abc281/C.png">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368339/pictures/abc281/C_x9hiko.png" alt="C問題">
 				<p>循環するプレイリストにおいて，与えられた時間が経過したときに何曲目が流れているかを考える問題ですね。</p>
 				<p>この問題を考える上でまず大切なのが，プレイリストの総再生時間よりも再生時間が大きくなるようなパターンが存在することです。この時，プレイリストの総再生時間分だけ経過したら一番最初の状態に戻るので，<em>再生時間を総再生時間で割った余り</em>を考えることで問題を簡単にすることができます。(なお，総再生時間が再生時間よりも大きいような場合には，再生時間がそのまま余りとなります。したがって，とりあえず剰余を考えるという方法でも大丈夫です。)</p>
 				<p>この後，その余りを，一つ一つの楽曲再生時間の和が超えたタイミングが答えの曲の位置になります。これはほぼ自明ですね。</p>
@@ -148,7 +148,7 @@ int main(void) {
 			<h3>D問題</h3>
 				<p><em>D問題は，解けなかったよ。。。(n回目)</em></p>
 				<p>とりあえず問題の紹介だけはします。以下問題文です。</p>
-				<img src="pictures/abc281/D.png">
+				<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368339/pictures/abc281/D_sx8rjy.png" alt="D問題">
 				<p>つまりは，Aの元から任意にK個を選んできて，それらを足したものの集合を考えるときに，与えたDの倍数であるようなもので最大のものを探すというものです。</p>
 				<p>この問題の恐ろしいところは，<em>Aの元から任意にK個を選ぶ組み合わせの数が非常に大きくなることがある</em>という点です。この問題において最悪ケースを考えると，</p>
 				<ul>
@@ -161,7 +161,7 @@ int main(void) {
 				<p>というわけでボロボロでした。精進します。</p>
 		<h2>終わりに</h2>
 			<p>今回の参加記は以上です。だんだんレートが上がっているとは言えども，専門的なアルゴリズムの知識なんてないのでこういう問題にぼこぼこにされる日々です。しかし，思ってる以上に競プロを通じて数学などに触れることは新鮮で楽しいと思っています。今のところは。ということでこれからも頑張っていけたらなと思います。</p>
-			<img src="pictures/abc281/hiroyuki.png">
+			<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368340/pictures/abc281/hiroyuki_qkhi21.png" alt="ひろゆきのコラ画像">
 			<p><em>DPなんかねえよ</em>(K重<code>for</code>ループをおもむろに書き始める)</p>
 			<p>というわけで，ここまで読んでいただきありがとうございました。また次の記事でお会いしましょう。</p>
 		</div>
