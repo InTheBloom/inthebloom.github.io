@@ -11,6 +11,50 @@ body {
 	background: gainsboro;
 }
 
+header {
+	margin-bottom: 30px;
+	padding: 0;
+	height: 100px;
+	background: moccasin;
+}
+
+@media screen and (max-width: 800px) {
+	.sitelogo {
+		border: none;
+		width: 200px;
+		position: absolute;
+		top: 5px;
+		left: 10px;
+	}
+}
+@media screen and (min-width: 800px) {
+	.sitelogo {
+		border: none;
+		width: 200px;
+		position: absolute;
+		top: 5px;
+		left: 30px;
+	}
+}
+
+.crumbs {
+	list-style-type: none;
+	padding: 0;
+}
+
+.crumb {
+	display: inline-block;
+}
+
+.crumb a::after {
+	display: inline-block;
+	color: #000;
+	content: '>';
+	font-size: 80%;
+	font-weight: bold;
+	padding: 0 3px;
+}
+
 .outer {
 	flex-grow: 1;
 	background: white;
@@ -25,7 +69,8 @@ body {
 }
 @media screen and (min-width: 800px) {
 	.outer {
-		margin: auto;
+		margin-left: 3%;
+		margin-right: auto;
 		padding: 10px 50px;
 		width: calc(100% - 50px);
 		box-sizing: border-box;
@@ -76,13 +121,13 @@ blockquote p {
 }
 
 h2 {
-	margin-top: 70px;
+	margin-top: 100px;
 	margin-bottom: 30px;
 	border-bottom: 1px solid gray;
 }
 
 h3 {
-	margin: 30px 0px;
+	margin: 40px 0px;
 }
 
 strong {
