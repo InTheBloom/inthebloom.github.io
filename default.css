@@ -8,14 +8,18 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	background: gainsboro;
 }
 
 .outer {
 	flex-grow: 1;
+	background: white;
 }
 
 @media screen and (max-width: 800px) {
 	.outer {
+		margin: auto;
+		width: calc(100% - 40px);
 		padding: 10px;
 	}
 }
@@ -23,7 +27,9 @@ body {
 	.outer {
 		margin: auto;
 		padding: 10px 50px;
-		max-width: 1200px;
+		width: calc(100% - 50px);
+		box-sizing: border-box;
+		max-width: 1000px;
 	}
 }
 
@@ -32,7 +38,6 @@ pre {
 	padding: 10px 20px;
 	background: black;
 	color: white;
-	border-radius: 10px;
 }
 
 pre code {
@@ -91,7 +96,7 @@ strong {
 
 footer {
 	background: dimgray;
-	margin-top: 100px;
+	margin-top: 50px;
 	height: 100px;
 	width: 100%;
 }
