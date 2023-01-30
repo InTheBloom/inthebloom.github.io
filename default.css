@@ -11,6 +11,17 @@ body {
 	background: gainsboro;
 }
 
+@media screen and (max-width: 1000px) {
+	body {
+		background: white;
+	}
+}
+@media screen and (min-width: 1000px) {
+	body {
+		background: gainsboro;
+	}
+}
+
 header {
 	margin-bottom: 30px;
 	padding: 0;
@@ -18,7 +29,7 @@ header {
 	background: moccasin;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
 	.sitelogo {
 		border: none;
 		width: 200px;
@@ -27,7 +38,7 @@ header {
 		left: 10px;
 	}
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
 	.sitelogo {
 		border: none;
 		width: 200px;
@@ -58,16 +69,17 @@ header {
 .outer {
 	flex-grow: 1;
 	background: white;
+	width: 100%;
+	box-sizing: border-box;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
 	.outer {
 		margin: auto;
-		width: calc(100% - 40px);
 		padding: 10px;
 	}
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
 	.outer {
 		margin-left: 3%;
 		margin-right: auto;
