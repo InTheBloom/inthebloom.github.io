@@ -5,7 +5,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=devicewidth, initial-scale=1">
 		<base href="../">
+		<script> let base = ''; let tmp = [...window.location.href]; let i = 0; let str = 'articles'; for (; ; i++) { let flag = 0; for (let j = 0; str.length > j; j++) { if (str[j] != tmp[i + j]) { flag = 1; break; } } if (flag == 0) { break; } } let roop = tmp.length - i; for (let j = 0; roop > j; j++) { tmp.pop(); } base = tmp.join(''); let a = document.getElementsByTagName("base"); a[0].setAttribute('href', base); </script>
 		<link rel="stylesheet" href="default.css">
+		<script src="headliner.js"></script>
+		<script src="highlight.js"></script>
 		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<meta name="description" content="ABCに参加するIn。WAを出し過ぎたからか，不幸にも黒塗りのD問題に追突してしまう。">
@@ -34,6 +37,11 @@
 		</header>
 
 		<div class="outer">
+			<aside>
+				<div id="table-of-content">
+				</div>
+			</aside>
+			<main>
 			<nav>
 				<ol class="crumbs">
 					<li class="crumb"><a href="home.html">Home</a></li>
@@ -240,6 +248,7 @@ int main(void) {
 				<p>今回のコンテストはかなり残念な感じになってしまいました。しかしとりあえずC問題まででも解けて良かったです。結構実装の技術的な点でコケることが多いなと感じているので，もっと問題数を解いてデバッグなどに慣れたいです。また，D問題以降は数学的知識や競プロ的な技術がかなり問われる問題かなと(一見)思いました。したがって，大学での数学の勉強などはしっかり頑張りたいです。(願望)</p>
 				<p>今回の結果はかなり来るものがあるけど，今日体調悪かったから多少はね？</p>
 				<p>ここまで読んでいただき，ありがとうございました。また次の記事でお会いしましょう。ちなみに一週間後のUECアドベントカレンダーに登録したはいいもののまだ一文字も書いていません(絶望)じゃあね。</p>
+			</main>
 		</div>
 			<footer>
 				<p class="copyright"><small>&copy; 2023 InTheDayDream</small></p>

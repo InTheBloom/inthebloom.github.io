@@ -5,7 +5,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=devicewidth, initial-scale=1">
 		<base href="../">
+		<script> let base = ''; let tmp = [...window.location.href]; let i = 0; let str = 'articles'; for (; ; i++) { let flag = 0; for (let j = 0; str.length > j; j++) { if (str[j] != tmp[i + j]) { flag = 1; break; } } if (flag == 0) { break; } } let roop = tmp.length - i; for (let j = 0; roop > j; j++) { tmp.pop(); } base = tmp.join(''); let a = document.getElementsByTagName("base"); a[0].setAttribute('href', base); </script>
 		<link rel="stylesheet" href="default.css">
+		<script src="headliner.js"></script>
+		<script src="highlight.js"></script>
 		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<meta name="description" content="">
@@ -27,17 +30,23 @@
 		</header>
 
 		<div class="outer">
-			<nav>
-				<ol class="crumbs">
-					<li class="crumb"><a href="home.html">Home</a></li>
-					<li class="crumb"></li>
-				</ol>
-			</nav>
+			<aside>
+				<div id="table-of-content">
+				</div>
+			</aside>
+			<main>
+				<nav>
+					<ol class="crumbs">
+						<li class="crumb"><a href="home.html">Home</a></li>
+						<li class="crumb"></li>
+					</ol>
+				</nav>
 
-			<div class="date">
-				<p>書いた日: </p>
-				<p>最終更新日: </p>
-			</div>
+				<div class="date">
+					<p>書いた日: </p>
+					<p>最終更新日: </p>
+				</div>
+			</main>
 		</div>
 			<footer>
 				<p class="copyright"><small>&copy; 2023 InTheDayDream</small></p>

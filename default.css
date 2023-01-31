@@ -1,5 +1,6 @@
 html {
 	font-family: sans-serif;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -8,7 +9,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	background: gainsboro;
 }
 
 @media screen and (max-width: 1000px) {
@@ -68,7 +68,6 @@ header {
 
 .outer {
 	flex-grow: 1;
-	background: white;
 	width: 100%;
 	box-sizing: border-box;
 }
@@ -81,12 +80,91 @@ header {
 }
 @media screen and (min-width: 1000px) {
 	.outer {
-		margin-left: 3%;
-		margin-right: auto;
-		padding: 10px 50px;
-		width: calc(100% - 50px);
+		margin: auto;
+		padding: 10px 20px;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap:  0 30px;
+	}
+	.outer :nth-child(2) {order: -1;}
+}
+
+@media screen and (max-width: 1000px) {
+	aside {
+		display: none;
+	}
+}
+@media screen and (min-width: 1000px) {
+	aside {
+		width: 300px;
+		flex-shrink: 0;
+	}
+}
+
+#table-of-content {
+	position: sticky;
+	top: 50px;
+	height: 80vh;
+	overflow: scroll;
+}
+
+#table-of-content > p {
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+#table-of-content > ol {
+	padding: 0;
+	list-style-type: none;
+}
+
+#table-of-content > ol > li > a:any-link {
+	color: dimgray;
+}
+
+#table-of-content > ol > li > a:hover {
+	color: black;
+}
+
+#table-of-content > ol > li > a {
+	text-decoration: none;
+}
+
+#table-of-content > ol > li > a.active {
+	color: black;
+}
+
+.contents2 {
+	margin-left: 0px;
+}
+.contents3 {
+	margin-left: 15px;
+}
+.contents4 {
+	margin-left: 30px;
+}
+.contents5 {
+	margin-left: 45px;
+}
+.contents6 {
+	margin-left: 60px;
+}
+
+@media screen and (max-width: 1000px) {
+	main {
+		width: 100%;
+		background: white;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	main {
+		padding: 0 30px;
 		box-sizing: border-box;
+		min-width: 600px;
 		max-width: 1000px;
+		background: white;
 	}
 }
 
@@ -153,7 +231,7 @@ strong {
 
 footer {
 	background: dimgray;
-	margin-top: 50px;
+	margin-top: 100px;
 	height: 100px;
 	width: 100%;
 }

@@ -5,7 +5,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=devicewidth, initial-scale=1">
 		<base href="../">
+		<script> let base = ''; let tmp = [...window.location.href]; let i = 0; let str = 'articles'; for (; ; i++) { let flag = 0; for (let j = 0; str.length > j; j++) { if (str[j] != tmp[i + j]) { flag = 1; break; } } if (flag == 0) { break; } } let roop = tmp.length - i; for (let j = 0; roop > j; j++) { tmp.pop(); } base = tmp.join(''); let a = document.getElementsByTagName("base"); a[0].setAttribute('href', base); </script>
 		<link rel="stylesheet" href="default.css">
+		<script src="headliner.js"></script>
+		<script src="highlight.js"></script>
 		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<link ref="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<meta name="description" content="自分がブログ記事を書くときに，ミスを防ぐための気を付けることのメモです。">
@@ -27,6 +30,11 @@
 		</header>
 
 		<div class="outer">
+			<aside>
+				<div id="table-of-content">
+				</div>
+			</aside>
+			<main>
 			<nav>
 				<ol class="crumbs">
 					<li class="crumb"><a href="home.html">Home</a></li>
@@ -113,6 +121,7 @@ root -
 			</ul>
 		<h2>最後に</h2>
 			<p>何か変更があったり，新しくよく使用するものなどが増えたら更新する予定です。</p>
+		</main>
 		</div>
 			<footer>
 				<p class="copyright"><small>&copy; 2023 InTheDayDream</small></p>

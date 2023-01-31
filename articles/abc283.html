@@ -5,7 +5,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=devicewidth, initial-scale=1">
 		<base href="../">
+		<script> let base = ''; let tmp = [...window.location.href]; let i = 0; let str = 'articles'; for (; ; i++) { let flag = 0; for (let j = 0; str.length > j; j++) { if (str[j] != tmp[i + j]) { flag = 1; break; } } if (flag == 0) { break; } } let roop = tmp.length - i; for (let j = 0; roop > j; j++) { tmp.pop(); } base = tmp.join(''); let a = document.getElementsByTagName("base"); a[0].setAttribute('href', base); </script>
 		<link rel="stylesheet" href="default.css">
+		<script src="headliner.js"></script>
+		<script src="highlight.js"></script>
 		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
 		<meta name="description" content="ABC283参加記録です。コンテスト中にD問題が解けません。">
@@ -27,6 +30,11 @@
 		</header>
 
 		<div class="outer">
+			<aside>
+				<div id="table-of-content">
+				</div>
+			</aside>
+			<main>
 			<nav>
 				<ol class="crumbs">
 					<li class="crumb"><a href="home.html">Home</a></li>
@@ -293,6 +301,7 @@ int main(void) {
 				<p>実はいまだにコンテスト中にD問題を通したことがありません。そろそろ通させてくださいマジで。ちなみにレーティングが今回で199まで上がったので，茶色までの折り返しに到達しました。何とか茶色に到達できるように今後も頑張っていけたらなと思います。</p>
 				<p>完全に私事ですが，このくらいの規模の記事になると流石にタグ含めすべてを手打ちするの結構大変になってきました。もうちょっと何とかしたいです。</p>
 				<p>それではここまで読んでいただきありがとうございました。よいお年を。</p>
+			</main>
 		</div>
 			<footer>
 				<p class="copyright"><small>&copy; 2023 InTheDayDream</small></p>
