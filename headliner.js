@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					className = `contents6`;
 					break;
 			}
-			contents += `<li><a class="${className}" href="articles/${filename}/#head${i}">${head.textContent}</a></li>`;
+			contents += `<li><a class="${className}" href="articles/${filename}#head${i}">${head.textContent}</a></li>`;
 		})
 		document.querySelector('#table-of-content').innerHTML += `<p>目次</p>`;
 		document.querySelector('#table-of-content').innerHTML += `<ol>${contents}</ol>`;
