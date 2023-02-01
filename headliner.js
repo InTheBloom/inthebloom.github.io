@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		let filename = '';
 		let tmp = window.location.href.split('/');
 		for (; filename.indexOf('html') == -1; filename = tmp.pop()) {}
+		if (filename.indexOf('#') != -1) {
+			filename.split('#').pop().join('');
+		}
+		
 		heads.forEach((head, i) => {
 			let className = '';
 			head.setAttribute('id', "head" + i);

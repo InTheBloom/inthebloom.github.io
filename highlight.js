@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (current !== null) {
 			current.classList.remove("active");
 		}
-		const a = document.querySelector(`a[href='articles/${filename}/#${element.id}']`);
+		const a = document.querySelector(`a[href='articles/${filename}#${element.id}']`);
 		a.classList.add("active");
 	}
 });
