@@ -3,10 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (heads && heads.length) {
 		let contents = '';
 		let filename = '';
-		let tmp = window.location.href.split('/');
-		for (; filename.indexOf('html') == -1; filename = tmp.pop()) {}
+		let wheretemp = window.location.href.split('/');
+		for (; filename.indexOf('html') == -1; filename = wheretemp.pop()) {}
 		if (filename.indexOf('#') != -1) {
-			filename.split('#').pop().join('');
+			let filetemp = filename.split('#')
+			filetemp.pop()
+			filename = filetemp.join('')
 		}
 		
 		heads.forEach((head, i) => {

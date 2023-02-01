@@ -32,6 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	let filename = '';
 	let tmp = window.location.href.split('/');
 	for (; filename.indexOf('html') == -1; filename = tmp.pop()) {}
+	if (filename.indexOf('#') != -1) {
+		let filetemp = filename.split('#');
+		filetemp.pop();
+		filename = filetemp.join('');
+	}
 
 	function activateIndex(element) {
 		const current = document.querySelector(".active");
