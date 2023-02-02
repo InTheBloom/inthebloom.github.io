@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+	<head>
+		<title>精説ARC155A - InTheDayDream</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=devicewidth, initial-scale=1">
+		<base href="../">
+		<script> let base = ''; let tmp = [...window.location.href]; let i = 0; let str = 'articles'; for (; ; i++) { let flag = 0; for (let j = 0; str.length > j; j++) { if (str[j] != tmp[i + j]) { flag = 1; break; } } if (flag == 0) { break; } } let roop = tmp.length - i; for (let j = 0; roop > j; j++) { tmp.pop(); } base = tmp.join(''); let a = document.getElementsByTagName("base"); a[0].setAttribute('href', base); </script>
+		<link rel="stylesheet" href="default.css">
+		<script src="headliner.js"></script>
+		<script src="highlight.js"></script>
+		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<meta name="description" content="ARC155A問題の自分なりの解法を解説します。">
+
+		<!-- 以下SNSのカード設定 -->
+		<meta property="og:url" content="https://inthebloom.github.io/articles/exp_arc155a.html"> <!-- ページのURL -->
+		<meta property="og:title" content="精説ARC155A - InTheDayDream"> <!-- ページタイトル -->
+		<meta property="og:description" content="ARC155A問題の自分なりの解法を解説します。"> <!-- ページの説明 -->
+		<meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
+		<meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675258394/pictures/exp_arc155a.html/ogp_xkk25g.png"> <!-- 表示される画像(絶対パス) -->
+		<!-- Twitter用の設定 -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@UU9782wsEdANDhp">
+	</head>
+
+	<body>
+		<header>
+			<a href="home.html"><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675069885/pictures/sitelogo_p1inzg.png" class="sitelogo" alt="sitelogo"></a>
+		</header>
+
+		<div class="outer">
+			<aside>
+				<div id="table-of-content">
+				</div>
+			</aside>
+			<main>
+				<nav>
+					<ol class="crumbs">
+						<li class="crumb"><a href="home.html">Home</a></li>
+						<li class="crumb">精説ARC155A</li>
+					</ol>
+				</nav>
+
+				<h1>精説ARC155A</h1>
+				<div class="date">
+					<p>書いた日: 2023/2/1</p>
+					<p>最終更新日: N/A</p>
+				</div>
+
+				<h2>はじめに</h2>
+					<p>先日1月29日に<a href="https://atcoder.jp/contests/arc155">AtCoder Regular Contest 155</a>がありました。ARCのA問題は，ARCがA~Fの6問体制になったARC104から現在に至るまでdifficultyの最大値は緑でした。しかし，今回のA問題は<em>水色</em>でした。</p>
+					<figure>
+						<img style="max-height: 300px;" src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675259104/pictures/exp_arc155a.html/problems_dziwbv.png" alt="ARC155aのdiff">
+						<figcaption><a href="https://kenkoooo.com/atcoder/#/table/">AtCoder Problems</a>より</figcaption>
+					</figure>
+					<p>現在レート400+程度の私にとって，ARCにおいては一問解くだけでパフォーマンス700+くらいが望めるので非常に「コスパのいい」大会だと思っていたのですが，今回のA問題が思いのほか難しく，一問も解くことができませんでした。</p>
+					<p>コンテスト後にもう少し粘ってみたら解けたので，(公式解説が思いのほかよくわからないこともあり)解法を残しておくことにします。</p>
+				<h2>問題の概要</h2>
+					<p>問題文は以下の通りです。</p>
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675259673/pictures/exp_arc155a.html/A_kwyxtn.png" alt="問題文">
+					<p>要約すると，「与えられた文字列をSとする。この時，Sの前にくっつけてもSの後ろにくっつけても回文になるような長さKの文字列が存在するか？」というものになります。</p>
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675260101/pictures/exp_arc155a.html/sample_vntino.png" alt="サンプル">
+					<p>上の画像はビジュアル化したものになります。</p>
+				<h2>方針</h2>
+					<p>まず制約を見てみましょう。特筆すべき点は，Kがかなり大きくなる可能性があるということでしょうか。また，一つの入力に含まれるテストケースについて，Nの総和が2×10<sup>5</sup>以下というのも重要そうです。一つの入力に与えられるテストケースの数が非常に多いからです。</p>
+					<p>さて，この問題を解くためにどうすればよいのでしょうか？数多くの方針があると思いますが，私はこういう時は<em>最もシンプルな方針</em>を試してみます。この問題に対して最もシンプルな方針は何でしょうか？それは与えられた条件からできるだけ実際にK文字のS'を構成するというものです。</p>
+					<p>幸い文字列Sは与えられるので，この考え方は試すことができそうです。</p>
+				<h2>シンプルに考えてみる</h2>
+					<p>さて，「実際に構成する」といったものの，どのようにすればいいのでしょうか？まずは以下の図をご覧ください。</p>
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675261292/pictures/exp_arc155a.html/kaibun_waaxxn.png" alt="回文の例">
+					<p>回文の定義を考えれば，「一番左にある文字」は「一番右にある文字」と同じで，それがずっと続くわけです。つまり，「左から〇番目にある文字」は「右から〇番目にある文字」と同じわけです。</p>
+					<p>すなわち，問題の題意を満たすような文字列S'が存在するなら，それは与えられた文字列Sの<em>逆順の一部分</em>に他ならないわけです。</p>
+					<p>さて，ここで一つ疑問がわきます。もし「与えられた文字列」が「構成しようとしている文字列」よりも長かった場合，今言った方法で構成しきることができます。しかし，もしそうでないなら？すなわち，<em>構成しようとしている文字列が与えられた文字列よりも長い時</em>に，残りの部分がどうなるのかを考える必要が出てきそうです。</p>
+					<h3>K &lt; N の場合</h3>
+						<p>まずはややこしいパターンを考える前に，比較的簡単なパターンを処理してしまいましょう。</p>
+
+			</main>
+		</div>
+			<footer>
+				<p class="copyright"><small>&copy; 2023 InTheDayDream</small></p>
+			</footer>
+	</body>
+</html>
