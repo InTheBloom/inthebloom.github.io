@@ -155,6 +155,7 @@ header {
 	.main {
 		width: 100%;
 		background: white;
+		padding-bottom: 5em;
 	}
 }
 
@@ -165,6 +166,7 @@ header {
 		min-width: 600px;
 		max-width: 1000px;
 		background: white;
+		padding-bottom: 5em;
 	}
 }
 
