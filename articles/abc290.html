@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+	<head>
+		<title>ABC290参加した</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=devicewidth, initial-scale=1">
+		<base href="../">
+		<script> let base = ''; let tmp = [...window.location.href]; let i = 0; let str = 'articles'; for (; ; i++) { let flag = 0; for (let j = 0; str.length > j; j++) { if (str[j] != tmp[i + j]) { flag = 1; break; } } if (flag == 0) { break; } } let roop = tmp.length - i; for (let j = 0; roop > j; j++) { tmp.pop(); } base = tmp.join(''); let a = document.getElementsByTagName("base"); a[0].setAttribute('href', base); </script>
+		<link rel="stylesheet" href="default.css">
+		<script src="headliner.js"></script>
+		<script src="highlight.js"></script>
+		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<meta name="description" content="ABC290に参加した感想です。">
+
+		<!-- 以下SNSのカード設定 -->
+		<meta property="og:url" content="https://inthebloom.github.io/articles/abc290.html"> <!-- ページのURL -->
+		<meta property="og:title" content="ABC290参加した"> <!-- ページタイトル -->
+		<meta property="og:description" content="ABC290に参加した感想です。"> <!-- ページの説明 -->
+		<meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
+		<meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1676940117/pictures/abc290/ogp_t3dazz.png"> <!-- 表示される画像(絶対パス) -->
+		<!-- Twitter用の設定 -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@UU9782wsEdANDhp">
+	</head>
+
+	<body>
+		<header>
+			<a href="home.html"><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675069885/pictures/sitelogo_p1inzg.png" class="sitelogo" alt="sitelogo"></a>
+		</header>
+
+		<div class="outer">
+			<aside>
+				<div id="table-of-content">
+				</div>
+			</aside>
+			<div class="main">
+				<nav>
+					<ol class="crumbs">
+						<li class="crumb"><a href="home.html">Home</a></li>
+						<li class="crumb">ABC290参加記録</li>
+					</ol>
+				</nav>
+
+				<h1>ABC290参加記録</h1>
+
+				<div class="date">
+					<p>書いた日: 2023/2/21</p>
+					<p>最終更新日: N/A</p>
+				</div>
+
+				<h2>ABC290参加した。</h2>
+				<p>お久しぶりです。最近AtCoderコンテストの参加記録をサボりがちなので、流石にエントリを生成します。</p>
+				<p>今週行われた<a href="https://atcoder.jp/contests/abc290">Toyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290）</a>は、どうやらオンサイトのコンテストに向けての予選を兼ねているそうで、希望者は好成績を出すことができれば3/18日に行われる決勝イベントに招待されるそうです。なんかすごいですね。</p>
+				<p>まあ私はそんな実力には程遠いので、いつもどおり参加してきました。</p>
+
+				<h2>成績とか</h2>
+					<p>軽く今週の戦績を振り返っておきます。今回はA,B,Cの3完でパフォーマンス<span style="color: brown;">611</span>, レート変動<span style="color: brown;">511</span>→<span style="color: brown;">523</span>でした。</p>
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1676941731/pictures/abc290/seiseki_b7xddk.png" alt="成績表">
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1676941731/pictures/abc290/rating_vkyz0o.png" alt="レート変動">
+					<p>微増ですがまあ勝ちは勝ちなので()</p>
+					<p>あと前回の参加記録からしばらく時間が立っているので、いつの間にか入茶しています。(多分色変記事は書きません)</p>
+				<h2>問題と解法</h2>
+					<p>サラッと流します。今までの記事では結構このパートに力を使っていたんですが、比較的難しい問題などは<a href="articles/exp_arc155a.html">前回の記事</a>のようなスタイルで記事を立てようかなと思っているので、あまり深入りはしないことにします。</p>
+					<h3><a href="https://atcoder.jp/contests/abc290/tasks/abc290_a">A - Contest Result</a></h3>
+						<p>問題文はこちら</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1676942240/pictures/abc290/A_mgytnr.png" alt="A問題">
+						<p>すぬけくんの解いた問題番号は配点のあとに渡されるので、一旦配点はすべて記録しておく必要があります。<em>✙最強のデータ構造✙</em>である配列を用いれば一発です。ただしアクセスするインデックスは一つずれますから気をつけましょう。</p>
+						<p>C言語的なことを言うとしたら、制約からすぬけくんの総得点は<code>int</code>で大丈夫だし、何なら配点は<code>char</code>で収まります。</p>
+						<p>以下ACコードです。</p>
+						<pre><code>#include &lt;stdio.h&gt;
+
+int main (void) {
+	int n, m;
+	scanf("%i %i", &amp;n, &amp;m);
+
+	int a[n];
+	for (int i = 0; n &gt; i; i++) {
+		scanf("%i", &amp;a[i]);
+	}
+
+	int ans = 0;
+	for (int i = 0; m &gt; i; i++) {
+		int tmp;
+		scanf("%i", &amp;tmp);
+		ans += a[tmp - 1];
+	}
+
+	printf("%i", ans);
+	return 0;
+}
+</code></pre>
+					<h3><a href="https://atcoder.jp/contests/abc290/tasks/abc290_b">B - Qual B</a></h3>
+						<p>問題文はこちら</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1676943035/pictures/abc290/B_zandlo.png" alt="B問題">
+						<p>予選コンテストにちなんだ問題でしょうか？意外とAtCoderの問題って遊び心のあるものが多いような気がします。</p>
+						<p>さて、予選を突破するための条件は、「決勝希望者であり、希望者のの中で上位K人である」ことなので、単に上から<code>o</code>のついている人をK人分だけ<code>o</code>にして、あとは<code>x</code>にするとオーケーです。</p>
+						<p>以下ACコードです。</p>
+						<pre><code>#include &lt;stdio.h&gt;
+
+int main (void) {
+	int n, k;
+	scanf("%i %i", &amp;n, &amp;k);
+
+	char s[n];
+	scanf("%s", s);
+
+	int sum = k;
+	int count = 0;
+	for (int i = 0; n &gt; i; i++) {
+		if (sum == 0) {
+			break;
+		}
+		if (s[i] == 'o') {
+			printf("o");
+			sum--;
+		} else {
+			printf("x");
+		}
+		count++;
+	}
+
+	for (int i = count; n &gt; count; count++) {
+		printf("x");
+	}
+	return 0;
+}
+</code></pre>
+					<h3><a href="https://atcoder.jp/contests/abc290/tasks/abc290_c">C - Max MEX</a></h3>
+						<p>問題文はこちらです。</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1676943771/pictures/abc290/C_orvkfd.png" alt="C問題">
+						<p>MEXってなんだよ(正論)</p>
+						<p>MEXというものをほとんど聞いたことがなかったので「MEX 数学」でgoogle検索してみましたが、あまりヒットしなかったのでそこまで有名なものでもないようです。</p>
+						<p>さて、このMEX演算は自明な性質として、「数Xを生成したければ、最低でもX個の元が必要である」というものがあります。本問題ではK要素を抜き出してくるという操作を行うため、どんなに頑張ってもMEX(B)の最大値はKになります。</p>
+						<p>最大値がそれより小さくなるケースは、「0~K-1に至る途中の数のどれかが一つでも欠けている」というものになります。</p>
+						<p>以上より、数列Aに0~K-1までの数字がすべて含まれているときに答えはKになり、それ以外のときは「欠けている」最小の数字が答えになります。</p>
+						<p>以下ACコードです。</p>
+						<pre><code>#include &lt;stdio.h&gt;
+
+int main (void) {
+	int n, k;
+	scanf("%i %i", &amp;n, &amp;k);
+
+	char check[k + 1];
+	for (int i = 0; k + 1 &gt; i; check[i++] = 0) {}
+	for (int i = 0; n &gt; i; i++) {
+		int tmp;
+		scanf("%i", &amp;tmp);
+		if (k &gt; tmp) {
+			check[tmp] = 1;
+		}
+	}
+
+	for (int i = 0; k + 1 &gt; i; i++) {
+		if (check[i] == 0) {
+			printf("%i", i);
+			break;
+		}
+	}
+
+	return 0;
+}
+</code></pre>
+						<p>余談ですが、ARC156にもMEX関連の問題が出ていましたね(全く解けませんでした)</p>
+					<h3><a href="https://atcoder.jp/contests/abc290/tasks/abc290_d">D - Marking</a></h3>
+						<p>結構引っかかった問題なので、(もしやある気があれば)別記事をたてます。</p>
+				<h2>終わりに</h2>
+					<p>参加記録はこれでおしまいです。読んでいただきありがとうございました。</p>
+					<p>いつかの参加記事でも言及しましたが、最近はAtCoder Problemsが提供している<a href="https://kenkoooo.com/atcoder/#/training">Boot camp for Beginners</a>に取り組んでいて、Easyの100問を解ききることができました。また、それに伴ってLongest Streakも50日を達成しました。ヤッター</p>
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1676945146/pictures/abc290/bootcamp_ntup3o.png" alt="bootcampを百問解いた証拠画像">
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1676945157/pictures/abc290/streak_hxj8y5.png" alt="streak50日の画像">
+					<p>個人的におすすめなので、みなさんもやってみてはいかがでしょうか？</p>
+					<p>それと今後の方針としましては、記事更新をもうちょっと頑張りたいな〜とか考えてます。それではまた次の記事で</p>
+			</div>
+		</div>
+			<footer>
+				<p class="copyright"><small>&copy; 2023 InTheDayDream</small></p>
+			</footer>
+	</body>
+</html>
