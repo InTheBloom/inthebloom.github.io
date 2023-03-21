@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+	<head>
+		<title>ABC294参加 - InTheDayDream</title> <!-- ページのタイトル書いてね -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=devicewidth, initial-scale=1">
+		<base href="../">
+		<script> let base = ''; let tmp = [...window.location.href]; let i = 0; let str = 'articles'; for (; ; i++) { let flag = 0; for (let j = 0; str.length > j; j++) { if (str[j] != tmp[i + j]) { flag = 1; break; } } if (flag == 0) { break; } } let roop = tmp.length - i; for (let j = 0; roop > j; j++) { tmp.pop(); } base = tmp.join(''); let a = document.getElementsByTagName("base"); a[0].setAttribute('href', base); </script>
+		<link rel="stylesheet" href="default.css">
+		<script src="headliner.js"></script>
+		<script src="highlight.js"></script>
+		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<meta name="description" content="ABC294の参加記録"> <!-- ページの説明書いてね -->
+
+		<!-- 以下SNSのカード設定 -->
+		<meta property="og:url" content="https://inthebloom.github.io/articles/"> <!-- ページのURL -->
+		<meta property="og:title" content="ABC294参加 - InTheDayDream"> <!-- ページタイトル書いてね -->
+		<meta property="og:description" content="ABC294の参加記録"> <!-- ページの説明書いてね -->
+		<meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
+		<meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679388505/pictures/abc294/ogp_fhs9v0.png"> <!-- 表示される画像(絶対パス)書いてね -->
+		<!-- Twitter用の設定 -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@UU9782wsEdANDhp">
+	</head>
+
+	<body>
+		<header>
+			<a href="home.html"><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675069885/pictures/sitelogo_p1inzg.png" class="sitelogo" alt="sitelogo"></a>
+		</header>
+
+		<div class="outer">
+			<aside>
+				<div id="table-of-content">
+				</div>
+			</aside>
+			<div class="main">
+				<nav>
+					<ol class="crumbs"> <!-- ホームからのパンくずリスト -->
+						<li class="crumb"><a href="home.html">Home</a></li>
+						<li class="crumb">ABC294参加記録</li> <!-- 現在のページタイトル書いてね -->
+					</ol>
+				</nav>
+				<h1>ABC294参加記録🥶</h1> <!-- 一番でかい見出し書いてね -->
+
+				<div class="date"> <!-- 記事作成日と更新日書いてね -->
+					<p>書いた日: 2023/3/21</p>
+					<p>最終更新日: N/A</p>
+				</div>
+
+				<h2>ABC294に参加しました。</h2> <!-- ここから記事本編 -->
+					<p>こんにちは。今週も<a href="https://atcoder.jp/contests/abc294">ABC294</a>に参加してきましたので，その参加記録です。</p>
+				<h2>戦績など</h2>
+					<p>まずは，今回の戦績です。</p>
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679388780/pictures/abc294/result_qsoaym.png" alt="戦績">
+					<p>A, B, C, Dの4完でした。今回のパフォーマンスは<span style="color: brown;">626</span>で，レート変動は<span style="color: brown;">633</span>→<span style="color: brown;">632</span>(-1)でした。</p>
+					<p>実は今回コンテスト開始に少し遅れてしまいました。それも相まって少しパフォーマンスが下がってしまいました。今回のE問題が普段に比べて簡単だったので5完チャンスだったのですが，少し間に合いませんでした。</p>
+
+				<h2>問題の紹介</h2>
+					<p>今回はコンテスト後にACをとることができたE問題まで紹介します。</p>
+					<h3><a href="https://atcoder.jp/contests/abc294/tasks/abc294_a">A - Filter</a></h3>
+						<p>問題文はこちらです。</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679389400/pictures/abc294/A_niqthh.png" alt="A問題">
+						<p>この問題は，標準入力を適切に扱えるならすぐに解くことができます。制約も特に厳しい部分がないので，単純に一つずつ入力を受け取っていくときに，偶数ならそのまま出力することでACをとることができます。重複を考える必要も無いようです。</p>
+						<p><a href="https://atcoder.jp/contests/abc294/submissions/39854960">ACコード</a></p>
+
+					<h3><a href="https://atcoder.jp/contests/abc294/tasks/abc294_b">B - ASCII Art</a></h3>
+						<p>問題文はこちらです。</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679389400/pictures/abc294/B_sgu3pi.png" alt="B問題">
+						<p>この問題は，二次元配列やそれに準するデータ構造を使えるかを問うもののように見えます。計算量などは気にする必要がなさそうなので，入力を受け取り問題文の操作を適切に行うことでACをとれます。</p>
+						<p>C言語なら二次元配列を利用するのが一番自然です。<code>char A[H][W]</code>のような配列を宣言して，二重ループで入力の受け取りと出力をします。</p>
+						<p><code>A<sub>i,j</sub></code>番目の大文字アルファベットはASCIIコードの性質を利用することで簡単に出力することができます。ASCIIコードにおいて，大文字アルファベットはAから昇順に数値が割り当てられてあります。したがって，<code>printf("%c", A[i][j] + 'A' - 1);</code>のような形で実現することができます。(よくわからないという人は，C言語のprintfとASCIIコードについて調べてみるとよいと思います)</p>
+						<p>W個出力するたびに改行するのを忘れないようにしましょう。</p>
+						<p>また，二次元配列を使用するのが自然といいましたが，実は使用しなくても解くことができます。各入力をどのように置き換えるかはそれぞれの入力のみで決まり，ほかの入力のことを考慮する必要がありません。つまり，受け取った数が0なら即座に<code>.</code>を，それ以外なら<code>'A' - 1</code>を足したものを文字として出力すればよいです。</p>
+						<p><a href="https://atcoder.jp/contests/abc294/submissions/39859079">ACコード</a></p>
+
+					<h3><a href="https://atcoder.jp/contests/abc294/tasks/abc294_c">C - Merge Sequences</a></h3>
+						<p>問題文はこちらです。</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679389401/pictures/abc294/C_q3zhx0.png" alt="C問題">
+						<p>少し問題文を要約します。「二つの数列が与えられる。これらの要素をひとまとめにして，昇順に並べ替えた数列を作る。元の数列のi番目の要素は，新しく作った数列の何番目にあるでしょう？」という感じです。</p>
+						<p>制約から，要素のダブりはないです。したがって，求めたいもの(何番目か)はただ一つに定まります。シンプルに行くなら新しく作った数列を最初から順番に見ていき，等しくなった時にインデックスを出力すればACをとれるはずです。</p>
+						<p>ただしこのやり方では時間が間に合いません。最悪ケースを考えてみると分かりやすいです。元の二つの数列をA, Bとするとき，もしBの要素がAの<em>どの要素より</em>大きいとすると，結合して並べ替えた数列においてBの要素を探すときに必ずAの要素数分の無駄な探索が行われます。制約から，元の数列の要素数は10<sup>5</sup>個まであり得るので，このようなケースではBの要素を探そうとすると10<sup>10</sup>程度の操作が必要になります。どう考えても間に合いません。</p>
+						<p>ここで，新しい数列が整列済みだという事実を利用します。このようなときには<a href="https://ja.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2">二分探索</a>をすることができ，一つの値を高速に探すことができます。知らなかった人は覚えておくとこの先役に立つと思います。</p>
+						<p>二分探索は要素数nに対して，およそlog(n)程度の計算量で値の探索をすることができます。また，全体をソートするためにおよそnlog(n)程度の計算量がかかります。以上より，nlog(n)程度の計算量で解くことができます。これは今回の制約下の最悪ケースで10<sup>6</sup>超えるかな～っていう程度です。</p>
+						<p><a href="https://atcoder.jp/contests/abc294/submissions/39863675">ACコード</a>(前半は私のお手製ソート関数群です)</p>
+						<p>また，元の数列が整列済みだということを利用して，マージソートをするような感じでn + m程度の計算量でACをとることができるようです。(あえてACサンプルは載せません)</p>
+
+					<h3><a href="https://atcoder.jp/contests/abc294/tasks/abc294_d">D - Bank</a></h3>
+						<p>問題文はこちらです。</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679389400/pictures/abc294/D_whxfnm.png" alt="D問題">
+						<p>よくあるクエリを処理するやつです。今回は銀行の待合のアレみたいな問題です。</p>
+						<p>各クエリの処理方法を考えましょう。クエリ1はまだ呼ばれていない人のみが対象なので，単純にクエリ1が来た回数が分かればO(1)で答えることができます。クエリ2は実際に人が受付に向かう操作です。これ以外のクエリで受け受けに向かうことはないです。クエリ3は呼ばれている人のうち番号が一番若い人を再度呼び出すクエリです。</p>
+						<p>明らかにクエリ2, 3の処理が面倒くさそうです。簡単な解法を考えると，クエリ1で呼ばれた番号を集めておき，クエリ2で呼ばれたら削除，クエリ3が来たらその集合の最小値を出力すればよいです。これをシンプルに実装するなら順序付きの集合のようなデータ型を用いるのが良いです。(解説では<code>std::set</code>を勧めていました)なぜなら，指定した番号のデータに対して削除と最小番号の出力を同時にこなす必要があるからです。(キューや連想配列などだとどちらかの要件が面倒くさいです。)</p>
+						<p>私は少し違う方法をとりました。まず，制約からNの上限がそこまで大きくないので，全部配列に載せることができます。したがって，順序付き集合の代わりに配列を使用することができます。具体的にはこうです。要素数Nの配列を用意しておく。クエリ1は呼ばれた回数を出力，クエリ2が呼ばれたら配列の<code>x</code>番目に-1などを代入しておく。クエリ3が呼ばれたら-1の入っていない最小インデックスを出力する。この時，-1の入っていない最小インデックスの位置を常に保持しておくことで，クエリ3をO(N)で求めることができます。(O(N)と言っていますが，一回通過した場所には戻らないのでクエリ3のすべてを処理したとしてもN回以下の操作で答えることができます。)実はこの方法は上の解法と同等以上に高速です。</p>
+						<p><a href="https://atcoder.jp/contests/abc294/submissions/39868959">ACコード</a></p>
+
+					<h3><a href="https://atcoder.jp/contests/abc294/tasks/abc294_e">E - 2xN Grid</a></h3>
+						<p>問題文はこちらです。</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679389401/pictures/abc294/E_n6rtod.png" alt="E問題">
+						<p>連続文字列が(数字)(長さ)という風に圧縮されている，元の長さLの文字列2つに対し，同じ位置で同じ数字が存在する場所の数の総和を求める問題です。</p>
+						<p><em><a href="https://ja.wikipedia.org/wiki/%E9%80%A3%E9%95%B7%E5%9C%A7%E7%B8%AE">ランレングス</a>圧縮...ってコト！？</em></p>
+						<p>シンプルな問題ですが，この文字列をそのまま復元しようとすると，元の文字列長が長すぎてTLEします。(というか普通にメモリも使いすぎると思います。)したがって，何らかの方法で圧縮を戻さずに解を得る必要があります。</p>
+						<p>正直私にとって少しレベルの高い問題だったので，すっきりした解法ではないかもしれませんが，一応紹介します。</p>
+						<p>私はいたちごっこをしながらシュミレートする方法で解くことができました。まずは，各数字と圧縮長さをそれぞれ<code>v1[n1], len1[n1]</code>と<code>v2[n2], len2[n2]</code>に格納します。</p>
+						<p>そしてn1のインデックスを<code>i</code>，n2のインデックスを<code>j</code>とします。基準点<code>base</code>を最初0にしておきます。そして以下のアルゴリズムで解きます。</p>
+						<ol>
+							<li><p>現在の総和<code>sum1, sum2</code>を用意し，最初に<code>len1[0], len2[0]</code>を入れておきます。答えを<code>ans=0</code>とします。</p></li>
+							<li><p><code>v1[i]==v2[j]</code>ならば「<code>sum1</code>と<code>sum2</code>のうち小さいほう - base」をansに足す。</p></li>
+							<li><p><code>sum1 == L &amp;&amp; sum2 == L</code>ならば<code>ans</code>を出力し，終了</p></li>
+							<li><p>baseを<code>sum1</code>と<code>sum2</code>のうち小さいほうで更新し，より小さいほうに<code>len〇[△ + 1]</code>を足し，<code>△ += 1</code>としてインデックスを更新する。</p></li>
+							<li><p>2に戻る。</p></li>
+						</ol>
+						<p>下にこのアルゴリズムの簡単な図解を載せておきます。元画像は<a href="https://atcoder.jp/contests/abc294/tasks/abc294_e">AtCoderのコンテストページ</a>からお借りしました。</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679407875/pictures/abc294/visual1_yvoiny.png" alt="図解1">
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679407875/pictures/abc294/visual2_eh4cmu.png" alt="図解2">
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679407875/pictures/abc294/visual3_z9bykm.png" alt="図解3">
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679407875/pictures/abc294/visual4_tznssk.png" alt="図解4">
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679407875/pictures/abc294/visual5_i5oci1.png" alt="図解5">
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679407875/pictures/abc294/visual6_bmwksp.png" alt="図解6">
+						<p>正直難しかった(小並感)</p>
+						<p><a href="https://atcoder.jp/contests/abc294/submissions/39905406">ACコード</a></p>
+
+				<h2>完走した感想</h2>
+					<p>今回は4完でしたが，少しだけレートマイナスになってしまい残念です。今自分が使えるデータ構造が配列しかないので，今回のような問題に対応するためにもいくつかライブラリを整備しておこうかなと思いました。</p>
+					<p>あと地味に私は二分探索を書くのが下手だということが分かったので，実装について少し研究したいなと思っています。</p>
+					<p>コンテスト関係ないですが，今回のエントリ書くの結構時間かかりました。疲れた。</p>
+					<p>それではまた次回のエントリで</p>
+			</div> <!-- ここまでが記事本編 -->
+		</div>
+			<footer>
+				<p class="copyright"><small>&copy; 2023 InTheDayDream</small></p>
+			</footer>
+	</body>
+</html>
