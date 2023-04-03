@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+	<head>
+		<title>ABC296参加記録 - InTheDayDrem</title> <!-- ページのタイトル書いてね -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=devicewidth, initial-scale=1">
+		<base href="../">
+		<script> let base = ''; let tmp = [...window.location.href]; let i = 0; let str = 'articles'; for (; ; i++) { let flag = 0; for (let j = 0; str.length > j; j++) { if (str[j] != tmp[i + j]) { flag = 1; break; } } if (flag == 0) { break; } } let roop = tmp.length - i; for (let j = 0; roop > j; j++) { tmp.pop(); } base = tmp.join(''); let a = document.getElementsByTagName("base"); a[0].setAttribute('href', base); </script>
+		<link rel="stylesheet" href="default.css">
+		<script src="headliner.js"></script>
+		<script src="highlight.js"></script>
+		<link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+		<meta name="description" content="ABC296の参加記録"> <!-- ページの説明書いてね -->
+
+		<!-- 以下SNSのカード設定 -->
+		<meta property="og:url" content="https://inthebloom.github.io/articles/abc296.html"> <!-- ページのURLかいてね -->
+		<meta property="og:title" content="ABC296参加記録 - InTheDayDream"> <!-- ページタイトル書いてね -->
+		<meta property="og:description" content="ABC296の参加記録"> <!-- ページの説明書いてね -->
+		<meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
+		<meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1680503731/pictures/abc296/ogp_yhwxjo.png"> <!-- 表示される画像(絶対パス)書いてね -->
+		<!-- Twitter用の設定 -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@UU9782wsEdANDhp">
+	</head>
+
+	<body>
+		<header>
+			<a href="home.html"><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675069885/pictures/sitelogo_p1inzg.png" class="sitelogo" alt="sitelogo"></a>
+		</header>
+
+		<div class="outer">
+			<aside>
+				<div id="table-of-content">
+				</div>
+			</aside>
+			<div class="main">
+				<nav>
+					<ol class="crumbs"> <!-- ホームからのパンくずリスト -->
+						<li class="crumb"><a href="home.html">Home</a></li>
+						<li class="crumb">ABC296参加記録</li> <!-- 現在のページタイトル書いてね -->
+					</ol>
+				</nav>
+				<h1>ABC296参加記録</h1> <!-- 一番でかい見出し書いてね -->
+
+				<div class="date"> <!-- 記事作成日と更新日書いてね -->
+					<p>書いた日: 2023/4/3</p>
+					<p>最終更新日: N/A</p>
+				</div>
+
+				<h2>ABC参加してきました。</h2> <!-- ここから記事本編 -->
+					<p>こんにちは。今回の<a href="https://atcoder.jp/contests/abc296">ABC296</a>も参加してきましたので、軽い参加記録です。</a>
+
+				<h2>戦績</h2>
+					<p>今回の戦績についてです。</p>
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1680504076/pictures/abc296/result_cfyww2.png" alt="提出状況">
+					<p>今回はA, B, Cの3完、パフォーマンス<span style="color: brown;">650</span>で、レート変動は<span style="color: brown;">627</span>→<span style="color: brown;">630</span>(+3)でした。</p>
+					<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1680504076/pictures/abc296/rating_dummda.png" alt="レート変動">
+					<p>ギリ勝ちでした。</p>
+
+				<h2>問題と解法</h2>
+					<p>A~Dの4問の解法を紹介します。</p>
+
+					<h3><a href="https://atcoder.jp/contests/abc296/tasks/abc296_a">A - Alternately</a></h3>
+						<p>問題分は以下のとおりです。</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1680504075/pictures/abc296/A_jkstzz.png" alt="A問題">
+						<p>男性または女性同士が隣り合っているかどうかを判定する問題です。シンプルに解くなら、文字列長をNとして、1文字目からN-1文字目までのそれぞれに対して以下の判定を行います。</p>
+						<p>i文字目とi+1文字目が一致しているか？</p>
+						<ul>
+							<li>YES→<code>No</code>を出力し、プログラムを終了</li>
+							<li>NO→何もしない</li>
+						</ul>
+						この判定をN-1文字目まで行い、それでもプログラムが終了していなければ<code>Yes</code>を出力しプログラムを終了することで正しく判定することができます。</p>
+						<p>ほぼ自明な操作なので、文字列操作が適切に行えるならACが取れると思います。</p>
+						<p><a href="https://atcoder.jp/contests/abc296/submissions/40208626">実装例</a></p>
+
+					<h3><a href="https://atcoder.jp/contests/abc296/tasks/abc296_b">B - Chessboard</a></h3>
+						<p>問題分は以下のとおりです。</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1680504076/pictures/abc296/B_jojc2o.png" alt="B問題">
+						<p>チェス盤の状態が文字列として渡されるので、コマが存在するマスを適切なフォーマットで出力する問題です。</p>
+						<p>制約から、コマが一つしかないことがわかるので、いわゆるオンラインアルゴリズムにて解くこともできます。</p>
+						<p>解法としては、文字列を一つづつ見ていき、<code>*</code>が存在する行番号と列番号を適切に変換すればよいです。注意点として、行数を表す番号は一番下が1番になっているため、出力するときには<code>8-○</code>のような形にする必要があります。</p>
+						<p><a href="https://atcoder.jp/contests/abc296/submissions/40213742">実装例</a></p>
+
+					<h3><a href="https://atcoder.jp/contests/abc296/tasks/abc296_c">C - Gap Existence</a></h3>
+						<p>問題分は以下のとおりです。</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1680504075/pictures/abc296/C_xuspy2.png" alt="C問題">
+						<p>任意の<code>i</code>, <code>j</code>を全探索することで解を得ることができますが、この解法では解が存在しなかったときにおよそ10<sup>10</sup>程度の探索が必要になります。したがって、この方針ではACを取ることは現実的ではないです。</p>
+						<p>そこで、次のように問題を言い換えます。「あるA<sub>i</sub>に対して条件を満たすA<sub>j</sub>が存在するなら、A<sub>j</sub>=A<sub>i</sub>+Xを満たす。」</p>
+						<p>つまり、「与えられた配列の中に値がA<sub>i</sub>+Xと等しいものはあるか？」という問題に変わります。</p>
+						<p>事前に配列をソートしておくことで配列の中から値を探すという典型問題に落とし込めます。この時、全体の計算量はO(Nlog(N))で抑えることができます。定数倍を考えなければ約10<sup>6</sup>回程度の探索で解を得ることができます。</p>
+						<p>二分探索を自分で実装する場合、この問題のようにキーが配列中に存在しないことも考慮したコードを作成しておくと良いと思います。</p>
+						<p><a href="https://atcoder.jp/contests/abc296/submissions/40226886">実装例</a></p>
+
+					<h3><a href="https://atcoder.jp/contests/abc296/tasks/abc296_d">D - M&lt;=ab</a></h3>
+						<p>問題分は以下のとおりです。</p>
+						<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1680504075/pictures/abc296/D_vqhkon.png" alt="D問題">
+						<p>かなりシンプルな問題です。<span style="text-decoration: line-through;">こういうの苦手です。</span></p>
+						<p>まずは私が試していたダメな解法を紹介します。</p>
+						<p>制約から、N*N&gt;=Mならば、-1ではない何かしらの解が存在します。なぜなら、N*Nが解の候補の一つだからです。</p>
+						<p>そこで、まずN*N&lt;Mとなるようなケースはすべて-1を出力して終了。それ以外のケースについて考えることにします。</p>
+						<p>解となる可能性があるXに対して、両方がN以下となるような因数分解を見つける方針で考えます。まず、Xの範囲を絞ります。仮定から、M&lt;=Xです。</p>
+						<p>色々考えた結果、Xの上界は「M以上になるもののうち最小の平方数」であることがわかりました。理由は単純で、この値を上界とする時明らかにN*N以下となり、少なくとも「その平方数」が解の候補になるからです。</p>
+						<p>以上より、M&lt;=X&lt;=(平方数)に対して、2つともN以下になるような因数が存在するかを判定する問題になりました。</p>
+						<p>ここからは単純に、「Xの平方数に一番近い整数」からX=1になる、または割り切れるまで「Xを」順番に試し割をすればよいです。こうすれば2数の差が一番小さくなるような因数分解ができます。</p>
+						<p>試し割りで見つかった因数が両方N以下ならXを出力して終了、そうでないならXを1増やして同じことをすれば良いです。</p>
+						<p><em>この解法は正しく動作しますが、</em>制限時間内に終わりませんでした。結果としては10ケースでTLEが出てしまい、コンテスト中に通せませんでした。</p>
+						<p>雑な計算量解析をすると、まず私の絞り込んだXの範囲が、最悪ケースのときに連続する平方数の差とほとんど同じになります。これは(a+1)<sup>2</sup> - a<sup>2</sup> = 2*a + 1程度です。制約から、aは最大で10<sup>6</sup>程度までありえます。そして試し割りは最悪ケースのとき、つまりXが素数の時には√X回程度かかります。流石に素数が密集しているとは思えませんが、平均的に見て√Xの定数倍程度になっているだろうと予想できます。これも10<sup>6</sup>程度までありえます。以上より、最悪ケースのときには十分10<sup>8</sup>回程度を超える計算が行われる可能性があります。</p>
+						<p><a href="https://atcoder.jp/contests/abc296/submissions/40255571">(ダメな方の)実装例</a></p>
+
+						<p>さて、この問題を解くためには別のアプローチが必要になります。</p>
+						<p>まず、重要な事実は次の2つです。</p>
+						<ul>
+							<li>解となる可能性のあるX=abに対して、a&lt;=bを仮定すれば因数aの上界は10^6である。</li>
+							<li><em>あるaを一つ定めると、解となる可能性のあるbはただ一つ存在する。</em></li>
+						</ul>
+						<p>それぞれについて検討していきます。まず1つ目です。制約より、M&lt;=10<sup>12</sup>となりますから、Xの因数a,bがどちらも10<sup>6</sup>であれば、それは必ず解の候補になります。また、a,bどちらも10<sup>6</sup>を超えるようなケースは存在しません。a=b=10<sup>6</sup>がより優れた解の候補だからです。</p>
+						<p>2つ目に対しては、あるaに対して、a*bがMを超えるようなbのとり方は無数に存在しますが、解となり得るのはそれらのうち最小のものだけです。つまり、一つのaに対して必ず条件を満たしうるbが一つだけ存在します。</p>
+						<p>以上より、以下のアルゴリズムにてO(1)で解くことができます(10<sup>6</sup>程度で抑えられるという意味です。)。</p>
+						<ol>
+							<li>最初、a=1とする。解はans=-1としておく</li>
+							<li>a*bがM以上になるような最小のbを求める。具体的にはM%a=0の時b=M/aで、それ以外のときb=M/a+1となる。</li>
+							<li>a&gt;bとなっていたらansを出力し、プログラムを終了する。</li>
+							<li>b&lt;=Nならばans=min(a*b, ans)とする。</li>
+							<li>aを1増やし、2に戻る</li>
+						</ol>
+
+						<p>私の解法が、「Xの取りうる値に対して、条件を満たすように因数分解できるか？」だったのに対して、こちらの解法は「解になり得る因数を全探索する」というような解法になっています。Xを構成的に見つけていくことで、各aに対して数回の演算でbを求めているのが高速化に寄与している点だと思いました。</p>
+						<p>この問題から学べる教訓としては、</p>
+						<ul>
+							<li>復数の変数が出現する問題では、<em>ある一つ以外の変数が事前に定まっているという仮定</em>のもとでなにか得られないか考えてみる。</li>
+							<li>できるだけ天下り的ではなく構成的に考える。</li>
+							<li>暗に大小関係を定めてしまえば探索範囲の重複を防ぐことができる(ことがある)</li>
+						</ul>
+						<p>と言ったところでしょうか？次出会ったら解けるようになりたいですね。</p>
+						<p><a href="https://atcoder.jp/contests/abc296/submissions/40269019">実装例(ほぼ公式解説の通り)</a></p>
+				<h2>終わりに</h2>
+					<p>今回の参加記録はここまでです。読んでいただきありがとうございます。</p>
+					<p>最近4完がほぼできておらず、大体茶色MAXdiffあたりから解けるかどうか怪しくなっているような感じです。早いところそのあたりの難易度帯の対策もしたいですね。</p>
+					<p>サラッと先週分サボってごめんなさい。やる気があったらD問題だけでも記事書きます。</p>
+					<p>あと、現在私のC言語ライブラリのサイトをgithubで構築中です。近いうちに宣伝するかも？(宣伝の宣伝)</p>
+					<p>ではまた次の記事で</p>
+			</div> <!-- ここまでが記事本編 -->
+		</div>
+			<footer>
+				<p class="copyright"><small>&copy; 2023 InTheDayDream</small></p>
+			</footer>
+	</body>
+</html>
