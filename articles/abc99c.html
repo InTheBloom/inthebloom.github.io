@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+    <head>
+        <title>ABC99C - Strange Bank - InTheDayDream</title> <!-- ページのタイトル書いてね -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=devicewidth, initial-scale=1">
+        <base href="../">
+        <script> let base = ''; let tmp = [...window.location.href]; let i = 0; let str = 'articles'; for (; ; i++) { let flag = 0; for (let j = 0; str.length > j; j++) { if (str[j] != tmp[i + j]) { flag = 1; break; } } if (flag == 0) { break; } } let roop = tmp.length - i; for (let j = 0; roop > j; j++) { tmp.pop(); } base = tmp.join(''); let a = document.getElementsByTagName("base"); a[0].setAttribute('href', base); </script>
+        <link rel="stylesheet" href="default.css">
+        <script src="headliner.js"></script>
+        <script src="highlight.js"></script>
+        <link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+        <link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+        <meta name="description" content="ABC99Cの防備録"> <!-- ページの説明書いてね -->
+
+        <!-- 以下SNSのカード設定 -->
+        <meta property="og:url" content="https://inthebloom.github.io/articles/"> <!-- ページのURL書いてね -->
+        <meta property="og:title" content="ABC99C - Strange Bank - InTheDayDream"> <!-- ページタイトル書いてね -->
+        <meta property="og:description" content="ABC99Cの防備録"> <!-- ページの説明書いてね -->
+        <meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
+        <meta property="og:image" content=""> <!-- 表示される画像(絶対パス)書いてね -->
+        <!-- Twitter用の設定 -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@UU9782wsEdANDhp">
+    </head>
+
+    <body>
+        <header>
+            <a href="home.html"><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675069885/pictures/sitelogo_p1inzg.png" class="sitelogo" alt="sitelogo"></a>
+        </header>
+
+        <div class="outer">
+            <aside>
+                <div id="table-of-content">
+                </div>
+            </aside>
+            <div class="main">
+                <nav>
+                    <ol class="crumbs"> <!-- ホームからのパンくずリスト -->
+                        <li class="crumb"><a href="home.html">Home</a></li>
+                        <li class="crumb">ABC99C - Strange Bank</li> <!-- 現在のページタイトル書いてね -->
+                    </ol>
+                </nav>
+                <h1>ABC99C - Strange Bank</h1> <!-- 一番でかい見出し書いてね -->
+
+                <div class="date"> <!-- 記事作成日と更新日書いてね -->
+                    <p>書いた日: 2023/6/13</p>
+                    <p>最終更新日: N/A</p>
+                </div>
+
+                <h2>はじめに</h2> <!-- ここから記事本編 -->
+
+<p>個人的に比較的難しく、教育的な動的計画法の問題に出会ったので、メモを残しておく。
+防備録的な色合いが強いので、私にとって明らかなことは書かない。</p>
+
+<h2>問題</h2>
+
+<p><a href="https://atcoder.jp/contests/abc099/tasks/abc099_c">ABC99C Strange Bank</a></p>
+
+<h2>思考</h2>
+
+<p>もし仮に、6冪の金額のみを用いることができるという制約なら単純な6進数変換の問題である。
+しかし、本問では9冪の金額も用いることができるため、最適解が自明な貪欲法でない可能性が高い。</p>
+
+<p>例えば、
+「6冪と9冪のなかで今の金額に一番近い値を採用し、それを続ける」
+という貪欲法を考える。
+実はこの貪欲ではテストケースすら突破できない。(確認済み)</p>
+
+<p>貪欲で解ける可能性が低そうなので、次に全探索を考えてみる。
+自明な全探索は、log_6(N)ビット6進数とlog_9(N)ビット9進数によるビット全探索だと思われる。
+計算量はO(6^{log(N)}9^{log(N)})
+これは明らかに間に合わない。(実は少し工夫した全探索による解法が存在するので後述する)</p>
+
+<h2>解法</h2>
+
+<p>一回引き出したら口座に戻せないという制約上、部分問題に分割することができる。
+すなわち、x円を引き出す最小手順がわかっていれば、もう少し大きな金額yに対して、y円を引き出す最小手順がわかる。</p>
+
+<p>このことに気づくのは比較的用意だと思う。
+さて、部分問題を精査していく。</p>
+
+<p>私は次に述べる点に気づかなかったため、動的計画法を構築できなかったのだが、具体的な遷移は「1手前」を考えるだけで良い。
+私はずっと、6冪と9冪が使えるということは、「6冪と9冪に引っかからないけど6や9の倍数である数」への遷移を毎回考える必要があると思いこんでいた。</p>
+
+<p>つまりは、
+<code>dp[x]</code>を計算するときに、<code>min(dp[x-6]+1, dp[x-12]+2, dp[x-24]+4, ...)</code>というようなことをしなければだめだと思っていたということだ。</p>
+
+<p>しかし実際は、<code>dp[x-12]</code>や<code>dp[x-24]</code>の値は<code>dp[x]</code>に到着する前に計算されており、更に<em>それを織り込み済みで</em><code>dp[x-6]</code>が計算されている。
+つまり、遷移のときに気にする必要があるのは1回で引き出せる金額の更新だけなのである。
+結論として、</p>
+
+<p><code>dp[x] = min(dp[x-diff]) (diff := {x | a &lt;- N, 6^a, 9^a}, k &lt; 0 (dp[k] = infinity), dp[0] = 0)</code></p>
+
+<p>という遷移で計算可能である。
+ある金額xに対して、高々logN通りの更新候補が存在するため、計算量はO(NlogN)で抑えられる。</p>
+
+<p>また、全探索でも解くことができる。
+「任意の引き出し方は、6進数成分と9進数成分に分解できる」
+という事実を用いると、引き出す金額を2つに分割して、6進数/9進数表現に直したときのビットの総和が候補値になる。</p>
+
+<p>分割の全探索がO(N)、各ケースO(logN)でx進数に変換できるから結局O(NlogN)で解くことができる。
+上で述べた自明な全探索よりも少し工夫が入っている。</p>
+
+<p>どちらが難しい解法かと言われると微妙だが、個人的には部分問題に分けるほうが自然かなと感じる。</p>
+            </div> <!-- ここまでが記事本編 -->
+        </div>
+            <footer>
+                <p class="copyright"><small>&copy; 2023 InTheDayDream</small></p>
+            </footer>
+    </body>
+</html>
