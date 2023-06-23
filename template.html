@@ -5,7 +5,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=devicewidth, initial-scale=1">
         <base href="../">
-        <script> let base = ''; let tmp = [...window.location.href]; let i = 0; let str = 'articles'; for (; ; i++) { let flag = 0; for (let j = 0; str.length > j; j++) { if (str[j] != tmp[i + j]) { flag = 1; break; } } if (flag == 0) { break; } } let roop = tmp.length - i; for (let j = 0; roop > j; j++) { tmp.pop(); } base = tmp.join(''); let a = document.getElementsByTagName("base"); a[0].setAttribute('href', base); </script>
         <link rel="stylesheet" href="default.css">
         <script src="headliner.js"></script>
         <script src="highlight.js"></script>
