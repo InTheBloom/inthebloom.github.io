@@ -1,0 +1,14 @@
+<!-- KaTex Settings -->
+<link rel="stylesheet" href="../katex/katex.css">
+<script defer src="../katex/katex.js"></script>
+<script defer src="../katex/contrib/auto-render.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false},
+    ]
+  });
+});
+</script>
