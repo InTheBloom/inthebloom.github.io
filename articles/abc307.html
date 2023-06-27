@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+    <head>
+                <!-- KaTex Settings -->
+<link rel="stylesheet" href="../katex/katex.css">
+<script defer src="../katex/katex.js"></script>
+<script defer src="../katex/contrib/auto-render.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "$", right: "$", display: false},
+    ]
+  });
+});
+</script>
+        <title>ABC307参加記録 - InTheDayDream</title> <!-- ページのタイトル書いてね -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=devicewidth, initial-scale=1">
+        <base href="../">
+        <link rel="stylesheet" href="default.css">
+        <script src="headliner.js"></script>
+        <script src="highlight.js"></script>
+        <link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+        <link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+        <meta name="description" content="ABC307の参加記録"> <!-- ページの説明書いてね -->
+
+        <!-- 以下SNSのカード設定 -->
+        <meta property="og:url" content="https://inthebloom.github.io/articles/abc307.html"> <!-- ページのURL書いてね -->
+        <meta property="og:title" content="ABC307参加記録 - InTheDayDream"> <!-- ページタイトル書いてね -->
+        <meta property="og:description" content="ABC307の参加記録"> <!-- ページの説明書いてね -->
+        <meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
+        <meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1687854753/pictures/abc307/ogp-min_roxhm8.png"> <!-- 表示される画像(絶対パス)書いてね -->
+        <!-- Twitter用の設定 -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@UU9782wsEdANDhp">
+    </head>
+
+    <body>
+        <header>
+            <a href="home.html"><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675069885/pictures/sitelogo_p1inzg.png" class="sitelogo" alt="sitelogo"></a>
+        </header>
+
+        <div class="outer">
+            <aside>
+                <div id="table-of-content">
+                </div>
+            </aside>
+            <div class="main">
+                <nav>
+                    <ol class="crumbs"> <!-- ホームからのパンくずリスト -->
+                        <li class="crumb"><a href="home.html">Home</a></li>
+                        <li class="crumb">ABC307参加記録</li> <!-- 現在のページタイトル書いてね -->
+                    </ol>
+                </nav>
+                <h1>ABC307参加記録</h1> <!-- 一番でかい見出し書いてね -->
+
+                <div class="date"> <!-- 記事作成日と更新日書いてね -->
+                    <p>書いた日: 2023/6/27</p>
+                    <p>最終更新日: N/A</p>
+                </div>
+
+<h2>はじめに</h2>
+<p>本稿は、2023年6月24日に行われた<a href="https://atcoder.jp/contests/abc307">ABC307</a>の参加記録です。</p>
+<h2>戦績</h2>
+<p>今回の戦績です。
+今回はパフォーマンス<span style="color: green;">1166</span>で、
+レート変動は<span style="color: green;">842</span>-&gt;<span style="color: green;">879</span>でした。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1687854754/pictures/abc307/rating-min_gqdmlu.png" alt="" /></p>
+<p>コンテスト中にA,B,C,Dの4完することができました。
+また、コンテスト後にE問題を通すことができました。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1687854754/pictures/abc307/submission-min_wnf2bp.png" alt="" /></p>
+<h2>解いた問題</h2>
+<h3><a href="https://atcoder.jp/contests/abc307/tasks/abc307_a">A - Weekly Records</a></h3>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1687854753/pictures/abc307/A-min_p0hhmg.png" alt="" /></p>
+<p>問題文に書いてあることをそのまま行います。$A_i$があまり大きくないので普通に<code>int</code>でOKです。
+私は前から足していって、7の倍数番目の番号のとき出力とリセットをしました。
+ただし、通常プログラミング言語では0-indexedなので、<code>i+1</code>を考える必要があります。
+(詳細は提出コードを参照)</p>
+<p><a href="https://atcoder.jp/contests/abc307/submissions/42892273">提出</a></p>
+<h3><a href="https://atcoder.jp/contests/abc307/tasks/abc307_b">B - racecar</a></h3>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1687854754/pictures/abc307/B-min_zni5p0.png" alt="" /></p>
+<p>$N$が十分に小さいので、すべての$i$,$j$について$S_i$と$S_j$の連結が回文になるかどうかをチェックする方法でOKです。
+二重ループなどで解くと良いでしょう。</p>
+<p>C言語で解くなら、不定長の文字列を受け取るテクニックが使えます。
+まず、<code>char</code>の配列を$51*N$程度で宣言します。
+その後、<code>char*</code>の配列を$N$要素で宣言して、
+各<code>char*</code>の$i$番目の要素が$S_i$の先頭を指すようにすると省メモリで扱えます。
+具体的には次のようにします。</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main (void) {
+    int N; scanf(&quot;%d&quot;, &amp;N);
+
+    char SS[51*N];
+    char *S[N];
+    int len[N];
+
+    int idx = 0;
+    for (int i = 0; i &lt; N; i++) {
+        char tmp[51]; scanf(&quot;%s&quot;, tmp);
+        int j = 0;
+        S[i] = &amp;SS[idx];
+        for (; tmp[j] != '\0'; j++) {
+            SS[idx++] = tmp[j];
+        }
+        len[i] = j;
+        SS[idx++] = '\0';
+    }
+}
+</code></pre>
+<p>うーん、C言語辛い！w</p>
+<p><a href="https://atcoder.jp/contests/abc307/submissions/42897763">提出</a>(C言語ではないです。)</p>
+<h3><a href="https://atcoder.jp/contests/abc307/tasks/abc307_c">C - Ideal Sheet</a></h3>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1687854754/pictures/abc307/C-min_kau5wh.png" alt="" /></p>
+<p>今回の激ヤバ問題です。
+C問題なのにdifficultyが1200を超えています。(結構な人がスルーしたみたいです。)</p>
+<p>要は、いい感じに文字列を組み合わせて、与えられた模様を作れるか？という問題です。
+結構激重実装問題っていう風に言われていますが、
+私はむしろ、どうやって解くか？という部分が一番大事になるんじゃないかと思いました。
+というのも、シートAとシートBを張り合わせる土台を適当に超巨大に作ってしまうと
+計算量がエラいことになってしまうからです。</p>
+<p>私の方針としては、概ね次のような感じです。</p>
+<ul>
+<li>シートA, B, Xの透明部分を長方形であることだけを保ったまま可能な限りカット</li>
+<li>土台としてX(をカットしたもの)と同じサイズのものを用意する</li>
+<li>シートA, Bをはみ出さないように貼り付ける手順を全探索</li>
+<li>土台とXが一致しているかチェック</li>
+</ul>
+<p>というような感じで解きました。
+ポイントが、土台をXのカットと同じサイズにすることです。
+明らかにこれが土台の限界の小ささになります。
+マージンを取りすぎると全探索が多くなりすぎてTLEするみたいです。</p>
+<p>というわけで気合でACできました。
+こういう「カットできるとこをカットする」みたいな操作は<strong>絶対に</strong>C言語で実装したくないです。(強い意思)</p>
+<p><a href="https://atcoder.jp/contests/abc307/submissions/42920730">提出</a></p>
+<h3><a href="https://atcoder.jp/contests/abc307/tasks/abc307_d">D - Mismatched Parentheses</a></h3>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1687854753/pictures/abc307/D-min_jkeqjo.png" alt="" /></p>
+<p>文字列から「有効な括弧列」を削除する問題です。
+有効な括弧列を処理するのにはスタックが非常に向いています。
+というのも、その定義の一つに</p>
+<p>「連続する<code>()</code>を削除することを0回以上繰り返して空文字列にできるもの」</p>
+<p>というものがあるので、
+明らかに<code>)</code>を見つけたら<code>(</code>までスタックから取り除く
+という方法で有効な括弧列を除去することができてしまいます。</p>
+<p>後は現在スタックの中に<code>(</code>が何個あるかという情報を持っておくと、
+<code>)</code>からスタックを削っていって<code>(</code>が見つかるかどうかを判定することができ、
+残すべきところと残すべきでないところを判断することができます。</p>
+<p>ただ、私は<code>(</code>の個数を管理するということまで思い至らなかったため、
+「たどっていってる途中で<code>(</code>が見つかる前にスタックが空になってしまったら<code>ans</code>に追加する」
+という感じで解きました。計算量はO(N)です。</p>
+<p><a href="https://atcoder.jp/contests/abc307/submissions/42925260">提出</a></p>
+<h3><a href="https://atcoder.jp/contests/abc307/tasks/abc307_e">E - Distinct Adjacet</a></h3>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1687854754/pictures/abc307/E-min_nba8s9.png" alt="" /></p>
+<p>見た目がなんかいかつそうな問題です。
+まず、問題を単純化してみます。
+例えば、輪っかになっていないという仮定をしてみます。</p>
+<p>左から一人ずつ決めていくとして、
+受け取ってはいけない数字は一つ左の人のみに依存するので、最初の人がM通り、
+次の人からは全員M-1通りになり、答えは$M*(M-1)^{N-1}$になりそうです。</p>
+<p>フムフム、結構自由度が高いんだなと考えながら、
+輪っかの方の考察に戻ってみます。</p>
+<p>輪っかの方もほとんど同じで、最後の一人以外は一つ左の人のみに依存するので、$M-1$通りになりそうです。
+最後の一人は、最初の一人にも依存するので、状況が少し複雑になります。</p>
+<ul>
+<li>最初の一人と最後から二番目の人が同じ数字のとき</li>
+</ul>
+<p>このとき、明らかに$M-1$通りになります。</p>
+<ul>
+<li>最初の一人と最後から二番目の人が違う数字のとき</li>
+</ul>
+<p>このときは$M-2$通りです。</p>
+<p>最後から二番目の人が最初の人と同じ数字である場合の数を考えるには、
+最後から三番目の人が最初の人と同じ数字かどうかを知る必要があります。
+アレ、ややこしくなってきましたね。</p>
+<p>それならいっそ「$i$番目の人が、最初の人と同じ数である場合の数」と、
+「最初の人と違う数である場合の数」を考えればよいのではないでしょうか？</p>
+<p>これなら順々に計算できそうです。
+というわけで、DPします。</p>
+<p>$dp[i][j] := i人目が状態jであるような場合の数$</p>
+<p>とします。ここで、$j=0$は一人目と同じ数字、$j=1$は一人目と違う数字であるとします。
+初期値は、
+$dp[0][0] = M$, $dp[0][1] = 0$となります。</p>
+<p>漸化式は</p>
+<p>$dp[i][0] = dp[i-1][1]$</p>
+<p>$dp[i][1] = (M-1) * dp[i-1][0] + (M-2) * dp[i-1][1]$</p>
+<p>となります。
+これをあまりを取りながら計算して、$dp[N-1][1]$が解になります。</p>
+<p>DP難しいよ〜</p>
+<p><a href="https://atcoder.jp/contests/abc307/submissions/42931163">提出</a></p>
+<h2>終わりに</h2>
+<p>最近緑になれましたーヤッター</p>
+<p>競技プログラミング死ぬほど難しいけどなんとかがんばります。</p>
+<p>あと、ICPC出れそうです。そっちの方も適当にがんばります。</p>
+            </div> <!-- ここまでが記事本編 -->
+        </div>
+            <footer>
+                <p class="copyright"><small>&copy; 2023 InTheDayDream</small></p>
+            </footer>
+    </body>
+</html>
