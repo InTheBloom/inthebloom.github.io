@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns#">
+    <head>
+        <title>unstableをstableにする小技 - InTheDayDream</title> <!-- ページのタイトル書いてね -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=devicewidth, initial-scale=1">
+        <base href="../">
+        <link rel="stylesheet" href="default.css">
+        <script src="headliner.js"></script>
+        <script src="highlight.js"></script>
+        <link rel="icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+        <link rel="apple-touch-icon" href="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1673863461/pictures/favicon.png.png">
+        <meta name="description" content="ソートの小技"> <!-- ページの説明書いてね -->
+
+        <!-- 以下SNSのカード設定 -->
+        <meta property="og:url" content="https://inthebloom.github.io/articles/sorttech.html"> <!-- ページのURL書いてね -->
+        <meta property="og:title" content="unstableをstableにする小技 - InTheDayDream"> <!-- ページタイトル書いてね -->
+        <meta property="og:description" content=""> <!-- ページの説明書いてね -->
+        <meta property="og:type" content="article"> <!-- コンテンツタイプ(Website or article) -->
+        <meta property="og:image" content=""> <!-- 表示される画像(絶対パス)書いてね -->
+        <!-- Twitter用の設定 -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@UU9782wsEdANDhp">
+    </head>
+
+    <body>
+        <header>
+            <a href="home.html"><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675069885/pictures/sitelogo_p1inzg.png" class="sitelogo" alt="sitelogo"></a>
+        </header>
+
+        <div class="outer">
+            <aside>
+                <div id="table-of-content">
+                </div>
+            </aside>
+            <div class="main">
+                <nav>
+                    <ol class="crumbs"> <!-- ホームからのパンくずリスト -->
+                        <li class="crumb"><a href="home.html">Home</a></li>
+                        <li class="crumb">unstableをstableにする小技</li> <!-- 現在のページタイトル書いてね -->
+                    </ol>
+                </nav>
+                <h1>unstableをstableにする小技</h1> <!-- 一番でかい見出し書いてね -->
+
+                <div class="date"> <!-- 記事作成日と更新日書いてね -->
+                    <p>書いた日: 2023/7/3</p>
+                    <p>最終更新日: N/A</p>
+                </div>
+
+<h2>はじめに</h2>
+<p>先日(2023/7/1)の<a href="https://atcoder.jp/contests/abc308">ABC308</a>のC問題にややこしいソート問題が出ました。
+本稿はその問題を簡潔に解く実装のアイディアの紹介です。</p>
+<h2>無理やりstable化</h2>
+<p>標準ライブラリで一番簡単に使えるソートは安定ソートでないことが多いです。
+このため、競技プログラミングでよくある2値以上を取る要素のソートのときなどに、
+もとの順序が破壊されて困ることがあります。
+これを解消するには、比較関数を自炊してソートに渡してあげればよいです。</p>
+<p>例えば、以下のような構造体のソートを考えます。</p>
+<pre><code>struct pair {
+    int age;
+    int id;
+}
+</code></pre>
+<p>この構造体を次のルールに従って並べ替えます。</p>
+<ol>
+<li><code>age</code>が若いほうが先頭</li>
+<li><code>age</code>が同じなら、idが小さいほうが先頭</li>
+</ol>
+<p>このとき、次のような実装で解決することができます。</p>
+<pre><code>pair[] person = new pair[](N);
+
+// ...
+// 省略
+// ...
+
+bool Less (pair x, pair y) {
+    if (x.age == y.age) {
+        return x.id &lt; y.id;
+    }
+    return x.age &lt; y.age;
+}
+
+// 比較関数を渡す。
+person.sort!(Less);
+</code></pre>
+<p>これ、賢いです。
+多分3変数以上に拡張可能です。
+さらに、stableにしたいという目的以外でも応用可能です。</p>
+<p>例えば、<a href="https://atcoder.jp/contests/abc291/tasks/abc291_c">この問題</a>で、
+構造体に座標を突っ込んでいき、このソートをかければ
+隣接要素が等しいものが一つでもあれば<code>Yes</code>というふうにできます。
+(とは言ったものの、特に理由がなければ普通に<code>std::map</code>なりなんなりを使いましょう)</p>
+<h2>おまけ: C言語での文字列ソート</h2>
+<p>C言語から始めた人は文字列のソートに
+結構苦戦したことある人が多いんじゃないかと勝手に思っています。</p>
+<p>せっかくソート小技のエントリなので、サンプルコードを貼り付けときます。</p>
+<p>次の問題を解け</p>
+<p><code>N個の長さが10以下の文字列が与えられます。これを辞書順に出力してください。</code></p>
+<p>入力形式</p>
+<pre><code>N
+S_1
+S_2
+.
+.
+.
+S_N-1
+S_N
+</code></pre>
+<ul>
+<li>解法1: 二次元配列で楽するアレ</li>
+</ul>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+// T[i]へのポインタが引数なので、char **への変換からのデリファレンスが必要
+int mystrcmp (const void *x, const void *y) {
+    return strcmp(*(char **)x, *(char **)y);
+}
+
+int main (void) {
+    int N; scanf(&quot;%d&quot;, &amp;N);
+    char S[N][11];
+    char *T[N];
+
+    for (int i = 0; i &lt; N; i++) {
+        scanf(&quot;%s&quot;, S[i]);
+        T[i] = S[i];
+    }
+
+    // ソートする
+    qsort(T, N, sizeof(char *), mystrcmp);
+
+    // 出力
+    for (int i = 0; i &lt; N; i++) {
+        printf(&quot;%s\n&quot;, T[i]);
+    }
+
+    return 0;
+}
+</code></pre>
+<ul>
+<li>解法2: 一次元配列で文字列を受け取る</li>
+</ul>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+// T[i]へのポインタが引数なので、char **への変換からのデリファレンスが必要
+int mystrcmp (const void *x, const void *y) {
+    return strcmp(*(char **)x, *(char **)y);
+}
+
+int main (void) {
+    int N; scanf(&quot;%d&quot;, &amp;N);
+    char S[11*N];
+    char *T[N];
+    int idx = 0;
+
+    for (int i = 0; i &lt; N; i++) {
+        T[i] = &amp;S[idx];
+
+        // 入力を受け取る
+        char input[11];
+        scanf(&quot;%s&quot;, input);
+
+        for (int j = 0; input[j] != '\0'; j++) {
+            S[idx] = input[j];
+            idx++;
+        }
+
+        // 終端文字も忘れずに
+        S[idx] = '\0';
+        idx++;
+    }
+
+    // ソートする
+    qsort(T, N, sizeof(char *), mystrcmp);
+
+    // 出力
+    for (int i = 0; i &lt; N; i++) {
+        printf(&quot;%s\n&quot;, T[i]);
+    }
+
+    return 0;
+}
+</code></pre>
+<p>どちらも自動変数に文字列を積んでおいて、それらへのポインタを並べ替えることによってソートを実現しています。
+解法1は楽ですが、一つの文字列あたりの長さが不定のときには取り回しが悪いです。
+解法2は拡張性がありますが、シンプルに面倒くさいです。</p>
+<p>結論: 動的配列が簡単に利用できる言語を使おう！(すみません)</p>
+<h2>余談</h2>
+<p>方法2は競プロフレンズさんの実装で知りました。
+C言語はこういう謎テクが多くて困っちゃう。</p>
+            </div> <!-- ここまでが記事本編 -->
+        </div>
+            <footer>
+                <p class="copyright"><small>&copy; 2023 InTheDayDream</small></p>
+            </footer>
+    </body>
+</html>
