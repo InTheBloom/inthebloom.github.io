@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
-<link rel="alternate" href="/index.xml?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=2b113ca171b797293c300fcde36f4ad736e65b64" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="InTheDayDreamをhugoに移行するためにやったことたち - InTheDayDream">
 </meta>
 <meta property="og:url" content="http://inthebloom.github.io/post/hugo-setting/">
@@ -37,11 +37,11 @@
 <meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
-<link rel="stylesheet" href="/css/color.css?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+<link rel="stylesheet" href="/css/main.css?c=2b113ca171b797293c300fcde36f4ad736e65b64">
+<link rel="stylesheet" href="/css/color.css?c=2b113ca171b797293c300fcde36f4ad736e65b64">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+<link rel="stylesheet" href="/css/custom.css?c=2b113ca171b797293c300fcde36f4ad736e65b64">
 
 
 
@@ -116,6 +116,7 @@
         <li><a href="#全文検索をパクる">全文検索をパクる</a></li>
         <li><a href="#関連タグの表示を調整する">関連タグの表示を調整する</a></li>
         <li><a href="#過去記事の移植">過去記事の移植</a></li>
+        <li><a href="#デプロイ後に発覚faviconの謎の不具合">(デプロイ後に発覚)faviconの謎の不具合</a></li>
         <li><a href="#フロントマターのテンプレート">フロントマターのテンプレート</a></li>
       </ul>
     </li>
@@ -536,6 +537,10 @@ CSSを再度修正し、先程消したカテゴリの分を作る。</p>
 </span></span></code></pre></div><p>これで幅と可読性がいい感じになった。</p>
 <h3 id="過去記事の移植">過去記事の移植</h3>
 <p>今日(9月23日)、まだ完了していませんが、pandocでhtmlをmarkdownに変換して手作業で移植しています。つらたん。</p>
+<h3 id="デプロイ後に発覚faviconの謎の不具合">(デプロイ後に発覚)faviconの謎の不具合</h3>
+<p>なんか<code>layouts/partials/head.html</code>のfaviconのhrefの後ろに<code>c=?&lt;謎の文字列&gt;</code>みたいな謎の処理が入っているが、何故かgithub pages上でうまく動かなかった。
+よって、これを削除した。
+どういう影響があるのか知らない。</p>
 <h3 id="フロントマターのテンプレート">フロントマターのテンプレート</h3>
 <p>最後に改訂版フロントマターのテンプレートを載せておく。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
