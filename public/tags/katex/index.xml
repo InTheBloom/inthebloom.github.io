@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>katex on InTheDayDream</title>
+    <link>http://inthebloom.github.io/tags/katex/</link>
+    <description>Recent content in katex on InTheDayDream</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 23 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/katex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KaTeX導入してみる</title>
+      <link>http://inthebloom.github.io/post/katex/</link>
+      <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/katex/</guid>
+      <description>KaTeXを使ってみる $\LaTeX{}$風の数式を表示できるJavaScriptライブラリ(らしい)である$\KaTeX{}$を導入してみました。 本稿では、$\KaTeX$の紹介と、自分がどうやって導入したかを説明します。
+注意！ 筆者は$\KaTeX{}$及び$\LaTeX{}$に全く詳しくありません。 内容がガバガバかもしれないです。</description>
+    </item>
+    
+  </channel>
+</rss>
