@@ -27,5 +27,45 @@
 注意！ 筆者は$\KaTeX{}$及び$\LaTeX{}$に全く詳しくありません。 内容がガバガバかもしれないです。</description>
     </item>
     
+    <item>
+      <title>ABC293参加記録</title>
+      <link>http://inthebloom.github.io/post/abc293/</link>
+      <pubDate>Fri, 17 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/abc293/</guid>
+      <description>ABC293参加してきました。(今更感) もっとエントリ更新に力を入れると言っておきながらABC292の分をサボってしまいました。ABC293からすでに6日くらい経過していますが、一応有言実行ということで参加記録です。(すまんかった)
+総評 今回の戦績です。
+A, Bの2完でした。パフォーマンス375、レート変動553→535(-18)でした。</description>
+    </item>
+    
+    <item>
+      <title>ABC291参加記録 ~ DPお前もう船降りろ ~</title>
+      <link>http://inthebloom.github.io/post/abc291/</link>
+      <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/abc291/</guid>
+      <description>はじめに 今週もAtCoder Beginners Contest 291に参加してきましたので、軽く参加記録です。</description>
+    </item>
+    
+    <item>
+      <title>ABC290参加記録</title>
+      <link>http://inthebloom.github.io/post/abc290/</link>
+      <pubDate>Tue, 21 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/abc290/</guid>
+      <description>ABC290参加した。 お久しぶりです。最近AtCoderコンテストの参加記録をサボりがちなので、流石にエントリを生成します。
+今週行われたToyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290）は、どうやらオンサイトのコンテストに向けての予選を兼ねているそうで、希望者は好成績を出すことができれば3/18日に行われる決勝イベントに招待されるそうです。なんかすごいですね。</description>
+    </item>
+    
+    <item>
+      <title>ABC284参加記録</title>
+      <link>http://inthebloom.github.io/post/abc284/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/abc284/</guid>
+      <description>今週もABCのお時間になりました。 みなさん，あけましておめでとうございます。本日2023年1月7日は記念すべき新年最初のAtCoder Beginners Contestでした。今週も参加してきたのでいつも通り参加記録です。
+早速余談ですが，皆様は正月休みを有意義に使えましたか？私は久しぶりに帰省して，運動不足解消にと鍋蓋山に登りました。</description>
+    </item>
+    
   </channel>
 </rss>
