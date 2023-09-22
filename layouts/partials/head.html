@@ -15,9 +15,9 @@
 {{ end }}
 <meta name="author" content="{{ $site.Params.AuthorName }}">
 
-<link rel="apple-touch-icon" sizes="180x180" href="{{ relURL "images/apple-touch-icon.png" }}?c={{$cacheHashBase}}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ relURL "images/favicon.png" }}?c={{$cacheHashBase}}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ relURL "images/favicon-16x16.png" }}?c={{$cacheHashBase}}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ relURL "images/apple-touch-icon.png" }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ relURL "images/favicon.png" }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ relURL "images/favicon-16x16.png" }}">
 <link rel="alternate" href="{{ relURL "index.xml" }}?c={{$cacheHashBase}}" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="{{ if .IsHome }}{{ $site.Title }}{{ else }}{{ .Title }} - {{ $site.Title }}{{ end }}">
 </meta>
