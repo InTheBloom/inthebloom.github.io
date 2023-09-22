@@ -4,6 +4,7 @@ DefaultContentLanguage = "ja"
 title = "InTheDayDream"
 description = "InTheBloom's Website"
 author = "InTheBloom"
+publishDir = "docs"
 
 theme = "simplog"
 paginate = 5

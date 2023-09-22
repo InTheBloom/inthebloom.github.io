@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>サイト内全文検索 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+<link rel="alternate" href="/index.xml?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="サイト内全文検索 - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/search/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="サイト内全文検索 - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/search/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+<link rel="stylesheet" href="/css/color.css?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>サイト内全文検索</h1>
+
+
+
+
+
+
+
+
+<p>サイト内の文章からインクリメント検索が可能です。
+下の入力欄に入力することで検索ができます。</p>
+<p>本ページは検索の対象外になっています。</p>
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background: #fafafa;
+    }
+    input {
+      color: deeppink;
+      font-size: 1.2em;
+      font-weight: bolder;
+    }
+    input::-webkit-input-placeholder {
+      color: pink;
+    }
+    #result {
+      margin: 1em;
+    }
+    .item_title {
+      text-decoration: none;
+      color: #36f;
+      font-weight: bolder;
+    }
+    .item_excerpt {
+      background: white;
+      margin: 0.5em 2em 1em;
+      padding: 0.5em;
+      border: dashed 1px lightgray;
+      font-size: smaller;
+    }
+    .item_excerpt b {
+      background: pink;
+    }
+  </style>
+</head>
+<body>
+
+<input onkeyup="search(this.value)" size="15" autocomplete="off" autofocus placeholder="検索ワード" />
+<span id="inputWord"></span> <span id="resultCount"></span>
+<div id="result"></div>
+
+<script>
+
+const data = [
+  {
+    url: "/",
+    title: "InTheDayDream",
+    date: "2023-09-15T00:00:00Z",
+    body: "InTheDayDream"
+  },
+  {
+    url: "/post/hugo-setting/",
+    title: "InTheDayDreamをhugoに移行するためにやったことたち",
+    date: "2023-09-15T00:00:00Z",
+    body: "InTheDayDreamをhugoに移行するためにやったことたち 手動ブログ運営はしんどい！ さて、皆様はhatenablogなどのサービスを全く介さずに、単にインターネット上の置き場所にWebページを展開したことがありますでしょうか？ 私がしばらく運営している当ブログは、github pagesを利用した完全な手動運用のサイトです。 まあこれが辛いんです結構 具体的に何がしんどいのかと言うと、ページ公開に伴う面倒な作業がとにかく多いんですね。 例えば一つ公開したいページがあるとき、色んな所にリンクを貼り付ける必要があります。 また、すべてのCSSや、各ページのヘッダ(htmlの\u0026lt;head\u0026gt;タグの中身)とかも全部用意しなければいけません。 これがやりたいという人はいいですけど、結構面倒くさくて記事更新のモチベーションがゴリゴリ減らされるわけです。 私は現在競技プログラミングに取り組んでいて、新しい知見を得ることが結構ありますが、わざわざ一つの問題に対して記事を建てるなんて面倒くさくてやりたくないわけです。 これはかなりのデメリットです。 私はフロントエンドエンジニアでもなんでもなく、gitの使い方すらガバガバな初心者ですから、大抵の実装はその場しのぎで後からいじるとかはやりたくないわけです。 現在私のブログはもう触りたくないけどなーみたいなゴミがたくさん転がっているひどい現状です。 しかも、折角書いた記事も全然再利用性がないなーと感じています。 私の理想を言うなら、できるだけmarkdownなどでプレーンテキストデータに近い形で記事をおいておきたいわけです。これにスタイルシートとかを当てたり、他のフォーマットに変換するのは割と容易ですし。 というわけで、このあたりの面倒くさい作業をhugoに丸投げしちゃおうと言う感じです。 hugoとは？ The world’s fastest framework for building websites Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again. 以下google翻訳 ウェブサイトを構築するための世界最速のフレームワーク Hugo は、最も人気のあるオープンソースの静的サイト ジェネレーターの 1 つです。 Hugo の驚くべきスピードと柔軟性により、Web サイトの構築が再び楽しくなります。 hugo公式サイトより だそうです。すごく簡単に言うと、WordPressなどのようなCMSと違い、設計図のようなものから静的Webサイトを構築するソフトウェアです。 似たようなソフトウェアにjekyllとかがあります。 実は、以前jekyllをワチャワチャしてみようと思ったのですが、その時はよくわからずに諦めてしまったことがあります。 Jekyllなんか知らんけど動かない \u0026mdash; In (@UU9782wsEdANDhp) March 26, 2023 これはjekyllがプログラミング言語rubyとかなり密接につながっていることが原因の一つです。 jekyllはちょっと動かしてみたいなーってだけでなんだか色々インストールだの何だのを要求されます。 私はプログラミングのことなんか全然わかりませんから、普通にキレてやめました。 一方、hugoはあまりややこしいことをしなければgo言語の処理系を用意する必要すらないということで、割と良さそうだなと思って試しています。 もちろんソースからビルドとかしたいなら処理系が必要ですが、各プラットフォーム向けにバイナリが配布されているようなので、それでなんとかします。 let\u0026rsquo;s try! とりあえずバイナリをここからひったくってきます。 Windowsの方などはhugo_extended_0.118.2_windows-amd64.zipっていうやつをパクってきたらいいと思います。(2023/09/15) Linuxなどの方は、ディストリビューションのパッケージとして公開してくれてるやつを引っ張ってきても良いと思います。 私はUbuntu 22.04.3 LTS (64bit)ですので、aptからパクってくることもできます。 sudo apt update sudo apt install hugo ただ、なんか微妙に古かったので、さっきのリンクからパッケージをパクってきて、それをaptに渡しました。 hugo_extended_0.118.2_linux-arm64.debをダウンロード sudo apt install path/to/hugo_extended_0.118.2_linux-arm64.deb インストールできない？俺もわからん hugo version # -\u0026gt; hugo v0.118.2-da7983ac4b94d97d776d7c2405040de97e95c03d+extended linux/amd64 BuildDate=2023-08-31T11:23:51Z VendorInfo=gohugoio だそうです。 使い方は次のリンクをさっと見ていきましょう。ちなみに私は細かい使い方とか難しいことは何も分かっていません。 公式サイト(英語) さくらのナレッジ 私は読んでないけど、なんかドンピシャなやつあった(qiita) こっちは読んだやつ(Zenn) 読んだやつパート2(Zenn) もっとちゃんと知りたい人はちゃんと公式サイトを浚いましょうね。 さて、サイトテーマを決めましょう。hugoは公式サイトで有志が作ったテーマをいっぱい公開してくれています。 ここで物色しましょう。 テーマってなんやねんと思う方もいると思います。 私の浅いイメージ的には、 hugo : ユーザーが特定のディレクトリに配置したファイルからいろんなデータなどを抜き出し、それを操作する統一的なインターフェースとかを提供する。(例えば、配置したmdファイルからテキストを抜き出して、{{content}}みたいな記法で他のファイルに挿入できるようにするとか) hugoテーマ : hugoが提供してくれる機能をいい感じにデコったりしてくれる。 みたいな感じなのかな？ なので、hugo側でデフォルトで提供されているものの、テーマがそれに対応していないこともあります。readmeとかを見てちゃんと決めましょう。リポジトリを見に行けば大抵デモページが用意されています。 私がやったこと さて、本題です。 ここからは、私がこのサイトを構築するためにやったことを色々書きます。 どちらかと言うと自分が忘れたときのためのものなので、大して参考にならんかもしれません。 正直に言うと、このセクションのためにこの記事を書き始めました。 テーマ選択 テーマはsimplogを選択します。 主な選定理由はタグやカテゴリなどの便利機能をサポートしつつ、シンプルで使いやすそうだからです。 さて、今まで構築していたリポジトリをローカルにコピーしておいて、破壊しましょう。 cp -r ./ path/to/archive/ rm * hugo new site . --force # 以下実際のログ Congratulations! Your new Hugo site was created in /home/in/dev/git/myblog. Just a few more steps... 1. Change the current directory to /home/in/dev/git/myblog. 2. Create or install a theme: - Create a new theme with the command \u0026#34;hugo new theme \u0026lt;THEMENAME\u0026gt;\u0026#34; - Install a theme from https://themes.gohugo.io/ 3. Edit hugo.toml, setting the \u0026#34;theme\u0026#34; property to the theme name. 4. Create new content with the command \u0026#34;hugo new content \u0026lt;SECTIONNAME\u0026gt;/\u0026lt;FILENAME\u0026gt;.\u0026lt;FORMAT\u0026gt;\u0026#34;. 5. Start the embedded web server with the command \u0026#34;hugo server --buildDrafts\u0026#34;. See documentation at https://gohugo.io/. 次に、テーマをインストールします。よく分かってないですが、とりあえず書いてあるとおりに進めます。(なんだよsubmoduleって) git submodule add https://github.com/michimani/simplog.git ./themes/simplog # 以下実際のログ Cloning into \u0026#39;/home/in/dev/git/myblog/themes/simplog\u0026#39;... remote: Enumerating objects: 2538, done. remote: Counting objects: 100% (664/664), done. remote: Compressing objects: 100% (262/262), done. remote: Total 2538 (delta 288), reused 625 (delta 280), pack-reused 1874 Receiving objects: 100% (2538/2538), 3.09 MiB | 6.19 MiB/s, done. Resolving deltas: 100% (1201/1201), done. 全体の設定(hugo.toml) さて、驚くべきことに、これで大半の作業は終了です。 後は設定やテーマをいじりましょう。 まず、ルート直下にあるhugo.tomlを設定します。(hugoのバージョンによってはconfig.tomlがデフォだったりする) 私の設定を貼り付けておきますが、このあたりはテーマに依存する項目も多いですから、いろんな情報を見てみると良さそうです。 あと、一応注意喚起ですが、私は雰囲気で設定したので多分いくつかおかしいです。 baseURL = \u0026#39;http://inthebloom.github.io/\u0026#39; languageCode = \u0026#39;ja\u0026#39; DefaultContentLanguage = \u0026#34;ja\u0026#34; title = \u0026#34;InTheDayDream\u0026#34; description = \u0026#34;InTheBloom\u0026#39;s Website\u0026#34; author = \u0026#34;InTheBloom\u0026#34; theme = \u0026#34;simplog\u0026#34; paginate = 10 summarylength = 20 enableInlineShortcodes = true ignoreErrors = [\u0026#34;error-remote-getjson\u0026#34;] googleAnalytics = \u0026#34;\u0026#34; disqusShortname = \u0026#34;\u0026#34; [markup] [markup.goldmark] [markup.goldmark.renderer] unsafe = true [menu] [[menu.main]] identifier = \u0026#34;home\u0026#34; name = \u0026#34;Home\u0026#34; url = \u0026#34;/\u0026#34; weight = 1 [[menu.main]] identifier = \u0026#34;tags\u0026#34; name = \u0026#34;Tags\u0026#34; url = \u0026#34;/tags/\u0026#34; weight = 2 [[menu.main]] identifier = \u0026#34;categories\u0026#34; name = \u0026#34;Categories\u0026#34; url = \u0026#34;/categories/\u0026#34; weight = 3 [[menu.main]] identifier = \u0026#34;archives\u0026#34; name = \u0026#34;Archives\u0026#34; url = \u0026#34;/archives/\u0026#34; weight = 4 [[menu.main]] identifier = \u0026#34;about\u0026#34; name = \u0026#34;About\u0026#34; url = \u0026#34;/about/\u0026#34; weight = 5 [taxonomies] category = \u0026#34;categories\u0026#34; tag = \u0026#34;tags\u0026#34; archive = \u0026#34;archives\u0026#34; [services] [services.instagram] disableInlineCSS = true [services.twitter] disableInlineCSS = true [params] subtitle = \u0026#34;\u0026#34; colorTheme = \u0026#34;default\u0026#34; description = \u0026#34;\u0026#34; twitter = \u0026#34;UU9782wsEdANDhp\u0026#34; customCSS = \u0026#34;/css/custom.css\u0026#34; adobeFontsKitId = \u0026#34;\u0026#34; headerImagePath = \u0026#34;\u0026#34; [params.enabled] comment = true summary = true toc = true ポイントとしては、mdファイル中の生のhtmlを反映するようにunsafe機能を有効にしてあります。また、カスタムcssを有効にしてあります。カスタムcssは/static/以下が検索されてるっぽい？ カスタムcss(static/css/custom.css) cssは気に入らないものをオーバーライドしましょう。 ブラウザの調査機能などを使うと比較的簡単にどれを変えればよいかわかります。 img { width: auto; max-width: 100%; height: auto; border: 1px solid black; } #content h2 { padding-bottom: 0.5em; border-bottom: 1px solid gray; margin-top: 3em; } #main-menu-nav-items { grid-template-columns: repeat(5, 20%); } .block-separater { margin-top: 50px; } #content-footer { margin-top: 70px; } テンプレートのオーバーライド(layouts/) テーマに用意されているテンプレートもいじりましょう。 themes/以下のlayoutsではなく、ルート以下のlayoutsに同様のファイルを用意してあげることで、差異があったら優先的に使ってくれます。 cp -r themes/simplog/layouts/* ./layouts/ KaTeXの設定 これを利用する。 要はCDNからKaTeXを読み込んで、JSでロード時に変換しているっぽい？ 詳しいことはたくさん記事が存在するから各自でやりましょう。 まず諸々の設定を入れ込んだpartialを作成しよう。 touch layouts/partials/math.html 中身はこれ \u0026lt;link rel=\u0026#34;stylesheet\u0026#34; href=\u0026#34;https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css\u0026#34; integrity=\u0026#34;sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn\u0026#34; crossorigin=\u0026#34;anonymous\u0026#34;\u0026gt; \u0026lt;script defer src=\u0026#34;https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js\u0026#34; integrity=\u0026#34;sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx\u0026#34; crossorigin=\u0026#34;anonymous\u0026#34;\u0026gt;\u0026lt;/script\u0026gt; \u0026lt;script defer src=\u0026#34;https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js\u0026#34; integrity=\u0026#34;sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05\u0026#34; crossorigin=\u0026#34;anonymous\u0026#34;\u0026gt;\u0026lt;/script\u0026gt; \u0026lt;script\u0026gt; document.addEventListener(\u0026#34;DOMContentLoaded\u0026#34;, function() { renderMathInElement(document.body, { // customised options // • auto-render specific keys, e.g.: delimiters: [ {left: \u0026#39;$$\u0026#39;, right: \u0026#39;$$\u0026#39;, display: true}, {left: \u0026#39;$\u0026#39;, right: \u0026#39;$\u0026#39;, display: false}, // {left: \u0026#39;\\\\(\u0026#39;, right: \u0026#39;\\\\)\u0026#39;, display: false}, // {left: \u0026#39;\\\\[\u0026#39;, right: \u0026#39;\\\\]\u0026#39;, display: true} ], // • rendering keys, e.g.: throwOnError : false }); }); \u0026lt;/script\u0026gt; 各ページで読み込むための設定をしよう。 フロントマター(各記事先頭の設定)や、hugo.tomlで記述したパラメータを参照してオンオフを切り替えるようにした。 layouts/partials/header.htmlあたりにでも埋め込もう。 \u0026lt;!-- KaTeX Settings --\u0026gt; {{ if or .Params.math .Site.Params.math }} {{ partial \u0026#34;math.html\u0026#34;}} {{ end }} これでページ先頭にmath: trueなどと書けばKaTeXを使ってくれる。 余談ではあるが、markdownとKaTeXを同時に運用するのは相性的にあまり良くない。というのも、markdownパーサーがKaTeX記法と衝突することがあり、この場合htmlのロード後に発動するKaTeXが必ず負ける。 いろんなケースがあるので、問題が発生したらその都度解決策を考える必要があり、かなり面倒くさい。 マジで誰かなんとかしてくれ Table Of Contentsを強調する 記事の先頭にTOC(Table Of Contents)を設置してくれる機能がある。しかし、simplogのデフォルトはあまりにもわかりにくいと感じるので、改造する。 TOCはlayouts/_default/single.htmlをいじれば良さそう。 これが元 \u0026lt;!--TOC--\u0026gt; {{ if eq .Site.Params.Enabled.Toc true }} {{.TableOfContents}} {{ end }} 改造後 \u0026lt;!--TOC--\u0026gt; {{ if and .Site.Params.Enabled.Toc (not (eq .Params.Toc false)) }} \u0026lt;div style=\u0026#34;padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;\u0026#34;\u0026gt; \u0026lt;p style=\u0026#34;font-size: 1.3em;\u0026#34;\u0026gt;Table Of Contents\u0026lt;/p\u0026gt; {{.TableOfContents}} \u0026lt;/div\u0026gt; {{ end }} ついでに各記事内でTOCを制御できるようにした。先頭メタデータでtoc: true/falseで制御できる。 記事タイトルをh1にする 何故か最大の見出しがh2にされていて、自作cssが適用されちゃうのが嫌なのでh1に差し替える。 いじるファイルは同様にlayouts/_default/single.html あと、ついでに公開日のところをいじる。 before \u0026lt;!--Title--\u0026gt; \u0026lt;h2\u0026gt;{{.Title}}\u0026lt;/h2\u0026gt; {{ if or (not .Params.hideDate) (eq .Params.hideDate false) }} \u0026lt;span class=\u0026#34;sub\u0026#34;\u0026gt;{{.Date.Format \u0026#34;2006-01-02\u0026#34;}}\u0026lt;/span\u0026gt;\u0026lt;br\u0026gt; {{ end }} after \u0026lt;!--Title--\u0026gt; \u0026lt;h1\u0026gt;{{.Title}}\u0026lt;/h1\u0026gt; {{ if or (not .Params.hideDate) (eq .Params.hideDate false) }} \u0026lt;span class=\u0026#34;sub\u0026#34;\u0026gt;Published on {{.Date.Format \u0026#34;2006-01-02\u0026#34;}}\u0026lt;/span\u0026gt;\u0026lt;br\u0026gt; \u0026lt;span class=\u0026#34;sub\u0026#34;\u0026gt;Last Modified {{.Lastmod.Format \u0026#34;2006-01-02\u0026#34;}}\u0026lt;/span\u0026gt; {{ end }} 何気にパラメータlastmodが追加された。 先頭メタデータ内で、lastmod: 2006-01-01みたいな感じで指定してあげると良さそう なお、lastmodが設定されていないときはデフォルトでdateに合わせてくれた。気が利くなぁ ogpの画像の参照先をいじる ogpというのは、SNSなどにリンクを貼ったときにいい感じにプレビュー画像みたいなのを表示してくれるやつです。 デフォルトでは相対パスで検索しているようなので、ここを絶対パスを使うようにしてみます。 layouts/partials/head.htmlをいじります。 before \u0026lt;meta property=\u0026#34;og:image\u0026#34; content=\u0026#34;{{ $site.BaseURL }}{{ . }}\u0026#34;\u0026gt; \u0026lt;meta property=\u0026#34;og:image\u0026#34; content=\u0026#34;{{ $site.BaseURL }}{{ . }}\u0026#34;\u0026gt; after \u0026lt;meta property=\u0026#34;og:image\u0026#34; content=\u0026#34;{{ . }}\u0026#34;\u0026gt; \u0026lt;meta property=\u0026#34;og:image\u0026#34; content=\u0026#34;{{ . }}\u0026#34;\u0026gt; これで、メタデータでogimage: path/to/imageで指定できます。ただし絶対パスが必要になるので、外部のURLを指定すべきです。 ついでにデフォルトのogpimageを設定しておきましょう。{{ $site.BaseURL }}/images/featured_image.jpgという設定になっているようなので、この場所、名前で適当に作って配置します。 \u0026hellip;と思ったが、メタモンが発生してやる気がなくなったのでやめた。 faviconを用意する ブラウザなどでサイト名の横に表示されるちっちゃい画像のことをファビコンと呼ぶ。 これを用意する。 \u0026lt;link rel=\u0026#34;apple-touch-icon\u0026#34; sizes=\u0026#34;180x180\u0026#34; href=\u0026#34;{{ relURL \u0026#34;images/apple-touch-icon.png\u0026#34; }}?c={{$cacheHashBase}}\u0026#34;\u0026gt; \u0026lt;link rel=\u0026#34;icon\u0026#34; type=\u0026#34;image/png\u0026#34; sizes=\u0026#34;32x32\u0026#34; href=\u0026#34;{{ relURL \u0026#34;images/favicon.png\u0026#34; }}?c={{$cacheHashBase}}\u0026#34;\u0026gt; \u0026lt;link rel=\u0026#34;icon\u0026#34; type=\u0026#34;image/png\u0026#34; sizes=\u0026#34;16x16\u0026#34; href=\u0026#34;{{ relURL \u0026#34;images/favicon-16x16.png\u0026#34; }}?c={{$cacheHashBase}}\u0026#34;\u0026gt; layouts/partials/head.htmlにこのような記述があった。この名前とサイズで用意しよう。 なんかよくわからないが/static/images/*.pngに用意したら反映された。 aboutページを用意する contents/about.mdを用意すると動きました。 細かいことには触れません。 大体完成！ 後はルートディレクトリでhugo serverを実行するとhttp://localhost:1313にアクセスすると見れます。 ビルドするときはhugoを実行すればpublic/に静的サイトが作成されます。 適当にpushしときましょう。 メタデータのテンプレートはこんなかんじかな？ --- title: title date: yyyy-mm-dd # lastmod: yyyy-mm-dd # ogimage: https://path/to/ogimage.img tags: - categories: - archives: - # math: true # toc: false --- 追記 注意このセクションに書いてあることとそれまでのセクションで書いてあることが重複していたり、矛盾している場合、こちらがより正しい。 実用的にはほとんど何もしなくてもいい感じにしてくれるほうが良いなと思った。 記事作成でメタ情報の追加が面倒くさそうだなと思ったので、分類をタグのみに絞ることにした。 まず、hugo.tomlの内容を修正する。 具体的には、次の内容を消す # [taxonomies]にある category = \u0026#34;categories\u0026#34; # [menu]にある [[menu.main]] identifier = \u0026#34;categories\u0026#34; name = \u0026#34;Categories\u0026#34; url = \u0026#34;/Categories/\u0026#34; weight = 4 すると、上のメニューバーが一枠開くので、CSSを修正する。 /static/css/custom.cssを次のように修正する。 /* #main-menu-nav-itemsにある */ /* 次を消す */ grid-template-columns: repeat(5, 20%); /* 次を追加 */ grid-template-columns: repeat(4, 25%); これでタクソノミーを減らすことができた。hugo的にはカテゴリとタグを特別使い分けてなさそう(知らんけど)ので、許されるんじゃないかな 全文検索をパクる まくまくhugoノートを見ていたら、全文検索を実装できるらしい。 この機能があれば過去記事とかから情報を検索できてすごく便利だなと思ったので、導入することにした。 ほとんど上のコードをパクり、/layouts/shortcodes/search.htmlとしてファイルを作成し、search.mdというファイルでショートコードを取り込むことにした。 内容は省略するとして、search.mdの内容を載せておく。 --- title: サイト内全文検索 hidedate: true toc: false _build: {list: never} --- サイト内の文章からインクリメント検索が可能です。 下の入力欄に入力することで検索ができます。 本ページは検索の対象外になっています。 \u0026lt;!-- searchのショートコードを入れる(ここに入れるとここでも無限再帰になってしまう。) --\u0026gt; _build: {list: never}というのをすると、一覧系のページに表示されなくなるらしい。これをしないとビルドのときに無限再帰になってしまう。 さて、これで上のメニューバーに検索を入れたくなった。 CSSを再度修正し、先程消したカテゴリの分を作る。 grid-template-columns: repeat(5, 20%); [[menu.main]] identifier = \u0026#34;search\u0026#34; name = \u0026#34;Search\u0026#34; url = \u0026#34;/search/\u0026#34; weight = 4 出来上がりは検索ページで確認できる。 また、詳細なファイルの内容はgithubのリポジトリにおいてある。 それはそれとして、さっき直したものをまた直すとは計画性のないアホである。 関連タグの表示を調整する 便利な機能として、関連タグの記事を下の自動リンクしてくれる機能があるが、その見た目があまり良くなかった。 ので、改造する。 /layouts/partials/related-tag-posts.htmlを次のように修正する。 \u0026lt;!-- 次を削除 --\u0026gt; \u0026lt;h4\u0026gt;Other posts tagged by \u0026#34;{{ $t }}\u0026#34;\u0026lt;/h3\u0026gt; \u0026lt;!-- 次を追加 --\u0026gt; \u0026lt;h4 style=\u0026#34;font-size: 1.3em;\u0026#34;\u0026gt;Other posts tagged by \u0026#34;{{ $t }}\u0026#34;\u0026lt;/h4\u0026gt; これ修正して気づいたが、オリジナルのコード閉じタグ間違ってない？ それと同時にCSSに次のものを追加する。 .related-tag-category-list { margin-top: 5em; } これで幅と可読性がいい感じになった。 過去記事の移植 今日(9月23日)、まだ完了していませんが、pandocでhtmlをmarkdownに変換して手作業で移植しています。つらたん。 フロントマターのテンプレート 最後に改訂版フロントマターのテンプレートを載せておく。 --- title: hogehoge # description: hogehoge date: yyyy-mm-dd # hidedate: true # lastmod: yyyy-mm-dd # ogimage: https://hoge/fuga/piyo.img tags: - hoge archives: - yyyy - yyyy-mm # math: true # toc: false # build: {list: never} --- 終わりに なんだかんだ1週間以上色々やってた。 疲れました。 これでいろんな記事を作りやすくなった。嬉しい。"
+  },
+  {
+    url: "/post/",
+    title: "Posts",
+    date: "2023-09-15T00:00:00Z",
+    body: "Posts"
+  },
+  {
+    url: "/post/katex/",
+    title: "KaTeX導入してみる",
+    date: "2023-06-23T00:00:00Z",
+    body: "KaTeX導入してみる KaTeXを使ってみる $\\LaTeX{}$風の数式を表示できるJavaScriptライブラリ(らしい)である$\\KaTeX{}$を導入してみました。 本稿では、$\\KaTeX$の紹介と、自分がどうやって導入したかを説明します。 注意！ 筆者は$\\KaTeX{}$及び$\\LaTeX{}$に全く詳しくありません。 内容がガバガバかもしれないです。 使い方 ここに丁寧に書いてあるので、こっちを参考にしてください。 私は手元で動かしたい人向けにリポジトリから窃盗する手順だけ紹介します。 リポジトリはこちらです。 アクセスするとこんな画面になるはずです。 右下の方のReleasesの中のlatestがついてるやつをクリックしましょう。 こんな画面になるはずです。(私が作成してるときはv0.16.7でした。) tarballかzipをダウンロードして解凍しましょう。 こんなファイル群が出てくるはずです。 これらをhtmlファイル内で読み込めば使用できます。 下は実際にこのページで使用されている設定です。 (上で貼ったページのものをちょっぴり差し替えただけです。ファイルパスは自分の環境に合わせて変える必要があります。) \u0026lt;link rel=\u0026#34;stylesheet\u0026#34; href=\u0026#34;../katex/katex.css\u0026#34;\u0026gt; \u0026lt;script defer src=\u0026#34;../katex/katex.js\u0026#34;\u0026gt;\u0026lt;/script\u0026gt; \u0026lt;script defer src=\u0026#34;../katex/contrib/auto-render.js\u0026#34;\u0026gt;\u0026lt;/script\u0026gt; \u0026lt;script\u0026gt; document.addEventListener(\u0026#34;DOMContentLoaded\u0026#34;, function() { renderMathInElement(document.body, { delimiters: [ {left: \u0026#34;$$\u0026#34;, right: \u0026#34;$$\u0026#34;, display: true}, {left: \u0026#34;$\u0026#34;, right: \u0026#34;$\u0026#34;, display: false}, ] }); }); \u0026lt;/script\u0026gt; 数式のフォントサイズが気に入らなかったら、head内に次を足してください。(数字はお好みで) \u0026lt;style\u0026gt; .katex { font-size: 1em !important; } \u0026lt;/style\u0026gt; もしくはdivとかの中だけフォントサイズをいじるっていう方法もあります。 KaTeXテンプレート $\\KaTeX{}$を使うときは、インライン数式なら$で囲みます。 行単位なら$$で囲みます。 そうしないとうまく動かないです。 基本の使い方は$\\LaTeX{}$と同じなので、$\\LaTeX{}$記法はググると良いです。 よく使いそうな数式を紹介します。 行番号あり数式 $$ \\begin{equation} \\int_0^{2\\pi{}} \\sin{}x dx = 0 \\end{equation} $$ $$ \\begin{equation} \\int_0^{2\\pi{}} \\sin{}x dx = 0 \\end{equation} $$ 複数行に渡る数式(行番号一つ) $$ \\begin{equation} \\begin{split} \\sum_{k=0}^{n} {}_n \\mathrm{C}_k \u0026amp;= {}_n \\mathrm{C}_0 + {}_n \\mathrm{C}_1 + \\dots \\\\ \u0026amp;= 2^n \\end{split} \\end{equation} $$ $$ \\begin{equation} \\begin{split} \\sum_{k=0}^{n} {}_n \\mathrm{C}_k \u0026amp;= {}_n \\mathrm{C}_0 + {}_n \\mathrm{C}_1 + \\dots \\\\ \u0026amp;= 2^n \\end{split} \\end{equation} $$ デカ括弧 $$ T = 2\\pi{} \\sqrt{ \\frac{h}{g} \\left( 1+\\frac{2r^2}{5h^2} \\right) } \\left( 1+\\frac{\\theta{}^2}{16} \\right) $$ $$ T = 2\\pi{} \\sqrt{ \\frac{h}{g} \\left( 1+\\frac{2r^2}{5h^2} \\right) } \\left( 1+\\frac{\\theta{}^2}{16} \\right) $$ なお、絶対値やその他の括弧も基本上の例に従う。 インラインデカ数式 通常 $\\frac{a}{b}$ $\\sum_a^b$ $\\int_a^b$ デカ $\\dfrac{a}{b}$ $\\displaystyle\\sum_a^b$ $\\sum\\limits_a^b$ $\\displaystyle\\int_a^b$ $\\int\\limits_a^b$ 通常 $\\frac{a}{b}$ $\\sum_a^b$ $\\int_a^b$ デカ $\\dfrac{a}{b}$ $\\displaystyle\\sum_a^b$ $\\sum\\limits_a^b$ $\\displaystyle\\int_a^b$ $\\int\\limits_a^b$ これはinline表示をdisplayモードに矯正するコマンドです。一番適したものを使いましょう。 単位をつけるために微妙に間あけるやつ $1.0\\,\\mathrm{m}$ $1.0\\,\\mathrm{m}$ 数式環境下での立体は基本的に\\mathrm{}を使っておけば良い。 $\\KaTeX{}$が対応してるかなどは知らないが、 物理単位などによっては組み込みやパッケージ等でより良いものが用意されていることがあるので、 それらを調べてから使うとなお良い。 終わりに あくまでテキストベースなの良いですよね。($\\TeX{}$記法が再利用性が高いかは置いておくとして) ただ、思ったより色々と大変でした。 特に、markdownのパースのせいで$\\KaTeX{}$が崩されたりするのはかなり罠だと思います。 個人的な使い方としては、htmlに変換した後厳重にチェックした後放流するって感じになりそうです。"
+  },
+  {
+    url: "/post/abc293/",
+    title: "ABC293参加記録",
+    date: "2023-03-17T00:00:00Z",
+    body: "ABC293参加記録 ABC293参加してきました。(今更感) もっとエントリ更新に力を入れると言っておきながらABC292の分をサボってしまいました。ABC293からすでに6日くらい経過していますが、一応有言実行ということで参加記録です。(すまんかった) 総評 今回の戦績です。 A, Bの2完でした。パフォーマンス375、レート変動553→535(-18)でした。 結果だけを見ると正直結構やらかしてしまったなという感じですが、ほとんど理解していないアルゴリズムが問われているので当然の帰結だと思います。あと、これで3週連続冷えなのでじわじわレートが下がっています。 問題など 今回は解けてはいないけどC問題まで紹介します。 A - Swap Odd and Even 問題文はこちらです。 操作によって文字列長が変化しない上、制約も優しいので普通にシュミレートすれば解けます。C言語等を使っている人はバッファオーバーランに気をつけましょう。この問題の制約下では文字列長が偶数になることがわかっているのでループ変数に2を加えていく方針でACできます。バッファオーバーランに気をつけるなら、操作に使う変数とループ変数を分けるのが良いでしょう。 ACコード B - Call the ID Number 問題文はこちらです。 こちらも基本的には言われたとおりにシュミレートすれば解ける問題になっています。ただし、A問題と比べて複雑になっているので注意深く問題分を読むべきだと思います。 「すでに番号を呼ばれた人」は割り当てられた番号を読み上げることができないので、これをシュミレートするために以下のような実装が考えられます。 人iが呼ぶ番号Aiを配列に格納する。(配列のi番目に人iの情報を入れる) 配列を最初から順に見ていって、「その要素番目」にある要素を-1(インデックスとして無効な値なら何でも良い)で上書きする。 最後にもう一度最初から見ていって、要素が-1になっていない人がまだ呼ばれていない人で、これはすでに昇順になっています。 配列が強すぎる ACコード(前半はソート関数郡です。(必要なかった)) C - Make Takahashi Happy 問題文はこちらです。 経路上に存在する数字がかぶるかどうかを判定するためには、すべての経路を具体的に知っていなければいけません。すなわち、重複順列の全列挙です。そこで、いくつか方法があります。 私の取った方法はbit全探索です。0と1を「右に進む」「下に進む」に対応させることで重複順列をすべて列挙することができます。ビット数はw + h - 2になります。たぶん知らないとできません。 具体的には、最下位ビットの加算を行うたびに全ビットを見ていって、「下に進む」を表しているビットの総数がh - 1に到達したときに求めたい組み合わせの一つになります。高校数学を履修した人にとっては馴染み深い考え方かもしれません。(経路の数を求める問題で出てくるはずです。) pythonやc++であれば、順列の列挙をするライブラリが利用できるはずなので、使い方を知っていればACしやすいと思います。C言語にそんなものはありません。(血涙) ACコード 完走した感想 今回のコンテストはちょうど対策が薄かったところばっかり出てきて中々苦しかったです。特に、組み合わせの列挙は近いうちの目標だったのですが、面倒くさくて放置していました。 D問題はグラフに関する問題が出ていました。まじでグラフをなんとかしないと茶色から落ちそうなのでがんばります。(C言語は動的配列のサポートが薄く、隣接リストを微妙に作りにくいからずっと面倒臭がって放置しています。) 全然関係ないけど200AC超えました。 それではまた次のエントリで"
+  },
+  {
+    url: "/post/abc291/",
+    title: "ABC291参加記録 ~ DPお前もう船降りろ ~",
+    date: "2023-02-26T00:00:00Z",
+    body: "ABC291参加記録 ~ DPお前もう船降りろ ~ はじめに 今週もAtCoder Beginners Contest 291に参加してきましたので、軽く参加記録です。 戦績 今回の戦績は以下の通りです。 A, B, Cの3完で、パフォーマンス439でした。レート変動は571→557です。 D問題ゆ゛る゛さ゛ん゛(大迫真) 問題とか 出た問題紹介します。 A - camel Case 大文字が出現する位置を答える問題です。私の解法では、asciiにおいて小文字を数値表現したときに90を上回ることを利用して判定するというものです。 以下ACコードです。 #include \u0026lt;stdio.h\u0026gt; int main (void) { char s[101]; scanf(\u0026#34;%s\u0026#34;, s); for (int i = 0; s[i] != \u0026#39;\\0\u0026#39;; i++) { if (90 \u0026gt;= s[i]) { printf(\u0026#34;%i\u0026#34;, i + 1); } } return 0; } B - Trimmed Mean バラバラに渡される数値の上からと下からN個を抜いて平均を取るという問題です。おそらく出題意図としては、O(N^2)でもいいからソートを実装してみてというものだと思います。 何らかの手段でソートをかけて、真ん中の3N個のデータについて平均を取ることでACをとれます。私はC言語の標準関数(qsort())を使わずに、自作関数でやってみました。 ACコードはやたらと長いので、実際の提出を載せます。 提出 C - LRUD Instructions 2 二次元座標平面のグリッド上を動き回る人が、二回以上同じ座標に来ることがあるかを判定する問題です。 正直結構悩みました。一番先に思いついたのは、訪れた座標をキーにして、連想配列に入れることです。pythonなどの組み込みのデータ構造がリッチな言語なら多分この方法でやっていました。 残念なことに、現状C言語で私がすぐに利用できる連想配列はないため、他の方法を取りました。 しばらく唸っていると、同じ座標を訪れるということは、訪れた座標をすべて記録しておき、ソートをかけることですぐに判定できるのではないかという天啓が訪れます。早速実装しましたが... 座標のxとyでソートをかけると、片方のソート結果までぐちゃぐちゃにされることを忘れていました。対策として、一旦xでソートをかけてから、xが同じ奴らに対してyソートをかけるように修正したら通りました。というわけで以下AC提出です。(やたら長いのでこちらも提出で) 提出 D - Flip Cards 2^Nの組み合わせの中から条件を満たすものの数を考える問題です。制約から明らかに全探索したら間に合いません。(原理的にはbit全探索すれば解けますが)というわけで何らかの簡略化を行う必要が出てきます。 組み合わせ + 全探索だと不可能 ← これ大体DP説 というわけでDPの線を疑いながら考えました。結果... 典型dpの攻略は春休み中の課題の一つです。がんばります... 解説に「配るDP」とか書いてあってビビっちゃいました。くやしいので解けたら別記事建てるかもしれません。 終わりに 参加記録は以上です。ここまで読んでいただきありがとうございました。 レートはモチベーションの一つではありますが、レートによってモチベーションが下げられるのはもったいない気がするので、今回の失敗はなかったことにしときます。春休み中に緑行けるといいなぁって思っています。それでは次のエントリで。"
+  },
+  {
+    url: "/post/abc290/",
+    title: "ABC290参加記録",
+    date: "2023-02-21T00:00:00Z",
+    body: "ABC290参加記録 ABC290参加した。 お久しぶりです。最近AtCoderコンテストの参加記録をサボりがちなので、流石にエントリを生成します。 今週行われたToyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290）は、どうやらオンサイトのコンテストに向けての予選を兼ねているそうで、希望者は好成績を出すことができれば3/18日に行われる決勝イベントに招待されるそうです。なんかすごいですね。 まあ私はそんな実力には程遠いので、いつもどおり参加してきました。 成績とか 軽く今週の戦績を振り返っておきます。今回はA,B,Cの3完でパフォーマンス611, レート変動511→523でした。 微増ですがまあ勝ちは勝ちなので() あと前回の参加記録からしばらく時間が立っているので、いつの間にか入茶しています。(多分色変記事は書きません) 問題と解法 サラッと流します。今までの記事では結構このパートに力を使っていたんですが、比較的難しい問題などは前回の記事のようなスタイルで記事を立てようかなと思っているので、あまり深入りはしないことにします。 A - Contest Result 問題文はこちら すぬけくんの解いた問題番号は配点のあとに渡されるので、一旦配点はすべて記録しておく必要があります。✙最強のデータ構造✙である配列を用いれば一発です。ただしアクセスするインデックスは一つずれますから気をつけましょう。 C言語的なことを言うとしたら、制約からすぬけくんの総得点はintで大丈夫だし、何なら配点はcharで収まります。 以下ACコードです。 #include \u0026lt;stdio.h\u0026gt; int main (void) { int n, m; scanf(\u0026#34;%i %i\u0026#34;, \u0026amp;n, \u0026amp;m); int a[n]; for (int i = 0; n \u0026gt; i; i++) { scanf(\u0026#34;%i\u0026#34;, \u0026amp;a[i]); } int ans = 0; for (int i = 0; m \u0026gt; i; i++) { int tmp; scanf(\u0026#34;%i\u0026#34;, \u0026amp;tmp); ans += a[tmp - 1]; } printf(\u0026#34;%i\u0026#34;, ans); return 0; } B - Qual B 問題文はこちら 予選コンテストにちなんだ問題でしょうか？意外とAtCoderの問題って遊び心のあるものが多いような気がします。 さて、予選を突破するための条件は、「決勝希望者であり、希望者のの中で上位K人である」ことなので、単に上からoのついている人をK人分だけoにして、あとはxにするとオーケーです。 以下ACコードです。 #include \u0026lt;stdio.h\u0026gt; int main (void) { int n, k; scanf(\u0026#34;%i %i\u0026#34;, \u0026amp;n, \u0026amp;k); char s[n]; scanf(\u0026#34;%s\u0026#34;, s); int sum = k; int count = 0; for (int i = 0; n \u0026gt; i; i++) { if (sum == 0) { break; } if (s[i] == \u0026#39;o\u0026#39;) { printf(\u0026#34;o\u0026#34;); sum--; } else { printf(\u0026#34;x\u0026#34;); } count++; } for (int i = count; n \u0026gt; count; count++) { printf(\u0026#34;x\u0026#34;); } return 0; } C - Max MEX 問題文はこちらです。 MEXってなんだよ(正論) MEXというものをほとんど聞いたことがなかったので「MEX 数学」でgoogle検索してみましたが、あまりヒットしなかったのでそこまで有名なものでもないようです。 さて、このMEX演算は自明な性質として、「数Xを生成したければ、最低でもX個の元が必要である」というものがあります。本問題ではK要素を抜き出してくるという操作を行うため、どんなに頑張ってもMEX(B)の最大値はKになります。 最大値がそれより小さくなるケースは、「0~K-1に至る途中の数のどれかが一つでも欠けている」というものになります。 以上より、数列Aに0~K-1までの数字がすべて含まれているときに答えはKになり、それ以外のときは「欠けている」最小の数字が答えになります。 以下ACコードです。 #include \u0026lt;stdio.h\u0026gt; int main (void) { int n, k; scanf(\u0026#34;%i %i\u0026#34;, \u0026amp;n, \u0026amp;k); char check[k + 1]; for (int i = 0; k + 1 \u0026gt; i; check[i++] = 0) {} for (int i = 0; n \u0026gt; i; i++) { int tmp; scanf(\u0026#34;%i\u0026#34;, \u0026amp;tmp); if (k \u0026gt; tmp) { check[tmp] = 1; } } for (int i = 0; k + 1 \u0026gt; i; i++) { if (check[i] == 0) { printf(\u0026#34;%i\u0026#34;, i); break; } } return 0; } 余談ですが、ARC156にもMEX関連の問題が出ていましたね(全く解けませんでした) D - Marking 結構引っかかった問題なので、(もしやある気があれば)別記事をたてます。 終わりに 参加記録はこれでおしまいです。読んでいただきありがとうございました。 いつかの参加記事でも言及しましたが、最近はAtCoder Problemsが提供しているBoot camp for Beginnersに取り組んでいて、Easyの100問を解ききることができました。また、それに伴ってLongest Streakも50日を達成しました。ヤッター 個人的におすすめなので、みなさんもやってみてはいかがでしょうか？ それと今後の方針としましては、記事更新をもうちょっと頑張りたいな〜とか考えてます。それではまた次の記事で"
+  },
+  {
+    url: "/post/abc284/",
+    title: "ABC284参加記録",
+    date: "2023-01-07T00:00:00Z",
+    body: "ABC284参加記録 今週もABCのお時間になりました。 みなさん，あけましておめでとうございます。本日2023年1月7日は記念すべき新年最初のAtCoder Beginners Contestでした。今週も参加してきたのでいつも通り参加記録です。 早速余談ですが，皆様は正月休みを有意義に使えましたか？私は久しぶりに帰省して，運動不足解消にと鍋蓋山に登りました。 鍋蓋山の道中にある林 登頂成功。これ元旦です。いいでしょ？ 冬ということもあって，道中も結構寒い時がありました。普通に服着ててこれなので，中学高校の持久走で言われた「走ってたら寒くないから」とか言うクッソ無責任な言葉を思い出したりしてました。 長距離深夜バスにて東京に再召喚...(実家に帰りたい) また，我らがUECは1月5日から授業なので，年明けてすぐ帰りました。なお新年初授業は来てる人少なかった模様 閑話休題。それでは本編行きましょう 今回の結果 今回の提出はこんな感じでした。 今回はA, B, Dの三完でした。めちゃくちゃWAが多いのは気にしないでください。傷つきます。 なお，今回は初めてコンテスト中にD問題を解くことができました！ うれしい！でもお前C解けないじゃん 今回のコンテストによるレーティング変動は以下の通りでした。 遂に茶色までの折り返しを超えることができました！ やはりD問題が解けたのが大きかったようです。Cが解けなかったのに今までで最高のパフォーマンス(732でした。)を出すことができました。 各問題に対する解法など いつも通りに私の考えたことなどを書いていきます。 A - Sequence of Strings 問題文は以下の通りでした。 文字列をN個受け取って，逆順で出力する問題でした。 一旦文字列をすべて保持して，あとから出力していけばオーケーです。ほかの言語についてはよくわかりませんが，C言語ならとりあえず[いっつも理解が浅いせいで事故るからできるだけ避けたいけど]{style=\u0026ldquo;text-decoration: line-through;\u0026quot;}二次元配列を使うと比較的アッサリ解けます。 具体的に言うと，char s[n][11]みたいなものを宣言して，scanf関数で\u0026amp;s[i][0]から受け取ればいいです。以下はAC通ったコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int n; scanf(\u0026#34;%i\u0026#34;, \u0026amp;n); char s[n][11]; for(int i = 0; n \u0026gt; i; i++) { scanf(\u0026#34;%s\u0026#34;, \u0026amp;s[i][0]); } for(int i = n - 1; i \u0026gt;= 0; i--) { printf(\u0026#34;%s\\n\u0026#34;, s[i]); } return 0; } ちなみに，この問題の制約下では各文字列は10文字以下です。したがって，配列は終端文字'\\0'を含めて11以上で宣言しなければいけません。私は普通に忘れててWA食らいました。 B - Multi Test Cases 問題文は以下の通りでした。 複数のテストケースに対して判定していくというちょっと変わった問題ですね。私がAtCoderに参加し始めてから初めて見るタイプでした。 幸い判定することは偶奇判定なので，2で割った余りを見ていけばOKです。ポイントを挙げるとするなら，答えはテストケースの順番に出力する必要があるので，入力を受け取るごとに出力をしていく感じで実装するとスマートです。以下ACコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int t; scanf(\u0026#34;%i\u0026#34;, \u0026amp;t); for(int i = 0; t \u0026gt; i; i++) { int n; int ans = 0; scanf(\u0026#34;%i\u0026#34;, \u0026amp;n); for(int i = 0; n \u0026gt; i; i++) { int temp; scanf(\u0026#34;%i\u0026#34;, \u0026amp;temp); if(temp % 2 == 1) { ans++; } } printf(\u0026#34;%i\\n\u0026#34;, ans); } return 0; } 完全に余談ですが，最近変数のスコープの管理が少しだけうまくなったような気がします。 D - Happy New Year 2023 問題文は以下の通りでした。 一言でいうなら素因数分解をする問題です。ただし，今回の問題では対象となる数が2つの素数p, qによってp2qと表せることが分かっています。あと，この問題でもB問題と同じく複数のケースの判定を行う問題でした。 この問題を最も単純なアイデアから膨らませて考えていきます。 最も簡単な解き方は，単純にすべて試し割りしてみることです。「ある自然数は，それ以下の素数の積としてただ1通りに表すことができる」という事実を利用しています。要は素因数分解の一意性ってことです。換言すると，「ある数Nは，2からNまでのいずれかの素数で割っていくといずれ1になる」ということです。 例を挙げましょう。例えば2023は17×17×7，63は3×3×7に分解することができます。このことを利用すると以下のような実装が可能です。 for(int i = 2; n \u0026gt;= i; i++) { if(n % i == 0) { // nを割ることができる数を発見 while(n % i == 0) { // 同じ数が複数回掛け算されている可能性もある n /= i; } } } これをいい感じに今回の問題に当てはめると「原理的には」解くことができます。しかし，*実際には解くことができません。*競技プログラミングをやる方ならお分かりかと思いますが，今回の制約におけるNが9 × 1018以下という部分が引っ掛かります。つまり，無駄な計算が多すぎて実行時間に間に合いません。さて，どのような工夫が可能でしょうか？ 私がこの問題を解くにあたって，まず足掛かりにしたのは「ある数Nは，Nの平方根より大きな素因数を多くても一つしか持たない」という事実です。残念ながらこの知識は当意即妙的に知らなかった状態からパッと思いつくのは難しいかなと(私は)思います。しかし，素数を扱うときに強力な武器になりえるので知らなかった人は憶えておくとよいかもしれません。よく考えると当たり前のことで，もしNの平方根より大きな素因数を2つもっていたとすると，その2数の積がすでにNを越えてしまうので，明らかに矛盾するからです。 この事実を使うと何が良いのでしょうか？それは，探索範囲が小さくできるからです。前述の事実から次のことが言えます。 NがNの平方根以下の素因数しか持たないとき，もちろんNの平方根までの探索で，すべての素因数を見つけることができる。 NがNの平方根より大きな素因数を持つ時，Nの平方根までの探索で見つけた素数でNを割ることで，残りの素因数を見つけることができる。 以上より，さっきまではNまで探索していたのに対して，Nの平方根までの探索でよいことを示すことができました。より具体的な方法を挙げると，Nの平方根まで「Nを割ることができる数」を見つけたらその都度見つけた数で限界まで割っていきます。探索がNの平方根まで終わったら，これまで割られてきたNを確認します。もしこの数が1になっていなければ，それは素数ということが確定しています。 この方法で問題を解くことができるでしょうか？残念ながら，おそらくまだ間に合いません。それはNの平方根が最大で109のオーダーに達するからです。 このアイデアは無駄だったのでしょうか？いや，まだあきらめるのは早いです。制約を見直してみましょう。今回はNは(重複を許して)3つの素因数を持ちます。先ほどの考え方を応用すると，Nの三乗根までの探索で少なくとも一つの素因数を見つけることが可能ということがいえます。これは，もしそれ以上の素因数を3つ以上持っていると先ほど示したものと同様の矛盾が生じるからです。 この時，探索範囲は最大で106のオーダーまで減少します。AtCoderでは，およそループを108くらいまで回せるそうなので，よほど定数倍を悪化させるような処理を書かなければおそらく通るでしょう。 基本的にはこのアイデアで通ると思います。が，私の実装ではまだ注意点があります。それは，三乗根までの探索ですべての素因数が確定するパターンと確定しないパターンに分かれるからです。 問題で言うところの素因数p(つまり，Nに二つ含まれているもの)を見つけることができれば，残りの素因数はNをpで割ることで見つけることができますが，もしqしか見つけられなかった場合，Nをqで割ることにより得られる数はp2となり，これをpに「ほぐす」作業が必要となります。私はこの処理を二分探索にて実装しました。 以下私のACコードです。 #include \u0026lt;stdio.h\u0026gt; int disassembly(long long int *a, long long int *b, long long int *n, int *map) { // 素因数がすべてまたは2乗じゃないほうだけ見つかる int flag; for(int i = 2; 3000000 \u0026gt; i; i++) { if(map[i] != 0) { if(*n % map[i] == 0) { *n /= map[i]; if(*n % map[i] == 0) { // このケースは確定 *a = map[i]; *n /= map[i]; *b = *n; flag = 1; break; } else { // このケースはまだわからない *b = map[i]; flag = 0; break; } } } } if(flag == 1) { return 0; } else { return -1; } } void Sqrt(long long int *a, long long int *n) { long long int left, center, right; left = 0; if(*n \u0026gt; 3000000000) { right = 3000000000; } else { right = *n; } for(; right - left \u0026gt; 10;) { center = (right + left) / 2; if(center * center \u0026gt; *n) { right = center; } else { left = center; } } for(; *n != left * left; left++) {} *a = left; } int main(void) { int t; scanf(\u0026#34;%i\u0026#34;, \u0026amp;t); int map[3000000]; // エラトステネス for(int i = 0; 3000000 \u0026gt; i; i++) { map[i] = i; } for(int i = 2; 1734 \u0026gt; i; i++) { for(int j = 2 * i; 3000000 \u0026gt; j; j += j) { map[j] = 0; } } for(int i = 0; t \u0026gt; i; i++) { long long int n; scanf(\u0026#34;%lli\u0026#34;, \u0026amp;n); long long int a, b; // 素因数 if(disassembly(\u0026amp;a, \u0026amp;b, \u0026amp;n, map) == 0) { printf(\u0026#34;%lli %lli\\n\u0026#34;, a, b); } else { Sqrt(\u0026amp;a, \u0026amp;n); printf(\u0026#34;%lli %lli\\n\u0026#34;, a, b); } } return 0; } クソ長コードですまんかった。ポイントとしては，まず素数のリストを事前にエラトステネスの篩を用いて事前計算しておくことで多少の軽量化を図っています。あとは二分探索でオーバーフローしないようにしています。いずれも制約ありきなので一般的に使えるコードではないです。 余談ですが，最近こんな風にvoidを返す関数にポインターの引数を与えることで，面倒くさい処理を外部委託するのにハマっています。それにしてもint *aみたいなやつを与えたときに*aって書くの面倒くさいですね。 C - Count Connected Components 問題文は以下の通りです。 無理でした。はい。 この問題に出てくる「グラフ」というのは，よくある「y = xのグラフ」のようなものではなくて，離散数学における「頂点と線をいくつか組み合わせた図形」のようなものらしいです。 例えば，以下のようなものがグラフです。(出典: AtCoder Beginners Contest284問題ページより) この問題の題意は多分「辺と頂点の情報が与えられるので，独立しているパーツの数を答えなさい」です。しかし，グラフの定義やそこから導かれる性質がよくわかっていなかったため，有効な解法がよくわかりませんでした。先にある程度グラフについて知らないと厳しそうです。 グラフ，完全に理解した。 ということで，今後の課題ということにさせてください。 終わりに 今回の参加記録は以上です。ここまで読んでいただきありがとうございました。 余談ですが，AtCoder Problemsにて今回のC問題のdifficultyを確認してきたのですが，なんと灰色の真ん中くらいでした。...うせやろ？ どうやらグラフの探索は簡単めの典型のようです。次出たときには解けるようになりたいといいたいところですが，グラフを勉強するってどうすればいいんでしょうか...解説によると幅優先探索とかで解けるらしいです。 なんだよそれ あと，最近はAtCoder Problems上のBoot camp for Beginnersを少しずつ進めています。ついでにLongest Streak(ACを出した日の継続日)を伸ばそうと頑張っています。もしやっていない人がいたらおすすめです。 それでは次の記事でお会いしましょう。皆様にとって2023年がいい年になりますように！"
+  },
+  {
+    url: "/post/abc283/",
+    title: "ABC283参加記録！",
+    date: "2022-12-26T00:00:00Z",
+    body: "ABC283参加記録！ ABC283参加してきた！ こんにちは。最近近所のスーパーが扱っている冷凍パスタのメーカーが変わって一瞬焦ったInです。(でもちゃんとおいしかったのでセーフ) アドベントカレンダーを執筆していた影響で遅れてしまいましたが，今週もちゃんとABCに参加してきましたので，その参加記録を生やしておきます。 今週の成績発表のコーナー まずは今週の成績です。前回爆死したのが記憶に新しいですが，今回はこんな感じでした。 大体16分でCまで通して，そのあとD問題に敗北しました。全体で3完です。 このためだけに10分くらいで作った雑コラ。 なお，今回のコンテストによるレート変動は以下の通りでした。 茶色まで折り返し地点といった感じでなかなかいいんじゃないでしょうか？今回は結構早解きに成功したので，3完ですがそこそこの順位になりました。ペナルティも食らってないし 各問題と解法 いつも通り自分が解いた問題の説明を載せていきたいと思います。まずはA問題です。 A - Power 問題文は以下の通りでした。 AのB乗を出力するだけのシンプルな問題です。 ご存じの方も多いかもしれませんが一応書いておきますと，ABというのはBが自然数の場合は素朴に定義されており， AB=A×A×\u0026hellip;×A (AがB個掛け算されている) というものです。 この問題の制約下では，ABの最小値はA=B=1の時1で，最大値はA=B=9の時387420489となります。これはintの範囲内に収まります。また，計算回数も9回程度に収まることが分かるので，定義通り計算して出力したらOKであることが分かります。以下にAC通ったコードを載せます。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int a, b; scanf(\u0026#34;%i %i\u0026#34;, \u0026amp;a, \u0026amp;b); int ans = 1; for(int i = 0; b \u0026gt; i; i++) { ans *= a; } printf(\u0026#34;%i\u0026#34;, ans); return 0; } このA問題はここ最近の中では簡単な問題だと思います。というかほとんどの言語が組み込みで冪乗計算の機能を備えているので，簡単に解けた人が多いんじゃないかと思います。 B - First Query Problem 問題文は以下の通りでした。 この問題はAtCoderによくあるタイプのクエリを処理する奴ですね。この手の問題は工夫したら真面目にクエリを処理しなくてもいい場合があります。したがって，まずは条件をよく見ることが大切です。 問題文を見ると，クエリの件数の制約や，行う必要のある操作の制約がかなり緩いことが分かります。まず第一引数が1であるようなクエリは，受け取った数列を配列などに保持するだけでO(1)で行うことができます。また，第一引数が2であるようなクエリに対しても同様です。一つしか値を操作しないので軽いですね。操作回数も105が上限となっており，愚直に処理しても十分間に合いそうです。 もしかしたら何らかの最適化があるのかもしれませんが，私は書いてある通りに実装して通りました。以下コードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int n, q; scanf(\u0026#34;%i\u0026#34;, \u0026amp;n); int a[n]; for(int i = 0; n \u0026gt; i; i++) { scanf(\u0026#34;%i\u0026#34;, \u0026amp;a[i]); } scanf(\u0026#34;%i\u0026#34;, \u0026amp;q); int temp; //クエリ種類 int k; // インデックス int num; // すり替え数字 for(int i = 0; q \u0026gt; i; i++) { scanf(\u0026#34;%i\u0026#34;, \u0026amp;temp); scanf(\u0026#34;%i\u0026#34;, \u0026amp;k); if(temp == 1) { scanf(\u0026#34;%i\u0026#34;, \u0026amp;num); a[k - 1] = num; } else { printf(\u0026#34;%i\\n\u0026#34;, a[k - 1]); } } return 0; } クエリの種類によって与えられる引数の数が変わるのに注意です。私の実装ではシンプルにif文で分岐してあります。あと完全に余談なのですが，うえのコードでは実行時で確定していない変数を用いて配列を宣言するというC言語(C99以降?)の機能を使っているのですが，便利だけど罪悪感があります(笑) C - Cash Register 問題文は以下の通りでした。 与えられた数字をレジの機械で打ち込むときに必要なストローク数を調べるという問題でした。ほとんどの人がまずは制約に目が行くのではないでしょうか？制約は整数が10100000らしいです。デカ過ぎんだろ... デカさのイメージ図 ということで、明らかに「非常に簡単な処理」でどうにかなる、もしくは規則性などに注目して簡略化する必要があることが推察できます。そこで、問題文から具体的に考えてみます。 詳細は省きますが、具体例をいくつか考えることで「数字のキーを押す」ということと「現在表示されている数字の末尾に押した数字を追加する」ということが(一回目の入力を除いて)完全に一対一に対応していることに気づきます。すなわち、「0が二つ並んでいる」という状態を除くと、追加される数字に関係なく「キーを押す回数」=「数字の桁数」ということがわかります。 したがって、入力を文字列として受け取り、前述した「0が二つ並んでいる」状況のときのみを別処理になるようにして、あとは桁数をカウントするだけで良いです。 文字列として扱う理由は値が大きすぎてC言語組み込みのあらゆる整数型に収まらないからというのと、単純に各桁の数値を確認するだけなら配列としてアクセスしたほうが有利だからです。例えば整数型として格納できたとすると、各桁を取り出すためには割り算や剰余演算くらいしか手がないです。剰余を取る操作などは明らかに配列へのアクセスより遅く、今回の条件ではあまり意味がありません。以下はACコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { char s[100002] = {0}; scanf(\u0026#34;%s\u0026#34;, s); int ans = 0; for(int i = 0; s[i] != \u0026#39;\\0\u0026#39;; i++) { if(s[i] == \u0026#39;0\u0026#39; \u0026amp;\u0026amp; s[i + 1] == \u0026#39;0\u0026#39;) { ans++; i++; } else { ans++; } } printf(\u0026#34;%i\u0026#34;, ans); return 0; } まず配列を100002以上で宣言します。これは、10100000=10...0(0が100000個並んでいる)で100001ブロック消費して、さらに文字列として処理しているので終端文字\\0の分が必要だからです。 前述の連続した0の処理は、二つ並んだものを見つけたら配列の参照カウントをインクリメントする処理に分岐させるようにしています。これで一回で二文字打ったということと等価になります。 見ての通り計算量的には各桁を見て回るだけなのでO(1)の処理を桁数だけ行うことになります。与えられた数字の桁数は最大で100001なので、余裕で間に合います。 D - Scope 問題文は以下の通りでした。 問題文が長くて問われていることを理解するだけでも結構大変な問題ですね。最終的にコンテスト後にACすることができたので，思考の過程を載せておきたいと思います。 問題文が複雑なので，まず問われていることを整理しました。この問題で問われていることは，細部を無視するとざっとこんな感じです。 (、)、「英小文字」のみからなる「ある条件」を満たす良い文字列が与えられる。 文字列の先頭からある操作をしていく。この時、文字列の最後まで操作を行うことができるかどうかを判定する。 (以下の議論では上の条件でぼかした「ある条件」と「ある操作」については説明しません。ご了承ください。)具体例を見ながらどういう判定法をするといいのかを考えました。例えば，具体例としてコンテストのページに乗っている入力例を以下に提示します。 この例などを見ながら考えると，良い文字列を)から遡って構成するには，(と)の数を釣り合わせればいいことに気が付くと思います。 例えば上記の入力例をとって説明しましょう。まず最初に出会う)は4文字目です。そこから遡って見返していくと，ほかの)に出会う前に(と出会うことが分かります。この場合，(と)の数が等しい最小の範囲を見つけることができました。 次に出会う)は最後の文字です。ここからさかのぼってみていくと，(に出会う前に)と出会ってしまうことが分かります。したがって，その他の)に出会わなければ2つの(が見つかった場所までが条件を満たす範囲になるはずです。もしこれが本当に正しいのか気になる人は，ほかの良い文字列のパターンなどに適用して確認してみてください。 このような操作を思いつくのは結構大変かもしれません。(実際，私はコンテスト中は間違った方針で進めてしまっていました。)個人的には，まずは「良い数列」の様々なパターンなどを書き出してみて，実際に自分がこの判定をするときにどのような部分に着目するかなどを考えるといいかもしれません。厳密に正しいという証明を出すのは難しくても，発見的手法が威力を発揮する場面は多いと思います。 それでは見つけ出した方法を愚直に実装してみましょう。私は()の数をカウントするのではなく，一番深いネストの()を終えたら()を違う文字で置き換えてしまうという方法をとりました。この操作によって，常に最初に見つかった(で止めればよくなります。 #include \u0026lt;stdio.h\u0026gt; int main(void) { char s[300001] = {0}; scanf(\u0026#34;%s\u0026#34;, s); char ascii[123] = {0}; // アルファベット小文字はa-\u0026gt;97からz-\u0026gt;122だからそれぞれのインデックスに対応させる。1がたってたら使用済み for(int i = 0; s[i] != \u0026#39;\\0\u0026#39;; i++) { if(s[i] == \u0026#39;(\u0026#39;) { continue; } else if(s[i] == \u0026#39;)\u0026#39;) { s[i] = 0; for(int j = 0; ; j++) { if(s[i - j] == \u0026#39;(\u0026#39;) { s[i - j] = 0; break; } else if(s[i - j] == 0){ continue; } else { ascii[s[i - j]] = 0; } } } else { if(ascii[s[i]] == 1) { printf(\u0026#34;No\\n\u0026#34;); return 0; } else { ascii[s[i]] = 1; } } } printf(\u0026#34;Yes\\n\u0026#34;); return 0; } こんな感じの実装になりました。英小文字カウンターは，asciiコード表でa~zが97~122に割り当てられているのを利用して，そのまま配列にアクセスするキーとして利用しています。途中でブレークすることなく最後までループを回せたらそれはYesの文字列だったという風に判定しています。 ...はい，このコード実はTLEを食らいました。 あれだけ自信満々に解説しておいてなんですが，これでは通らないようです。今の方針を維持したままもう少し工夫できるところがないか考えてみましょう。 具体例を見ながら条件をよく考察すると，上記のコードでは必要ない処理をかなり含んでいることが分かります。まずは以下の例を見てください。 文字列(((a(bcd)cde))ef)を考える。 まずabcdと書かれたボールが箱に入れられる。(箱の中: abcd) )に出会って，bcdが取り出される。(箱の中: a) cdeと書かれたボールが箱に入れられる。(箱の中: acde) abcdeが取り出される。(箱の中: なし) abcdeが取り出される。(二回目)(箱の中: なし) ボールefが箱に入れられる。(箱の中: ef) abcdefが取り出される。(箱の中: なし) 高橋君が操作を終えることができると分かる 注目していただきたいのは，ボールを取り出すフェーズです。よく見ると一度取り出した部分は，その後考える必要がないことが分かります。直観に反すると思うので，もう少し定性的に考えてみます。現在考えている階層より深いネストの()の中にある小文字は，以下の2パターンに分岐します。((abc)abe)を見ながら考えてみるといいと思います。 現在の階層にあるものとと同じ小文字 -\u0026gt; 「現在の階層」の)に出会えば，より深い部分に行く前にボールは取り出される。(上の例のabが該当する) 現在の階層に無い小文字 -\u0026gt; 「現在の階層」に至る前に取り出され，それ以降箱に入れられること自体がない。(上の例でcが該当する) 以上から，例えば((abc)abe)は，一回目のボール取り出しをした後は( abe)として扱っても良いということになります。 これを繰り返すことで，一回見た部分を今後見ないという改善策が見つかります。これを実装しましょう。 #include \u0026lt;stdio.h\u0026gt; #include \u0026lt;stdlib.h\u0026gt; int main(void) { char *s = (char *)calloc(300001, sizeof(char)); scanf(\u0026#34;%s\u0026#34;, s); int len = 0; for(; s[len] != \u0026#39;\\0\u0026#39;; len++) {} char ascii[123] = {0}; // アルファベット小文字はa-\u0026gt;97からz-\u0026gt;122だからそれぞれのインデックスに対応させる。1がたってたら使用済み char *s1 = NULL; for(int i = 0; s[i] != \u0026#39;\\0\u0026#39;; i++) { if(s[i] == \u0026#39;(\u0026#39;) { continue; } else if(s[i] == \u0026#39;)\u0026#39;) { int j; for(j = 1; ; j++) { if(s[i - j] == \u0026#39;(\u0026#39;) { break; } else { ascii[s[i - j]] = 0; } } s1 = (char *)calloc(len - j, sizeof(char)); // 新しい配列の宣言+代入 for(int k = 0; i - j \u0026gt; k; k++) { s1[k] = s[k]; } for(int k = i + 1, k1 = i - j; len \u0026gt; k; k++, k1++) { s1[k1] = s[k]; } len = len - j - 1; i = i - j - 1; free(s); s = s1; s1 = NULL; } else { if(ascii[s[i]] == 1) { printf(\u0026#34;No\\n\u0026#34;); return 0; } else { ascii[s[i]] = 1; } } } printf(\u0026#34;Yes\\n\u0026#34;); return 0; } これでAC通りました。うれしい。 かなりごちゃごちゃしてしまいましたが，このコードの要点は， 最もネストの深い()を見つけて，ボール解放を行う。 新しく配列を宣言して，その部分のみを除いた文字列を作る。 これを繰り返しているだけです。C言語以外なら多分もっと簡潔に書けると思います。 ちなみにこれは全然最適な方法ではないらしく，今回のコンテストでC言語を用いてD問題を通した中で最も実行時間がかかっていました。余裕があればほかの人のコードも解析しようかな。 終わりに 今回の記事は書くのに過去一番時間がかかりました。ひとえにD問題が強敵だったからです。とんでもねえな 実はいまだにコンテスト中にD問題を通したことがありません。そろそろ通させてくださいマジで。ちなみにレーティングが今回で199まで上がったので，茶色までの折り返しに到達しました。何とか茶色に到達できるように今後も頑張っていけたらなと思います。 完全に私事ですが，このくらいの規模の記事になると流石にタグ含めすべてを手打ちするの結構大変になってきました。もうちょっと何とかしたいです。 それではここまで読んでいただきありがとうございました。よいお年を。"
+  },
+  {
+    url: "/post/abc282/",
+    title: "ABC282参加記録",
+    date: "2022-12-18T00:00:00Z",
+    body: "ABC282参加記録 今週もABC参加してきた こんにちは，冷凍うどんを食べようとしたら鍋の口が小っちゃくて入らなかったInです。 毎週ABCに参加し続けて，今回のABC282で5回目になりました。今週も結果報告と自分の忘備録を兼ねて記事を残しておきます。 結果報告のコーナー まずはいつも通り結果報告からです。今回の提出状況はこのような感じでした。 まずB問題で問題文の読み間違えが発生して無駄に悩んだ挙句，C問題で3WAを出して爆死しました。はい。結果的にはABCの三完でした。何とか途中で修正できてよかったです。ちなみにD以降は私にはもうちんぷんかんぷんでした。 今回のコンテストによるレーティング変動は，以下の通りでした。ジャン！ コラ～～～～！！！！！！！ ...ということで爆死でした。パフォーマンスは210で，今までで2番目に低い値を記録してしまいました。絶望感漂う中，記事を書いていきたいと思います。 もう終わりだよこの国 問題と解法 どんなふうに問題を解いたかを紹介します。 A問題 問題文は以下の通りでした。 与えられた整数Kの分だけ英大文字を出力する問題です。制約からZよりあとに関しては考えなくてもいいことが分かります。したがって，ASCIIコードを利用してprintf関数で標準出力に出力していけばオーケーです。 もう少し具体的に言うと，ASCIIコード表によると，英大文字は65番にAから始まって，90番にZまで順番に割り当てられています。したがって，ループ毎に1ずつ増やしていけばオーケーです。以下AC通ったコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int k; scanf(\u0026#34;%i\u0026#34;, \u0026amp;k); for(int i = 0; k \u0026gt; i; i++) { printf(\u0026#34;%c\u0026#34;, 65 + i); } return 0; } 最近のABCは毎回ASCIIコード表を見ながらやってる気がします。次B問題です。 B問題 問題文は以下の通りです。 N人の人が，コンテストに出題される各問題を解けるかどうかのデータが渡されます。参加者から2人を選んで，コンテストの問題をすべて解けるペアを作るとするとき，作ることができるペアの数を調べる問題です。 この時，作ることができるペアとは，「同時に作ることができるペア」ではないことに注意する必要があります。私はこれを勝手に同時に作ることができるペアの数のことだと勘違いして，永遠に悩んでいました。 また，この問題にはもう一つ注意する必要のある点があります。それは，ペアには順序を考えないことです。具体的には，ある一人を選んで，その人が一緒に組むことで全問正解できるようなペアをすべて列挙していくコードで解こうとすると，気を付けないとA-BのペアとB-Aのペアを区別してカウントしてしまうということが起こります。私はこの方針で解きましたが，前述の問題は，二重forループの二重目のループ変数を，一重目のループ変数で初期化することで対処しました。以下AC通ったコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int n, m; // nが人，mが問題 scanf(\u0026#34;%i %i\u0026#34;, \u0026amp;n, \u0026amp;m); char s[n][31]; for(int i = 0; n \u0026gt; i; i++) { scanf(\u0026#34;%s\u0026#34;, \u0026amp;s[i][0]); } int ans = 0; char flag = 0; for(int i = 0; n \u0026gt; i; i++) { for(int j = i; n \u0026gt; j; j++) { if(i == j) { continue; //同じ番号同士は考えない } for(int k = 0; m \u0026gt; k; k++) { if(s[i][k] == \u0026#39;x\u0026#39; \u0026amp;\u0026amp; s[j][k] == \u0026#39;x\u0026#39;) { //ダメだった flag = 1; break; } } if(flag == 0) { ans++; // 可能ペア発見 } else { flag = 0; //戻す } } } printf(\u0026#34;%i\u0026#34;, ans); return 0; } 少し見にくいかもしれません。すみません。途中3重forループがありますが，最初の二つが人を選ぶところと対応しており，三つめが問題をすべて解けるかの判定になっています。 C問題 最後にC問題です。問題文は以下の通りです。 \u0026quot;に挟まれていない部分にのみ違う処理を施して，文字列を得る問題です。 正直，この問題はC問題の中では簡単なほうかなと思います。(簡単というのは，方針が思い浮かびやすいという意味です。)しかし，私はこの問題で大コケしてしまい，*順位が死にました。*結構ガチでショックです。 解法としては，文字列を配列で受け取り，\u0026quot;を発見したら，次の\u0026quot;までそのまま出力するようにするとオッケーです。この分岐の処理をいかに簡単にするかがキモだと思います。 まずは私がWAを出したクソコードを載せます。反面教師です。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int n; scanf(\u0026#34;%i\u0026#34;, \u0026amp;n); char s[n]; scanf(\u0026#34;%s\u0026#34;, \u0026amp;s[0]); for(int i = 0; n \u0026gt; i; i++) { if(s[i] == \u0026#39;\u0026#34;\u0026#39;) { printf(\u0026#34;%c\u0026#34;, s[i]); for(int j = i + 1; s[j] != \u0026#39;\u0026#34;\u0026#39;; j++) { if(s[j] == \u0026#39;,\u0026#39;) { printf(\u0026#34;%c\u0026#34;, \u0026#39;.\u0026#39;); } else { printf(\u0026#34;%c\u0026#34;, s[j]); } i++; } i++; printf(\u0026#34;%c\u0026#34;, s[i]); } else { printf(\u0026#34;%c\u0026#34;, s[i]); } } return 0; } まずはクソコードその一です。言うまでもなくこのコードの抱える一番の問題点は，とにかくごちゃごちゃしている点です。このコードはprintf関数を5回も使っており，いかに事前にどうやって組むかを考えていなかったかがバレバレです。また，もう一つの重大な欠点は問題の要求と逆の処理をしていることです。問題文の読み違えには気を付けよう！(公開ブログでゆうさくを貼れるほど度胸は無かった) お次に，これをもう少し修正したけどダメだったコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int n; scanf(\u0026#34;%i\u0026#34;, \u0026amp;n); char s[n]; scanf(\u0026#34;%s\u0026#34;, \u0026amp;s[0]); for(int i = 0; n \u0026gt; i; i++) { if(s[i] == \u0026#39;\u0026#34;\u0026#39;) { printf(\u0026#34;%c\u0026#34;, s[i]); i++; for(; s[i] != \u0026#39;\u0026#34;\u0026#39;; i++) { printf(\u0026#34;%c\u0026#34;, s[i]); } printf(\u0026#34;%c\u0026#34;, s[i]); i++; } if(s[i] == \u0026#39;,\u0026#39;) { printf(\u0026#34;%c\u0026#34;, \u0026#39;.\u0026#39;); } else { printf(\u0026#34;%c\u0026#34;, s[i]); } } return 0; } このコードは，問題ページにあるテストケースは無事に突破しました。しかし，いまだ重大な問題を抱えています。それは*極端な入力に対してバッファーオーバーランが起こりえます。*これはヤバい(確信) このコードは，最初に\u0026quot;が来たかどうかを判定して，来ていたら次の\u0026quot;までそのまま出力し続けるようにしてあります。これだけ聞くとまともそうですが，一番ダメなのはインクリメントを管理しきれていない点です。ループの途中に分岐点を作っていたりする関係上，コード中のあちこちでインクリメントが発生するせいでバグを追いきれませんでした。 例えば入力が\u0026quot;\u0026quot;\u0026quot;\u0026quot;だったりすると，余分なインクリメントが発生してバッファの外側に突き抜けます。そして次の\u0026quot;が見つかるまで止まることはありません。うーんこの 最後にAC通ったコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int n; scanf(\u0026#34;%i\u0026#34;, \u0026amp;n); char s[n]; scanf(\u0026#34;%s\u0026#34;, \u0026amp;s[0]); for(int i = 0; n \u0026gt; i; i++) { if(s[i] == \u0026#39;\u0026#34;\u0026#39;) { printf(\u0026#34;%c\u0026#34;, s[i]); i++; for(; s[i] != \u0026#39;\u0026#34;\u0026#39;; i++) { printf(\u0026#34;%c\u0026#34;, s[i]); } printf(\u0026#34;%c\u0026#34;, s[i]); continue; } if(s[i] == \u0026#39;,\u0026#39;) { printf(\u0026#34;%c\u0026#34;, \u0026#39;.\u0026#39;); } else { printf(\u0026#34;%c\u0026#34;, s[i]); } } return 0; } このコードはさっきのコードにcontinue処理を挟むことで(一時的なものですが)さっき挙げた不正なインクリメントを防止しています。 教訓: インクリメントはわかりやすい場所で管理しよう。continueやbreakをちゃんと使おう。 完走した感想 今回のコンテストはかなり残念な感じになってしまいました。しかしとりあえずC問題まででも解けて良かったです。結構実装の技術的な点でコケることが多いなと感じているので，もっと問題数を解いてデバッグなどに慣れたいです。また，D問題以降は数学的知識や競プロ的な技術がかなり問われる問題かなと(一見)思いました。したがって，大学での数学の勉強などはしっかり頑張りたいです。(願望) 今回の結果はかなり来るものがあるけど，今日体調悪かったから多少はね？ ここまで読んでいただき，ありがとうございました。また次の記事でお会いしましょう。ちなみに一週間後のUECアドベントカレンダーに登録したはいいもののまだ一文字も書いていません(絶望)じゃあね。"
+  },
+  {
+    url: "/post/abc281/",
+    title: "ABC281に参加してきた。",
+    date: "2022-12-10T00:00:00Z",
+    body: "ABC281に参加してきた。 今週もABCに参加してきたよ こんにちは。あいも変わらず今週もABCに参加してきました。その結果報告の記事です。 今回の戦績発表 まずは今回の戦績です。以下は今回の私の提出です。 今回は珍しくWAを出さずにコンテストを終えることができました。D問題は解けなかったので，実質コンテスト参加時間は30分でした笑 ちなみにレーティングは今回で+62でした。着々と上がっている感じが結構うれしいし，モチベーションになっているような気がします。 解法など 今回の記事も，自分がどうやって解いたかを残しておきます。 A問題 以下は問題文です。 今回のA問題は最近の中では簡単なほうかな？っていうのが率直な意見です。この問題はforなどのループ構造を書ければ回答できそうですね。具体的には，受け取った数字分のループを回して，その中で変数をデクリメントしながら出力すればオーケーですね。以下は私の提出です。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int n; scanf(\u0026#34;%i\u0026#34;, \u0026amp;n); for(int i = n; i \u0026gt;= 0; i--) { printf(\u0026#34;%i\\n\u0026#34;, i); } return 0; } c言語ではfor文でインデックス変数が利用できるので，比較的簡単に記述することができます。 B問題 まずは問題文です。 文字列の照合問題ですね。正直この手の問題は結構苦手とするところですが，，，今回は何とか解けました。 方針としては，まず与えられた文字列をscanf関数で文字列型として読み取って，ASCIIコードで照合していきました。具体的に言うと，まず「先頭の文字が一文字の英大文字」という条件は，受け取った文字列が入っている配列の一つ目の要素が，「数値として」65以上かつ90以下という条件により判別することができます。このようなことを繰り返して判別していきます。以下はACが通ったコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { char s[11] = {0}; //全部ゼロで初期化する scanf(\u0026#34;%s\u0026#34;, s); if(!(s[0] \u0026gt;= 65 \u0026amp;\u0026amp; 90 \u0026gt;= s[0])) { // 頭大文字チェック printf(\u0026#34;No\\n\u0026#34;); return 0; } if(s[1] == 48) { printf(\u0026#34;No\\n\u0026#34;); return 0; } for(int i = 1; 7 \u0026lt; i; i++) { if(!(s[i] \u0026gt;= 48 \u0026amp;\u0026amp; 57 \u0026gt;= s[i])) { printf(\u0026#34;No\\n\u0026#34;); return 0; } } if(!(s[7] \u0026gt;= 65 \u0026amp;\u0026amp; 90 \u0026gt;= s[7])) { // ラスト大文字チェック printf(\u0026#34;No\\n\u0026#34;); return 0; } if(s[8] != 0) { // きっちり8文字かチェック printf(\u0026#34;No\\n\u0026#34;); return 0; } printf(\u0026#34;Yes\\n\u0026#34;); return 0; } コメントで「きっちり8文字かチェック」と書かれている部分について少しだけ補足します。今回の問題の制約では，ASCIIコードにおいて十進数表示で0になるような文字が入力されることがないので，この条件により確実に仕分けることができます。しかし，一般的な場合に関してはそうとは限らないので，注意が必要です。(今回0という条件にしたのはたまたま配列を0で初期化しようと思ったからというだけで特に深い理由はありません。) C言語でこういう文字列処理をするのはかなり面倒くさいですね。。。もっといい方法があるのかもしれませんが。 C問題 以下問題文です。 循環するプレイリストにおいて，与えられた時間が経過したときに何曲目が流れているかを考える問題ですね。 この問題を考える上でまず大切なのが，プレイリストの総再生時間よりも再生時間が大きくなるようなパターンが存在することです。この時，プレイリストの総再生時間分だけ経過したら一番最初の状態に戻るので，再生時間を総再生時間で割った余りを考えることで問題を簡単にすることができます。(なお，総再生時間が再生時間よりも大きいような場合には，再生時間がそのまま余りとなります。したがって，とりあえず剰余を考えるという方法でも大丈夫です。) この後，その余りを，一つ一つの楽曲再生時間の和が超えたタイミングが答えの曲の位置になります。これはほぼ自明ですね。 以下は提出コードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int n; long long int t; long long int sum = 0; // 全曲の総再生時間 scanf(\u0026#34;%i %lli\u0026#34;, \u0026amp;n, \u0026amp;t); int a[n]; for(int i = 0; n \u0026gt; i; i++) { scanf(\u0026#34;%i\u0026#34;, \u0026amp;a[i]); sum = sum + a[i]; } if(t \u0026gt; sum) { t = t % sum; } sum = 0; //sumリセット int num; for(int i = 0; ;i++) { sum = sum + a[i]; if(sum \u0026gt; t) { num = i + 1; sum = sum - a[i]; break; } } printf(\u0026#34;%i %lli\\n\u0026#34;, num, t - sum); return 0; } やっていることはほとんど上で書いたことそのままです。ただし，for文のインデックス変数が(というより配列の要素が)0からスタートする一方，曲の順番は1からスタートするので気を付けましょう。 D問題 D問題は，解けなかったよ。。。(n回目) とりあえず問題の紹介だけはします。以下問題文です。 つまりは，Aの元から任意にK個を選んできて，それらを足したものの集合を考えるときに，与えたDの倍数であるようなもので最大のものを探すというものです。 この問題の恐ろしいところは，Aの元から任意にK個を選ぶ組み合わせの数が非常に大きくなることがあるという点です。この問題において最悪ケースを考えると， Aの要素が100個 Kが50(詳細は省きます) となるときです。この時の組み合わせの数はなんと100,891,344,545,564,193,334,812,497,256になります。どう考えても愚直にやるのは無理です。 しかし現在の私ではこの問題に対する有効な解法はわかりませんでした。なのでC問題を解き終わってからコンテスト終了まで机の前でｳﾝｳﾝうなってました。う～ん，アホ！w なお，コンテスト終了後に公開される解説によると，この問題は動的計画法なるもので解くことができるらしいです。知らんが？ というわけでボロボロでした。精進します。 終わりに 今回の参加記は以上です。だんだんレートが上がっているとは言えども，専門的なアルゴリズムの知識なんてないのでこういう問題にぼこぼこにされる日々です。しかし，思ってる以上に競プロを通じて数学などに触れることは新鮮で楽しいと思っています。今のところは。ということでこれからも頑張っていけたらなと思います。 DPなんかねえよ(K重forループをおもむろに書き始める) というわけで，ここまで読んでいただきありがとうございました。また次の記事でお会いしましょう。"
+  },
+  {
+    url: "/post/abc280/",
+    title: "ABC280に参加してきました！",
+    date: "2022-12-04T00:00:00Z",
+    body: "ABC280に参加してきました！ 今回もABCに参加してきました。 どうもこんにちは。大学の課題が結構やばいことになっているInです。今回もABCに参加してきましたので，その参加記事になっております。別に競技プログラミングのためだけにこのブログ(?)を開設したわけじゃないのに，現状では競技プログラミングの記事しかないことを憂いております。(やる気やらなんやらの問題で筆が進まないんですよね) 閑話休題。それでは今週の参加感想記事です。 結果発表のコーナー 今週の提出結果です。 なんと今回は運よくCまで解くことができました。(ドンドンパフパフ) 今回の成績は，4888/8672で，パフォーマンス375でした。そこそこよろしいんじゃないでしょうか？(そこ，灰パフォでイキるなとか言わない！)レーティング変動は今回プラス34で現在104です。入茶が楽しみです。 解法やらなんやらの振り返り 今週もいつものごとく問題をどのように解いたのかを忘備録として記録しておきます。まずはA問題です。 *Oh...*今週のA問題はなんだか見た目がいかついですね。正直A問題でつまずいて死ぬパターンかと思いました。 さて，見た目はいかついですが，この問題はよく見てみるとそんなに難しいことを言っていないことが分かります。 要するに#.##...#←こんな感じの文字列(文字列一つにつきW個の文字)がH回入力されるので，#の数を数えてくださいねということです。先週の文字列祭りに比べたらだいぶんましですね。方針としては，HもWも少ないのが制約からわかるので，シンプルに文字列として標準入力から読み取って，一文字づつ見ていく感じで処理しました。以下コードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int h, w; scanf(\u0026#34;%i %i\u0026#34;, \u0026amp;h, \u0026amp;w); char word[11]; int count = 0; for(int i = 0; h \u0026gt; i; i++) { scanf(\u0026#34;%s\u0026#34;, word); for(int j = 0; w \u0026gt; j; j++) { if(word[j] == \u0026#39;#\u0026#39;) { count++; } else if(word[j] == \u0026#39;0\u0026#39;) { break; } } } printf(\u0026#34;%i\\n\u0026#34;, count); return 0; } そこそこシンプルに書くことができました。ある程度標準入出力の使い方には慣れてきたんじゃないかなと思います。 さて，次はB問題です。以下問題文です。 記号と数字がわちゃわちゃしていて結構ウッってなる人多いかもしれません。僕もそうでした。 しかし，一回紙に書くとかなりシンプルに整理されることが分かります。 実際，Sk+1=Sk+Ak+1が成立しますから，逆に見るとAk=Sk-Sk-1(ただしS0=0) という関係式が成り立つことが分かります。したがって，二つのSから一つのAを錬成しながら出力していく方針で解けます。いやー数学って偉大ですね。以下通ったコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int n; scanf(\u0026#34;%i\u0026#34;, \u0026amp;n); int s1, s2; s1 = 0; for(int i = 0; n \u0026gt; i; i++) { scanf(\u0026#34;%i\u0026#34;, \u0026amp;s2); printf(\u0026#34;%i \u0026#34;, s2 - s1); s1 = s2; } return 0; } なんとA問題よりも短くなってしまいました。個人的には実装含めての難易度だと今回Bのほうが簡単だと思いました。 あと余談なんですが，誰が読んでも誤解を与えないという点では競プロのような問題文の書き方は適切だとは思いますが，記号を大量に使用するのは可読性っていう点だとどうなのかなってちょっと思ったりします。まあ例がついているので支障はそんなにないですが。 次はC問題です。以下問題文です。 英小文字のみからなる文字列を比較する問題のようです。文字列TはSにもう一つだけ文字を追加して作られているもののようですね。今回のC問題はなんかやたらとシンプルで助かりました。 方針としては，まず二つの配列を用意して文字列として読み取り，次にSとTを頭から見ていって，初めて一致しなくなった場所が答えという感じで行きました。配列としてみるときはインデックスが一つずれるので注意です。以下AC通ったコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { char s[500001]; char t[500002]; scanf(\u0026#34;%s\u0026#34;, s); scanf(\u0026#34;%s\u0026#34;, t); for(int i = 0; ; i++) { if(s[i] != t[i]) { printf(\u0026#34;%i\\n\u0026#34;, i + 1); break; } } return 0; } こんな感じで実装しました。手元のマシンだとstaticではない配列の宣言で要素500000とかあまりやらないので結構ジャッジサーバーは融通効くなって印象です。 ちなみに余談ですが，この問題多くの人が引っ掛かったポイントがあったようで，(自分も1WA食らいました。)それは，「Sの最後に付け足すパターン」の見落としです。このミスは初心者から上位勢までみんな食らっててちょっと面白かったです。おそらく多くの人が引っ掛かった理由は，普通は\\0(終端文字)が出現したら読み取りのループをブレークするのですが，この問題に関しては必ずTがSから構成される文字列であることが保証されているので，そんな気遣いをしなくてもOKだったっていう感じだと思われます。 D問題は，，解けなかったよ 今回Cの提出まで結構スムーズに行けたので，「お！ワンチャンあるか？」と思っていましたが，D問題結局解けませんでした。。。 Dの問題文は以下の通りでした。 この問題，見た目は結構シンプルなんですが，かなり厄介で手を動かすだけだと無理でした。 というのも，直接階乗を計算するのが無理なんですよね。 Cでの整数型の最大値unsigned long long intの最大が，18446744073709551615となっており，20桁まで入るんですが，実は20!の時点で18桁の整数になります。 階乗はおそロシア。なので，ほかの部分に注目して行かなくてはいけないんですけど，効率的な方法を見つけられなかったのと，実装力の低さのせいでスパゲッティコードを錬成してタイムアップしました。ただ，数学的に解を見つけられそうなので解けたら別記事として投稿したいなとは思っています。 終わりに ABCを始めてから3週間ほどたちますが，少しは成長したのかなと思います。課題で忙しい時もありますが，ドンドンAtCoder Beginer's Selectionや競プロ典型90問などにも取り組んでいけたらいいなと思います。(アルゴ式も)目指せ茶コーダー！ 余談ですが，このサイトに投稿されている記事は，markdownからの変換とかではなくすべてhtmlを手打ちしているので，手書きhtmlかなり慣れてきたような気もします。いいことなのかは知らん。 今回も読んでいただきありがとうございました。次の記事で会いましょう。 P.S. UEC Advent Calendar1とUEC Advent Calendar2が開催中ですので，興味があったら皆さんも読みましょう。(私も24日に寄稿(?)予定です。)"
+  },
+  {
+    url: "/post/abc279/",
+    title: "ABC279参加してきた！",
+    date: "2022-11-27T00:00:00Z",
+    body: "ABC279参加してきた！ はじめに 今回ABC279に参加してきましたので，その記録です。 今回の成績 まずは今回の成績からです。以下画像です。 AとBしか，解けませんでした！！！！(キース団長並感) いや，文字列扱う問題多くないですか？？？？？？私は文字列を操作する練習を全然してなかったのでB問題で死ぬほど苦労しました... 今回はあまり語るようなことがないので，サクッと解法紹介と今回の反省のパートに行きたいと思います。 解法 (注意: 筆者はc言語使ってます。)まずはA問題からです。以下問題文です。 これは文字列を扱う練習みたいな問題ですね。「下に尖った部分」というのはvは1箇所，wは2箇所なので，文字列を最初から見ていって，「vの個数」× 1と「wの個数」× 2を足したものをprintf関数で標準出力で出したらオッケーですね。以下AC通ったコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { char a[100]; scanf(\u0026#34;%s\u0026#34;, a); int score = 0; int i = 0; while(a[i] != \u0026#39;\\0\u0026#39;) { if(a[i] == \u0026#39;v\u0026#39;) { score = score + 1; } else if(a[i] == \u0026#39;w\u0026#39;) { score = score + 2; } i++; } printf(\u0026#34;%i\\n\u0026#34;, score); return 0; } 関係ない話ですが，問題の名前が「wwwvvvvvv」だったり問題文に平気で「尖っている部分」とか書いてあるのが地味にじわじわ来る問題ですね。 お次はB問題です。以下問題です。 この問題は全探索で解きました。簡単に流れを説明すると，まず最初に文字列Tの最初の文字を文字列Sの先頭から探します。見つかったら一文字ずつ後続も一致しているか確認して，もしTが'\\0'(終端文字)になるまでずっと一致していたら，Sは条件を満たしていたということが分かるので，適当にフラグを立ててループを抜けます。ここで後続に一致しないものが存在した場合は，また先頭文字が一致するか順に確認していきます。このサイクルをSが終端文字になるまで続けてもフラグがたたなかった場合は，条件を満たさないということが分かります。以下AC通ったコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { char S[101]; char T[101]; //比較する方 scanf(\u0026#34;%s\u0026#34;, S); scanf(\u0026#34;%s\u0026#34;, T); int flag = 0; for(int i = 0; S[i] != \u0026#39;\\0\u0026#39;; i++) { if(T[0] == S[i]) { int k = i; int j = 0; for(; S[k] == T[j] \u0026amp;\u0026amp; T[j] != \u0026#39;\\0\u0026#39;;) { k++; j++; } if(T[j] == \u0026#39;\\0\u0026#39;) { flag = 1; } } } if(flag == 1) { printf(\u0026#34;Yes\\n\u0026#34;); } else { printf(\u0026#34;No\\n\u0026#34;); } return 0; } *この問題を通すのに本当に苦労しました。。。*実はこの問題を通すだけで今回1時間8分，WAを6回も出したことで私の順位がボロボロになりました。泣きそうです。 この問題では文字列を扱うときは必然と'\\0'の検出が必要になるのですが，それを「whileの条件式で簡単にかけるやろw」とか思ってたらマジで痛い目見ました。とにかくループ用の変数がわちゃわちゃしてしまって，ループを抜けるときの条件式がぐちゃぐちゃになってしまったのが痛すぎました。。。泣きそうです(2回目) もうwhileなんて使わない(知らんけど) ちなみに，この問題でつまずいた理由はおそらく配列の余った要素がすべて0であることを見逃していたことだと思います。アホですか？ ラスト，ACは取れなかったもののC問題を紹介しておきます。以下問題です。 この問題は正直知識不足でした。せっかくですので私の行おうとした解法を説明します。 与えられた図形SとTが「列の並べ替え」によって一致すればよいということですので，受け取ったデータをリアルタイムに処理することはできなさそうです。したがって，いったん配列に保持することにしました。この問題では行番号と列番号の情報が重要ですので，二次元配列を用意して代入しました。そして，「並べ替え」によって同じものが作れるということは，「Sのある列」を持ってくると，常に必ず一つ以上「Tのある列」が一致しているという言い換えが可能です。これなら全探索により実装可能だと判断したので，この方針で行きました。実はこの探索方法，ほとんどB問題と同じです。一番ACに近かったコードです。 #include \u0026lt;stdio.h\u0026gt; int main(void) { int H, W; //Hは行数，Wは列数 scanf(\u0026#34;%d %d\u0026#34;, \u0026amp;H, \u0026amp;W); char buffer; int flag = 0; int delflag = 0; int ans = 0; char S[H][W]; char T[H][W]; for(int i = 0; H \u0026gt; i; i++) { for(int j = 0; W \u0026gt; j; j++) { scanf(\u0026#34; %c\u0026#34;, \u0026amp;buffer); S[i][j] = buffer; } } for(int i = 0; H \u0026gt; i; i++) { for(int j = 0; W \u0026gt; j; j++) { scanf(\u0026#34; %c\u0026#34;, \u0026amp;buffer); T[i][j] = buffer; } } for(int i = 0; W \u0026gt; i; i++) { for(int j = 0; W \u0026gt; j; j++) { if(S[0][i] == T[0][j]) { for(int k = 0; H \u0026gt; k; k++) { if(S[k][i] != T[k][j]) { flag = 1; break; } } if(flag != 1) { for(int l = 0; H \u0026gt; l; l++) { T[l][j] = 0; } delflag = 1; break; } flag = 0; } } if(delflag != 1) { printf(\u0026#34;No\\n\u0026#34;); return 0; } } for(int i = 0; W \u0026gt; i; i++) { if(T[0][i] != 0) { ans = 1; break; } } if(ans == 1) { printf(\u0026#34;No\\n\u0026#34;); } else { printf(\u0026#34;Yes\\n\u0026#34;); } return 0; } このコードで最終的にTLEが2ケースでした。考え方自体は正解を出せるコードみたいです。 公式解説では，私のとった手順と似たようなものでしたが，最後の同じ列が存在するかの判定を「文字列のソート」にて実現していました。私は文字列の扱いに関してほとんど何もわかっていなかったので，選択肢にすらあがらなかったです。次頑張ります。 余談ですが，終了後に私のコードを見た並走者が，あまりのforループの深さにびっくりしていました。こんな頭の悪い全探索しか書けないの正直ね。。 *True Programer* only use for statement and if statement.(逆張り) 終わりに 正直にいうと，今回の結果は非常に悔しかったです。もっとほかの問題に時間をかけられると思っていたし，レーティングもあまり気にしていないとはいえ重要な指標の一つでしょう。「この悔しさをバネに～」みたいな文言めちゃくちゃ嫌いなんですが，今はそんな気分です。来週のABCに向けてできるだけ準備したいと思います。 今回解けなかったC問題はもう少し取り組んでみようと思います。もし解けたら追記します。 長文読んでいただきありがとうございました。"
+  },
+  {
+    url: "/about/",
+    title: "About",
+    date: "0001-01-01T00:00:00Z",
+    body: "About About Me 電気通信大学に在学中。 最近は競技プログラミングをよくやっています。 ハンドルネームはInかInTheBloomを使っていることが多いです。 サイトの方針 常識的に問題ないと思う範囲で書きたいことを書こうかなと思っています。 google analyticsなどのアクセス解析は特に利用していません。 私が作ったコンテンツに関しては自由に利用してもらって大丈夫です。(そんなやついるのか？) 連絡先 Twitter(X) gmail (nato.rider.smm2 [at] gmail.com) など 最後に 当サイトはgithub pages、hugo、simplogのおかげで作成できました。ありがとう！"
+  },
+];
+
+function search(query) {
+  const result = searchData(query);
+  const html = createHtml(result);
+  showResult(html);
+  showResultCount(result.length, data.length);
+}
+
+function searchData(query) {
+  
+  
+  const result = [];
+
+  query = query.trim();
+  if (query.length < 1) {
+    return result;
+  }
+  const re = new RegExp(query, 'i');
+  for (let i = 0; i < data.length; ++i) {
+    const pos = data[i].body.search(re);
+    if (pos != -1) {
+      result.push([i, pos, pos + query.length]);
+    }
+  }
+  return result;
+}
+
+function createHtml(result) {
+  const htmls = [];
+  for (let i = 0; i < result.length; ++i) {
+    const dataIndex = result[i][0];
+    const startPos = result[i][1];
+    const endPos = result[i][2];
+    const url = data[dataIndex].url;
+    const title = data[dataIndex].title;
+    const body = data[dataIndex].body;
+    htmls.push(createEntry(url, title, body, startPos, endPos));
+  }
+  return htmls.join('');
+}
+
+function createEntry(url, title, body, startPos, endPos) {
+  return '<div class="item">' +
+      '<a class="item_title" href="' + url + '">' + title + '</a>' +
+      '<div class="item_excerpt">' + excerpt(body, startPos, endPos) + '</div>' +
+      '</div>';
+}
+
+function excerpt(body, startPos, endPos) {
+  return [
+    body.substring(startPos - 30, startPos),
+    '<b>', body.substring(startPos, endPos), '</b>',
+    body.substring(endPos, endPos + 200)
+  ].join('');
+}
+
+function showResult(html) {
+  const el = document.getElementById('result');
+  el.innerHTML = html;
+}
+
+function showResultCount(count, total) {
+  const el = document.getElementById('resultCount');
+  el.innerHTML = '<b>' + count + '</b> 件見つかりました（' + total + '件中）';
+}
+</script>
+
+</body>
+
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

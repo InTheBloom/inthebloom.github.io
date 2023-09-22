@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ABC279参加してきた！ - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+<link rel="alternate" href="/index.xml?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="ABC279参加してきた！ - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/abc279/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/ogp_hbqzib.png">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="ABC279参加してきた！ - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/abc279/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/ogp_hbqzib.png">
+
+
+<link rel="stylesheet" href="/css/main.css?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+<link rel="stylesheet" href="/css/color.css?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=2d35a3b9f403d220f8f517838a1eb79432dd8ea3">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>ABC279参加してきた！</h1>
+
+<span class="sub">Published on 2022-11-27</span><br>
+<span class="sub">Last Modified 2023-09-22</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#今回の成績">今回の成績</a></li>
+    <li><a href="#解法">解法</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="はじめに">はじめに</h2>
+<p>今回<a href="https://atcoder.jp/contests/abc279">ABC279</a>に参加してきましたので，その記録です。</p>
+<h2 id="今回の成績">今回の成績</h2>
+<p>まずは今回の成績からです。以下画像です。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/submission_eudnju.png" alt="提出結果"></p>
+<p><em>AとBしか，解けませんでした！！！！(キース団長並感)</em></p>
+<p>いや，文字列扱う問題多くないですか？？？？？？私は文字列を操作する練習を全然してなかったのでB問題で死ぬほど苦労しました...</p>
+<p>今回はあまり語るようなことがないので，サクッと解法紹介と今回の反省のパートに行きたいと思います。</p>
+<h2 id="解法">解法</h2>
+<p>(注意: 筆者はc言語使ってます。)まずはA問題からです。以下問題文です。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/A_jusgws.png" alt="A問題"></p>
+<p>これは文字列を扱う練習みたいな問題ですね。「下に尖った部分」というのはvは1箇所，wは2箇所なので，文字列を最初から見ていって，「vの個数」×
+1と「wの個数」×
+2を足したものを<code>printf</code>関数で標準出力で出したらオッケーですね。以下AC通ったコードです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> a[<span style="color:#ae81ff">100</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, a);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> score <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(a[i] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(a[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;v&#39;</span>) {
+</span></span><span style="display:flex;"><span>            score <span style="color:#f92672">=</span> score <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(a[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;w&#39;</span>) {
+</span></span><span style="display:flex;"><span>            score <span style="color:#f92672">=</span> score <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%i</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, score);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>関係ない話ですが，問題の名前が「wwwvvvvvv」だったり問題文に平気で「尖っている部分」とか書いてあるのが地味にじわじわ来る問題ですね。</p>
+<p>お次はB問題です。以下問題です。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/B_tzpohc.png" alt="B問題"></p>
+<p>この問題は全探索で解きました。簡単に流れを説明すると，まず最初に文字列Tの最初の文字を文字列Sの先頭から探します。見つかったら一文字ずつ後続も一致しているか確認して，もしTが<code>'\0'</code>(終端文字)になるまでずっと一致していたら，Sは条件を満たしていたということが分かるので，適当にフラグを立ててループを抜けます。ここで後続に一致しないものが存在した場合は，また先頭文字が一致するか順に確認していきます。このサイクルをSが終端文字になるまで続けてもフラグがたたなかった場合は，条件を満たさないということが分かります。以下AC通ったコードです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> S[<span style="color:#ae81ff">101</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> T[<span style="color:#ae81ff">101</span>]; <span style="color:#75715e">//比較する方
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, S);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, T);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; S[i] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(T[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> S[i]) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(; S[k] <span style="color:#f92672">==</span> T[j] <span style="color:#f92672">&amp;&amp;</span> T[j] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>;) {
+</span></span><span style="display:flex;"><span>                k<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>                j<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(T[j] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;\0&#39;</span>) {
+</span></span><span style="display:flex;"><span>                flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(flag <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Yes</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;No</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>*この問題を通すのに本当に苦労しました。。。*実はこの問題を通すだけで今回1時間8分，WAを6回も出したことで私の順位がボロボロになりました。泣きそうです。</p>
+<p>この問題では文字列を扱うときは必然と<code>'\0'</code>の検出が必要になるのですが，それを「<code>while</code>の条件式で簡単にかけるやろw」とか思ってたらマジで痛い目見ました。とにかくループ用の変数がわちゃわちゃしてしまって，ループを抜けるときの条件式がぐちゃぐちゃになってしまったのが痛すぎました。。。泣きそうです(2回目)</p>
+<p><em>もう<code>while</code>なんて使わない</em>(知らんけど)</p>
+<p>ちなみに，この問題でつまずいた理由はおそらく配列の余った要素がすべて0であることを見逃していたことだと思います。<em>アホですか？</em></p>
+<p>ラスト，ACは取れなかったもののC問題を紹介しておきます。以下問題です。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/C_nyzqi5.png" alt="C問題"></p>
+<p>この問題は正直知識不足でした。せっかくですので私の行おうとした解法を説明します。</p>
+<p>与えられた図形SとTが「列の並べ替え」によって一致すればよいということですので，受け取ったデータをリアルタイムに処理することはできなさそうです。したがって，いったん配列に保持することにしました。この問題では行番号と列番号の情報が重要ですので，二次元配列を用意して代入しました。そして，「並べ替え」によって同じものが作れるということは，「Sのある列」を持ってくると，常に必ず一つ以上「Tのある列」が一致しているという言い換えが可能です。これなら全探索により実装可能だと判断したので，この方針で行きました。実はこの探索方法，ほとんどB問題と同じです。一番ACに近かったコードです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> H, W; <span style="color:#75715e">//Hは行数，Wは列数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%d %d&#34;</span>, <span style="color:#f92672">&amp;</span>H, <span style="color:#f92672">&amp;</span>W);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> buffer;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> delflag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> S[H][W];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> T[H][W];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; H <span style="color:#f92672">&gt;</span> i; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; W <span style="color:#f92672">&gt;</span> j; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34; %c&#34;</span>, <span style="color:#f92672">&amp;</span>buffer);
+</span></span><span style="display:flex;"><span>            S[i][j] <span style="color:#f92672">=</span> buffer;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; H <span style="color:#f92672">&gt;</span> i; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; W <span style="color:#f92672">&gt;</span> j; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34; %c&#34;</span>, <span style="color:#f92672">&amp;</span>buffer);
+</span></span><span style="display:flex;"><span>            T[i][j] <span style="color:#f92672">=</span> buffer;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; W <span style="color:#f92672">&gt;</span> i; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; W <span style="color:#f92672">&gt;</span> j; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(S[<span style="color:#ae81ff">0</span>][i] <span style="color:#f92672">==</span> T[<span style="color:#ae81ff">0</span>][j]) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; H <span style="color:#f92672">&gt;</span> k; k<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span>(S[k][i] <span style="color:#f92672">!=</span> T[k][j]) {
+</span></span><span style="display:flex;"><span>                        flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span>(flag <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; H <span style="color:#f92672">&gt;</span> l; l<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                        T[l][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                    delflag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(delflag <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;No</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; W <span style="color:#f92672">&gt;</span> i; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(T[<span style="color:#ae81ff">0</span>][i] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(ans <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;No</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Yes</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>このコードで最終的にTLEが2ケースでした。考え方自体は正解を出せるコードみたいです。</p>
+<p><a href="https://atcoder.jp/contests/abc279/editorial/5283">公式解説</a>では，私のとった手順と似たようなものでしたが，最後の同じ列が存在するかの判定を「文字列のソート」にて実現していました。私は文字列の扱いに関してほとんど何もわかっていなかったので，選択肢にすらあがらなかったです。次頑張ります。</p>
+<p>余談ですが，終了後に私のコードを見た並走者が，あまりの<code>for</code>ループの深さにびっくりしていました。こんな頭の悪い全探索しか書けないの正直ね。。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368338/pictures/abc279/meme_iie0fa.png" alt="コラ画像"></p>
+<p><em>*True Programer* only use for statement and if statement.</em>(逆張り)</p>
+<h2 id="終わりに">終わりに</h2>
+<p>正直にいうと，今回の結果は<em>非常に悔しかった</em>です。もっとほかの問題に時間をかけられると思っていたし，レーティングもあまり気にしていないとはいえ重要な指標の一つでしょう。「この悔しさをバネに～」みたいな文言めちゃくちゃ嫌いなんですが，今はそんな気分です。来週のABCに向けてできるだけ準備したいと思います。</p>
+<p>今回解けなかったC問題はもう少し取り組んでみようと思います。もし解けたら追記します。</p>
+<p>長文読んでいただきありがとうございました。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">コンテスト参加記録</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	
+	<div class="next-post">Next: <a href="/post/abc280/">ABC280に参加してきました！</a></div>
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-03-17</div>
+  <div class="post-title"><a href="/post/abc293/">ABC293参加記録</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-02-26</div>
+  <div class="post-title"><a href="/post/abc291/">ABC291参加記録 ~ DPお前もう船降りろ ~</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-02-21</div>
+  <div class="post-title"><a href="/post/abc290/">ABC290参加記録</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "コンテスト参加記録"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-03-17</div>
+  <div class="post-title"><a href="/post/abc293/">ABC293参加記録</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-02-26</div>
+  <div class="post-title"><a href="/post/abc291/">ABC291参加記録 ~ DPお前もう船降りろ ~</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-02-21</div>
+  <div class="post-title"><a href="/post/abc290/">ABC290参加記録</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%b3%e3%83%b3%e3%83%86%e3%82%b9%e3%83%88%e5%8f%82%e5%8a%a0%e8%a8%98%e9%8c%b2/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
