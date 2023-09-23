@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-<link rel="alternate" href="/index.xml?c=21438ee80437e6c0ab511d5daed21b0443dae9a8" type="application/rss+xml" title="RSS" />
+<link rel="alternate" href="/index.xml?c=585af27aeb0b6e2f39486679c2163be3dbd6573a" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="InTheDayDreamをhugoに移行するためにやったことたち - InTheDayDream">
 </meta>
 <meta property="og:url" content="http://inthebloom.github.io/post/hugo-setting/">
@@ -37,11 +37,11 @@
 <meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=21438ee80437e6c0ab511d5daed21b0443dae9a8">
-<link rel="stylesheet" href="/css/color.css?c=21438ee80437e6c0ab511d5daed21b0443dae9a8">
+<link rel="stylesheet" href="/css/main.css?c=585af27aeb0b6e2f39486679c2163be3dbd6573a">
+<link rel="stylesheet" href="/css/color.css?c=585af27aeb0b6e2f39486679c2163be3dbd6573a">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=21438ee80437e6c0ab511d5daed21b0443dae9a8">
+<link rel="stylesheet" href="/css/custom.css?c=585af27aeb0b6e2f39486679c2163be3dbd6573a">
 
 
 
@@ -86,7 +86,7 @@
 <h1>InTheDayDreamをhugoに移行するためにやったことたち</h1>
 
 <span class="sub">Published on 2023-09-15</span><br>
-<span class="sub">Last Modified 2023-09-20</span>
+<span class="sub">Last Modified 2023-09-23</span>
 
 
 
@@ -117,6 +117,7 @@
         <li><a href="#関連タグの表示を調整する">関連タグの表示を調整する</a></li>
         <li><a href="#過去記事の移植">過去記事の移植</a></li>
         <li><a href="#デプロイ後に発覚faviconの謎の不具合">(デプロイ後に発覚)faviconの謎の不具合</a></li>
+        <li><a href="#win機でpullしたときに発覚したこと">win機でpullしたときに発覚したこと</a></li>
         <li><a href="#フロントマターのテンプレート">フロントマターのテンプレート</a></li>
       </ul>
     </li>
@@ -541,7 +542,15 @@ CSSを再度修正し、先程消したカテゴリの分を作る。</p>
 <p>なんか<code>layouts/partials/head.html</code>のfaviconのhrefの後ろに<code>c=?&lt;謎の文字列&gt;</code>みたいな謎の処理が入っているが、何故かgithub pages上でうまく動かなかった。
 よって、これを削除した。
 どういう影響があるのか知らない。</p>
-<h3 id="フロントマターのテンプレート">フロントマターのテンプレート</h3>
+<p>2023-09-23追記: 多分キャッシュ関連の何かだと思うんだけど、調べてもよくわからなかった。まあ動かなかったのは事実なのでfaviconくらい別にいいでしょの顔</p>
+<p>ただ不思議なのは、cssとかもこれをやる設定になっているように見えること。なぜかfaviconだけうまく動かない。</p>
+<h3 id="win機でpullしたときに発覚したこと">win機でpullしたときに発覚したこと</h3>
+<p>(これはhugoの記事として適切ではないかもしれません。)</p>
+<p>最初にsimplogを<code>git submodule</code>してとってきましたが、他のPCでこのリポジトリをクローンした場合、自動的にsubmoduleまでとってきてくれるわけではないようです。
+<a href="https://maku77.github.io/p/dsctaq7/">これ</a>を参考にして、次のコマンドを打ったらうまくいきました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule init
+</span></span><span style="display:flex;"><span>git submodule update
+</span></span></code></pre></div><h3 id="フロントマターのテンプレート">フロントマターのテンプレート</h3>
 <p>最後に改訂版フロントマターのテンプレートを載せておく。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#ae81ff">hogehoge</span>
@@ -595,6 +604,8 @@ CSSを再度修正し、先程消したカテゴリの分を作る。</p>
 	
 	<div class="prev-post">Prev: <a href="/post/katex/">KaTeX導入してみる</a></div>
 	
+	
+	<div class="next-post">Next: <a href="/post/abc321/">ABC321参加してきた。</a></div>
 	
 </div>
 
