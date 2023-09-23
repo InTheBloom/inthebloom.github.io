@@ -9,8 +9,8 @@ void main () {
         Separator = "/";
     }
 
-    if (exists(getcwd()~Separator~"public")) {
-        rmdirRecurse(getcwd()~Separator~"public");
+    if (exists(getcwd()~Separator~"docs")) {
+        rmdirRecurse(getcwd()~Separator~"docs");
     }
     system("hugo");
 }

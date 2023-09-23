@@ -1,7 +1,7 @@
 ---
 title: InTheDayDreamをhugoに移行するためにやったことたち
 date: 2023-09-15
-lastmod: 2023-09-20
+lastmod: 2023-09-23
 # ogimage: https://path/to/ogimage.img
 tags:
   - hugo
@@ -532,6 +532,21 @@ grid-template-columns: repeat(5, 20%);
 なんか`layouts/partials/head.html`のfaviconのhrefの後ろに`c=?<謎の文字列>`みたいな謎の処理が入っているが、何故かgithub pages上でうまく動かなかった。
 よって、これを削除した。
 どういう影響があるのか知らない。
+
+2023-09-23追記: 多分キャッシュ関連の何かだと思うんだけど、調べてもよくわからなかった。まあ動かなかったのは事実なのでfaviconくらい別にいいでしょの顔
+
+ただ不思議なのは、cssとかもこれをやる設定になっているように見えること。なぜかfaviconだけうまく動かない。
+
+### win機でpullしたときに発覚したこと
+(これはhugoの記事として適切ではないかもしれません。)
+
+最初にsimplogを`git submodule`してとってきましたが、他のPCでこのリポジトリをクローンした場合、自動的にsubmoduleまでとってきてくれるわけではないようです。
+[これ](https://maku77.github.io/p/dsctaq7/)を参考にして、次のコマンドを打ったらうまくいきました。
+
+```bash
+git submodule init
+git submodule update
+```
 
 ### フロントマターのテンプレート
 最後に改訂版フロントマターのテンプレートを載せておく。
