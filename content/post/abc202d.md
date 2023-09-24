@@ -51,7 +51,7 @@ A+B個の枠のうち、AかBを入れる場所を決めれば文字列が一つ
 もしKがこの値よりも大きければ、先頭にaを入れた時点でK番目に到達できないことが確定する。
 
 つまり、先頭の1文字目は次の条件分岐で決定できる。
-- $\displaystyle\binom{A+B-1}{A-1} \leq{} K$であるとき、`a`
+- $K \leq{} \displaystyle\binom{A+B-1}{A-1}$であるとき、`a`
 - そうでないとき、`b`
 
 続けて次の文字を決定したいが、その前にやることがある。
@@ -78,7 +78,7 @@ now =
 $$
 
 として、先頭の文字に合わせて$A \leftarrow{} A-1$または$B \leftarrow{} B-1$とする。
-- $now + \displaystyle\binom{A+B-1}{A-1} \leq{} K$であるとき、`a`
+- $K \leq{} now + \displaystyle\binom{A+B-1}{A-1}$であるとき、`a`
 - そうでないとき、`b`
 
 とできる。
