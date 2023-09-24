@@ -6,7 +6,19 @@
     <description>Recent content on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 23 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC202D - aab aba baa</title>
+      <link>http://inthebloom.github.io/post/abc202d/</link>
+      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/abc202d/</guid>
+      <description>問題概要 問題へのリンク
+A個のaとB個のbからなる文字列であって、辞書順でK番目のものを求めよ。
+制約
+1 &amp;lt;= A, B &amp;lt;= 30 辞書順でK番目の文字列が存在する。 解法 まず、問題文の条件を満たす文字列は$\displaystyle\frac{(A+B)!</description>
+    </item>
+    
     <item>
       <title>ABC321参加してきた。</title>
       <link>http://inthebloom.github.io/post/abc321/</link>

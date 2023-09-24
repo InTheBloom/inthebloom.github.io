@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ABC202D - aab aba baa - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=d614cb01999debf541070192e9db1f237c049aea" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="ABC202D - aab aba baa - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/abc202d/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="ABC202D - aab aba baa - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/abc202d/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=d614cb01999debf541070192e9db1f237c049aea">
+<link rel="stylesheet" href="/css/color.css?c=d614cb01999debf541070192e9db1f237c049aea">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=d614cb01999debf541070192e9db1f237c049aea">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>ABC202D - aab aba baa</h1>
+
+<span class="sub">Published on 2023-09-24</span><br>
+<span class="sub">Last Modified 2023-09-24</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題概要">問題概要</a></li>
+    <li><a href="#解法">解法</a></li>
+    <li><a href="#提出">提出</a></li>
+    <li><a href="#発展">発展</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="問題概要">問題概要</h2>
+<p><a href="https://atcoder.jp/contests/abc202/tasks/abc202_d">問題へのリンク</a></p>
+<p>A個の<code>a</code>とB個の<code>b</code>からなる文字列であって、辞書順でK番目のものを求めよ。</p>
+<p>制約</p>
+<ul>
+<li>1 &lt;= A, B &lt;= 30</li>
+<li>辞書順でK番目の文字列が存在する。</li>
+</ul>
+<h2 id="解法">解法</h2>
+<p>まず、問題文の条件を満たす文字列は$\displaystyle\frac{(A+B)!}{A!B!}$通り存在する。
+これは、単にA+B個を並べたものからAの重複とBの重複を除いたものである。
+また、これは二項係数$\displaystyle\binom{A+B}{A} = \binom{A+B}{B}$でもあり、
+A+B個の枠のうち、AかBを入れる場所を決めれば文字列が一つ定まると解釈することもできる。</p>
+<p>制約下で最も種類数が多くなるのはA=B=30のときで、これは$\displaystyle\frac{60!}{30!30!} = \binom{60}{30} = 118264581564861424$通りである。
+したがって、文字列をすべて列挙して解くことはできない。</p>
+<p>そこで、先頭からどの文字を使うかを決めていくことを考える。
+ちなみにこれは辞書順を考えるときの典型テクニックらしいので、ある程度パターンマッチングとして選択肢に入れておくようにすると良いかもしれない。</p>
+<p>先頭にaを入れた時を考える。
+このとき、残るA-1個の<code>a</code>とB個の<code>b</code>で作ることができる文字列の種類は$\displaystyle\binom{A+B-1}{A-1}$通りになる。
+もしKがこの値よりも大きければ、先頭にaを入れた時点でK番目に到達できないことが確定する。</p>
+<p>つまり、先頭の1文字目は次の条件分岐で決定できる。</p>
+<ul>
+<li>$\displaystyle\binom{A+B-1}{A-1} \leq{} K$であるとき、<code>a</code></li>
+<li>そうでないとき、<code>b</code></li>
+</ul>
+<p>続けて次の文字を決定したいが、その前にやることがある。
+上記の条件分岐で<code>b</code>を先頭に入れた場合、<code>a</code>が先頭であったときにあり得た$\displaystyle\binom{A+B-1}{A-1}$通りは
+必ず自分よりも辞書順で若いはずである。
+つまり、現時点で少なくとも$\displaystyle\binom{A+B-1}{A-1}$通り分のパディングを持っていることになる。
+これを記録しておく必要がある。</p>
+<p>さて、2文字目を決定しよう。
+実は2文字目もほとんど同様に決めることができる。
+1文字目との変化は</p>
+<ul>
+<li>1文字目にとった文字の分減らして考えないといけない</li>
+<li>パディングを忘れないようにする</li>
+</ul>
+<p>という点だけである。
+つまり、2文字目は次の条件分岐で決定できる。</p>
+<p>$$
+now =
+\begin{cases}
+\displaystyle\binom{A+B-1}{A-1} &amp; \text{if 先頭がbである。} \\
+0 &amp; \text{if 先頭がaである。}
+\end{cases}
+$$</p>
+<p>として、先頭の文字に合わせて$A \leftarrow{} A-1$または$B \leftarrow{} B-1$とする。</p>
+<ul>
+<li>$now + \displaystyle\binom{A+B-1}{A-1} \leq{} K$であるとき、<code>a</code></li>
+<li>そうでないとき、<code>b</code></li>
+</ul>
+<p>とできる。</p>
+<p>これを繰り返すことで文字列を決定できる。
+注意として、<code>a</code>か<code>b</code>どちらかを使い切ってしまえば文字列が確定するので、最後まで手順を繰り返す必要はない。</p>
+<p>時間計算量は、二項係数1回求める時間を$O(x)$と置くと、$O(x\cdot{}\mathrm{max}(A, B))$である。(多分)</p>
+<h2 id="提出">提出</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> A<span style="color:#f92672">,</span> B<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> K<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>A<span style="color:#f92672">,</span> B<span style="color:#f92672">,</span> K<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    solve<span style="color:#f92672">(</span>A<span style="color:#f92672">,</span> B<span style="color:#f92672">,</span> K<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> A<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> B<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> K<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 先頭からaとbどっちにするか決めていく。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// n_i個のアルファベットA_i(1&lt;=i&lt;=n)で構成される文字列の種類は多項係数の数だけ存在するので、頭の一つを決めれば後ろに何個存在するかがわかる。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> now <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span><span style="color:#f92672">[]</span> ans<span style="color:#f92672">;</span> ans<span style="color:#f92672">.</span><span style="color:#a6e22e">reserve</span><span style="color:#f92672">(</span>A<span style="color:#f92672">+</span>B<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> A <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> B<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>now <span style="color:#f92672">+</span> nCk<span style="color:#f92672">(</span>A<span style="color:#f92672">+</span>B<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> A<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">&lt;</span> K<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            now <span style="color:#f92672">+=</span> nCk<span style="color:#f92672">(</span>A<span style="color:#f92672">+</span>B<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> A<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">~=</span> <span style="color:#e6db74">&#39;b&#39;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            B<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">~=</span> <span style="color:#e6db74">&#39;a&#39;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            A<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>_<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">A</span><span style="color:#f92672">)</span> ans <span style="color:#f92672">~=</span> <span style="color:#e6db74">&#39;a&#39;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>_<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">B</span><span style="color:#f92672">)</span> ans <span style="color:#f92672">~=</span> <span style="color:#e6db74">&#39;b&#39;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">nCk</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> n <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> k<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>n <span style="color:#f92672">&lt;</span> k<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0L</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> k<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">*=</span> n<span style="color:#f92672">-</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">/=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>T<span style="color:#f92672">...)(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="発展">発展</h2>
+<p>3種類以上の文字を含む場合にも同様の手順で辞書順K番目の文字列を求めることができる。
+$m$種類の文字に対して、文字$c_i$が$N_i$個含まれる文字列の種類数は多項係数
+$$
+\binom{\sum{}N_i}{N_1, N_2, \dots{}, N_m} = \frac{(\sum{}N_i)!}{\prod{}N_i!}
+$$
+により求めることができるから、これを用いて上のアルゴリズムを適用すれば良い。</p>
+<p>しかし、現実的には多項係数が非常に大きくなるので問題には出にくいと思う。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+	<a class="post-tag" href="/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">典型テク</a>
+	
+	<a class="post-tag" href="/tags/%E8%BE%9E%E6%9B%B8%E9%A0%86/">辞書順</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/abc321/">ABC321参加してきた。</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-09-24</div>
+  <div class="post-title"><a href="/post/abc202d/">ABC202D - aab aba baa</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-09-23</div>
+  <div class="post-title"><a href="/post/abc321/">ABC321参加してきた。</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-03-17</div>
+  <div class="post-title"><a href="/post/abc293/">ABC293参加記録</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
