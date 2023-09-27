@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-<link rel="alternate" href="/index.xml?c=1858fece08853f475fb2744b430c346f34341821" type="application/rss+xml" title="RSS" />
+<link rel="alternate" href="/index.xml?c=687eb52b822f28d4436948a19184c6e9e3e6690e" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ABC270E - Apple Baskets on Circle - InTheDayDream">
 </meta>
 <meta property="og:url" content="http://inthebloom.github.io/post/abc270e/">
@@ -37,11 +37,11 @@
 <meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=1858fece08853f475fb2744b430c346f34341821">
-<link rel="stylesheet" href="/css/color.css?c=1858fece08853f475fb2744b430c346f34341821">
+<link rel="stylesheet" href="/css/main.css?c=687eb52b822f28d4436948a19184c6e9e3e6690e">
+<link rel="stylesheet" href="/css/color.css?c=687eb52b822f28d4436948a19184c6e9e3e6690e">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=1858fece08853f475fb2744b430c346f34341821">
+<link rel="stylesheet" href="/css/custom.css?c=687eb52b822f28d4436948a19184c6e9e3e6690e">
 
 
 
@@ -107,7 +107,7 @@
 <h1>ABC270E - Apple Baskets on Circle</h1>
 
 <span class="sub">Published on 2023-09-26</span><br>
-<span class="sub">Last Modified 2023-09-26</span>
+<span class="sub">Last Modified 2023-09-28</span>
 
 
 
@@ -266,6 +266,16 @@ $x$個に満たないかごからは$A_i$個までしかとれないので、$\s
 <p>もし各かごにりんごが無限に入っていたとしたらこのように「何周するのか」に着目する解法を容易に構成できると思う。
 が、今回は、りんごの減少に伴って変化が生じるので発想の難易度が上がっていると思った。</p>
 <p>より易しい問題設定を考えたり、過去に解いた問題の記憶をためることが重要なのかなと思う。</p>
+<hr>
+<p>(2023-09-28追記)</p>
+<p>深夜に考えていたら少し思いついたので補足します。
+この手の問題は「解の構造」を考えることが大事だと思います。</p>
+<p>K個目のりんごを食べるときに<strong>かごのりんごがどのように減っているか</strong>を考えると、
+0になるまで減る、または今まで周回した分だけ減るということが分かります。</p>
+<p>すると、何周したかに着目できるのかなと思いました。
+何周したかに着目できれば二分探索に帰着するのはそんなに難しくないと思います。</p>
+<p>しかし、この手の問題は大抵シミュレーションの高速化で解けることが多いので、解法1を組み切る力も必要かなと思います。
+(もちろん、シミュレーションの最悪計算量を一発で見抜く力も)</p>
 <h2 id="類似問題">類似問題</h2>
 <p><a href="https://atcoder.jp/contests/abc216/tasks/abc216_e">ABC216E</a></p>
 
@@ -287,8 +297,6 @@ $x$個に満たないかごからは$A_i$個までしかとれないので、$\s
 	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
 	
 	<a class="post-tag" href="/tags/%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2/">二分探索</a>
-	
-	<a class="post-tag" href="/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">典型テク</a>
 	
 </div>
 
@@ -379,34 +387,6 @@ $x$個に満たないかごからは$A_i$個までしかとれないので、$\s
 
     
     
-    
-
-    
-    
-    
-    <div class="related-tag-category-list">
-        <h4 style="font-size: 1.3em;">Other posts tagged by "典型テク"</h4>
-        <ul class="post-list">
-          
-          <li class="post-item">
-  <div class="post-date sub">2023-09-26</div>
-  <div class="post-title"><a href="/post/abc270e/">ABC270E - Apple Baskets on Circle</a></div>
-  
-</li>
-          
-          <li class="post-item">
-  <div class="post-date sub">2023-09-24</div>
-  <div class="post-title"><a href="/post/abc202d/">ABC202D - aab aba baa</a></div>
-  
-</li>
-          
-        </ul>
-        <div class="more-area">
-          
-          <a class="more" href="/tags/">other tags</a>
-          
-      </div>
-        </div>
     
 
 

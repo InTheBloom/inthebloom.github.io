@@ -6,18 +6,7 @@
     <description>Recent content in 典型テク on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 26 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ABC270E - Apple Baskets on Circle</title>
-      <link>http://inthebloom.github.io/post/abc270e/</link>
-      <pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc270e/</guid>
-      <description>問題概要 問題へのリンク
-円環状に並べてある$1$から$N$の番号が付いた$N$個のかごがある。 かごは$1$から$N$まで順番に並んでおり、かご$N$の隣にはかご$1$がある。
-かご$i$にはりんごが$A_i$個入っている。</description>
-    </item>
-    
+    <lastBuildDate>Sun, 24 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC202D - aab aba baa</title>
       <link>http://inthebloom.github.io/post/abc202d/</link>
