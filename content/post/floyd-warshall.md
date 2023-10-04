@@ -3,7 +3,7 @@ title: ワーシャル・フロイド法について調べて、納得したこ�
 # description: 
 
 date: 2023-10-02
-# lastmod: yyyy-mm-dd
+lastmod: 2023-10-05
 # hidedate: true
 
 # ogimage: https://hoge/fuga/piyo.img
@@ -44,9 +44,9 @@ $\mathrm{dist}[i][j]:=$「頂点iから頂点jへの最短経路」とする。
 $$
 \mathrm{dist}[i][j] =
 \begin{cases}
-w_{i,j} & \text{if ~ $i$から$j$への辺が存在}、\\\\
-\infty{} & \text{if ~ $i$から$j$への辺が存在しない。} \\\\
-0 & \text{if ~ $i = j$}
+w_{i,j} & \text{if ~ $i$から$j$への辺が存在,}\\\\
+\infty{} & \text{if ~ $i$から$j$への辺が存在しない,} \\\\
+0 & \text{if ~ $i = j$.}
 \end{cases}
 $$
 
@@ -122,6 +122,67 @@ k=-1を考える。
 
 遷移を見ればわかるとおり、ワーシャル・フロイド法により求まるのは最短「パス」であるからである。
 つまり、真の最短経路が閉路を含む(同じ頂点を2回以上通る)ものは正しく結果を求めることができない。
+
+### 追記(2023-10-05)
+以下、[アルゴリズムロジック](https://algo-logic.info/warshall-floyd/)からの情報を追加します。
+疲れているときに書いたので、普段以上に内容が怪しいかもしれません。ご注意ください。
+
+#### 負閉路の検出
+負閉路が含まれているとき、閉路中の任意の一つの頂点をiとする。すると、iからiへの最短パスは総和が最小となる負閉路をぐるっと一周回ったものが採用される。
+負閉路がない時、$\mathrm{dist}[i][i] = 0$となるはずなので、これを用いて$O(N)$で検出できる。
+```d
+bool hasNegativeCycle () {
+    for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) {
+        if (dist[i][i] < 0) return true;
+    }
+    return false;
+}
+```
+
+#### 最短距離の一つを復元
+$\mathrm{prev}[i][j] \coloneqq$ ($i$から$j$への最短経路で、$j$の一つ前にいた頂点) とすると、空間$O(N^2)$を用いて復元できる。
+$\mathrm{prev}$は$\mathrm{dist}$と一緒に更新するとよい。
+
+$\mathrm{prev}$の初期値は次のようになる。
+
+$$
+\mathrm{prev}[i][j] \coloneqq
+\begin{cases}
+i & \text{if $(i = j) \lor (iからjへ辺が存在する)$,} \\\\
+-1 & \text{otherwise.}
+\end{cases}
+$$
+-1は異常値として採用しています。
+
+更新は、$\mathrm{dist}$と一緒に行います。
+```d
+for (int k = 0; k < N; k++) {
+    for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) {
+        if (dist[i][k] < int.max && dist[k][j] < int.max && dist[i][k] + dist[k][j] < dist[i][j]) {
+            dist[i][j] = dist[i][k] + dist[k][j];
+            prev[i][j] = prev[k][j];
+        }
+    }
+}
+```
+復元は次のようになります。
+```d
+int[] restorePath (int start, int end) {
+    if (prev[start][end] == -1) return [];
+
+    int[] res;
+
+    int cur = end;
+    while (cur != start) {
+        res ~= cur;
+        cur = prev[start][cur];
+    }
+    res ~= start;
+    res.reverse;
+
+    return res;
+}
+```
 
 ## 実装例
 次の問題に回答するD言語によるコードを示す。(本問題はワーシャル・フロイド法を用いなくても解けるが、簡単のため採用した。)
