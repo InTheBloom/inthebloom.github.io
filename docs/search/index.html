@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-<link rel="alternate" href="/index.xml?c=02a4623ecb646bc3df594200c3b1e9164efbcda9" type="application/rss+xml" title="RSS" />
+<link rel="alternate" href="/index.xml?c=73f70bcefa6650aaecac7b053d44a0d28dd97e50" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="サイト内全文検索 - InTheDayDream">
 </meta>
 <meta property="og:url" content="http://inthebloom.github.io/search/">
@@ -37,11 +37,11 @@
 <meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=02a4623ecb646bc3df594200c3b1e9164efbcda9">
-<link rel="stylesheet" href="/css/color.css?c=02a4623ecb646bc3df594200c3b1e9164efbcda9">
+<link rel="stylesheet" href="/css/main.css?c=73f70bcefa6650aaecac7b053d44a0d28dd97e50">
+<link rel="stylesheet" href="/css/color.css?c=73f70bcefa6650aaecac7b053d44a0d28dd97e50">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=02a4623ecb646bc3df594200c3b1e9164efbcda9">
+<link rel="stylesheet" href="/css/custom.css?c=73f70bcefa6650aaecac7b053d44a0d28dd97e50">
 
 
 
@@ -142,14 +142,20 @@ const data = [
   {
     url: "/",
     title: "InTheDayDream",
-    date: "2023-10-02T00:00:00Z",
+    date: "2023-10-05T00:00:00Z",
     body: "InTheDayDream"
   },
   {
     url: "/post/",
     title: "Posts",
-    date: "2023-10-02T00:00:00Z",
+    date: "2023-10-05T00:00:00Z",
     body: "Posts"
+  },
+  {
+    url: "/post/division-teck/",
+    title: "割れるし割りたいのに割れない数を割る方法",
+    date: "2023-10-05T00:00:00Z",
+    body: "割れるし割りたいのに割れない数を割る方法 状況設定 $x, ~ y, ~ z \\in \\mathbb N$ $x\\%y = 0$ $1 \u0026lt; \\mathrm{gcd}(y, z)$ $x$は陽に求められないほど大きく、$y$、$z$は常識的な大きさ 問題 $xy^{-1}$を$z$で割った非負最小剰余を求めよ。 何が厳しいのか $\\mathrm{gcd}(y, z) = 1$が満たされていれば話は終了です。 なぜなら、このような$y$は$\\mathrm{mod} ~ z$上で逆元を持つからです。 普通に拡張ユークリッドの互除法などを用いれば答えられます。 問題はそうでない時です。 この時、$y$は逆元を持ちませんから、先に$\\dfrac{x}{y}$を計算したくなります。 しかし、$x$はデカいので、陽に求めるのは無理です。 さてどうしましょう？ 解答 結論から言います。$\\mathrm{mod} ~ yz$上で考えるとうまくいきます。 もう少し具体的には、次の手順を踏むことで答えることができます。 $x ~ \\mathrm{mod} ~ yz$を求める。 それを$y$で割る。 正当性を追っていきます。 除法定理より、次を満たす整数$q, ~ r$の組がただ一つ存在します。 $x = q(yz) + r$ $0 \\leq r \u0026lt; yz$ ちなみに$r = x ~ \\mathrm{mod} ~ yz$です。 ここで、$x\\%y = 0$を仮定しているので、必ず$r\\%y = 0$となっています。 両辺$y$で割ります。 $$ \\begin{equation} \\frac{x}{y} = qz + \\frac{r}{y} \\end{equation} $$ です。 ここから少し定義に戻って確認します。 $\\dfrac{x}{y} ~ \\mathrm{mod} ~ z$を求めるとは $$ \\begin{equation} \\dfrac{x}{y} = q\u0026rsquo;z + r\u0026rsquo; ~ \\left( 0 \\leq r\u0026rsquo; \u0026lt; z \\right) \\end{equation} $$ なる$r\u0026rsquo;$を求めることです。 ここで、除法定理よりこのような整数の組$(q\u0026rsquo;, r\u0026rsquo;)$はただ一つに定まります。 さて、式(1)を見てみましょう。 $0 \\leq r \u0026lt; yz$でありますから、$0 \\leq \\dfrac{r}{y} \u0026lt; z$であることが分かります。 式(2)と見比べてみましょう。$r\u0026rsquo; = \\dfrac{r}{y}$となっていることが確認できます。 なんということでしょう。求めることができてしまいました。除法定理が強力すぎますね。 応用例 実際にこのテクニックを使える問題を2問紹介します。 ARC111A - Simple Math 2 解法 $10^N = qM + r ~ (0 \\leq r \u003c M)$と表すと、 $\\left\\lfloor \\dfrac{10^N}{M} \\right\\rfloor = \\left\\lfloor \\dfrac{qM + r}{M} \\right\\rfloor = q$ であるから、解は$q\\%M$です。 これをもとに変形していきます。 $$ qM = 10^N - r $$ $$ q = \\frac{10^N-r}{M} $$ ここまで変形すると今回のテクニックに帰着します。 求めたいのは$q ~ \\mathrm{mod} ~ M$ですが、$M$は$\\mathrm{mod} ~ M$上で逆元を持ちません。 また、$10^N-r$も大きすぎて陽に求めるのは無理です。 そこで、$(10^N - r) ~ \\mathrm{mod} ~ M^2$を計算してから最後に$M$で割ってやるとうまくいきます。 実装例(一部抜粋) void solve (long N, int M) { // 10^N = qM + r (0\u0026lt;=r\u0026lt;M) を得たとき、解はq%M // 両辺Mで剰余をとってみると、 (10^N)%M = r%M // 条件より、(10^N)%M = r // 典型テク: mod MK (Mは最後に求めたい剰余、Kは割りたいけど法と互いに素でない数) で考える。 long ans = modPow(10, N, M^^2); ans -= modPow(10, N, M); if (ans \u0026lt; 0) { ans += M^^2; } ans /= M; writeln(ans); } ABC293E - Geometric Progression 解法 解法がたくさんありますが、kyopro_friendsさんのユーザー解説と同じ方法です。 丁寧に式変形を追っていきます。 $S(x) \\coloneqq \\displaystyle\\sum_{i=0}^{x}A^i$と定めます。 $0 \\leq N$を用いて、 $$ \\begin{alignat*}{3} A \\times S(N) \u0026amp;= \u0026amp;\u0026amp;A^1 + A^2 + \\cdots + A^N-1 + A^N + A^{N+1} \\\\ S(N) \u0026amp;= A^0 + \u0026amp;\u0026amp;A^1 + A^2 + \\cdots + A^N-1 + A^N \\\\ \\end{alignat*} $$ が成立します。そこで、 $$ A \\times S(N) - S(N) = A^{N+1} - A^0 $$ となります。$S(N)$でくくると、 $$ (A-1) \\times S(N) = A^{N+1} - 1 $$ です。$A-1 \\neq 0$ならば、両辺を割れて、 $$ S(N) = \\frac{A^{N+1}-1}{A-1} $$ を得ます。 さて、今回求める値は$S(X-1) ~ \\mathrm{mod} ~ M$にほかなりません。$A-1 \\neq 0$のとき、$0 \\leq X-1$なので、上式を適用できます。 $$ S(X-1) = \\frac{A^X-1}{A-1} $$ ここで、$A-1$は$\\mathrm{mod} ~ M$上で逆元を持つとは限りません。今回のテクを使いましょう。 つまり、$\\mathrm{mod} ~ M(A-1)$で考えるとうまくいきます。 注意点として、この値は法としてはかなり大きくなる(それでも十分常識の範囲ですが)ので、 計算途中で64bit整数型を超える可能性が高いです。128bit整数や、多倍長整数を使いましょう。 多倍長整数とはいえ、そこまで桁数は大きくならないので十分高速です。 よくわからない人はpythonを使うとよいです。 また、$A-1 = 0$の時はすべての項が1になるため、簡単に計算できます。 実装例(一部抜粋) void solve (int A, long X, int M) { // 解は (A^x - 1) / (A - 1) // 場合分けが必要なケース if (A == 1) { writeln(X%M); return; } BigInt a = A, x = X, m = M; BigInt ans = std.bigint.powmod(a, x, m*(a-1)) - 1; if (ans \u0026lt; 0) ans += m*(a-1); ans /= A-1; writeln(ans); } 補足 問題2の解法説明で、 「逆元を持つとは限りません」と書きましたが、逆元を持っていてもよいことに注意してください。 正当性の証明のパートを見ればわかるように、法と除数の関係性は正当性を示すのに用いていないためです。 もちろん$\\mathrm{gcd}(M, A-1)$を計算して、逆元を持つ場合はそちらを経由するという方法でも解けます。 また、問題2に関しては、行列累乗による$O(\\log(X))$解法や、平方分割による解法など勉強になる解法がたくさん紹介されています。 余裕のある人はぜひ学んでみてください。(ちなみに私は学べてないです。コーナーで差をつけろ！) 終わりに いつかまとめようと思っていたネタです。 ほんの思い付きで書き始めたつもりが約2時間たっていて現在深夜1時です。 助けてくれ。 このアイディア自体はまさに上で紹介したABC293Eのユーザー解説から得たものです。 かなり行間が広いと感じたので、そこを埋める目的で作りました。 なので、この主張がどこまで一般化できるのかなどは私はわかっていません。 誤りがありましたら指摘していただければありがたいです。"
   },
   {
     url: "/post/floyd-warshall/",
