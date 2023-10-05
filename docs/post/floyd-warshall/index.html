@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-<link rel="alternate" href="/index.xml?c=3cbd99bc70135d2f91b7fa1e0a066dd849b38d79" type="application/rss+xml" title="RSS" />
+<link rel="alternate" href="/index.xml?c=2a02e67ee5d85f1d0244aae83fa40d66e587f06e" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ワーシャル・フロイド法について調べて、納得したこと - InTheDayDream">
 </meta>
 <meta property="og:url" content="http://inthebloom.github.io/post/floyd-warshall/">
@@ -37,11 +37,11 @@
 <meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=3cbd99bc70135d2f91b7fa1e0a066dd849b38d79">
-<link rel="stylesheet" href="/css/color.css?c=3cbd99bc70135d2f91b7fa1e0a066dd849b38d79">
+<link rel="stylesheet" href="/css/main.css?c=2a02e67ee5d85f1d0244aae83fa40d66e587f06e">
+<link rel="stylesheet" href="/css/color.css?c=2a02e67ee5d85f1d0244aae83fa40d66e587f06e">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=3cbd99bc70135d2f91b7fa1e0a066dd849b38d79">
+<link rel="stylesheet" href="/css/custom.css?c=2a02e67ee5d85f1d0244aae83fa40d66e587f06e">
 
 
 
@@ -217,7 +217,7 @@ $$
 <p>負閉路が含まれているとき、閉路中の任意の一つの頂点をiとする。すると、iからiへの最短パスは総和が最小となる負閉路をぐるっと一周回ったものが採用される。
 負閉路がない時、$\mathrm{dist}[i][i] = 0$となるはずなので、これを用いて$O(N)$で検出できる。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">hasNegativeCycle</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span> j <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">;</span> j<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>

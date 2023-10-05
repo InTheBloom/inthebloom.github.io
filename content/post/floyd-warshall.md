@@ -132,7 +132,7 @@ k=-1を考える。
 負閉路がない時、$\mathrm{dist}[i][i] = 0$となるはずなので、これを用いて$O(N)$で検出できる。
 ```d
 bool hasNegativeCycle () {
-    for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) {
+    for (int i = 0; i < N; i++) {
         if (dist[i][i] < 0) return true;
     }
     return false;
