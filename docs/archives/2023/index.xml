@@ -6,7 +6,16 @@
     <description>Recent content in 2023 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 13 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2023/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2023/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PG BATTLE 2023参加記録</title>
+      <link>http://inthebloom.github.io/post/pgbattle2023/</link>
+      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/pgbattle2023/</guid>
+      <description>PG BATTLE 2023参加記録 始まりは突然に 10月9日に、やきとりさん(@yktr_drm06)からPG BATTLEに誘われて、 私、やきとりさん、ryotaさん(@95s7k84695a)のチームで参加することになりました。</description>
+    </item>
+    
     <item>
       <title>Functional Graphのサイクル検出をいい感じに</title>
       <link>http://inthebloom.github.io/post/functional-graph-cycle/</link>
@@ -14,6 +23,16 @@
       
       <guid>http://inthebloom.github.io/post/functional-graph-cycle/</guid>
       <description>はじめに グラフ表現に帰着できる問題を考察していると、Functional Graphと呼ばれるグラフのサイクル検出に帰着する場合があります。 本稿では、Functional Graphのサイクル検出の比較的簡単な実装を紹介します。</description>
+    </item>
+    
+    <item>
+      <title>yukicoder contest407参加記録</title>
+      <link>http://inthebloom.github.io/post/yuki407/</link>
+      <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/yuki407/</guid>
+      <description>はじめに 本稿は2023-10-06に行われたyukicoder contest 407の参加記録です。
+戦績 雑振り返り A - napsack Problem?</description>
     </item>
     
     <item>
