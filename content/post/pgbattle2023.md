@@ -10,6 +10,7 @@ date: 2023-10-23
 
 tags:
   - コンテスト参加記録
+  - 競技プログラミング
 archives:
   - 2023
   - 2023-10
@@ -30,7 +31,6 @@ math: true
     }
 </style>
 
-# PG BATTLE 2023参加記録
 ## 始まりは突然に
 10月9日に、やきとりさん(@yktr_drm06)から[PG BATTLE](https://products.sint.co.jp/pg_battle)に誘われて、
 私、やきとりさん、ryotaさん(@95s7k84695a)のチームで参加することになりました。
