@@ -6,7 +6,16 @@
     <description>Recent content in 競技プログラミング on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 13 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PG BATTLE 2023参加記録</title>
+      <link>http://inthebloom.github.io/post/pgbattle2023/</link>
+      <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/pgbattle2023/</guid>
+      <description>始まりは突然に 10月9日に、やきとりさん(@yktr_drm06)からPG BATTLEに誘われて、 私、やきとりさん、ryotaさん(@95s7k84695a)のチームで参加することになりました。</description>
+    </item>
+    
     <item>
       <title>Functional Graphのサイクル検出をいい感じに</title>
       <link>http://inthebloom.github.io/post/functional-graph-cycle/</link>
