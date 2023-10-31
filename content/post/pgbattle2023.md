@@ -133,7 +133,7 @@ void solve (string S) {
 
 これは割とすぐ解法が見えました。
 まずは数列を次のようにK個のグループに分けます。
-$$\mathrm{group}[i] \coloneqq \{ A[x] \mid \forall j, ~ x = i+jK \}$$
+$$\mathrm{group}[i] \coloneqq \\{ A[x] \mid \forall j, ~ x = i+jK \\}$$
 実は、操作によって入れ替わることができるのは同一グループに属する要素だけです。
 
 簡単のため、ある一つのグループ以外を固定して考えます。
