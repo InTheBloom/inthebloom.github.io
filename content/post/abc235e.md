@@ -14,7 +14,7 @@ tags:
   - 典型テク
 archives:
   - 2023
-  - 2023-10-31
+  - 2023-10
 # sample
 # - yyyy
 # - yyyy-mm
