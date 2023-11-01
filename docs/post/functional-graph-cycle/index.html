@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-<link rel="alternate" href="/index.xml?c=9970d75226d1faf3c296fafdb637e71f209a8c0b" type="application/rss+xml" title="RSS" />
+<link rel="alternate" href="/index.xml?c=1bb08e314d94a0105b5131c6985b28f99be2fdee" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="Functional Graphのサイクル検出をいい感じに - InTheDayDream">
 </meta>
 <meta property="og:url" content="http://inthebloom.github.io/post/functional-graph-cycle/">
@@ -37,11 +37,11 @@
 <meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=9970d75226d1faf3c296fafdb637e71f209a8c0b">
-<link rel="stylesheet" href="/css/color.css?c=9970d75226d1faf3c296fafdb637e71f209a8c0b">
+<link rel="stylesheet" href="/css/main.css?c=1bb08e314d94a0105b5131c6985b28f99be2fdee">
+<link rel="stylesheet" href="/css/color.css?c=1bb08e314d94a0105b5131c6985b28f99be2fdee">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=9970d75226d1faf3c296fafdb637e71f209a8c0b">
+<link rel="stylesheet" href="/css/custom.css?c=1bb08e314d94a0105b5131c6985b28f99be2fdee">
 
 
 
@@ -115,7 +115,7 @@
 <h2 id="前提条件">前提条件</h2>
 <p>本稿における、Functional Graphの定義は次のとおりです。</p>
 <ul>
-<li>各頂点の出次数がちょうど1である。</li>
+<li>有向グラフであって、各頂点の出次数がちょうど1であるもの。</li>
 </ul>
 <h2 id="方法">方法</h2>
 <p>まず、画像でイメージを掴んでもらいます。</p>
@@ -126,8 +126,10 @@
 <p>UnionFind(dsu)を使います。
 まず、Functional Graphの重要な性質に、連結成分がちょうど一つの閉路を持つというものがあります。</p>
 <details>
-<sammary>証明(厳密でない)</sammary>
-1. 連結成分が少なくとも一つの閉路を持つこと
+<summary>証明(厳密でない)</summary>
+<ol>
+<li>連結成分が少なくとも一つの閉路を持つこと</li>
+</ol>
 <p>頂点1つから考えて、まだ連結成分でない頂点へ有向辺を張ると、必ず連結成分のサイズが1増えます。
 つまり、サイズkの連結成分を成す最小の有向辺はk-1本です。</p>
 <p>一方、Functional Graphにおけるサイズkの連結成分は必ずk本の有向辺を持ちます。</p>
@@ -135,11 +137,16 @@
 <ol start="2">
 <li>高々1つの閉路を持つこと</li>
 </ol>
-<p>有向グラフがサイズkの閉路を成すとき、有向辺は最小でk本必要です。
-2つのサイクルが連結であるとき、
-サイクル間をつなぐ辺が少なくとももう一本必要であるから、
-サイズk, lの閉路を含む連結成分は最小でもk+l+1本の有向辺が必要です。
-しかし、このような連結成分はFunctional Graphの仮定から存在できません。(辺が多すぎる)</p>
+<p>あるFunctional Graphの連結成分が2つの閉路を持つと仮定します。</p>
+<ul>
+<li>閉路が頂点を共有するとき</li>
+</ul>
+<p>少なくとも2つの頂点が出次数2になり、違反します。</p>
+<ul>
+<li>閉路が頂点を共有しないとき</li>
+</ul>
+<p>閉路同士を結ぶ辺が必要ですが、このときに少なくとも1つの頂点が出次数2になり、違反します。</p>
+<p>3以上も同様に証明できます(ほんとか？)。よって、閉路は高々1つです。</p>
 <p>証明終わり。</p>
 </details>
 <p>UnionFindで連結成分を増やしていくと、どこかですでに同じ連結成分に属する頂点が見つかるはずです。
@@ -271,6 +278,12 @@ i=0,1,&hellip;,Nに対して、次を行う。</p>
         <ul class="post-list">
           
           <li class="post-item">
+  <div class="post-date sub">2023-11-01</div>
+  <div class="post-title"><a href="/post/abc190f/">ABC190F - Shift and Inversions</a></div>
+  
+</li>
+          
+          <li class="post-item">
   <div class="post-date sub">2023-10-31</div>
   <div class="post-title"><a href="/post/abc235e/">ABC235E、あるいはクエリ並列処理</a></div>
   
@@ -279,12 +292,6 @@ i=0,1,&hellip;,Nに対して、次を行う。</p>
           <li class="post-item">
   <div class="post-date sub">2023-10-23</div>
   <div class="post-title"><a href="/post/pgbattle2023/">PG BATTLE 2023参加記録</a></div>
-  
-</li>
-          
-          <li class="post-item">
-  <div class="post-date sub">2023-10-13</div>
-  <div class="post-title"><a href="/post/functional-graph-cycle/">Functional Graphのサイクル検出をいい感じに</a></div>
   
 </li>
           
@@ -309,6 +316,12 @@ i=0,1,&hellip;,Nに対して、次を行う。</p>
         <ul class="post-list">
           
           <li class="post-item">
+  <div class="post-date sub">2023-11-01</div>
+  <div class="post-title"><a href="/post/abc190f/">ABC190F - Shift and Inversions</a></div>
+  
+</li>
+          
+          <li class="post-item">
   <div class="post-date sub">2023-10-31</div>
   <div class="post-title"><a href="/post/abc235e/">ABC235E、あるいはクエリ並列処理</a></div>
   
@@ -317,12 +330,6 @@ i=0,1,&hellip;,Nに対して、次を行う。</p>
           <li class="post-item">
   <div class="post-date sub">2023-10-13</div>
   <div class="post-title"><a href="/post/functional-graph-cycle/">Functional Graphのサイクル検出をいい感じに</a></div>
-  
-</li>
-          
-          <li class="post-item">
-  <div class="post-date sub">2023-10-05</div>
-  <div class="post-title"><a href="/post/mod-division-tech/">割れるし割りたいのに割れない数を割る方法</a></div>
   
 </li>
           

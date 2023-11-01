@@ -6,7 +6,17 @@
     <description>Recent content in 一問解説 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 31 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC190F - Shift and Inversions</title>
+      <link>http://inthebloom.github.io/post/abc190f/</link>
+      <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/abc190f/</guid>
+      <description>問題概要 問題へのリンク
+$0$から$N-1$までの整数をちょうど一つづつ含む数列$A$が与えられる。 $k \in \mathbb{Z}$に対して、数列$B$を次のように定める。 $$ \begin{equation*} B \coloneqq \{b_i\}_{i=0}^{N-1}, ~ b_i = a_{i+k ~ \mathrm{mod} ~ N} \end{equation*} $$ $k = 0, 1, 2, \dots , N-1$のそれぞれに対して、$B$の転倒数を求めよ。</description>
+    </item>
+    
     <item>
       <title>ABC235E、あるいはクエリ並列処理</title>
       <link>http://inthebloom.github.io/post/abc235e/</link>
