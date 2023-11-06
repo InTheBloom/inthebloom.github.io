@@ -6,7 +6,18 @@
     <description>Recent content in Posts on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 05 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC100D - Patisserie ABC</title>
+      <link>http://inthebloom.github.io/post/abc100d/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/abc100d/</guid>
+      <description>問題概要 問題へのリンク
+$N$種類のケーキがある。$i$種類目のケーキは「綺麗さ」$x_i$、「おいしさ」$y_i$、「人気度」$z_i$を持っている。 このうち$M$種類のケーキを選んで食べる。ただし、同じ種類のケーキを2つとることはできない。
+選んだ$M$種類のケーキに対して、スコアを $\left| \displaystyle\sum_{i=1}^M x_i \right| + \left| \displaystyle\sum_{i=1}^M y_i \right| + \left| \displaystyle\sum_{i=1}^M z_i \right|$ と定める。 スコアの最大値を求めよ。</description>
+    </item>
+    
     <item>
       <title>ABC327参加記録</title>
       <link>http://inthebloom.github.io/post/abc327/</link>
