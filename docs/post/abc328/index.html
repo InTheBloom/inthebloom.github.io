@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-<link rel="alternate" href="/index.xml?c=2dec2a31ba130f245428139920e9020b69a4f08a" type="application/rss+xml" title="RSS" />
+<link rel="alternate" href="/index.xml?c=ded62938f2b9b67414820e7a3375078eca8f58d1" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ABC328参加記録 - InTheDayDream">
 </meta>
 <meta property="og:url" content="http://inthebloom.github.io/post/abc328/">
@@ -37,11 +37,11 @@
 <meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=2dec2a31ba130f245428139920e9020b69a4f08a">
-<link rel="stylesheet" href="/css/color.css?c=2dec2a31ba130f245428139920e9020b69a4f08a">
+<link rel="stylesheet" href="/css/main.css?c=ded62938f2b9b67414820e7a3375078eca8f58d1">
+<link rel="stylesheet" href="/css/color.css?c=ded62938f2b9b67414820e7a3375078eca8f58d1">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=2dec2a31ba130f245428139920e9020b69a4f08a">
+<link rel="stylesheet" href="/css/custom.css?c=ded62938f2b9b67414820e7a3375078eca8f58d1">
 
 
 
@@ -224,7 +224,7 @@
 <p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1699799992/pictures/abc328/C_gilw06.png" alt=""></p>
 <p>ナイーブに操作すると$r_i - l_i$が大きいクエリばかり飛んでくるときが最悪ケースで、$O(N^2)$です。
 区間クエリを高速化する問題は、累積和を考えると良い場合があります。この問題はまさにそうで、
-<code>cum[i] := (S[i] == S[i+1]なら1、そうでないなら0)</code>と定めると、
+<code>cum[i] := (S[j] == S[j+1]なら1、そうでないなら0 の 0&lt;=j&lt;=iの総和)</code>と定めると、
 前処理$O(N)$クエリ$O(1)$で答えることができます。
 クエリをどうやって処理するべきかを一回考えると思いつきやすいような気がします。</p>
 <p>(連続区間において条件を満たす場所を数える) -&gt; (条件を満たす場所を1、満たさない場所を0と対応させて、Static Range Sum Queryに帰着) -&gt; 累積和 という流れなのかなと思います。</p>
