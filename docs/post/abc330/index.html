@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ABC330参加記録 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=11fc2562856d3e69c8b9780fbab7a0ac7be9ef88" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="ABC330参加記録 - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/abc330/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="ABC330参加記録 - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/abc330/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=11fc2562856d3e69c8b9780fbab7a0ac7be9ef88">
+<link rel="stylesheet" href="/css/color.css?c=11fc2562856d3e69c8b9780fbab7a0ac7be9ef88">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=11fc2562856d3e69c8b9780fbab7a0ac7be9ef88">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>ABC330参加記録</h1>
+
+<span class="sub">Published on 2023-11-25</span><br>
+<span class="sub">Last Modified 2023-11-25</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#戦績">戦績</a></li>
+    <li><a href="#所感">所感</a></li>
+    <li><a href="#雑振り返り">雑振り返り</a>
+      <ul>
+        <li><a href="#a---counting-passes">A - Counting Passes</a></li>
+        <li><a href="#b---minimize-abs-1">B - Minimize Abs 1</a></li>
+        <li><a href="#c---minimize-abs-2">C - Minimize Abs 2</a></li>
+        <li><a href="#d---counting-ls">D - Counting Ls</a></li>
+        <li><a href="#e---mex-and-update">E - Mex and Update</a></li>
+        <li><a href="#f---minimize-bounding-square">F - Minimize Bounding Square</a></li>
+      </ul>
+    </li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="はじめに">はじめに</h2>
+<p>本稿は、2023-11-25に行われた<a href="https://atcoder.jp/contests/abc330/tasks">ABC330</a>の参加記録です。
+眠れない夜にはコンテストの参加記録を書くのが良いと古事記にも書いてあった<sup style="font-style: italic"><a href="https://ja.wikipedia.org/wiki/Wikipedia:%E7%8B%AC%E8%87%AA%E7%A0%94%E7%A9%B6%E3%81%AF%E8%BC%89%E3%81%9B%E3%81%AA%E3%81%84">要出典</a></sup>ので更新します。</p>
+<h2 id="戦績">戦績</h2>
+<p>今回の提出記録は以下の通りです。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1700937193/pictures/abc330/submission_lmzo01.png" alt=""></p>
+<p>AからEまでの5問正解できました。パフォーマンスは<span style="color: cyan">1420</span>で、レーティング変動は<span style="color: cyan">1200</span>→<span style="colro: cyan">1224</span>(+24)でした。</p>
+<h2 id="所感">所感</h2>
+<p>今回解ける問題を解いたという感じです。
+何とか緑落ち回避できてよかった。</p>
+<h2 id="雑振り返り">雑振り返り</h2>
+<h3 id="a---counting-passes">A - Counting Passes</h3>
+<p><a href="https://atcoder.jp/contests/abc330/tasks/abc330_a">問題へのリンク</a></p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1700937192/pictures/abc330/A_td9hxv.png" alt=""></p>
+<p>配列を前からひとつづつ見ていけば良いです。
+こういう感じのA問題楽でうれしいですよね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> L<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> L<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>a<span style="color:#f92672">;</span> A<span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>L <span style="color:#f92672">&lt;=</span> a<span style="color:#f92672">)</span> count<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>count<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">...)</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="b---minimize-abs-1">B - Minimize Abs 1</h3>
+<p><a href="https://atcoder.jp/contests/abc330/tasks/abc330_b">問題へのリンク</a></p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1700937192/pictures/abc330/B_yuq0as.png" alt=""></p>
+<p>Bにしては問題文が難しいです。何を言っているのかわからなくて1分くらい固まっていました。
+要するに、次のような感じです。</p>
+<p>$1 \leq i \leq N$に対して次の問題を解け。</p>
+<ul>
+<li>$L \leq X_i \leq R$を満たす$X_i$であって、$A_i$と最も近いものを求めよ。</li>
+</ul>
+<p>これなら少しマシになった気がします。$A_i \in [L, R]$であれば、一番近い値は当然$A_i$そのものになるので、$A_i$が答えになります。
+そうでない時は、$L$か$R$しかありえません。場合分けして解答しましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> L<span style="color:#f92672">,</span> R<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> L<span style="color:#f92672">,</span> R<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> a<span style="color:#f92672">;</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>L <span style="color:#f92672">&lt;=</span> a <span style="color:#f92672">&amp;&amp;</span> a <span style="color:#f92672">&lt;=</span> R<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>a <span style="color:#f92672">&lt;</span> L<span style="color:#f92672">)</span> ans<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> L<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>R <span style="color:#f92672">&lt;</span> a<span style="color:#f92672">)</span> ans<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> R<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> a<span style="color:#f92672">;</span> ans<span style="color:#f92672">)</span> write<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> i <span style="color:#f92672">==</span> ans<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;\n&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">...)</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="c---minimize-abs-2">C - Minimize Abs 2</h3>
+<p><a href="https://atcoder.jp/contests/abc330/tasks/abc330_c">問題へのリンク</a></p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1700937192/pictures/abc330/C_dc3bii.png" alt=""></p>
+<p>とりあえず$x$は固定して考えましょう。$D - x^2 = D^\prime$とおくと、$|y^2 - D^\prime|$の最小化問題になります。ただし、$D^\prime \in [D-1, \infty)$に留意しましょう。
+うーん、絶対値記号が絶妙にキモいですね。多分外さなくてもいいはずですが、外しましょう。</p>
+<p>$$\begin{equation*}
+|y^2 + D^\prime| = \max (y^2 - D^\prime, D^\prime - y^2)
+\end{equation*}$$</p>
+<p>ムっ、この2項は単調性がありそうですね！
+1項目が最小になるときは、$D^\prime \leq y^2$を満たす最小の$y$で、2項目が最小になるときは、$y^2 \leq D^\prime$を満たす最大の$y$になるはずです。
+これ、二分探索で求められそうですね。</p>
+<p>というわけで、ある$x$を与えたときに、最適解になる$y$を高速に探索する方針がたったので、これで終わりです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> D <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">long</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    solve<span style="color:#f92672">(</span>D<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> D<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// xは10^6程度まででよいので、それらに対してyを探索
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>D <span style="color:#f92672">&lt;</span> x<span style="color:#f92672">*</span>x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// このxに対してのyを求める -&gt; 大体x^2+y^2 - D = 0 =&gt; x^2 + y^2 = D となるような感じで
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">long</span> ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> ng <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#f92672">^^</span><span style="color:#ae81ff">6</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> abs<span style="color:#f92672">(</span>ok<span style="color:#f92672">-</span>ng<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">long</span> mid <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ok<span style="color:#f92672">+</span>ng<span style="color:#f92672">)</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>x<span style="color:#f92672">*</span>x<span style="color:#f92672">+</span>mid<span style="color:#f92672">*</span>mid <span style="color:#f92672">&lt;=</span> D<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                ok <span style="color:#f92672">=</span> mid<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                ng <span style="color:#f92672">=</span> mid<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> candi <span style="color:#f92672">=</span> min<span style="color:#f92672">(</span>D <span style="color:#f92672">-</span> x<span style="color:#f92672">*</span>x <span style="color:#f92672">-</span> ok<span style="color:#f92672">*</span>ok<span style="color:#f92672">,</span> x<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> ng<span style="color:#f92672">*</span>ng <span style="color:#f92672">-</span> D<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> min<span style="color:#f92672">(</span>ans<span style="color:#f92672">,</span> candi<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        x<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">...)</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>$x$の上限が$\sqrt{D}$で抑えられることを考えれば、全体$O(\sqrt{D} \log \sqrt{D})$で抑えられているはずです。多分。
+これは普通に難しいと思ったんですが、意外にdifficultyが低かったです。私の解よりもシンプルな全探索解が想定解法らしく(計算量も向こうの方が良い)ちょっと残念です。</p>
+<h3 id="d---counting-ls">D - Counting Ls</h3>
+<p><a href="https://atcoder.jp/contests/abc330/tasks/abc330_d">問題へのリンク</a></p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1700937192/pictures/abc330/D_x4tcpz.png" alt=""></p>
+<p>まず、行と列を固定して考えます。
+そもそもこのような組が取れるのは、固定した行と列の交点が<code>o</code>であるもののみであることが分かります。
+そこから、行と列の好きな場所から1つずつ<code>o</code>をとればもれなく数え上げられそうです。
+被りがないことの正当性は、固定した行と列が一つでも異なれば、角に当たる部分の<code>o</code>は必ず異なるものが採用されることから従います。
+漏れがないことの正当性は、信じる気持ちです(は？)。</p>
+<p>というわけで、各行と列に何個<code>o</code>があるかを保持しておけば、グリッド走査分の$O(N^2)$で計算できます。
+本番での私は意味不明なことをしていたので、upsolveの方をあげておきます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    string<span style="color:#f92672">[]</span> S <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> string<span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> S<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    solve<span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> S<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> string<span style="color:#f92672">[]</span> S<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> vertical <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span> <span style="color:#75715e">// vertical[i] := 列iに何個&#39;o&#39;があるか
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> horizontal <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span> <span style="color:#75715e">// horizontal[i] := 行iに何個&#39;o&#39;があるか
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>S<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;o&#39;</span><span style="color:#f92672">)</span> horizontal<span style="color:#f92672">[</span>i<span style="color:#f92672">]++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>S<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;o&#39;</span><span style="color:#f92672">)</span> vertical<span style="color:#f92672">[</span>j<span style="color:#f92672">]++;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>S<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;o&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">+=</span> <span style="color:#f92672">(</span>horizontal<span style="color:#f92672">[</span>i<span style="color:#f92672">]-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>vertical<span style="color:#f92672">[</span>j<span style="color:#f92672">]-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="e---mex-and-update">E - Mex and Update</h3>
+<p><a href="https://atcoder.jp/contests/abc330/tasks/abc330_e">問題へのリンク</a></p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1700937192/pictures/abc330/E_gsliro.png" alt=""></p>
+<p>一瞬セグメントツリーの香りを感じてビクッ！としましたが、落ち着いて考えます。
+そもそもmex計算がややこしい点は、前の方の要素が全埋めされたときに、いきなり解が後ろの方に飛んでいくことがあり得るからです。
+それなら、先に候補地を持っておけばよいじゃないという発想で解きました。</p>
+<ol>
+<li>初期状態</li>
+</ol>
+<p>mex候補は次のいずれかのみ。</p>
+<ul>
+<li>$0$</li>
+<li>$A_i+1$</li>
+</ul>
+<ol start="2">
+<li>更新</li>
+</ol>
+<p>新しくmex候補となるのは次のいずれかのみ。</p>
+<ul>
+<li>$x_k+1$</li>
+<li>$A_{i_k}$</li>
+</ul>
+<p>というわけで、実は候補地点は更新時に$O(1)$個しか変化しないんですね。
+あとは雑に優先度付きキューに突っ込んで、mexとして採用できるかどうかは連想配列で判定したら解けます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> Q<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>    solve<span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> Q<span style="color:#f92672">,</span> A<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> Q<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// セグ木？ いや、実は候補が少ないパターンのやつだ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 新しく更新したとき、mex候補として一つ後ろをキューに積んでおけばよい
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#66d9ef">int</span><span style="color:#f92672">]</span> mp<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>a<span style="color:#f92672">;</span> A<span style="color:#f92672">)</span> mp<span style="color:#f92672">[</span>a<span style="color:#f92672">]++;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    BinaryHeap<span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[],</span> <span style="color:#e6db74">&#34;b&lt;a&#34;</span><span style="color:#f92672">)</span> PQ <span style="color:#f92672">=</span> <span style="color:#f92672">[];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>a<span style="color:#f92672">;</span> A<span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>a<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">!</span><span style="color:#66d9ef">in</span> mp<span style="color:#f92672">)</span> PQ<span style="color:#f92672">.</span><span style="color:#a6e22e">insert</span><span style="color:#f92672">(</span>a<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    PQ<span style="color:#f92672">.</span><span style="color:#a6e22e">insert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Q</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> i<span style="color:#f92672">,</span> x<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> x<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        mp<span style="color:#f92672">[</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]]--;</span>
+</span></span><span style="display:flex;"><span>        mp<span style="color:#f92672">[</span>x<span style="color:#f92672">]++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>x<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">!</span><span style="color:#66d9ef">in</span> mp <span style="color:#f92672">||</span> mp<span style="color:#f92672">[</span>x<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> PQ<span style="color:#f92672">.</span><span style="color:#a6e22e">insert</span><span style="color:#f92672">(</span>x<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">!</span><span style="color:#66d9ef">in</span> mp <span style="color:#f92672">||</span> mp<span style="color:#f92672">[</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]]</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> PQ<span style="color:#f92672">.</span><span style="color:#a6e22e">insert</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        A<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> x<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">auto</span> head <span style="color:#f92672">=</span> PQ<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>head <span style="color:#f92672">!</span><span style="color:#66d9ef">in</span> mp <span style="color:#f92672">||</span> mp<span style="color:#f92672">[</span>head<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                ans<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> head<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            PQ<span style="color:#f92672">.</span><span style="color:#a6e22e">removeFront</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>a<span style="color:#f92672">;</span> ans<span style="color:#f92672">)</span> writeln<span style="color:#f92672">(</span>a<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">...)</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>最悪計算量の評価全くしてないけどなんか通りました。まあクエリが$2 \times 10^5$程度しか来ないので、それはそうですね。</p>
+<p>また、この問題はもっと賢い解き方が存在します。$N$要素数列のmexは定義から$[0, N]$の区間内に入ります。
+なので、実は極端に大きな項は無視してもよかったわけです。</p>
+<p>この議論より、$0$から$N$までの$N+1$要素の配列を持ってシミュレーションをすると解けます。
+mexを見つけるのは順序付き集合で対数時間です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> Q<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>    solve<span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> Q<span style="color:#f92672">,</span> A<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> Q<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> range <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">);</span> <span style="color:#75715e">// [0, N]をシミュレーション
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> rbt <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RedBlackTree<span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;a&lt;b&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>a<span style="color:#f92672">;</span> A<span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>a <span style="color:#f92672">&lt;=</span> N<span style="color:#f92672">)</span> range<span style="color:#f92672">[</span>a<span style="color:#f92672">]++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> r<span style="color:#f92672">;</span> range<span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> rbt<span style="color:#f92672">.</span><span style="color:#a6e22e">insert</span><span style="color:#f92672">(</span><span style="color:#66d9ef">cast</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Q</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> i<span style="color:#f92672">,</span> x<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> x<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        i<span style="color:#f92672">--;</span> <span style="color:#75715e">// 0-indexed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            range<span style="color:#f92672">[</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]]--;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>range<span style="color:#f92672">[</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]]</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> rbt<span style="color:#f92672">.</span><span style="color:#a6e22e">insert</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        A<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> x<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>x <span style="color:#f92672">&lt;=</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            range<span style="color:#f92672">[</span>x<span style="color:#f92672">]++;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>range<span style="color:#f92672">[</span>x<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> rbt<span style="color:#f92672">.</span><span style="color:#a6e22e">removeKey</span><span style="color:#f92672">(</span>x<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ans<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> rbt<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>a<span style="color:#f92672">;</span> ans<span style="color:#f92672">)</span> writeln<span style="color:#f92672">(</span>a<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">...)</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>これ、とても賢いですね。mexは$[0, N]$というのは覚えておきたいです。</p>
+<h3 id="f---minimize-bounding-square">F - Minimize Bounding Square</h3>
+<p><a href="https://atcoder.jp/contests/abc330/tasks/abc330_f">問題へのリンク</a></p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1700937193/pictures/abc330/F_do3lwn.png" alt=""></p>
+<p>難しい！正方形の1辺を二分探索するのかと思っていたけど、判定問題が全然解けない！
+どうやら貪欲解も存在するらしく、まだまだ壁は高いなとおもいました。</p>
+<h2 id="終わりに">終わりに</h2>
+<p>今回の参加記録はこれで終わりです。読んでいただきありがとうございました。
+先週の参加記録を書けていなかったのが少し心残りです。
+今週はいろいろと忙しくて、それをやるだけの心的余裕がありませんでした。</p>
+<p>12月は緑以下オンサイトに行く予定です。もし行く人いたら仲良くしてください。そうでなければ多分ぼっちです。</p>
+<p>昨日、<a href="https://yukicoder.me/contests/470">MMA Contest 017</a>がありましたが、実は私もテスターをさせていただきました。
+走っていない人はぜひどうぞ。余裕があれば私も記事書きます(優先度低め)。</p>
+<p>適当に近況も書いておきます。</p>
+<p>この間のPG battleの景品が届きました。PG battleのステッカーが6枚も入っていてたまげたのですが、これあってますか？</p>
+<p>最近kindleに興味があります。
+先日、面白そうな本を見つけたのですが、経験上、本として所有していても読む機会がなかなかないなと思い、電子書籍なら読むのか実験してみたいという感じです。
+基本食事中とかスマホばっかり見てるので、そういう時間に見れるブログみたいな本が読みたいな。とか妄想してます。ちなまだデビューしてないです。</p>
+<p>いろいろと書き散らしたいことは脳内にあるのですが、いかんせん競技プログラミングのエントリ以外最初の一歩が踏み出せないのが悩みです
+(そういうアイディアは形にしようとすると崩壊するのが常なので、まあそれはそうという感じかも)。</p>
+<p>それではまた。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">コンテスト参加記録</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/abc328/">ABC328参加記録</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-11-25</div>
+  <div class="post-title"><a href="/post/abc330/">ABC330参加記録</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-11-12</div>
+  <div class="post-title"><a href="/post/abc328/">ABC328参加記録</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-11-06</div>
+  <div class="post-title"><a href="/post/abc100d/">ABC100D - Patisserie ABC</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "コンテスト参加記録"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-11-25</div>
+  <div class="post-title"><a href="/post/abc330/">ABC330参加記録</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-11-12</div>
+  <div class="post-title"><a href="/post/abc328/">ABC328参加記録</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-11-05</div>
+  <div class="post-title"><a href="/post/abc327/">ABC327参加記録</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%b3%e3%83%b3%e3%83%86%e3%82%b9%e3%83%88%e5%8f%82%e5%8a%a0%e8%a8%98%e9%8c%b2/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
