@@ -12,7 +12,7 @@ tags:
   - UEC Advent Calendar
 archives:
   - 2022
-  - 12
+  - 2022-12
 # sample
 # - yyyy
 # - yyyy-mm
