@@ -61,5 +61,24 @@ A個のaとB個のbからなる文字列であって、辞書順でK番目のも
 1 &amp;lt;= A, B &amp;lt;= 30 辞書順でK番目の文字列が存在する。 解法 まず、問題文の条件を満たす文字列は$\displaystyle\frac{(A+B)!</description>
     </item>
     
+    <item>
+      <title>ABC99C - Strange Bank</title>
+      <link>http://inthebloom.github.io/post/abc99c/</link>
+      <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/abc99c/</guid>
+      <description>はじめに 個人的に比較的難しく、教育的な動的計画法の問題に出会ったので、メモを残しておく。 防備録的な色合いが強いので、私にとって明らかなことは書かない。
+問題 ABC99C Strange Bank</description>
+    </item>
+    
+    <item>
+      <title>精説ARC155A</title>
+      <link>http://inthebloom.github.io/post/arc155a/</link>
+      <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/arc155a/</guid>
+      <description>はじめに 先日1月29日にAtCoder Regular Contest 155がありました。ARCのA問題は，ARCがA~Fの6問体制になったARC104から現在に至るまでdifficultyの最大値は緑でした。しかし，今回のA問題は水色でした。</description>
+    </item>
+    
   </channel>
 </rss>

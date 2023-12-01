@@ -57,5 +57,15 @@ A個のaとB個のbからなる文字列であって、辞書順でK番目のも
 1 &amp;lt;= A, B &amp;lt;= 30 辞書順でK番目の文字列が存在する。 解法 まず、問題文の条件を満たす文字列は$\displaystyle\frac{(A+B)!</description>
     </item>
     
+    <item>
+      <title>unstableをstableにする小技</title>
+      <link>http://inthebloom.github.io/post/sorttech/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/sorttech/</guid>
+      <description>はじめに 先日(2023/7/1)のABC308のC問題にややこしいソート問題が出ました。 本稿はその問題を簡潔に解く実装のアイディアの紹介です。
+無理やりstable化 標準ライブラリで一番簡単に使えるソートは安定ソートでないことが多いです。 このため、競技プログラミングでよくある2値以上を取る要素のソートのときなどに、 もとの順序が破壊されて困ることがあります。 これを解消するには、比較関数を自炊してソートに渡してあげればよいです。</description>
+    </item>
+    
   </channel>
 </rss>
