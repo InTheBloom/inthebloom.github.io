@@ -38,7 +38,9 @@ details {
 
 <span style="font-size: 1.1em; color: red;">2時間ほど遅刻しました！すみません！</span>
 
-<iframe src="https://adventar.org/calendars/8698/embed" width="620" height="362" frameborder="0" loading="lazy" style="overflow: scroll;"></iframe>
+<div style="overflow: scroll;">
+<iframe src="https://adventar.org/calendars/8698/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
+</div>
 
 5日目はトナカイさんによる、[BASHであそぼ](https://reindeeruec.hatenablog.com/entry/2023/12/05/000937)でした。
 私もⅠ類の友人がいますが、彼は毎回提出コマンドを手打ちしていた記憶があります。
@@ -47,7 +49,9 @@ details {
 
 実はAdvent Calendarは公開後すぐに枠が埋まってしまったので、2枠目も存在します(なんで？)。
 
-<iframe src="https://adventar.org/calendars/8704/embed" width="620" height="362" frameborder="0" loading="lazy" style="overflow: scroll;"></iframe>
+<div style="overflow: scroll;">
+<iframe src="https://adventar.org/calendars/8704/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
+</div>
 
 5日目の牛田ウシタさんの記事は<span style="text-decoration: line-through;">まだ公開されていないようですが、こちらもぜひ読んでみてはいかがでしょうか！</span>
 
@@ -196,6 +200,8 @@ while (1 < abs(ok-ng)) {
 <details>
 <summary>解答</summary>
 
+<div style="overflow: scroll;">
+
 $$
 \begin{equation\*}
 f(x) =
@@ -205,6 +211,8 @@ f(x) =
 \end{cases}
 \end{equation\*}
 $$
+
+</div>
 
 とすれば、$f$として満たすべき性質を満足します。
 よって、次のような解答ができます。
@@ -259,8 +267,8 @@ f(i) =
 \begin{cases}
 0 & \text{if $i < 0$,} \\\\
 0 & \text{if $A[i] < x$,} \\\\
-1 & \text{if $x \leq A[i]$} \\\\
-1 & \text{if $N \leq i$} \\\\
+1 & \text{if $x \leq A[i]$,} \\\\
+1 & \text{if $N \leq i$.} \\\\
 \end{cases}
 \end{equation\*}
 $$
@@ -350,15 +358,15 @@ for (int i = 0; i < N; i++) {
 結論から言うと、次の関数を用いることで二分探索可能になります。
 
 $$
-s(x) \coloneqq \sum_{\substack{1 \leq i \leq N \\\\ a_i \leq x}} b_i
+s(x) \coloneqq \sum_{\substack{1 \leq i \leq N \\\\ x \leq a_i}} b_i
 $$
 とするとき、
 $$
 \begin{equation\*}
 f(x) =
 \begin{cases}
-0 & \text{if $K < s(x)$} \\\\
-1 & \text{if $s(x) \leq K$,} \\\\
+0 & \text{if $K < s(x)$,} \\\\
+1 & \text{if $s(x) \leq K$.} \\\\
 \end{cases}
 \end{equation\*}
 $$
@@ -441,11 +449,11 @@ $X$円で売ってもよいと考える売り手の人数が、りんごを $X$�
 <summary>解答</summary>
 りんごを$X$円で売ってよいと考える売り手の人数$P(X)$は、次のように求められます。
 $$
-P = \sum_{\substack{1 \leq i \leq N \\\\ A_i \leq X}} 1
+P(X) = \sum_{\substack{1 \leq i \leq N \\\\ A_i \leq X}} 1
 $$
 りんごを$X$円で買ってよいと考える買い手の人数$Q(X)$は、次のように求められます。
 $$
-Q = \sum_{\substack{1 \leq i \leq M \\\\ X \leq B_i}} 1
+Q(X) = \sum_{\substack{1 \leq i \leq M \\\\ X \leq B_i}} 1
 $$
 
 問題は、$Q(X) \leq P(X)$を満たす最小の$X$を求めよというものです。
