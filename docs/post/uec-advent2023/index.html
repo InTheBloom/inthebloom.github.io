@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-<link rel="alternate" href="/index.xml?c=da3fb243671fd5bc5a1cfef31f2b6f2952ccd39d" type="application/rss+xml" title="RSS" />
+<link rel="alternate" href="/index.xml?c=dd2c632b2c05f79f5d79d096c5b1488c0bf56013" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目 - InTheDayDream">
 </meta>
 <meta property="og:url" content="http://inthebloom.github.io/post/uec-advent2023/">
@@ -37,11 +37,11 @@
 <meta property="og:image" content="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1701781533/pictures/uecadvent2023/ogp_rxkpup.png">
 
 
-<link rel="stylesheet" href="/css/main.css?c=da3fb243671fd5bc5a1cfef31f2b6f2952ccd39d">
-<link rel="stylesheet" href="/css/color.css?c=da3fb243671fd5bc5a1cfef31f2b6f2952ccd39d">
+<link rel="stylesheet" href="/css/main.css?c=dd2c632b2c05f79f5d79d096c5b1488c0bf56013">
+<link rel="stylesheet" href="/css/color.css?c=dd2c632b2c05f79f5d79d096c5b1488c0bf56013">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=da3fb243671fd5bc5a1cfef31f2b6f2952ccd39d">
+<link rel="stylesheet" href="/css/custom.css?c=dd2c632b2c05f79f5d79d096c5b1488c0bf56013">
 
 
 
@@ -150,13 +150,17 @@ details {
 <a href="https://adventar.org/calendars/8698">電通大生による電通大生のためのUEC Advent Calendar 2023</a>
 の6日目担当です。</p>
 <p><span style="font-size: 1.1em; color: red;">2時間ほど遅刻しました！すみません！</span></p>
-<iframe src="https://adventar.org/calendars/8698/embed" width="620" height="362" frameborder="0" loading="lazy" style="overflow: scroll;"></iframe>
+<div style="overflow: scroll;">
+<iframe src="https://adventar.org/calendars/8698/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
+</div>
 <p>5日目はトナカイさんによる、<a href="https://reindeeruec.hatenablog.com/entry/2023/12/05/000937">BASHであそぼ</a>でした。
 私もⅠ類の友人がいますが、彼は毎回提出コマンドを手打ちしていた記憶があります。
 自動化スクリプトをbashでササッと組めるのすごく憧れるんですが、いつもbashを勉強する面倒臭さが勝ってしまいます。
 私もいつの日か<a href="https://www.amazon.co.jp/%E9%80%80%E5%B1%88%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AFPython%E3%81%AB%E3%82%84%E3%82%89%E3%81%9B%E3%82%88%E3%81%86-%E2%80%95%E3%83%8E%E3%83%B3%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E3%81%AB%E3%82%82%E3%81%A7%E3%81%8D%E3%82%8B%E8%87%AA%E5%8B%95%E5%8C%96%E5%87%A6%E7%90%86%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-Al-Sweigart/dp/487311778X">退屈なことはpythonにやらせ</a>られるようになりたいです。</p>
 <p>実はAdvent Calendarは公開後すぐに枠が埋まってしまったので、2枠目も存在します(なんで？)。</p>
-<iframe src="https://adventar.org/calendars/8704/embed" width="620" height="362" frameborder="0" loading="lazy" style="overflow: scroll;"></iframe>
+<div style="overflow: scroll;">
+<iframe src="https://adventar.org/calendars/8704/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
+</div>
 <p>5日目の牛田ウシタさんの記事は<span style="text-decoration: line-through;">まだ公開されていないようですが、こちらもぜひ読んでみてはいかがでしょうか！</span></p>
 <p>本記事を書いている間に更新されていました。
 アドカレを書くためにいきなり22万吹き飛んでいて笑いました。
@@ -268,6 +272,7 @@ $$
 </ul>
 <details>
 <summary>解答</summary>
+<div style="overflow: scroll;">
 <p>$$
 \begin{equation*}
 f(x) =
@@ -277,6 +282,7 @@ f(x) =
 \end{cases}
 \end{equation*}
 $$</p>
+</div>
 <p>とすれば、$f$として満たすべき性質を満足します。
 よって、次のような解答ができます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -321,8 +327,8 @@ f(i) =
 \begin{cases}
 0 &amp; \text{if $i &lt; 0$,} \\
 0 &amp; \text{if $A[i] &lt; x$,} \\
-1 &amp; \text{if $x \leq A[i]$} \\
-1 &amp; \text{if $N \leq i$} \\
+1 &amp; \text{if $x \leq A[i]$,} \\
+1 &amp; \text{if $N \leq i$.} \\
 \end{cases}
 \end{equation*}
 $$</p>
@@ -390,15 +396,15 @@ $$
 <p>また、$s(x)$を計算するのに$O(N)$しか必要としないため、これまた二分探索で解けそうな雰囲気があります。</p>
 <p>結論から言うと、次の関数を用いることで二分探索可能になります。</p>
 <p>$$
-s(x) \coloneqq \sum_{\substack{1 \leq i \leq N \\ a_i \leq x}} b_i
+s(x) \coloneqq \sum_{\substack{1 \leq i \leq N \\ x \leq a_i}} b_i
 $$
 とするとき、
 $$
 \begin{equation*}
 f(x) =
 \begin{cases}
-0 &amp; \text{if $K &lt; s(x)$} \\
-1 &amp; \text{if $s(x) \leq K$,} \\
+0 &amp; \text{if $K &lt; s(x)$,} \\
+1 &amp; \text{if $s(x) \leq K$.} \\
 \end{cases}
 \end{equation*}
 $$</p>
@@ -466,11 +472,11 @@ $X$円で売ってもよいと考える売り手の人数が、りんごを $X$�
 <summary>解答</summary>
 りんごを$X$円で売ってよいと考える売り手の人数$P(X)$は、次のように求められます。
 $$
-P = \sum_{\substack{1 \leq i \leq N \\\\ A_i \leq X}} 1
+P(X) = \sum_{\substack{1 \leq i \leq N \\\\ A_i \leq X}} 1
 $$
 りんごを$X$円で買ってよいと考える買い手の人数$Q(X)$は、次のように求められます。
 $$
-Q = \sum_{\substack{1 \leq i \leq M \\\\ X \leq B_i}} 1
+Q(X) = \sum_{\substack{1 \leq i \leq M \\\\ X \leq B_i}} 1
 $$
 <p>問題は、$Q(X) \leq P(X)$を満たす最小の$X$を求めよというものです。
 ここで、$P(X)$、$Q(X)$の性質を利用します。</p>
