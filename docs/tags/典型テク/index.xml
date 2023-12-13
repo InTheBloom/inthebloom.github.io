@@ -6,7 +6,16 @@
     <description>Recent content in 典型テク on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 01 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>列をいくつかの連続部分列へ分解する小技</title>
+      <link>http://inthebloom.github.io/post/split-into-continuous-subsequences/</link>
+      <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/split-into-continuous-subsequences/</guid>
+      <description>問題 数列$A$の連続部分列を、$i, j \in [1, N]$かつ$i \leq j$なる$i, j$を選択し、 $A$の$i$項目から$j$項目までを順番を変えずに取り出したものとし、$B_{i, j}$と表記することとする。</description>
+    </item>
+    
     <item>
       <title>ABC190F - Shift and Inversions</title>
       <link>http://inthebloom.github.io/post/abc190f/</link>
