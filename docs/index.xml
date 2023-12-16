@@ -6,7 +6,17 @@
     <description>Recent content on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 13 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC221E - LEQ</title>
+      <link>http://inthebloom.github.io/post/abc221e/</link>
+      <pubDate>Sat, 16 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/abc221e/</guid>
+      <description>問題概要 問題へのリンク
+長さ$N$の整数列$A = (A_1, A_2, \dots , A_N)$が与えらえる。 $A$の長さ$2$以上の部分列であって、次の条件を満たすものをの総数を$998244353$で割ったあまりを求めよ。</description>
+    </item>
+    
     <item>
       <title>列をいくつかの連続部分列へ分解する小技</title>
       <link>http://inthebloom.github.io/post/split-into-continuous-subsequences/</link>
