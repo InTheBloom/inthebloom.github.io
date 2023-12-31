@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ABC290E - Make it Palindrome - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=a1959758242722f0003ffcbe96a7cdcc55fcf6dd" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="ABC290E - Make it Palindrome - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/abc290e/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="ABC290E - Make it Palindrome - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/abc290e/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=a1959758242722f0003ffcbe96a7cdcc55fcf6dd">
+<link rel="stylesheet" href="/css/color.css?c=a1959758242722f0003ffcbe96a7cdcc55fcf6dd">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=a1959758242722f0003ffcbe96a7cdcc55fcf6dd">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>ABC290E - Make it Palindrome</h1>
+
+<span class="sub">Published on 2023-12-31</span><br>
+<span class="sub">Last Modified 2023-12-31</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題概要">問題概要</a>
+      <ul>
+        <li><a href="#制約">制約</a></li>
+      </ul>
+    </li>
+    <li><a href="#解法">解法</a></li>
+    <li><a href="#提出">提出</a></li>
+    <li><a href="#感想">感想</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="問題概要">問題概要</h2>
+<p><a href="https://atcoder.jp/contests/abc290/tasks/abc290_e">問題へのリンク</a></p>
+<p>文字列$X$に対して、$f(X) = $($X$を回分にするために変更する必要のある要素の個数の最小値)と定める。
+長さ$N$の数列$A$が与えられるので、$A$のすべての<strong>連続部分列</strong>の集合$X$として、
+$\sum_{x \in X} f(x)$を求めよ。</p>
+<h3 id="制約">制約</h3>
+<ul>
+<li>$1 \leq N \leq 2 \times 10^5$</li>
+<li>$1 \leq A_i \leq N$</li>
+</ul>
+<h2 id="解法">解法</h2>
+<p>すべての連続部分列は$O(N^2)$個ある。
+なぜなら、連続部分列を1つ決めることは端点を2つ決めることと等価であるからであり、
+端点を2つ決める組み合わせの数は$\binom{N}{2}$通りであるからである。</p>
+<p>一つの連続部分列は長さ$O(N)$であるため、全探索は$O(N^3)$となり、当然間に合わない。</p>
+<p>そこで、主客転倒してみよう。(言葉の使い方があってるか不安)
+ある$(A_i, A_j)$ペアに着目した時、これらが一致する必要のあるような連続部分列は<strong>何通り取れるのか</strong>を考える。</p>
+<p>次に、具体例を挙げる。
+2つのOが$A_i$と$A_j$だと考えれば良い。</p>
+<pre>
+____O____O___
+</pre>
+<p>まず、これらが端点の連続部分列を取れば良い。連続部分列の端点をXで示す。</p>
+<pre>
+____X____X___
+</pre>
+<p>他にもこういうとり方もできる。</p>
+<pre>
+___XO____OX__
+</pre>
+<p>これでも良い。</p>
+<pre>
+__X_O____O_X_
+</pre>
+<p>というわけで、問題の答えは「$\min{} (i, N-j+1)$通り取れる」となる。(1-indexed)</p>
+<p>O(N)は通るので、連続部分列の左端を列挙して考えることにする。
+1つ左端$A_i$をとった時、「各項が何回一致する必要があるか」は、次のようになるというわけだ。</p>
+<pre>
+___O______
+    4444321
+</pre>
+<p>というわけで、とりあえず$O(N^2)$解を得ることが出来た。
+$A_i$と$A_j$が一致するならスキップ、そうでないなら$\min{} (i+1, N-j)$(0-indexed)を足し込んでいく感じで解ける。
+実装例は次のような感じ。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">long</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#ae81ff">1.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> A<span style="color:#f92672">[</span>j<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">+=</span> min<span style="color:#f92672">(</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> N<span style="color:#f92672">-</span>j<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>当然まだ通らないので、これを高速化しよう。
+問題を解くには、「ある区間に何個分$x$があるのか？」みたいなのを管理できれば良さそうである。
+これをセグメントツリーで管理する。
+ただし、右端の「4321」みたいになってるところがキモいので、これと「4444」みたいに一定値になってる部分を分けてセグメントツリー2本で管理することにする。</p>
+<p>わかりにくいと思うので、もう少し言語化する。
+セグメントツリーの最下段を$N$要素確保して、最下段の$i$番目の値を「今見てる区間に$i$は何個あるか？」を管理することにする。
+こうすれば、(総和)-(区間の左端の値が何個あるか)を計算することで
+「固定した左端の要素を変更する必要のあるような連続部分列のとり方」を数え上げられるという仕組みになっている。</p>
+<p>まだイメージがわかない人は実装例を見てほしい&hellip;と言いたかったのだが、実装が厳しすぎておよそ人の読めるようなものではなくなってしまった。
+どうしてもインデックスが合わなくて、偶奇で分けて、プリントと$O(N^2)$と合わせながら頑張って実装した。</p>
+<p>もっとスマートなやり方はいくらでも紹介されてるので、そちらを参照したほうが良いだろう。(自分もそうする。)</p>
+<h2 id="提出">提出</h2>
+<p>努力の証拠ということで一応貼り付けておく。
+解法自体はすぐわかったものの、問題とは3日以上向き合った気がする。
+多分$O(N \log N)$</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">/*</span>
+</span></span><span style="display:flex;"><span>       主客転倒して<span style="color:#960050;background-color:#1e0010">、</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span>がどこと何回一致判定されるかを考える<span style="color:#960050;background-color:#1e0010">。</span>
+</span></span><span style="display:flex;"><span>       すると<span style="color:#960050;background-color:#1e0010">、</span>min<span style="color:#f92672">(</span>右側の幅<span style="color:#f92672">,</span> 左側の幅<span style="color:#f92672">)</span>を考えれば良いことがわかり<span style="color:#960050;background-color:#1e0010">、</span>セグ木2本持っておくとよい<span style="color:#960050;background-color:#1e0010">。</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>    A<span style="color:#f92672">[]</span> <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ans<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>N <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> solveEVEN<span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> A<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> solveODD<span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> A<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">solveEVEN</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> M <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SegmentTree<span style="color:#f92672">!(</span><span style="color:#66d9ef">long</span><span style="color:#f92672">,</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">=&gt;</span> a<span style="color:#f92672">+</span>b<span style="color:#f92672">,</span> <span style="color:#f92672">()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#ae81ff">0L</span><span style="color:#f92672">)(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> R <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SegmentTree<span style="color:#f92672">!(</span><span style="color:#66d9ef">long</span><span style="color:#f92672">,</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">=&gt;</span> a<span style="color:#f92672">+</span>b<span style="color:#f92672">,</span> <span style="color:#f92672">()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#ae81ff">0L</span><span style="color:#f92672">)(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> N<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span> N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;=</span> i<span style="color:#f92672">;</span> i<span style="color:#f92672">--)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        R<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">+</span> N<span style="color:#f92672">-</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 右に進む */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++,</span> j<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">-</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        R<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">],</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">])</span> <span style="color:#f92672">-</span> <span style="color:#f92672">(</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">-</span>j<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* セット */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> N<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span> N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> i<span style="color:#f92672">;</span> i<span style="color:#f92672">--)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        R<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">+</span> N<span style="color:#f92672">-</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    M<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">],</span> M<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">])</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    M<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">],</span> M<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">])</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> i<span style="color:#f92672">;</span> i<span style="color:#f92672">--,</span> j<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>M<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">-</span> M<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]));</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">-</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        R<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>j<span style="color:#f92672">],</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>j<span style="color:#f92672">])</span> <span style="color:#f92672">-</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        M<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>j<span style="color:#f92672">],</span> M<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>j<span style="color:#f92672">])</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        M<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> M<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ans<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">solveODD</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> M <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SegmentTree<span style="color:#f92672">!(</span><span style="color:#66d9ef">long</span><span style="color:#f92672">,</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">=&gt;</span> a<span style="color:#f92672">+</span>b<span style="color:#f92672">,</span> <span style="color:#f92672">()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#ae81ff">0L</span><span style="color:#f92672">)(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> R <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SegmentTree<span style="color:#f92672">!(</span><span style="color:#66d9ef">long</span><span style="color:#f92672">,</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">=&gt;</span> a<span style="color:#f92672">+</span>b<span style="color:#f92672">,</span> <span style="color:#f92672">()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#ae81ff">0L</span><span style="color:#f92672">)(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> N<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span> N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;</span> i<span style="color:#f92672">;</span> i<span style="color:#f92672">--)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        R<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">+</span> N<span style="color:#f92672">-</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 右に進む */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++,</span> j<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">-</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        R<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">],</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">])</span> <span style="color:#f92672">-</span> <span style="color:#f92672">(</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">-</span>j<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* セット */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> N<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span> N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;</span> i<span style="color:#f92672">;</span> i<span style="color:#f92672">--)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        R<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">+</span> N<span style="color:#f92672">-</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    M<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">],</span> M<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">])</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> i<span style="color:#f92672">;</span> i<span style="color:#f92672">--,</span> j<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>M<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">-</span> M<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]));</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">-</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        R<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>j<span style="color:#f92672">],</span> R<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>j<span style="color:#f92672">])</span> <span style="color:#f92672">-</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        M<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>j<span style="color:#f92672">],</span> M<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>N<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>j<span style="color:#f92672">])</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        M<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> M<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ans<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>流石に長いのでセグメントツリーの実装は省略した。</p>
+<h2 id="感想">感想</h2>
+<p>死ぬほど苦戦して、かなり自信を失った気がする。
+次解くときはもっとスマートな解法でやりたいと思う。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/abc221e/">ABC221E - LEQ</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-31</div>
+  <div class="post-title"><a href="/post/abc290e/">ABC290E - Make it Palindrome</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-16</div>
+  <div class="post-title"><a href="/post/abc221e/">ABC221E - LEQ</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-13</div>
+  <div class="post-title"><a href="/post/split-into-continuous-subsequences/">列をいくつかの連続部分列へ分解する小技</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-31</div>
+  <div class="post-title"><a href="/post/abc290e/">ABC290E - Make it Palindrome</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-16</div>
+  <div class="post-title"><a href="/post/abc221e/">ABC221E - LEQ</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-11-06</div>
+  <div class="post-title"><a href="/post/abc100d/">ABC100D - Patisserie ABC</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

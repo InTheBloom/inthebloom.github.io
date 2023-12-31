@@ -6,7 +6,17 @@
     <description>Recent content on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 16 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC290E - Make it Palindrome</title>
+      <link>http://inthebloom.github.io/post/abc290e/</link>
+      <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/abc290e/</guid>
+      <description>問題概要 問題へのリンク
+文字列$X$に対して、$f(X) = $($X$を回分にするために変更する必要のある要素の個数の最小値)と定める。 長さ$N$の数列$A$が与えられるので、$A$のすべての連続部分列の集合$X$として、 $\sum_{x \in X} f(x)$を求めよ。</description>
+    </item>
+    
     <item>
       <title>ABC221E - LEQ</title>
       <link>http://inthebloom.github.io/post/abc221e/</link>
