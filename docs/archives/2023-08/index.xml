@@ -18,5 +18,15 @@
 レーティング変化は以下のとおりです。</description>
     </item>
     
+    <item>
+      <title>繰り返し二乗法について</title>
+      <link>http://inthebloom.github.io/post/modpow/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/modpow/</guid>
+      <description>はじめに この度私のライブラリに冪乗の余りを求める、いわゆるmodPow関数を追加しました。 丁度いい機会ということで、本稿ではmodpowの仕組みを説明し、詳細な実装方法と実装例を示します。 数学をガバっていたらすみません。
+modpowとは 以下、$\times{}$は整数の積を表します。</description>
+    </item>
+    
   </channel>
 </rss>

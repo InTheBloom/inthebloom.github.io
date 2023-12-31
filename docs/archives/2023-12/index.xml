@@ -8,6 +8,15 @@
     <language>ja</language>
     <lastBuildDate>Sun, 31 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2023-12/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>2023年お疲れ様でした。</title>
+      <link>http://inthebloom.github.io/post/2023-final/</link>
+      <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/2023-final/</guid>
+      <description>2023年12月31日 今年も大晦日と呼ばれるこの日がやってきました。 折角この場があるので、何か書きます。 それぞれの章は独立しており、関連性はありません。 なので突拍子もないことが書いてあるかもしれません。 ご了承くださいな。</description>
+    </item>
+    
+    <item>
       <title>ABC290E - Make it Palindrome</title>
       <link>http://inthebloom.github.io/post/abc290e/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
@@ -43,16 +52,6 @@
       
       <guid>http://inthebloom.github.io/post/uec-advent2023/</guid>
       <description>まえがき この記事は、 電通大生による電通大生のためのUEC Advent Calendar 2023 の6日目担当です。</description>
-    </item>
-    
-    <item>
-      <title>繰り返し二乗法について</title>
-      <link>http://inthebloom.github.io/post/modpow/</link>
-      <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/modpow/</guid>
-      <description>はじめに この度私のライブラリに冪乗の余りを求める、いわゆるmodPow関数を追加しました。 丁度いい機会ということで、本稿ではmodpowの仕組みを説明し、詳細な実装方法と実装例を示します。 数学をガバっていたらすみません。
-modpowとは 以下、$\times{}$は整数の積を表します。</description>
     </item>
     
   </channel>
