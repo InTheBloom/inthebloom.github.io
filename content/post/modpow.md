@@ -14,7 +14,7 @@ tags:
   - アルゴリズム
 archives:
   - 2023
-  - 2023-12
+  - 2023-08
 # sample
 # - yyyy
 # - yyyy-mm
