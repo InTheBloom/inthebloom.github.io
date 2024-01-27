@@ -6,7 +6,17 @@
     <description>Recent content in 2024 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 03 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2024/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2024/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>No.2616 中央番目の中央値</title>
+      <link>http://inthebloom.github.io/post/yukicoder2616/</link>
+      <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/yukicoder2616/</guid>
+      <description>問題概要 問題へのリンク
+長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</description>
+    </item>
+    
     <item>
       <title>ABC167E - Colorful Blocks</title>
       <link>http://inthebloom.github.io/post/abc167e/</link>
