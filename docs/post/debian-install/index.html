@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Ubuntuが死んだのでDebianをインストールする - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=1f2c205b0569a545836266922442d172e2b9dcc5" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="Ubuntuが死んだのでDebianをインストールする - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/debian-install/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="Ubuntuが死んだのでDebianをインストールする - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/debian-install/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=1f2c205b0569a545836266922442d172e2b9dcc5">
+<link rel="stylesheet" href="/css/color.css?c=1f2c205b0569a545836266922442d172e2b9dcc5">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=1f2c205b0569a545836266922442d172e2b9dcc5">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>Ubuntuが死んだのでDebianをインストールする</h1>
+
+<span class="sub">Published on 2024-02-13</span><br>
+<span class="sub">Last Modified 2024-02-13</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#debianを使ってみる">Debianを使ってみる</a></li>
+    <li><a href="#インストール備忘録">インストール備忘録</a>
+      <ul>
+        <li><a href="#インストールメディア作成--インストール">インストールメディア作成 + インストール</a></li>
+        <li><a href="#sudoをなんかいい感じにする">sudoをなんかいい感じにする</a></li>
+        <li><a href="#タスクバー的なものをセット">タスクバー的なものをセット</a></li>
+        <li><a href="#各種ソフトウェアのインストール設定">各種ソフトウェアのインストール+設定</a></li>
+        <li><a href="#osレベルのキーバインディング関連">OSレベルのキーバインディング関連</a></li>
+        <li><a href="#wifiアダプタ有効化">wifiアダプタ有効化</a></li>
+      </ul>
+    </li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="はじめに">はじめに</h2>
+<p>2023年の2月あたりからおよそ1年間にわたりUbuntu22.04.3LTSを使用してきた。</p>
+<p>ここ一週間ほど、急にネットワーク接続がおかしくなったり、システムの電源を切ることすらままならなくなる事態が発生してしまった。
+いくつか解決策を調べてみたり、応急手当として手元にあったUSBのwifiアダプターをさして(何故かこちらを経由するとうまく接続できる場合があったのである。しかし、特定のネットワークにはつながらないので意味不明であった。)みたりした。</p>
+<p>しかし、私の知識と熱意では到底解決できそうにないし、そもそも私がコストをかけるべきはこんなところではないだろうと思い始めてきたところで、OSの入れ替えを決行することにした。</p>
+<h2 id="debianを使ってみる">Debianを使ってみる</h2>
+<p>2023年6月10日にリリースされたという<a href="https://www.debian.or.jp/">Debian12 bookworm</a>を試してみることにした。
+主な理由は、</p>
+<ol>
+<li>Ubuntuに近い操作感であるだろうと思ったから。</li>
+<li>違うディストリビューションを使ってみたかったから。</li>
+</ol>
+<p>といったところだろうか。</p>
+<h2 id="インストール備忘録">インストール備忘録</h2>
+<p>また何かしらでトラブって、インストール作業が発生するかもしれないので、備忘録を残しておく。</p>
+<h3 id="インストールメディア作成--インストール">インストールメディア作成 + インストール</h3>
+<p>まずは適当にインストールメディアを作成する。イメージファイルを<a href="https://www.debian.org/distrib/netinst.en.html">このリンク</a>から落としてきて、手元のwin機にて<a href="https://rufus.ie/ja/">Rufus</a>で焼いた。</p>
+<p>落としてくるイメージは各自PCのCPUアーキテクチャに依存する。
+私はamdのcpuを使用しているので、amd64を落としてきた。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1707786002/pictures/debian-install/debian_u8fcz3.png" alt=""></p>
+<p>さて、インストールはUSBをさしてBIOSなりUEFIなりで起動順序変更をしてやればよい。細かいことはググってほしい。
+Debianは比較的親切にインストール案内を出してくれる。guiインストールを選べばあとはポチポチしていたらインストールが終わる。
+公式も<a href="https://www.debian.org/releases/stable/i386/index.ja.html">インストールガイド</a>を出しているので、困ったら見るとよいだろう。</p>
+<h3 id="sudoをなんかいい感じにする">sudoをなんかいい感じにする</h3>
+<p>デフォルト状態だとなんかエラーが出て<code>sudo</code>させてくれない。
+<a href="https://qiita.com/unkomorasi01/items/219b56f2c9ddc8df4fe7">これ</a>が参考になる。
+一回super userとしてsudoの設定をしてやれば良いらしい。</p>
+<h3 id="タスクバー的なものをセット">タスクバー的なものをセット</h3>
+<p>GNOMEデフォルトだと「アクティビティ」からしかタスクバー的なものを使えない。windowsに飼い慣らされた我々は、画面の左か下にタスクバーがないと死んでしまうのだ。
+解決は<a href="https://forums.debian.net/viewtopic.php?t=155401">このページ</a>が参考になった。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install gnome-shell-extension-dashtodock
+</span></span></code></pre></div><p>で拡張機能をインストールして、一回ログアウトする。
+再びログインしたら「拡張機能」アプリにdashtodockが追加されているから、有効化する。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1707786003/pictures/debian-install/extension_oa0akc.png" alt=""></p>
+<p>設定はこんな感じ。</p>
+<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1707786002/pictures/debian-install/dashtodock1_ukossn.png" style="max-height: 500px;">
+<img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1707786002/pictures/debian-install/dashtodock2_qj0yq3.png" style="max-height: 500px;">
+<p>これで画面左側にタスクバーが出現する。ありがてえ。</p>
+<h3 id="各種ソフトウェアのインストール設定">各種ソフトウェアのインストール+設定</h3>
+<p><code>apt install hoge</code>で普通に入るやつをインストールしていく</p>
+<h4 id="いつものやつ">いつものやつ</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install gcc
+</span></span><span style="display:flex;"><span>sudo apt install g++
+</span></span><span style="display:flex;"><span>sudo apt install git
+</span></span><span style="display:flex;"><span>sudo apt install curl
+</span></span><span style="display:flex;"><span>sudo apt install vim
+</span></span><span style="display:flex;"><span>sudo apt install texlive-full
+</span></span></code></pre></div><p>余談だが、Debianにプリインストールされているvimはなぜかnetrwが使えなかったし、vimのはずなのに「vim」へのシンボリックリンクすらなくて、「vi」でしか起動できなかった。あれはもしかしてviだったのだろうか。</p>
+<p><code>texlive-full</code>は全部で7GBほどの容量を食う。そんなことしたくないという人は<a href="https://uwabami.github.io/cc-env/DebianTeX.html">このあたり</a>が参考になるかもしれない。</p>
+<p>まずはgitの設定からしよう。
+gitの設定は難しくてよくわからないので、<a href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-Git-%E3%81%AE%E8%A8%AD%E5%AE%9A">このページ</a>や<a href="https://qiita.com/ucan-lab/items/aadbedcacbc2ac86a2b3">このページ</a>を見ながらできそうなやつをポチポチしていく。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --global user.name <span style="color:#e6db74">&#34;InTheBloom&#34;</span>
+</span></span><span style="display:flex;"><span>git config --global user.email <span style="color:#e6db74">&#34;hoge.fuga@example.com&#34;</span>
+</span></span><span style="display:flex;"><span>git config --global core.quotePath false
+</span></span></code></pre></div><p>あとはgithubに接続する設定(?)みたいなのをやっていく。このあたり本当に勉強したほうがいい気がするが、わけわからない単語を並べられてもしんどいというのが本音である。</p>
+<p><a href="https://docs.github.com/ja/authentication/connecting-to-github-with-ssh">これ</a>に沿ってやっていく。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>inthebloom@debian:~$ ssh-keygen -t ed25519 -C <span style="color:#e6db74">&#34;hoge.fuga@example.com&#34;</span>
+</span></span><span style="display:flex;"><span>inthebloom@debian:~$ cat ~/.ssh/id_ed25519.pub | clip
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># githubの方でssh鍵の登録設定をする</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>inthebloom@debian:~$ ssh -T git@github.com
+</span></span><span style="display:flex;"><span>Hi InTheBloom! You<span style="color:#960050;background-color:#1e0010">&#39;</span>ve successfully authenticated, but GitHub does not provide shell access.
+</span></span><span style="display:flex;"><span>inthebloom@debian:~$
+</span></span></code></pre></div><p>なんか動いた(最悪)</p>
+<p>次にvimの設定をする。
+自分のvimの設定が<a href="https://github.com/InTheBloom/vim-config">ここ</a>にあるので、これをセットアップする。
+詳細は<code>README.md</code>に書いてある。</p>
+<p>次にAtCoder Libraryとboost Libraryをローカルで動かせるようにする。
+まずAtCoder Libraryをcloneする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone git@github.com:atcoder/ac-library.git
+</span></span></code></pre></div><p>ACLは事前ビルドが不要(ヘッダオンリー)のため、単にコンパイラの参照パスに追加すればよい。</p>
+<p>私の場合、競技プログラミング以外でg++を使用することはほぼないため、常時参照しても問題にならない。そのため、aliasとして登録しておくと楽になる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-~/.bashrc" data-lang="~/.bashrc"><span style="display:flex;"><span>alias g++<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g++ -I/home/inthebloom/cp/lib/ac-library&#39;</span>
+</span></span></code></pre></div><p>あとはboostを導入していく。
+<a href="https://boostjp.github.io/howtobuild.html">このページ</a>に従ってやっていく。
+まずは現在の最新バージョンを落としてくる。最新バージョンへのリンクは上のリンクにある。</p>
+<p>boostディレクトリを解凍し、</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bootstrap.sh
+</span></span><span style="display:flex;"><span>./b2 install -j8 --prefix<span style="color:#f92672">=</span>/home/inthebloom/libboost/
+</span></span></code></pre></div><p>を実行し、boostをビルドする。
+実は私が利用するような機能群は事前ビルドが必要ないものが多い(<code>boost/multiprecision/cpp_int</code>など)が、全部使えると嬉しいのでビルドする。
+もしヘッダオンリーだけでいい場合、</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./b2 headers
+</span></span></code></pre></div><p>でいいらしい。
+あとはACLと同じように参照パスを追加しておく。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-~/.bashrc" data-lang="~/.bashrc"><span style="display:flex;"><span>alias g++<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g++ -I/home/inthebloom/cp/lib/ac-library/ -I/home/inthebloom/libboost/include/&#39;</span>
+</span></span></code></pre></div><h4 id="dmdd言語処理系">DMD(D言語処理系)</h4>
+<p>私が普段使ってるD言語処理系は、<code>apt</code>ならldcをインストールできる。
+ただし、公式実装のDegital Mars Dがいいという人(私)は、公式の.debファイルかインストールスクリプトを利用すると楽だと思う。
+<a href="https://dlang.org/download.html">ダウンロードページ</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsS https://dlang.org/install.sh | bash -s dmd
+</span></span></code></pre></div><p>activateが必要なので、<code>~/.bashrc</code>に次を追記して、常時activatedにしておく。
+行儀悪い方法かもしれないが、別にマナー講師になりたいわけではないので気にしないことにする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-~/.bashrc" data-lang="~/.bashrc"><span style="display:flex;"><span><span style="color:#75715e"># dmd activation</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>_OLD_D_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PATH<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>_OLD_D_LIBRARY_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>LIBRARY_PATH<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>_OLD_D_LD_LIBRARY_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>LD_LIBRARY_PATH<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>export LIBRARY_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/home/inthebloom/dlang/dmd-2.107.0/linux/lib64</span><span style="color:#e6db74">${</span>LIBRARY_PATH:+:<span style="color:#e6db74">}${</span>LIBRARY_PATH<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>export LD_LIBRARY_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/home/inthebloom/dlang/dmd-2.107.0/linux/lib64</span><span style="color:#e6db74">${</span>LD_LIBRARY_PATH:+:<span style="color:#e6db74">}${</span>LD_LIBRARY_PATH<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>_OLD_D_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PATH<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>_OLD_D_PS1<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PS1<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/home/inthebloom/dlang/dmd-2.107.0/linux/bin64</span><span style="color:#e6db74">${</span>PATH:+:<span style="color:#e6db74">}${</span>PATH<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>export DMD<span style="color:#f92672">=</span>dmd
+</span></span><span style="display:flex;"><span>export DC<span style="color:#f92672">=</span>dmd
+</span></span></code></pre></div><p>これは<code>~/dlang/dmd-[version]/activate</code>の下の方にある内容をコピってきたものなので、これをそのまま使っても動かない。(だってユーザー名とかガッツリ含まれてるし..)</p>
+<p>私は競技プログラミングにおいて、c++と似た動作にするためにコンパイル結果をわざと<code>a.out</code>にするようにしている。
+これはaliasを設定してやれば良い。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-~/.bashrc" data-lang="~/.bashrc"><span style="display:flex;"><span>alias dmd<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;dmd -of=&#34;a.out&#34;&#39;</span>
+</span></span></code></pre></div><h4 id="その他のソフト">その他のソフト</h4>
+<ul>
+<li>vscode</li>
+<li>hugo</li>
+<li>zoom</li>
+<li>slack</li>
+</ul>
+<p>このあたりはdebian向けパッケージファイル<code>hoge.deb</code>を公開してくれているので、それをパクってきて</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install hoge.deb
+</span></span></code></pre></div><p>としておけばインストールできる。</p>
+<p>私はいくつかの事情でvscodeをターミナルエミュレーターとして使用しているので、そのあたりの設定をしていく。</p>
+<p>まず、ターミナルエミュレータにショートカットキーはいらないので、全部消す。ちょうどいい拡張機能があるので、これをインストールする。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1707786002/pictures/debian-install/disable-shortcut_pwj62u.png" alt=""></p>
+<p>ただし、この拡張機能はあまりに強力で、なんと<code>backspace</code>すら無効化されてしまう。
+そのため、別途有効にしたいキーバインディングは<code>~/.config/Code/User/keybindings.json</code>に追記することにした。
+デフォルト設定は<a href="https://github.com/codebling/vs-code-default-keybindings/blob/master/linux.keybindings.json">ここ</a>にあるため、これを改良して使う。</p>
+<p>フォントは<a href="https://os0x.hatenablog.com/entry/20100822/1282495059">Inconsolata</a>を使う。
+<a href="https://fonts.google.com/specimen/Inconsolata">Google Fonts</a>からダウンロードしてきて、<code>~/.fonts/</code>にttfを配置すると、現在のユーザーで読み込まれる。(<a href="https://turtlechan.hatenablog.com/entry/2019/06/11/211543">参考</a>)</p>
+<p>あとは、設定を開いて、</p>
+<ul>
+<li><code>Terminal &gt; Integrated: Default Location</code>を<code>editor</code></li>
+<li><code>Terminal &gt; Integrated: Font Family</code>を<code>'Inconsolata'</code></li>
+<li><code>Terminal &gt; Integrated: Font Size</code>を<code>17</code></li>
+</ul>
+<p>に変更した。
+ついでに背景透明化も行う。GlassIt-VSCをインストールすると、普通に透ける。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1707786002/pictures/debian-install/glassit_bppiko.png" alt=""></p>
+<h4 id="地味な設定">地味な設定</h4>
+<p>地味にないと困る設定をしていく。
+まず、firefoxの二本指スワイプで進む/戻るを実現する設定をする。
+<a href="https://pankona.github.io/blog/2014/09/15/histryback-by-swipe-on-firefox/">このページ</a>を参考にした。
+アドレスバーに<code>about:config</code>を入力し、</p>
+<ul>
+<li><code>mousewheel.default.override_x</code>を2</li>
+<li><code>mousewheel.default.delta_multiplier_x</code>を-5</li>
+</ul>
+<p>に設定する。これでスワイプ操作で進む/戻るを実現できる。</p>
+<p>次に、コマンドラインコピーペーストを実現する。
+<a href="https://osima.jp/posts/ubuntu-howto-copy-and-paste-on-terminal/">このページ</a>を参考にした。
+まず、xselというツールをインストールする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install xsel
+</span></span></code></pre></div><p><code>~/.bashrc</code>に以下を追記</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-~/.bashrc" data-lang="~/.bashrc"><span style="display:flex;"><span>alias pbcopy<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;xsel --clipboard --input&#39;</span>
+</span></span><span style="display:flex;"><span>alias pbpaste<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;xsel --clipboard --output&#39;</span>
+</span></span><span style="display:flex;"><span>alias clip<span style="color:#f92672">=</span>$pbcopy
+</span></span></code></pre></div><p>これで<code>cat file | clip</code>や、<code>pbpaste &gt; file</code>ができる。</p>
+<h3 id="osレベルのキーバインディング関連">OSレベルのキーバインディング関連</h3>
+<p>このあたりは自分も何やってるのかよくわかっていないことは許してほしい。とりあえず動く方法だけ紹介する。
+私の普段のキーバインディングはCapsLockをctrlにし、hankaku/zenkakuをEscにした上でmuhenkanをIMEオン、henkanをIMEオフに割り当てるというものである。これを実現する。</p>
+<p>とりあえずTweaksという神アプリがプリインストールされているので、これを起動する。Ubuntuにも入ってるはず。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1707786002/pictures/debian-install/tweaks_h9ebnc.png" alt=""></p>
+<p>追加のレイアウトオプションを選択</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1707786003/pictures/debian-install/layoutoption_ddlcoh.png" alt=""></p>
+<p><code>Caps Lock behavior</code>と<code>日本語キーボードオプション</code>をいじる。
+前者は<code>Make Caps Lock an additional Ctrl</code>に、後者は<code>Make Zenkaku Hankaku an additional Esc</code>にする。
+これで割当変更ができる。仕組みはわからない。<strong>開発者ℒ𝒪𝒱ℰ&hellip;</strong></p>
+<p>次にIMEの設定をしよう。DebianではIMEとしてMozcというソフトウェアが使われているらしい。
+Mozc以外の話はわからないし、Mozcが何なのかもわかってないことは許してほしい。
+まず、「アクティビティ」から<code>Mozcの設定</code>という謎アプリを開く。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1707786003/pictures/debian-install/mozc-property_yjydjj.png" alt=""></p>
+<p>そしたら、「キー設定」の「キー設定の選択」を選んで、ここをいじっていく。</p>
+<details>
+<summary>私の設定をエクスポートしたやつ</summary>
+```
+status	key	command
+Precomposition	Backspace	Revert
+Composition	Backspace	Backspace
+Conversion	Backspace	Cancel
+Conversion	Ctrl a	SegmentFocusFirst
+Composition	Ctrl a	MoveCursorToBeginning
+Composition	Ctrl Backspace	Backspace
+Precomposition	Ctrl Backspace	Undo
+Conversion	Ctrl Backspace	Cancel
+Conversion	Ctrl d	SegmentFocusRight
+Composition	Ctrl d	MoveCursorRight
+Prediction	Ctrl Delete	DeleteSelectedCandidate
+Conversion	Ctrl Down	CommitOnlyFirstSegment
+Composition	Ctrl Down	MoveCursorToEnd
+Conversion	Ctrl e	ConvertPrev
+Composition	Ctrl e	MoveCursorToBeginning
+Composition	Ctrl Enter	Commit
+Conversion	Ctrl Enter	Commit
+Conversion	Ctrl f	SegmentFocusLast
+Composition	Ctrl f	MoveCursorToEnd
+Composition	Ctrl g	Delete
+Conversion	Ctrl g	Cancel
+Composition	Ctrl h	Backspace
+Conversion	Ctrl h	Cancel
+Composition	Ctrl i	ConvertToFullKatakana
+Conversion	Ctrl i	ConvertToFullKatakana
+Conversion	Ctrl k	SegmentWidthShrink
+Composition	Ctrl k	MoveCursorLeft
+Conversion	Ctrl l	SegmentWidthExpand
+Composition	Ctrl l	MoveCursorRight
+Conversion	Ctrl Left	SegmentFocusFirst
+Composition	Ctrl Left	MoveCursorToBeginning
+Composition	Ctrl m	Commit
+Conversion	Ctrl m	Commit
+Conversion	Ctrl n	CommitOnlyFirstSegment
+Composition	Ctrl n	MoveCursorToEnd
+Composition	Ctrl o	ConvertToHalfWidth
+Conversion	Ctrl o	ConvertToHalfWidth
+Composition	Ctrl p	ConvertToFullAlphanumeric
+Conversion	Ctrl p	ConvertToFullAlphanumeric
+Conversion	Ctrl Right	SegmentFocusLast
+Composition	Ctrl Right	MoveCursorToEnd
+Conversion	Ctrl s	SegmentFocusLeft
+Composition	Ctrl s	MoveCursorLeft
+Composition	Ctrl Shift Space	InsertFullSpace
+Conversion	Ctrl Shift Space	InsertFullSpace
+Precomposition	Ctrl Shift Space	InsertFullSpace
+Composition	Ctrl Space	InsertHalfSpace
+Conversion	Ctrl Space	InsertHalfSpace
+Composition	Ctrl t	ConvertToHalfAlphanumeric
+Conversion	Ctrl t	ConvertToHalfAlphanumeric
+Composition	Ctrl u	ConvertToHiragana
+Conversion	Ctrl u	ConvertToHiragana
+Conversion	Ctrl Up	ConvertPrev
+Composition	Ctrl Up	MoveCursorToBeginning
+Conversion	Ctrl x	ConvertNext
+Composition	Ctrl x	MoveCursorToEnd
+Composition	Ctrl z	Cancel
+Conversion	Ctrl z	Cancel
+Composition	Delete	Delete
+Conversion	Delete	Cancel
+Suggestion	Down	PredictAndConvert
+Conversion	Down	ConvertNext
+Composition	Down	MoveCursorToEnd
+Composition	Eisu	ToggleAlphanumericMode
+Conversion	Eisu	ToggleAlphanumericMode
+Precomposition	Eisu	ToggleAlphanumericMode
+DirectInput	Eisu	IMEOn
+Conversion	End	SegmentFocusLast
+Composition	End	MoveCursorToEnd
+Composition	Enter	Commit
+Conversion	Enter	Commit
+Composition	ESC	Cancel
+Conversion	ESC	Cancel
+Composition	F10	ConvertToHalfAlphanumeric
+Conversion	F10	ConvertToHalfAlphanumeric
+DirectInput	F13	IMEOn
+Composition	F2	ConvertWithoutHistory
+Composition	F6	ConvertToHiragana
+Conversion	F6	ConvertToHiragana
+Composition	F7	ConvertToFullKatakana
+Conversion	F7	ConvertToFullKatakana
+Composition	F8	ConvertToHalfWidth
+Conversion	F8	ConvertToHalfWidth
+Composition	F9	ConvertToFullAlphanumeric
+Conversion	F9	ConvertToFullAlphanumeric
+Composition	Henkan	IMEOff
+Conversion	Henkan	IMEOff
+Precomposition	Henkan	IMEOff
+Conversion	Home	SegmentFocusFirst
+Composition	Home	MoveCursorToBeginning
+Conversion	Left	SegmentFocusLeft
+Composition	Left	MoveCursorLeft
+Precomposition	Muhenkan	InputModeSwitchKanaType
+Composition	Muhenkan	SwitchKanaType
+Conversion	Muhenkan	SwitchKanaType
+DirectInput	Muhenkan	IMEOn
+Precomposition	Muhenkan	IMEOn
+Conversion	PageDown	ConvertNextPage
+Conversion	PageUp	ConvertPrevPage
+Conversion	Right	SegmentFocusRight
+Composition	Right	MoveCursorRight
+Composition	Shift Backspace	Backspace
+Conversion	Shift Backspace	Cancel
+Conversion	Shift Down	ConvertNextPage
+Suggestion	Shift Enter	CommitFirstSuggestion
+Composition	Shift ESC	Cancel
+Conversion	Shift ESC	Cancel
+Conversion	Shift Henkan	ConvertPrev
+Conversion	Shift Left	SegmentWidthShrink
+Composition	Shift Left	MoveCursorLeft
+Composition	Shift Muhenkan	ConvertToFullAlphanumeric
+Conversion	Shift Muhenkan	ConvertToFullAlphanumeric
+Precomposition	Shift Muhenkan	ToggleAlphanumericMode
+Conversion	Shift Right	SegmentWidthExpand
+Composition	Shift Right	MoveCursorRight
+Composition	Shift Space	Convert
+Precomposition	Shift Space	InsertAlternateSpace
+Conversion	Shift Space	ConvertPrev
+Conversion	Shift Tab	ConvertPrev
+Conversion	Shift Up	ConvertPrevPage
+Composition	Space	Convert
+Conversion	Space	ConvertNext
+Precomposition	Space	InsertSpace
+Composition	Tab	PredictAndConvert
+Conversion	Tab	PredictAndConvert
+Conversion	Up	ConvertPrev
+Conversion	VirtualEnter	CommitOnlyFirstSegment
+Composition	VirtualEnter	Commit
+Conversion	VirtualLeft	SegmentWidthShrink
+Composition	VirtualLeft	MoveCursorLeft
+Conversion	VirtualRight	SegmentWidthExpand
+Composition	VirtualRight	MoveCursorRight
+Composition	ASCII	InsertCharacter
+Composition	Kanji	IMEOff
+Composition	OFF	IMEOff
+Composition	ON	IMEOn
+Conversion	Kanji	IMEOff
+Conversion	OFF	IMEOff
+Conversion	ON	IMEOn
+DirectInput	Kanji	IMEOn
+DirectInput	ON	IMEOn
+Precomposition	ASCII	InsertCharacter
+Precomposition	Kanji	IMEOff
+Precomposition	OFF	IMEOff
+Precomposition	ON	IMEOn
+```
+</details>
+多分これをコピーしてインポートすることができるので、よかったら使ってね。
+<h3 id="wifiアダプタ有効化">wifiアダプタ有効化</h3>
+<p>手元にusbのwifiアダプタがあるので、一応動かせるようにしておく。
+<code>lsusb</code>コマンドによると、アダプタはTP-Link AC600 wireless Realtek RTL8811AU [Archer T2U Nano]らしい。
+単にさしただけだと反応しないので、何らかの処置が必要らしい。
+いくつかググると、<a href="https://tech.nosuz.jp/post/2021-09/ubuntu_wifi/">このページ</a>がヒットした。</p>
+<p>まず、必要なツールをインストールする。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install dkms
+</span></span><span style="display:flex;"><span>sudo apt install build-essential
+</span></span><span style="display:flex;"><span>sudo apt install linux-headers-6.1.0-17-amd64
+</span></span></code></pre></div><p>ドライバのリポジトリを引っ張ってきて、<code>make</code>する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone git@github.com:aircrack-ng/rt18812au.git
+</span></span><span style="display:flex;"><span>cd rt18812au
+</span></span><span style="display:flex;"><span>sudo make dkms_install
+</span></span></code></pre></div><p>何故か「すでにインストールされています」的なことを言われる。
+でもまだアダプタが認識しないので、一回アンインストールを試みる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo make dkms_remove
+</span></span><span style="display:flex;"><span>sudo make dkms_install
+</span></span></code></pre></div><p>これで急に認識されるようになった。
+<code>NetWorkManager</code>のclクライアント<code>nmcli</code>で簡単に確認できる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nmcli device show
+</span></span></code></pre></div><h2 id="終わりに">終わりに</h2>
+<p>これで必要なセットアップは大体できた。
+もっと細かいこともあるが、あとはケースバイケースなものが多いと思う。
+このエントリが初心者linuxユーザーの役に立つことを願う。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/mementos/">mementos</a>
+	
+	<a class="post-tag" href="/tags/linux/">linux</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/yukicoder2616/">No.2616 中央番目の中央値</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "mementos"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-13</div>
+  <div class="post-title"><a href="/post/debian-install/">Ubuntuが死んだのでDebianをインストールする</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-31</div>
+  <div class="post-title"><a href="/post/2023-final/">2023年お疲れ様でした。</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href="/tags/">other tags</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
