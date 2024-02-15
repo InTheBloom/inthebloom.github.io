@@ -6,21 +6,26 @@
     <description>Recent content in 2024-01 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://inthebloom.github.io/archives/2024-01/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2024-01/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>No.2616 中央番目の中央値</title>
       <link>http://inthebloom.github.io/post/yukicoder2616/</link>
       <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/yukicoder2616/</guid>
-      <description>問題概要 問題へのリンク&#xA;長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</description>
+      <description>問題概要 問題へのリンク
+長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</description>
     </item>
+    
     <item>
       <title>ABC167E - Colorful Blocks</title>
       <link>http://inthebloom.github.io/post/abc167e/</link>
       <pubDate>Wed, 03 Jan 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc167e/</guid>
-      <description>問題概要 問題へのリンク&#xA;$N$個の横一列に並んだブロック列に色を塗る。 色は整数で表され、$1$から$M$までの$M$種類ある。 必ずしもすべての色を使う必要はない。 隣り合うブロックが同じ色である箇所が$K$以下の色の塗り方の総数を$998244353$で割ったあまりを求めよ。</description>
+      <description>問題概要 問題へのリンク
+$N$個の横一列に並んだブロック列に色を塗る。 色は整数で表され、$1$から$M$までの$M$種類ある。 必ずしもすべての色を使う必要はない。 隣り合うブロックが同じ色である箇所が$K$以下の色の塗り方の総数を$998244353$で割ったあまりを求めよ。</description>
     </item>
+    
   </channel>
 </rss>

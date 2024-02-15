@@ -3,27 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://inthebloom.github.io/archives/2024/</loc>
-    <lastmod>2024-02-13T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/archives/2024-02/</loc>
-    <lastmod>2024-02-13T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/archives/</loc>
-    <lastmod>2024-02-13T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/</loc>
-    <lastmod>2024-02-13T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/post/</loc>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/tags/</loc>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/</loc>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/tags/%E6%95%B0%E5%AD%A6/</loc>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/post/geometric-progression-sum/</loc>
+    <lastmod>2024-02-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/tags/linux/</loc>
     <lastmod>2024-02-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/tags/mementos/</loc>
-    <lastmod>2024-02-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://inthebloom.github.io/post/</loc>
-    <lastmod>2024-02-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://inthebloom.github.io/tags/</loc>
     <lastmod>2024-02-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/post/debian-install/</loc>
@@ -36,9 +48,6 @@
     <lastmod>2024-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/</loc>
-    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://inthebloom.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2024-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/</loc>
@@ -71,9 +80,6 @@
     <loc>http://inthebloom.github.io/tags/uec-advent-calendar/</loc>
     <lastmod>2023-12-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://inthebloom.github.io/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/</loc>
-    <lastmod>2023-12-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://inthebloom.github.io/post/uec-advent2023/</loc>
     <lastmod>2023-12-06T00:00:00+00:00</lastmod>
   </url><url>
@@ -91,9 +97,6 @@
   </url><url>
     <loc>http://inthebloom.github.io/post/abc100d/</loc>
     <lastmod>2023-11-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://inthebloom.github.io/tags/%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/post/abc327/</loc>
     <lastmod>2023-11-05T00:00:00+00:00</lastmod>

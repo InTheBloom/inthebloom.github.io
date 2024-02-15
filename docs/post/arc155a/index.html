@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-<link rel="alternate" href="/index.xml?c=1f2c205b0569a545836266922442d172e2b9dcc5" type="application/rss+xml" title="RSS" />
+<link rel="alternate" href="/index.xml?c=1fc899d2fe4751ab6c63a6e162d11e1eb6139b9f" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="精説ARC155A - InTheDayDream">
 </meta>
 <meta property="og:url" content="http://inthebloom.github.io/post/arc155a/">
@@ -37,11 +37,11 @@
 <meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=1f2c205b0569a545836266922442d172e2b9dcc5">
-<link rel="stylesheet" href="/css/color.css?c=1f2c205b0569a545836266922442d172e2b9dcc5">
+<link rel="stylesheet" href="/css/main.css?c=1fc899d2fe4751ab6c63a6e162d11e1eb6139b9f">
+<link rel="stylesheet" href="/css/color.css?c=1fc899d2fe4751ab6c63a6e162d11e1eb6139b9f">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=1f2c205b0569a545836266922442d172e2b9dcc5">
+<link rel="stylesheet" href="/css/custom.css?c=1fc899d2fe4751ab6c63a6e162d11e1eb6139b9f">
 
 
 
@@ -155,8 +155,7 @@ Problems</a>より</figcaption>
 <p>この時、前述のとおり各ケース実際にk文字分すべてを構成することができます。したがって、確認する必要があるのはS
 -&gt; S'の順番で考えた時のS'と、S' -&gt;
 Sの順番で考えた時のS'が一致するかどうかです。</p>
-<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675743707/pictures/exp_arc155a.html/condition1_ygzo67.png" alt="n \&gt;
-kの時の条件"></p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675743707/pictures/exp_arc155a.html/condition1_ygzo67.png" alt="n \&gt;kの時の条件"></p>
 <p>上にある画像の通り、回文となるようなS'が存在することを仮定すると、<em>S'はどちらのケースでも同一であるという仮定</em>から、</p>
 <ol>
 <li>文字列Sの先頭K文字と末尾K文字が一致する</li>
@@ -182,8 +181,7 @@ S = &quot;12345&quot;)</p>
 Nのケースにもまだ比較的シンプルにS'を構成できるものが残っています。まずはそれを片づけましょう。</p>
 <h3 id="2n--k--n-の場合">2N &gt; K &gt; N の場合</h3>
 <p>この時も、Sが与えられたらすぐにS'を構成することが可能です。なぜなら、以下の画像の通り、前からN文字、後ろからN文字が確定するのでS'が(存在するなら)一つに定まるからです。</p>
-<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675746014/pictures/exp_arc155a.html/condition2_texl0s.png" alt="2N \&gt; K \&gt;
-Nの時"></p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675746014/pictures/exp_arc155a.html/condition2_texl0s.png" alt="2N \&gt; K \&gt;Nの時"></p>
 <p>一見するとK &gt;
 Nの場合と変わらないように見えますが、このケースにおいて回文の判定をするのはS'の中になるという違いがあります。従って、直接Sを評価して答えを出すことができるわけではなく、「S'が存在するなら、Sから構成したこの文字列は-な条件を満たす。」という説明付けになっています。最後はプログラムに落とし込まないといけないわけなので、やはりできるだけ分割は細かくしておくべきだとと思います。</p>
 <p>この時、S'の満たすべき条件は以下の2つになります。</p>
@@ -201,8 +199,7 @@ Kのケースと全く同じ判定法を使うことができます。したが�
 <h3 id="k--2n-の場合-1">K &gt; 2N の場合</h3>
 <p>まず、これまでの議論から、<em>S'が存在すると仮定すると</em>次のことが言えます。「S'は先頭と末尾のN文字はSの逆順そのものである」「S'の先頭と末尾のK-N文字は回文を成す」</p>
 <p>この情報から残りの部分がどうなる必要があるか考えます。</p>
-<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675749029/pictures/exp_arc155a.html/condition3_o0adlx.png" alt="K \&gt;
-2Nの場合"></p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675749029/pictures/exp_arc155a.html/condition3_o0adlx.png" alt="K \&gt;2Nの場合"></p>
 <p>上に示した画像の通り、これらの情報からS'の不明だった場所が少しだけ確定させることができます。これと全く同じ議論をS'
 -&gt; Sのパターンでも考えることによって、S'はSの逆順 &gt; Sの正順 &gt;
 Sの逆順 &gt;
@@ -281,6 +278,12 @@ Kで分けたのとちょうど同じような事情が発生するからです�
         <ul class="post-list">
           
           <li class="post-item">
+  <div class="post-date sub">2024-02-15</div>
+  <div class="post-title"><a href="/post/geometric-progression-sum/">等比数列の和を計算する2つの対数時間アルゴリズム</a></div>
+  
+</li>
+          
+          <li class="post-item">
   <div class="post-date sub">2024-01-27</div>
   <div class="post-title"><a href="/post/yukicoder2616/">No.2616 中央番目の中央値</a></div>
   
@@ -289,12 +292,6 @@ Kで分けたのとちょうど同じような事情が発生するからです�
           <li class="post-item">
   <div class="post-date sub">2024-01-03</div>
   <div class="post-title"><a href="/post/abc167e/">ABC167E - Colorful Blocks</a></div>
-  
-</li>
-          
-          <li class="post-item">
-  <div class="post-date sub">2023-12-31</div>
-  <div class="post-title"><a href="/post/abc290e/">ABC290E - Make it Palindrome</a></div>
   
 </li>
           
