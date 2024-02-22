@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2023-11 on InTheDayDream</title>
+    <link>http://inthebloom.github.io/archives/2023-11/</link>
+    <description>Recent content in 2023-11 on InTheDayDream</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 25 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://inthebloom.github.io/archives/2023-11/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC330参加記録</title>
+      <link>http://inthebloom.github.io/post/abc330/</link>
+      <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc330/</guid>
+      <description>はじめに 本稿は、2023-11-25に行われたABC330の参加記録です。 眠れない夜にはコンテストの参加記録を書くのが良いと古事記にも書いてあった要出典ので更新します。&#xA;戦績 今回の提出記録は以下の通りです。</description>
+    </item>
+    <item>
+      <title>ABC328参加記録</title>
+      <link>http://inthebloom.github.io/post/abc328/</link>
+      <pubDate>Sun, 12 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc328/</guid>
+      <description>はじめに 本稿は、2023-11-11に行われたABC328の参加記録です。&#xA;戦績 今回の提出は以下の通りでした。&#xA;AからEの5問正解できました。 今回のレーティング変動は以下の通りでした。</description>
+    </item>
+    <item>
+      <title>ABC100D - Patisserie ABC</title>
+      <link>http://inthebloom.github.io/post/abc100d/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc100d/</guid>
+      <description>問題概要 問題へのリンク&#xA;$N$種類のケーキがある。$i$種類目のケーキは「綺麗さ」$x_i$、「おいしさ」$y_i$、「人気度」$z_i$を持っている。 このうち$M$種類のケーキを選んで食べる。ただし、同じ種類のケーキを2つとることはできない。&#xA;選んだ$M$種類のケーキに対して、スコアを $\left| \displaystyle\sum_{i=1}^M x_i \right| + \left| \displaystyle\sum_{i=1}^M y_i \right| + \left| \displaystyle\sum_{i=1}^M z_i \right|$ と定める。 スコアの最大値を求めよ。</description>
+    </item>
+    <item>
+      <title>ABC327参加記録</title>
+      <link>http://inthebloom.github.io/post/abc327/</link>
+      <pubDate>Sun, 05 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc327/</guid>
+      <description>はじめに 本稿は、2023-11-04に行われたABC327の参加記録です。&#xA;戦績 今回の提出状況は次の通りです。&#xA;AからEまでの5問正解できました。 パフォーマンスは1513で、 レーティング変化は1207→1241(+34)でした。</description>
+    </item>
+    <item>
+      <title>ABC190F - Shift and Inversions</title>
+      <link>http://inthebloom.github.io/post/abc190f/</link>
+      <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc190f/</guid>
+      <description>問題概要 問題へのリンク&#xA;$0$から$N-1$までの整数をちょうど一つづつ含む数列$A$が与えられる。 $k \in \mathbb{Z}$に対して、数列$B$を次のように定める。 $$ \begin{equation*} B \coloneqq \{b_i\}_{i=0}^{N-1}, ~ b_i = a_{i+k ~ \mathrm{mod} ~ N} \end{equation*} $$ $k = 0, 1, 2, \dots , N-1$のそれぞれに対して、$B$の転倒数を求めよ。</description>
+    </item>
+  </channel>
+</rss>

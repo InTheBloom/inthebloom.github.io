@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>典型テク on InTheDayDream</title>
+    <link>http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/</link>
+    <description>Recent content in 典型テク on InTheDayDream</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>No.2616 中央番目の中央値</title>
+      <link>http://inthebloom.github.io/post/yukicoder2616/</link>
+      <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/yukicoder2616/</guid>
+      <description>問題概要 問題へのリンク&#xA;長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</description>
+    </item>
+    <item>
+      <title>列をいくつかの連続部分列へ分解する小技</title>
+      <link>http://inthebloom.github.io/post/split-into-continuous-subsequences/</link>
+      <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/split-into-continuous-subsequences/</guid>
+      <description>問題 数列$A$の連続部分列を、$i, j \in [1, N]$かつ$i \leq j$なる$i, j$を選択し、 $A$の$i$項目から$j$項目までを順番を変えずに取り出したものとし、$B_{i, j}$と表記することとする。</description>
+    </item>
+    <item>
+      <title>ABC190F - Shift and Inversions</title>
+      <link>http://inthebloom.github.io/post/abc190f/</link>
+      <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc190f/</guid>
+      <description>問題概要 問題へのリンク&#xA;$0$から$N-1$までの整数をちょうど一つづつ含む数列$A$が与えられる。 $k \in \mathbb{Z}$に対して、数列$B$を次のように定める。 $$ \begin{equation*} B \coloneqq \{b_i\}_{i=0}^{N-1}, ~ b_i = a_{i+k ~ \mathrm{mod} ~ N} \end{equation*} $$ $k = 0, 1, 2, \dots , N-1$のそれぞれに対して、$B$の転倒数を求めよ。</description>
+    </item>
+    <item>
+      <title>ABC235E、あるいはクエリ並列処理</title>
+      <link>http://inthebloom.github.io/post/abc235e/</link>
+      <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc235e/</guid>
+      <description>問題概要 問題&#xA;辺の重みがすべて異なる無向連結グラフ$G$が与えられる。 さらに、クエリ$i$で$G$中のどの辺とも異なる重みをもつ辺$(u_i, v_i, w_i)$が与えられる。 クエリ$i$で与えられた辺を$G$に追加したグラフ$G&amp;rsquo;$を考える。 すべての$i$に対して、辺$(u_i, v_i, w_i)$は$G&amp;rsquo;$の最小全域木に含まれるか判定せよ。</description>
+    </item>
+    <item>
+      <title>Functional Graphのサイクル検出をいい感じに</title>
+      <link>http://inthebloom.github.io/post/functional-graph-cycle/</link>
+      <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/functional-graph-cycle/</guid>
+      <description>はじめに グラフ表現に帰着できる問題を考察していると、Functional Graphと呼ばれるグラフのサイクル検出に帰着する場合があります。 本稿では、Functional Graphのサイクル検出の比較的簡単な実装を紹介します。</description>
+    </item>
+    <item>
+      <title>割れるし割りたいのに割れない数を割る方法</title>
+      <link>http://inthebloom.github.io/post/mod-division-tech/</link>
+      <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/mod-division-tech/</guid>
+      <description>状況設定 $x, ~ y, ~ z \in \mathbb N$ $x\%y = 0$ $1 &amp;lt; \mathrm{gcd}(y, z)$ $x$は陽に求められないほど大きく、$y$、$z$は常識的な大きさ 問題 $xy^{-1}$を$z$で割った非負最小剰余を求めよ。</description>
+    </item>
+    <item>
+      <title>ABC202D - aab aba baa</title>
+      <link>http://inthebloom.github.io/post/abc202d/</link>
+      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc202d/</guid>
+      <description>問題概要 問題へのリンク&#xA;A個のaとB個のbからなる文字列であって、辞書順でK番目のものを求めよ。&#xA;制約&#xA;1 &amp;lt;= A, B &amp;lt;= 30 辞書順でK番目の文字列が存在する。 解法 まず、問題文の条件を満たす文字列は$\displaystyle\frac{(A+B)!</description>
+    </item>
+    <item>
+      <title>unstableをstableにする小技</title>
+      <link>http://inthebloom.github.io/post/sorttech/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/sorttech/</guid>
+      <description>はじめに 先日(2023/7/1)のABC308のC問題にややこしいソート問題が出ました。 本稿はその問題を簡潔に解く実装のアイディアの紹介です。&#xA;無理やりstable化 標準ライブラリで一番簡単に使えるソートは安定ソートでないことが多いです。 このため、競技プログラミングでよくある2値以上を取る要素のソートのときなどに、 もとの順序が破壊されて困ることがあります。 これを解消するには、比較関数を自炊してソートに渡してあげればよいです。</description>
+    </item>
+  </channel>
+</rss>

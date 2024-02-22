@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Functional Graphのサイクル検出をいい感じに - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=2aae10cab336cee5eb547d4addbb0710d2fe4767" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="Functional Graphのサイクル検出をいい感じに - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/functional-graph-cycle/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="Functional Graphのサイクル検出をいい感じに - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/functional-graph-cycle/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=2aae10cab336cee5eb547d4addbb0710d2fe4767">
+<link rel="stylesheet" href="/css/color.css?c=2aae10cab336cee5eb547d4addbb0710d2fe4767">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=2aae10cab336cee5eb547d4addbb0710d2fe4767">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>Functional Graphのサイクル検出をいい感じに</h1>
+
+<span class="sub">Published on 2023-10-13</span><br>
+<span class="sub">Last Modified 2023-10-13</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#前提条件">前提条件</a></li>
+    <li><a href="#方法">方法</a></li>
+    <li><a href="#実装例">実装例</a></li>
+    <li><a href="#練習問題">練習問題</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="はじめに">はじめに</h2>
+<p>グラフ表現に帰着できる問題を考察していると、Functional Graphと呼ばれるグラフのサイクル検出に帰着する場合があります。
+本稿では、Functional Graphのサイクル検出の比較的簡単な実装を紹介します。</p>
+<h2 id="前提条件">前提条件</h2>
+<p>本稿における、Functional Graphの定義は次のとおりです。</p>
+<ul>
+<li>有向グラフであって、各頂点の出次数がちょうど1であるもの。</li>
+</ul>
+<h2 id="方法">方法</h2>
+<p>まず、画像でイメージを掴んでもらいます。</p>
+<p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1697171658/pictures/functional-graph/graph_wq6ymb.png" alt=""></p>
+<p>これがFunctional Graphです。各頂点から一つだけ有向辺があるのが確認できると思います。</p>
+<p>ここで、頂点{1, 2, 3, 4, 5}は閉路をなしていますが、それ以外は閉路に含まれていません。
+これをどうやって検出するかが本題です。</p>
+<p>UnionFind(dsu)を使います。
+まず、Functional Graphの重要な性質に、連結成分がちょうど一つの閉路を持つというものがあります。</p>
+<details>
+<summary>証明(厳密でない)</summary>
+<ol>
+<li>連結成分が少なくとも一つの閉路を持つこと</li>
+</ol>
+<p>頂点1つから考えて、まだ連結成分でない頂点へ有向辺を張ると、必ず連結成分のサイズが1増えます。
+つまり、サイズkの連結成分を成す最小の有向辺はk-1本です。</p>
+<p>一方、Functional Graphにおけるサイズkの連結成分は必ずk本の有向辺を持ちます。</p>
+<p>これは、少なくとも1本はすでに連結である頂点へと有向辺を張っていることになり、閉路を含みます。</p>
+<ol start="2">
+<li>高々1つの閉路を持つこと</li>
+</ol>
+<p>あるFunctional Graphの連結成分が2つの閉路を持つと仮定します。</p>
+<ul>
+<li>閉路が頂点を共有するとき</li>
+</ul>
+<p>少なくとも2つの頂点が出次数2になり、違反します。</p>
+<ul>
+<li>閉路が頂点を共有しないとき</li>
+</ul>
+<p>閉路同士を結ぶ辺が必要ですが、このときに少なくとも1つの頂点が出次数2になり、違反します。</p>
+<p>3以上も同様に証明できます(ほんとか？)。よって、閉路は高々1つです。</p>
+<p>証明終わり。</p>
+</details>
+<p>UnionFindで連結成分を増やしていくと、どこかですでに同じ連結成分に属する頂点が見つかるはずです。
+このとき見つかる頂点は、必ず閉路の中に入っている頂点になります。</p>
+<p>Functional Graphにおける連結成分はちょうど一つだけ閉路を持ち、
+出次数が必ず1であるため、閉路を構成する1頂点が見つかれば、
+閉路に入っている他の全ての頂点もたどっていくだけで全て見つけることができます。</p>
+<p>よって、以下のアルゴリズムを得ます。</p>
+<p>以下、G[i]は頂点iに隣接する頂点を指す。
+i=0,1,&hellip;,Nに対して、次を行う。</p>
+<ol>
+<li>頂点iと頂点G[i]が同じ連結成分に属していなければ、頂点iと頂点G[i]をマージして終了。同じ連結成分に属していれば、2に進む。</li>
+<li>pos=iとして、再びpos=iとなるまでpos=G[pos]として更新する。
+その途中でposに代入された頂点は、全て記録しておく。
+記録された頂点は、一つの連結成分の閉路をなす頂点集合と一致する。</li>
+</ol>
+<p>時間計算量はO(Nα(N))です。(α(N))はアッカーマン逆関数)</p>
+<p>また、本稿では詳しく紹介しませんが、強連結成分分解によって時間と空間O(N)を達成することもできます。
+しかし、実装のコストは(強連結成分分解ライブラリがなければ)こちらのほうが軽いです。
+どちらもおすすめです。</p>
+<h2 id="実装例">実装例</h2>
+<p>D言語による実装例を示します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> UF <span style="color:#f92672">=</span> UnionFind<span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span><span style="color:#f92672">[</span><span style="color:#66d9ef">int</span><span style="color:#f92672">]</span> NumberInCycle<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>UF<span style="color:#f92672">.</span><span style="color:#a6e22e">is_same_group</span><span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">]))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        UF<span style="color:#f92672">.</span><span style="color:#a6e22e">merge_group</span><span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 閉路検出
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        NumberInCycle<span style="color:#f92672">[</span>cur<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        cur <span style="color:#f92672">=</span> A<span style="color:#f92672">[</span>cur<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span> <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>cur <span style="color:#f92672">!=</span> i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>このコードを実行したあとに<code>NumberInCycle</code>に存在する要素は、Functional Graphのいずれかの連結成分における閉路を構成する頂点である。</p>
+<h2 id="練習問題">練習問題</h2>
+<p>練習問題を3問用意しました。ぜひ解いてみてください。
+1問はまさにこのアルゴリズムを用いる問題ですが、他の2問は考察部分があり、Functional Graphに帰着するのは自明ではないです。</p>
+<p>なので、ネタバレが嫌だという方は1問目だけ解くと良いです。</p>
+<ol>
+<li><a href="https://atcoder.jp/contests/abc311/tasks/abc311_c">ABC311C</a></li>
+</ol>
+<details>
+<summary>解法</summary>
+状況設定はほとんど同じです。
+紹介したアルゴリズムを用いるだけで解くことができます。
+<p>なお、この問題に関しては列を求める必要があるため、強連結成分分解よりもUnionFindの方が直接的に求められます。</p>
+</details>
+<ol start="2">
+<li><a href="https://atcoder.jp/contests/abc296/tasks/abc296_e">ABC296E</a></li>
+</ol>
+<details>
+<summary>解法</summary>
+このゲームにおけるK_i回の操作は、Functional Graphにおける辺を移動していくことだとみなせます。
+<p>そこで、もしこのグラフのある閉路に頂点iが含まれる場合、ゲームiにおいて任意のK_iに対して勝てる初期配置が存在します。</p>
+<p>逆に、そうでないとき、十分に大きなK_iを指定するだけで必ず青木くんが勝てます。(例えば、K_i=10^9を考えてみてください。)</p>
+<p>すなわち、この問題はFunctional Graphの閉路に含まれる頂点の種類数を数える問題に帰着します。</p>
+</details>
+<ol start="3">
+<li><a href="https://atcoder.jp/contests/abc256/tasks/abc256_e">ABC256E</a></li>
+</ol>
+<details>
+<summary>解法</summary>
+人iから人X_iに有向辺を張ったグラフを考えます。すると、これはFunctional Graphになります。
+<p>うまく順列を選ぶことで、必ず一つの連結成分あたり一人以外の不満度を0にすることができます。
+連結成分は閉路をなしますから、全員を不満度0にはできません。</p>
+<p>そこで、連結成分の誰を不満にするかを選ぶ問題に帰着します。
+これは明らかに最小の不満度を取る貪欲法が有効です。</p>
+<p>よって、Functional Graphの閉路に含まれる頂点を列挙する問題に帰着されました。</p>
+</details>
+<h2 id="終わりに">終わりに</h2>
+<p>本アイディアはABC256Eの<a href="https://atcoder.jp/contests/abc256/editorial/4135">nyaanさんの公式解説</a>で紹介されていたものです。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+	<a class="post-tag" href="/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">典型テク</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/yuki407/">yukicoder contest407参加記録</a></div>
+	
+	
+	<div class="next-post">Next: <a href="/post/pgbattle2023/">PG BATTLE 2023参加記録</a></div>
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-15</div>
+  <div class="post-title"><a href="/post/geometric-progression-sum/">等比数列の和を計算する2つの対数時間アルゴリズム</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-27</div>
+  <div class="post-title"><a href="/post/yukicoder2616/">No.2616 中央番目の中央値</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-03</div>
+  <div class="post-title"><a href="/post/abc167e/">ABC167E - Colorful Blocks</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-15</div>
+  <div class="post-title"><a href="/post/geometric-progression-sum/">等比数列の和を計算する2つの対数時間アルゴリズム</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-05</div>
+  <div class="post-title"><a href="/post/uec-advent2023/">ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-10-13</div>
+  <div class="post-title"><a href="/post/functional-graph-cycle/">Functional Graphのサイクル検出をいい感じに</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "典型テク"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-27</div>
+  <div class="post-title"><a href="/post/yukicoder2616/">No.2616 中央番目の中央値</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-13</div>
+  <div class="post-title"><a href="/post/split-into-continuous-subsequences/">列をいくつかの連続部分列へ分解する小技</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-11-01</div>
+  <div class="post-title"><a href="/post/abc190f/">ABC190F - Shift and Inversions</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e5%85%b8%e5%9e%8b%e3%83%86%e3%82%af/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

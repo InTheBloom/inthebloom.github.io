@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>No.2616 中央番目の中央値 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=2aae10cab336cee5eb547d4addbb0710d2fe4767" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="No.2616 中央番目の中央値 - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/yukicoder2616/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="No.2616 中央番目の中央値 - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/yukicoder2616/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=2aae10cab336cee5eb547d4addbb0710d2fe4767">
+<link rel="stylesheet" href="/css/color.css?c=2aae10cab336cee5eb547d4addbb0710d2fe4767">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=2aae10cab336cee5eb547d4addbb0710d2fe4767">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>No.2616 中央番目の中央値</h1>
+
+<span class="sub">Published on 2024-01-27</span><br>
+<span class="sub">Last Modified 2024-01-27</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題概要">問題概要</a></li>
+    <li><a href="#考察">考察</a></li>
+    <li><a href="#実装例">実装例</a></li>
+    <li><a href="#感想">感想</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="問題概要">問題概要</h2>
+<p><a href="https://yukicoder.me/problems/no/2616">問題へのリンク</a></p>
+<p>長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</p>
+<ul>
+<li>長さが奇数</li>
+<li>$p$の中央値が、$p$のちょうど中央に位置する</li>
+</ul>
+<p>制約</p>
+<ul>
+<li>$1 \leq N \leq 3 \times 10^5$</li>
+<li>$(P_1, \cdots , P_N)$は$(1, 2, \cdots , N)$を並べ替えた順列</li>
+</ul>
+<h2 id="考察">考察</h2>
+<p>まず中央値としてどこをとるかを固定して問題を考察する。
+中央値として$P_i$をとるとしたとき、</p>
+<ul>
+<li>自分より左と自分より右から同量の項を採用する。</li>
+<li>採用した項は半分が自分未満で、半分が自分超過である。</li>
+</ul>
+<p>ということが題意を満たす$p$の必要条件十分になる。
+例えば、自分の左右から自分超過と自分未満の項を$\mathrm{more}_{左}, \mathrm{less}_{左}, \mathrm{more}_{右}, \mathrm{less}_{右}$
+個とったとすると、前述の条件から次の連立方程式が立つ。</p>
+<p>$$
+\begin{equation}
+\left \{
+\begin{split}
+\mathrm{less}_{左} + \mathrm{more}_{左} &amp;= \mathrm{less}_{右} + \mathrm{more}_{右} \\
+\mathrm{less}_{左} + \mathrm{less}_{右} &amp;= \mathrm{more}_{左} + \mathrm{more}_{右} \\
+\end{split}
+\right .
+\end{equation}
+$$</p>
+<p>これを解くと、$\mathrm{more}_{左} = \mathrm{less}_{右}, \mathrm{less}_{左} = \mathrm{more}_{右}$を得る。
+結果としては当たり前のことを言っていて、「左側から大きい項をとってきたなら、右側で小さい項をとってきて帳尻を合わせなさいよ」ということである。</p>
+<p>さて、よく見ると$\mathrm{less}_{左}$と$\mathrm{more}_{左}$は反対側で取る項により帳尻を合わせている。
+すなわち、$\mathrm{less}_{左}$と$\mathrm{more}_{左}$自体は関係性がないため、独立に考えてよいことがわかる。
+まず$\mathrm{less}_{左}, \mathrm{more}_{右}$の取り方によってできる部分列について考えよう。</p>
+<p>まず、</p>
+<div style="overflow: scroll;">
+$$
+0 \leq \mathrm{less}_{左}, \mathrm{more}_{右} \leq \min((自分より左にあるP_i未満の数の数), (自分より右にあるP_i超過の数の数))
+$$
+</div>
+であることがわかる。そうでないなら、帳尻を合わせられないからだ。
+<p>$\mathrm{less}_{左} = \mathrm{more}_{右} = i$であるとき、
+どこから取るかの自由度があるため、作れる部分列の個数は$X = (自分より左にあるP_i未満の数の数)$、$Y = (自分より右にあるP_i超過の数の数)$と定めると、
+$\binom{X}{i} \binom{Y}{i}$通りになる。この総和を考えればよいため、
+$$
+\sum_{i=0}^{\min(X, Y)} \binom{X}{i} \binom{Y}{i}
+$$
+通りになる。
+二項係数の性質$\binom{N}{K} = \binom{N}{N-K}$を用いると、
+$$
+\sum_{i=0}^{\min(X, Y)} \binom{X}{X-i} \binom{Y}{i}
+$$
+$\min(X, Y) = X$であるとき、<a href="https://manabitimes.jp/math/622">ヴァンデルモンドの畳み込み</a>という恒等式が成立し、
+$$
+\sum_{i=0}^{X} \binom{X}{X-i} \binom{Y}{i} = \binom{X+Y}{X}
+$$
+となる。$\min(X, Y) = Y$であるときも全く同様にして
+$$
+\sum_{i=0}^{Y} \binom{X}{i} \binom{Y}{Y-i} = \binom{X+Y}{Y}
+$$
+が成立する。ただし、$\binom{X+Y}{X} = \binom{X+Y}{Y}$に注意せよ。</p>
+<p>$\mathrm{more}_{左}, \mathrm{less}_{右}$にも全く同様の議論ができる。
+これらの議論がそれぞれ独立であることを考えると、中央値$P_i$であるときのあり得る部分列の個数はこれらの積になる。</p>
+<p>これらの二項係数は適切に前計算することでクエリ$O(1)$となり、$(自分より左にあるP_i未満の数の数)$といった数はSegmentTreeなどのデータ構造によりクエリ$O(\log N)$で求まる。</p>
+<p>具体的には、要素数$N$の一点更新/区間和取得のセグメントツリーを2本持っておいて、セグメントツリーの最下段の配列と$P$の各項を対応付けて管理する。
+すなわち、「区間$[0, x)$に入っている$P_i$は1、そうでないなら0」という情報と、「区間$[x+1, N)$に入っている$P_i$は1、そうでないなら0」という情報を持っておいて、それぞれ適切に
+<code>prod(0, P[i])</code>や<code>prod(P[i]+1, N)</code>というクエリを飛ばすことで達成できる。</p>
+<p>以上より、$O(N \log N)$で解が求まる。</p>
+<h2 id="実装例">実装例</h2>
+<p>ICPCもあるので、練習にc++を使ってみた。
+コンパイルが通るように全部貼り付けたが、<code>solve</code>関数の中だけ見ればよい。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;atcoder/segtree&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cassert&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> atcoder;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ll <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ll <span style="color:#a6e22e">ModPow</span> (ll a, ll x, <span style="color:#66d9ef">const</span> ll MOD) {
+</span></span><span style="display:flex;"><span>    assert(<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> x);
+</span></span><span style="display:flex;"><span>    assert(<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> MOD);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">%=</span> MOD;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (a <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) a <span style="color:#f92672">+=</span> MOD;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ll res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (x <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> (x <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>)) {
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">*=</span> a;
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">%=</span> MOD;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        a <span style="color:#f92672">*=</span> a;
+</span></span><span style="display:flex;"><span>        a <span style="color:#f92672">%=</span> MOD;
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">&gt;&gt;=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res <span style="color:#f92672">%</span> MOD;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ll <span style="color:#a6e22e">ModInv</span> (ll x, <span style="color:#66d9ef">const</span> ll MOD) {
+</span></span><span style="display:flex;"><span>    assert(<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> x);
+</span></span><span style="display:flex;"><span>    assert(<span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;=</span> MOD);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ModPow(x, MOD<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, MOD);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">ope</span> (<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b) { <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b; }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">e</span> () { <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> (<span style="color:#66d9ef">int</span> N, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>P) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ある要素を中央値に採用すると考える。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 「前から見て(長さ-1)/2個からなる部分列でmaxがそれ未満」と「後ろから見て(長さ-1)/2個からなる部分列でminがそれ超過」の場合の数がわかればよい？
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// -&gt; 明らかにΘ(N^2)以上が見込まれるのでダメ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 右側から超過をk個、未満をl個とったと考える。この時、左側からとるべきものも確定して、未満をk個、超過をl個とる必要がある。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 左側でとった超過/未満は右側でつじつまを合わせるため、独立に考えてよい。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 例えば左側未満は[0, min((左側未満), (右側超過))]個自由にとれる。-&gt;どこからとるかはnCkになり、これの積を足していけばいい
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// wolfram alpha先生にbinomial(N, i) * binomial(M, i)の和[0, N]を投げたら(M+N)!/(N!M!)って言われた
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// セグ木かなんかでこれを持っておけばよくないか？
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> ll MOD <span style="color:#f92672">=</span> <span style="color:#ae81ff">998244353</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>ll<span style="color:#f92672">&gt;</span> fact(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>), factinv(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    fact[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N; i<span style="color:#f92672">++</span>) fact[i] <span style="color:#f92672">=</span> i<span style="color:#f92672">*</span>fact[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">%</span> MOD;
+</span></span><span style="display:flex;"><span>    factinv[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N] <span style="color:#f92672">=</span> ModInv(fact[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N], MOD);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>N<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> i; i<span style="color:#f92672">--</span>) factinv[i] <span style="color:#f92672">=</span> (i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> factinv[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">%</span> MOD;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    segtree<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, ope, e<span style="color:#f92672">&gt;</span> L(N), R(N);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) R.set(i, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ll ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 計算
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> Llarge <span style="color:#f92672">=</span> L.prod(P[i]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, N);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> Lless <span style="color:#f92672">=</span> L.prod(<span style="color:#ae81ff">0</span>, P[i]);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> Rlarge <span style="color:#f92672">=</span> R.prod(P[i]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, N);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> Rless <span style="color:#f92672">=</span> R.prod(<span style="color:#ae81ff">0</span>, P[i]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ll add <span style="color:#f92672">=</span> fact[Llarge <span style="color:#f92672">+</span> Rless] <span style="color:#f92672">*</span> factinv[Llarge] <span style="color:#f92672">%</span> MOD;
+</span></span><span style="display:flex;"><span>        add <span style="color:#f92672">*=</span> factinv[Rless];
+</span></span><span style="display:flex;"><span>        add <span style="color:#f92672">%=</span> MOD;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        add <span style="color:#f92672">*=</span> fact[Rlarge <span style="color:#f92672">+</span> Lless];
+</span></span><span style="display:flex;"><span>        add <span style="color:#f92672">%=</span> MOD;
+</span></span><span style="display:flex;"><span>        add <span style="color:#f92672">*=</span> factinv[Rlarge];
+</span></span><span style="display:flex;"><span>        add <span style="color:#f92672">%=</span> MOD;
+</span></span><span style="display:flex;"><span>        add <span style="color:#f92672">*=</span> factinv[Lless];
+</span></span><span style="display:flex;"><span>        add <span style="color:#f92672">%=</span> MOD;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> add;
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">%=</span> MOD;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 更新
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        L.set(P[i], <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        R.set(P[i], <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N; cin <span style="color:#f92672">&gt;&gt;</span> N;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> P(N);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> P[i];
+</span></span><span style="display:flex;"><span>        P[i]<span style="color:#f92672">--</span>; <span style="color:#75715e">// 0-indexed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    solve(N, P);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="感想">感想</h2>
+<p>久しぶりにyukicoderで難しめの問題が解けた気がする。
+本番はwolfram alphaに投げたら式変形してくれたが、本稿を書くにあたって二項係数が入った恒等式の証明が全然わからなくて苦労した。
+ヴァンデルモンドの畳み込み恒等式は競技プログラミングにおいて様々な応用がありそうな気がするが、筆者のレベルだとあまり見たことがない。</p>
+<p>不明点があれば<a href="https://yukicoder.me/problems/no/2616/editorial">公式解説</a>が詳しい。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+	<a class="post-tag" href="/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">典型テク</a>
+	
+	<a class="post-tag" href="/tags/%E4%BA%8C%E9%A0%85%E4%BF%82%E6%95%B0/">二項係数</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/abc167e/">ABC167E - Colorful Blocks</a></div>
+	
+	
+	<div class="next-post">Next: <a href="/post/debian-install/">Ubuntuが死んだのでDebianをインストールする</a></div>
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-15</div>
+  <div class="post-title"><a href="/post/geometric-progression-sum/">等比数列の和を計算する2つの対数時間アルゴリズム</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-27</div>
+  <div class="post-title"><a href="/post/yukicoder2616/">No.2616 中央番目の中央値</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-03</div>
+  <div class="post-title"><a href="/post/abc167e/">ABC167E - Colorful Blocks</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-27</div>
+  <div class="post-title"><a href="/post/yukicoder2616/">No.2616 中央番目の中央値</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-03</div>
+  <div class="post-title"><a href="/post/abc167e/">ABC167E - Colorful Blocks</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-31</div>
+  <div class="post-title"><a href="/post/abc290e/">ABC290E - Make it Palindrome</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "典型テク"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-27</div>
+  <div class="post-title"><a href="/post/yukicoder2616/">No.2616 中央番目の中央値</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-13</div>
+  <div class="post-title"><a href="/post/split-into-continuous-subsequences/">列をいくつかの連続部分列へ分解する小技</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-11-01</div>
+  <div class="post-title"><a href="/post/abc190f/">ABC190F - Shift and Inversions</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e5%85%b8%e5%9e%8b%e3%83%86%e3%82%af/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

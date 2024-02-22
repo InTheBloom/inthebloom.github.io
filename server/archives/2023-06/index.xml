@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2023-06 on InTheDayDream</title>
+    <link>http://inthebloom.github.io/archives/2023-06/</link>
+    <description>Recent content in 2023-06 on InTheDayDream</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://inthebloom.github.io/archives/2023-06/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC307参加記録</title>
+      <link>http://inthebloom.github.io/post/abc307/</link>
+      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc307/</guid>
+      <description>はじめに 本稿は、2023年6月24日に行われたABC307の参加記録です。&#xA;戦績 今回の戦績です。 今回はパフォーマンス1166で、 レート変動は842-&amp;gt;879でした。</description>
+    </item>
+    <item>
+      <title>ABC99C - Strange Bank</title>
+      <link>http://inthebloom.github.io/post/abc99c/</link>
+      <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc99c/</guid>
+      <description>はじめに 個人的に比較的難しく、教育的な動的計画法の問題に出会ったので、メモを残しておく。 防備録的な色合いが強いので、私にとって明らかなことは書かない。&#xA;問題 ABC99C Strange Bank</description>
+    </item>
+    <item>
+      <title>ABC304参加記録</title>
+      <link>http://inthebloom.github.io/post/abc304/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc304/</guid>
+      <description>はじめに 競技プログラミングに対してやる気がわかない夜は、コンテストの参加記録を書こう。 そうしよう。&#xA;というわけで、ABC304の参加記録です。&#xA;戦績 残念ながらジャッジにトラブルがあったようで、今回のコンテストはunratedになってしまいました。 そのため特にレート変動はありません。</description>
+    </item>
+    <item>
+      <title>MMA Contest 015 参加記録</title>
+      <link>http://inthebloom.github.io/post/mmacontest15/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/mmacontest15/</guid>
+      <description>はじめてのオンサイト、行ってキタ！ 電気通信大学にはMMAという格闘技みたいな名前のサークルがあります。 先日2023年5月28日、そのサークルの有志がオンサイトコンテストを開いていたので、(ヒマなので)参加してきました！&#xA;MMA Contest 015というオンサイト競技プログラミングコンテストを開催します！</description>
+    </item>
+  </channel>
+</rss>
