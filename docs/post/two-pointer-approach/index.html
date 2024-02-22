@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>尺取り法備忘録 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=257238e1a03a2dea82bd777291271528fb1abfca" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="尺取り法備忘録 - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/two-pointer-approach/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="尺取り法備忘録 - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/two-pointer-approach/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=257238e1a03a2dea82bd777291271528fb1abfca">
+<link rel="stylesheet" href="/css/color.css?c=257238e1a03a2dea82bd777291271528fb1abfca">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=257238e1a03a2dea82bd777291271528fb1abfca">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>尺取り法備忘録</h1>
+
+<span class="sub">Published on 2024-02-22</span><br>
+<span class="sub">Last Modified 2024-02-22</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#尺取り法してますか">尺取り法、してますか？</a></li>
+    <li><a href="#例題--aoj-dsl_3_c-the-number-of-windows">例題 : AOJ DSL_3_C (The Number of Windows)</a></li>
+    <li><a href="#例題2--abc38c---単調増加">例題2 : ABC38C - 単調増加</a></li>
+    <li><a href="#例題3--abc32c---列">例題3 : ABC32C - 列</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="尺取り法してますか">尺取り法、してますか？</h2>
+<p>条件を満たす列に対して</p>
+<ul>
+<li>条件を満たす連続部分列の最大/最小長さ</li>
+<li>条件を満たす連続部分列の数え上げ</li>
+</ul>
+<p>などを求めるアルゴリズムとして、<strong>尺取り法</strong>が知られています。
+要求される条件は、大まかには以下のどちらかです。</p>
+<ul>
+<li>ある区間$I$が条件を満たすならば、$\forall i \in I$もまた条件を満たす。</li>
+<li>ある区間$I$が条件を満たすならば、$\forall i \supseteq I$もまた条件を満たす。</li>
+</ul>
+<p><a href="https://qiita.com/drken/items/ecd1a472d3a0e7db8dce#1-3-%E3%81%97%E3%82%83%E3%81%8F%E3%81%A8%E3%82%8A%E6%B3%95%E3%81%8C%E4%BD%BF%E3%81%88%E3%82%8B%E6%9D%A1%E4%BB%B6">けんちょんさんの記事</a>によると、これらの条件は次のようにも言い換えられます。</p>
+<ul>
+<li>区間の最左のインデックスを$l$、条件を満たす区間の右のインデックス最大値を$f(l)$としたとき、$f(l)$は広義単調増加。</li>
+<li>区間の最左のインデックスを$l$，条件を満たす区間の右のインデックス最小値を$f(l)$としたとき、$f(l)$は広義単調増加。</li>
+</ul>
+<p>いきなり抽象的なことを言ってもしょうがないので、具体例を見ていきましょう。</p>
+<h2 id="例題--aoj-dsl_3_c-the-number-of-windows">例題 : AOJ DSL_3_C (The Number of Windows)</h2>
+<p>問題</p>
+<p>長さ$N$の数列$a_1, a_2, a_3, \dots , a_N$が与えられる。次の$Q$個の質問に答えよ。</p>
+<p>整数$x_i$が与えられる。$1 \leq l \leq r \leq N$かつ$\sum_{i=l}^{r} \leq x_i$を満たす$(l, r)$の組の個数を求めよ。</p>
+<p>制約</p>
+<ul>
+<li>$1 \leq N \leq 10^5$</li>
+<li>$1 \leq Q \leq 500$</li>
+<li>$1 \leq a_i \leq 10^9$</li>
+<li>$1 \leq x_i \leq 10^{14}$</li>
+</ul>
+<p>$1 \leq a_i$であるため、$\sum_{i=l}^{r} a_i \leq x_i$が成立するなら、これよりも狭い区間の和もまた$x_i$以下になります。
+すなわち、尺取り法の条件を満たしています。</p>
+<p>この問題は、ざっくり次のようなアルゴリズムで解くことができます。(わかりやすさのため、一部正確でないです)</p>
+<ol>
+<li>$l = 0, r = 0, \mathrm{ans} = 0$とする。</li>
+<li>総和が$x_i$を超えないギリギリまで$r$を右にずらしていく</li>
+<li>$\mathrm{ans}$に$r-l$を加算する</li>
+<li>$r$の位置は<strong>そのままに</strong>して、$l$を一つ右にずらす</li>
+<li>手順2に戻る</li>
+</ol>
+<p>このアルゴリズムは、すべての始点に対してギリギリ和が$x_i$を超えない右端を求めていると捉えることができます。
+ここで大事なのは手順4です。尺取り法の条件は、つまるところ手順4をして良いかどうか？ということになります。</p>
+<p>なぜ手順4をしてよいかと言うと、手順3が終わった時点での$\sum_{i=l}^{r} a_i$が$x_i$を超えないため、当然それよりも狭い範囲を指す$[l+1, r]$の総和も$x_i$を超えないからです。</p>
+<p>この工夫を行うことによって、$l, r$ともに$O(N)$回の移動でアルゴリズムが終了し、全体$O(N)$になります。</p>
+<p>さて、ここまでは概要をざっくり説明してきました。
+ここからは実装の詳細を説明します。</p>
+<p>まず、区間を$l, r$を用いて表すわけですが、これは<strong>右半開区間</strong>$[l, r)$を用いましょう。
+これは空である区間を自然に表現できるからです。両端閉区間だと面倒になります。</p>
+<p>具体例を挙げます。上の問題で、$a = (1, 5, 10)$かつ$x_1 = 7$だったとします。
+このとき、条件を満たす連続部分列は次のようになります。(0-indexed)</p>
+<p>$(0)$, $(0, 1)$, $(1)$</p>
+<p>このように、左端が$2$になるような連続部分列で条件を満たすようなものは存在しません。すなわち空な区間が出てきてしまいます。
+これは右半開区間なら$[2, 2)$と表現できますが、閉区間だときれいに表現できなくなり、場合分けが増えます。</p>
+<p>さて、実装しましょう。以下の実装では次のようなものが上の方にあると仮定してください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ll <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> N, Q; cin <span style="color:#f92672">&gt;&gt;</span> N <span style="color:#f92672">&gt;&gt;</span> Q;
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A(N);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> A[i];
+</span></span></code></pre></div><p>まずは左端に関するループですから、それを作ります。
+それと、現在の総和を保持する変数が必要です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>ll sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>    l<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>for</code>でもいいですが、個人的には<code>while</code>推しです。
+初期状態で$[0, 0)$の空区間を示していることに注意してください。
+このとき総和が$0$なので、整合性が取れています。</p>
+<p>限界まで右に伸ばします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>ll sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 右に伸ばす
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span> sum <span style="color:#f92672">+</span> A[r]) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> A[r];
+</span></span><span style="display:flex;"><span>        r<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    l<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>右は開区間なので、<code>A[r]</code>はまだ含まれていない要素ということなります。これを足しても<code>x</code>を超えなければ足し、超えるなら<code>break</code>します。
+また、そもそも<code>r</code>は上限があるので、それも<code>while</code>の条件に入れています。</p>
+<p>答えを加算します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>ll sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 右に伸ばす
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span> sum <span style="color:#f92672">+</span> A[r]) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> A[r];
+</span></span><span style="display:flex;"><span>        r<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 答えを加算
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ans <span style="color:#f92672">+=</span> r <span style="color:#f92672">-</span> l;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    l<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>区間の左側が$l$であるとき、右側として$[l, r)$のどこからとっても条件を満たします。なので、<code>r - l</code>を足します。</p>
+<p>左側を進めます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>ll sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 右に伸ばす
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span> sum <span style="color:#f92672">+</span> A[r]) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> A[r];
+</span></span><span style="display:flex;"><span>        r<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 答えを加算
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ans <span style="color:#f92672">+=</span> r <span style="color:#f92672">-</span> l;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 次から含まれなくなる要素を削る
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">&lt;</span> r) sum <span style="color:#f92672">-=</span> A[l];
+</span></span><span style="display:flex;"><span>    l<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>左端を進めるということは、一番左の要素を含めなくするということです。
+ただし、限界まで$r$を伸ばしても$[l, r)$が空であるときにこれをすると不正なので、<code>if (l &lt; r)</code>を入れています。</p>
+<p>最後のステップです。
+最初、$l \leq r$を仮定していましたが、$l$を右に進めるステップのせいで$r &lt; l$になる可能性があります。
+具体的には、$r$を伸ばした結果$[l, r)$が空($l = r$)であるとき、その次のステップで$r &lt; l$になります。</p>
+<p>これは都合が悪いため、最初に正規化を入れます。
+<strong>忘れやすいので注意が必要です。</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>ll sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// rの正規化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (r <span style="color:#f92672">&lt;</span> l) r <span style="color:#f92672">=</span> l;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 右に伸ばす
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span> sum <span style="color:#f92672">+</span> A[r]) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> A[r];
+</span></span><span style="display:flex;"><span>        r<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 答えを加算
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ans <span style="color:#f92672">+=</span> r <span style="color:#f92672">-</span> l;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 次から含まれなくなる要素を削る
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">&lt;</span> r) sum <span style="color:#f92672">-=</span> A[l];
+</span></span><span style="display:flex;"><span>    l<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>これで完成です。お疲れ様でした。</p>
+<p><a href="https://onlinejudge.u-aizu.ac.jp/status/users/InTheBloom/submissions/1/DSL_3_C/judge/8931373/C++">提出</a></p>
+<h2 id="例題2--abc38c---単調増加">例題2 : ABC38C - 単調増加</h2>
+<p>問題</p>
+<p>長さ$N$の数列$a_1, a_2, \dots, a_N$が与えられる。
+$a_l, a_{l+1}, \dots, a_r$が狭義単調増加となるような$(l, r)$の数を求めよ。</p>
+<p>制約</p>
+<ul>
+<li>$1 \leq N \leq 10^5$</li>
+<li>$1 \leq a_i \leq 10^5$</li>
+</ul>
+<p>こちらのほうが色々と条件がゆるいです。
+まず、長さ1の列は狭義単調増加なので、空列について考えなくてよくなります。
+さらに、「総和」のようなものがないので、左端を進める際に気にすることが無いです。
+よって、次のような尺取りができます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> a <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 空列はありえないので、なくても大丈夫
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">&lt;</span> l<span style="color:#f92672">)</span> r <span style="color:#f92672">=</span> l<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// l == rのときはとりあえず一つ右に進める
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> r <span style="color:#f92672">&amp;&amp;</span> a<span style="color:#f92672">[</span>r<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> a<span style="color:#f92672">[</span>r<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">])</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            r<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> r <span style="color:#f92672">-</span> l<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 左端を進める際にやることは無い
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        l<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><a href="https://atcoder.jp/contests/abc038/submissions/50507872">提出</a></p>
+<h2 id="例題3--abc32c---列">例題3 : ABC32C - 列</h2>
+<p>問題</p>
+<p>長さ$N$の非負数列$S = (s_1, s_2, \dots, s_N)$と整数$K$が与えられる。次の条件を満たす空でない$S$の連続部分列の長さの最大値を求めよ。
+条件を満たす連続部分列が存在しないときは$0$を出力せよ。</p>
+<ul>
+<li>条件: 連続部分列の要素の総積が$K$以下</li>
+</ul>
+<p>制約</p>
+<ul>
+<li>$1 \leq N \leq 10^5$</li>
+<li>$0 \leq K \leq 10^9$</li>
+<li>$0 \leq s_i \leq 10^9$</li>
+</ul>
+<p>$S$に$0$が含まれているとき、$S$の総積は$0$になり、どんな$K$に対しても条件を満たします。
+最初にそれを判定してしまいましょう。</p>
+<p>$0$が含まれないとき、連続部分列が右に伸びるほど総積は増えるので、尺取りの条件を満たします。
+空な区間/左側の処理どちらもありえるので、丁寧に処理しましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> K<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> K<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">auto</span> S <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> S<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     solve<span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> K<span style="color:#f92672">,</span> S<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> K<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> S<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 0を含むか？
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">;</span> S<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>s <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            writeln<span style="color:#f92672">(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 右半開区間
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 区間がおかしい場合は空な区間で初期化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">&lt;</span> l<span style="color:#f92672">)</span> r <span style="color:#f92672">=</span> l<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 可能な限り右を伸ばす
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>K <span style="color:#f92672">&lt;</span> v <span style="color:#f92672">*</span> S<span style="color:#f92672">[</span>r<span style="color:#f92672">])</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            v <span style="color:#f92672">*=</span> S<span style="color:#f92672">[</span>r<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>            r<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> max<span style="color:#f92672">(</span>ans<span style="color:#f92672">,</span> r <span style="color:#f92672">-</span> l<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 逆操作が必要ならして、左を一つ進める
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> r<span style="color:#f92672">)</span> v <span style="color:#f92672">/=</span> S<span style="color:#f92672">[</span>l<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        l<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">...)</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><a href="https://atcoder.jp/contests/abc032/submissions/50505465">提出</a></p>
+<h2 id="終わりに">終わりに</h2>
+<p>右半開区間のありがたみを初めて感じたかもしれない&hellip;
+よくわからなくて苦手だったアルゴリズムだったけれど、意外と便利に感じました。
+皆様もぜひどうぞ。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">典型テク</a>
+	
+	<a class="post-tag" href="/tags/%E5%B0%BA%E5%8F%96%E3%82%8A%E6%B3%95/">尺取り法</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/geometric-progression-sum/">等比数列の和を計算する2つの対数時間アルゴリズム</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-22</div>
+  <div class="post-title"><a href="/post/two-pointer-approach/">尺取り法備忘録</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-15</div>
+  <div class="post-title"><a href="/post/geometric-progression-sum/">等比数列の和を計算する2つの対数時間アルゴリズム</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-27</div>
+  <div class="post-title"><a href="/post/yukicoder2616/">No.2616 中央番目の中央値</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "典型テク"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-22</div>
+  <div class="post-title"><a href="/post/two-pointer-approach/">尺取り法備忘録</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-27</div>
+  <div class="post-title"><a href="/post/yukicoder2616/">No.2616 中央番目の中央値</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-13</div>
+  <div class="post-title"><a href="/post/split-into-continuous-subsequences/">列をいくつかの連続部分列へ分解する小技</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e5%85%b8%e5%9e%8b%e3%83%86%e3%82%af/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

@@ -6,46 +6,35 @@
     <description>Recent content in 数学 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://inthebloom.github.io/tags/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>等比数列の和を計算する2つの対数時間アルゴリズム</title>
       <link>http://inthebloom.github.io/post/geometric-progression-sum/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/geometric-progression-sum/</guid>
-      <description>概要 隣り合う2つの項の比が一定である数列を、等比数列という。 より厳密には、初項$a$、公比$r$によって定まる次の数列のことを指す。
-$a_1 = a$ $a_i = ra_{i-1} ~ (2 \leq i)$ 本稿では、等比数列の最初の$n$項の和$S_n = a + ar + ar^2 + \dots ar^{n-1}$を任意の法$M$で割った非負最小剰余を$O(\log n)$時間で求めるアルゴリズムを紹介する。</description>
+      <description>概要 隣り合う2つの項の比が一定である数列を、等比数列という。 より厳密には、初項$a$、公比$r$によって定まる次の数列のことを指す。&#xA;$a_1 = a$ $a_i = ra_{i-1} ~ (2 \leq i)$ 本稿では、等比数列の最初の$n$項の和$S_n = a + ar + ar^2 + \dots ar^{n-1}$を任意の法$M$で割った非負最小剰余を$O(\log n)$時間で求めるアルゴリズムを紹介する。</description>
     </item>
-    
     <item>
       <title>ABC100D - Patisserie ABC</title>
       <link>http://inthebloom.github.io/post/abc100d/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/abc100d/</guid>
-      <description>問題概要 問題へのリンク
-$N$種類のケーキがある。$i$種類目のケーキは「綺麗さ」$x_i$、「おいしさ」$y_i$、「人気度」$z_i$を持っている。 このうち$M$種類のケーキを選んで食べる。ただし、同じ種類のケーキを2つとることはできない。
-選んだ$M$種類のケーキに対して、スコアを $\left| \displaystyle\sum_{i=1}^M x_i \right| + \left| \displaystyle\sum_{i=1}^M y_i \right| + \left| \displaystyle\sum_{i=1}^M z_i \right|$ と定める。 スコアの最大値を求めよ。</description>
+      <description>問題概要 問題へのリンク&#xA;$N$種類のケーキがある。$i$種類目のケーキは「綺麗さ」$x_i$、「おいしさ」$y_i$、「人気度」$z_i$を持っている。 このうち$M$種類のケーキを選んで食べる。ただし、同じ種類のケーキを2つとることはできない。&#xA;選んだ$M$種類のケーキに対して、スコアを $\left| \displaystyle\sum_{i=1}^M x_i \right| + \left| \displaystyle\sum_{i=1}^M y_i \right| + \left| \displaystyle\sum_{i=1}^M z_i \right|$ と定める。 スコアの最大値を求めよ。</description>
     </item>
-    
     <item>
       <title>割れるし割りたいのに割れない数を割る方法</title>
       <link>http://inthebloom.github.io/post/mod-division-tech/</link>
       <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/mod-division-tech/</guid>
       <description>状況設定 $x, ~ y, ~ z \in \mathbb N$ $x\%y = 0$ $1 &amp;lt; \mathrm{gcd}(y, z)$ $x$は陽に求められないほど大きく、$y$、$z$は常識的な大きさ 問題 $xy^{-1}$を$z$で割った非負最小剰余を求めよ。</description>
     </item>
-    
     <item>
       <title>繰り返し二乗法について</title>
       <link>http://inthebloom.github.io/post/modpow/</link>
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/modpow/</guid>
-      <description>はじめに この度私のライブラリに冪乗の余りを求める、いわゆるmodPow関数を追加しました。 丁度いい機会ということで、本稿ではmodpowの仕組みを説明し、詳細な実装方法と実装例を示します。 数学をガバっていたらすみません。
-modpowとは 以下、$\times{}$は整数の積を表します。</description>
+      <description>はじめに この度私のライブラリに冪乗の余りを求める、いわゆるmodPow関数を追加しました。 丁度いい機会ということで、本稿ではmodpowの仕組みを説明し、詳細な実装方法と実装例を示します。 数学をガバっていたらすみません。&#xA;modpowとは 以下、$\times{}$は整数の積を表します。</description>
     </item>
-    
   </channel>
 </rss>
