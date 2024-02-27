@@ -6,42 +6,68 @@
     <description>Recent content in 2024 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 22 Feb 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://inthebloom.github.io/archives/2024/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2024/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC74D - Restoreing Road Network</title>
+      <link>http://inthebloom.github.io/post/abc74d/</link>
+      <pubDate>Tue, 27 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/abc74d/</guid>
+      <description>問題 問題へのリンク
+問題
+行と列の大きさがそれぞれ$N$の非負整数数表$A$がある。 表の$i$行$j$列目の成分を$A _ {i, j}$と表記する。 ここで、$A$は次の条件を満たす。</description>
+    </item>
+    
     <item>
       <title>尺取り法備忘録</title>
       <link>http://inthebloom.github.io/post/two-pointer-approach/</link>
       <pubDate>Thu, 22 Feb 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/two-pointer-approach/</guid>
-      <description>尺取り法、してますか？ 条件を満たす列に対して&#xA;条件を満たす連続部分列の最大/最小長さ 条件を満たす連続部分列の数え上げ などを求めるアルゴリズムとして、尺取り法が知られています。 要求される条件は、大まかには以下のどちらかです。</description>
+      <description>尺取り法、してますか？ 条件を満たす列に対して
+条件を満たす連続部分列の最大/最小長さ 条件を満たす連続部分列の数え上げ などを求めるアルゴリズムとして、尺取り法が知られています。 要求される条件は、大まかには以下のどちらかです。</description>
     </item>
+    
     <item>
       <title>等比数列の和を計算する2つの対数時間アルゴリズム</title>
       <link>http://inthebloom.github.io/post/geometric-progression-sum/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/geometric-progression-sum/</guid>
-      <description>概要 隣り合う2つの項の比が一定である数列を、等比数列という。 より厳密には、初項$a$、公比$r$によって定まる次の数列のことを指す。&#xA;$a_1 = a$ $a_i = ra_{i-1} ~ (2 \leq i)$ 本稿では、等比数列の最初の$n$項の和$S_n = a + ar + ar^2 + \dots ar^{n-1}$を任意の法$M$で割った非負最小剰余を$O(\log n)$時間で求めるアルゴリズムを紹介する。</description>
+      <description>概要 隣り合う2つの項の比が一定である数列を、等比数列という。 より厳密には、初項$a$、公比$r$によって定まる次の数列のことを指す。
+$a_1 = a$ $a_i = ra_{i-1} ~ (2 \leq i)$ 本稿では、等比数列の最初の$n$項の和$S_n = a + ar + ar^2 + \dots ar^{n-1}$を任意の法$M$で割った非負最小剰余を$O(\log n)$時間で求めるアルゴリズムを紹介する。</description>
     </item>
+    
     <item>
       <title>Ubuntuが死んだのでDebianをインストールする</title>
       <link>http://inthebloom.github.io/post/debian-install/</link>
       <pubDate>Tue, 13 Feb 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/debian-install/</guid>
-      <description>はじめに 2023年の2月あたりからおよそ1年間にわたりUbuntu22.04.3LTSを使用してきた。&#xA;ここ一週間ほど、急にネットワーク接続がおかしくなったり、システムの電源を切ることすらままならなくなる事態が発生してしまった。 いくつか解決策を調べてみたり、応急手当として手元にあったUSBのwifiアダプターをさして(何故かこちらを経由するとうまく接続できる場合があったのである。しかし、特定のネットワークにはつながらないので意味不明であった。)みたりした。&#xA;しかし、私の知識と熱意では到底解決できそうにないし、そもそも私がコストをかけるべきはこんなところではないだろうと思い始めてきたところで、OSの入れ替えを決行することにした。</description>
+      <description>はじめに 2023年の2月あたりからおよそ1年間にわたりUbuntu22.04.3LTSを使用してきた。
+ここ一週間ほど、急にネットワーク接続がおかしくなったり、システムの電源を切ることすらままならなくなる事態が発生してしまった。 いくつか解決策を調べてみたり、応急手当として手元にあったUSBのwifiアダプターをさして(何故かこちらを経由するとうまく接続できる場合があったのである。しかし、特定のネットワークにはつながらないので意味不明であった。)みたりした。
+しかし、私の知識と熱意では到底解決できそうにないし、そもそも私がコストをかけるべきはこんなところではないだろうと思い始めてきたところで、OSの入れ替えを決行することにした。</description>
     </item>
+    
     <item>
       <title>No.2616 中央番目の中央値</title>
       <link>http://inthebloom.github.io/post/yukicoder2616/</link>
       <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/yukicoder2616/</guid>
-      <description>問題概要 問題へのリンク&#xA;長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</description>
+      <description>問題概要 問題へのリンク
+長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</description>
     </item>
+    
     <item>
       <title>ABC167E - Colorful Blocks</title>
       <link>http://inthebloom.github.io/post/abc167e/</link>
       <pubDate>Wed, 03 Jan 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc167e/</guid>
-      <description>問題概要 問題へのリンク&#xA;$N$個の横一列に並んだブロック列に色を塗る。 色は整数で表され、$1$から$M$までの$M$種類ある。 必ずしもすべての色を使う必要はない。 隣り合うブロックが同じ色である箇所が$K$以下の色の塗り方の総数を$998244353$で割ったあまりを求めよ。</description>
+      <description>問題概要 問題へのリンク
+$N$個の横一列に並んだブロック列に色を塗る。 色は整数で表され、$1$から$M$までの$M$種類ある。 必ずしもすべての色を使う必要はない。 隣り合うブロックが同じ色である箇所が$K$以下の色の塗り方の総数を$998244353$で割ったあまりを求めよ。</description>
     </item>
+    
   </channel>
 </rss>

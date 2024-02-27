@@ -6,14 +6,16 @@
     <description>Recent content in hugo on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 23 Sep 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://inthebloom.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>InTheDayDreamをhugoに移行するためにやったことたち</title>
       <link>http://inthebloom.github.io/post/hugo-setting/</link>
       <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/hugo-setting/</guid>
-      <description>手動ブログ運営はしんどい！ さて、皆様はhatenablogなどのサービスを全く介さずに、単にインターネット上の置き場所にWebページを展開したことがありますでしょうか？ 私がしばらく運営している当ブログは、github pagesを利用した完全な手動運用のサイトです。&#xA;まあこれが辛いんです結構</description>
+      <description>手動ブログ運営はしんどい！ さて、皆様はhatenablogなどのサービスを全く介さずに、単にインターネット上の置き場所にWebページを展開したことがありますでしょうか？ 私がしばらく運営している当ブログは、github pagesを利用した完全な手動運用のサイトです。
+まあこれが辛いんです結構</description>
     </item>
+    
   </channel>
 </rss>

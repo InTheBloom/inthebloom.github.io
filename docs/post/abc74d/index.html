@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ABC74D - Restoreing Road Network - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=f6fe598a2ce35d7e6163bb39d4cf7a6af02b9a14" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="ABC74D - Restoreing Road Network - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/abc74d/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="ABC74D - Restoreing Road Network - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/abc74d/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=f6fe598a2ce35d7e6163bb39d4cf7a6af02b9a14">
+<link rel="stylesheet" href="/css/color.css?c=f6fe598a2ce35d7e6163bb39d4cf7a6af02b9a14">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=f6fe598a2ce35d7e6163bb39d4cf7a6af02b9a14">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>ABC74D - Restoreing Road Network</h1>
+
+<span class="sub">Published on 2024-02-27</span><br>
+<span class="sub">Last Modified 2024-02-27</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題">問題</a></li>
+    <li><a href="#考察">考察</a></li>
+    <li><a href="#実装例">実装例</a>
+      <ul>
+        <li><a href="#worst-theta-n4">worst $\Theta (N^4)$</a></li>
+        <li><a href="#theta-n3">$\Theta (N^3)$</a></li>
+      </ul>
+    </li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="問題">問題</h2>
+<p><a href="https://atcoder.jp/contests/abc074/tasks/arc083_b">問題へのリンク</a></p>
+<p>問題</p>
+<p>行と列の大きさがそれぞれ$N$の非負整数数表$A$がある。
+表の$i$行$j$列目の成分を$A _ {i, j}$と表記する。
+ここで、$A$は次の条件を満たす。</p>
+<ul>
+<li>$A _ {i, i} = 0$</li>
+<li>$i \neq j$のとき、$1 \leq A _ {i, j} = A _ {j, i} \leq 10^9$</li>
+</ul>
+<p>次の条件を満たすネットワークが存在するか判定し、存在するなら辺の重みの和としてありうる最小値を求めよ。
+存在しない場合は<code>-1</code>を出力せよ。</p>
+<ul>
+<li>辺の重みは正整数。</li>
+<li>$A _ {i, j}$は頂点$i$から$j$への最短経路長である。</li>
+</ul>
+<p>制約</p>
+<ul>
+<li>$1 \leq N \leq 300$</li>
+</ul>
+<h2 id="考察">考察</h2>
+<p>重要な性質として、次が成立します。</p>
+<ul>
+<li>頂点$i$と頂点$j$を結ぶ辺は、存在するなら重み$A _ {i, j}$である。</li>
+</ul>
+<p>これは次の理由によります。</p>
+<ul>
+<li>重み$A _ {i, j}$より小さい辺が存在するとき、明らかに制約を満たさない。</li>
+<li>重み$A _ {i, j}$より大きい辺が存在するとき、それを削除しても任意の最短経路に影響しない。</li>
+</ul>
+<p>したがって、どの辺を採用するかを考えればよいです。</p>
+<p>まず、重みが正整数であることから、辺の重みが$\min (A)$であるものは必ず存在する必要があります。
+そうでない場合、$\min (A)$未満の経路が必ず生まれてしまうからです。</p>
+<p>そのほかの辺に関しては、その時点で存在する辺だけを用いた時の全点対最短経路がわかれば、重み昇順に決めていくことができます。
+例えば、$(u, v)$に辺が存在するかチェックしたいとき、その時点での最短経路長を返す関数を$\mathrm{dist}$と表記すると、</p>
+<ol>
+<li>$\mathrm{dist}(u, v) = A _ {u, v}$であれば、辺は必要ない。</li>
+<li>$\mathrm{dist}(u, v) &lt; A _ {u, v}$であれば、条件を満たすネットワークは存在しない。</li>
+<li>$A _ {u, v} &lt; \mathrm{dist}(u, v)$であれば、辺は必要。</li>
+</ol>
+<p>となります。
+2番目の条件は少し非自明に感じますが、決定済みの辺割り当てが必要十分であることから従います。</p>
+<p>さて、あとは各時点での全点対最短経路を求められればよいです。
+新しく辺$(u, v)$を追加したとき、その辺を通る経路だけ考えればよいので、$0 \leq x, y &lt; N$に対して、</p>
+<div style="overflow:scroll;">
+$$
+\mathrm{dist}(x, y), \mathrm{dist}(y, x) \leftarrow \min (\mathrm{dist}(x, y), \mathrm{dist}(x, u) + \mathrm{dist}(u, v) + \mathrm{dist}(v, y))
+$$
+</div>
+という更新をすればよいです。
+<p>以上より、辺の候補が$\Theta (N^2)$個で、更新に$\Theta (N^2)$回の手順が必要であるから、worst $\Theta (N^4)$で解くことができます。</p>
+<p>さらに、もう少し考察することで$\Theta (N^3)$で解くこともできます。
+上述の解法で、</p>
+<blockquote>
+<p>そのほかの辺に関しては、その時点で存在する辺だけを用いた時の全点対最短経路がわかれば、重み昇順に決めていくことができる。
+例えば、$(u, v)$に辺が存在するかチェックしたいとき、その時点での最短経路長を返す関数を$\mathrm{dist}$と表記すると、</p>
+</blockquote>
+<p>としていましたが、実は「その時点で存在する辺だけを用いたときの全点対最短経路」は逐次更新する必要はありません。</p>
+<p>上記解法では「それまでの辺候補を全採用したときの、辺$(u, v)$を用いない$(u, v)$最短経路長」さえわかれば十分です。
+以降の辺候補の重みがすべて$\mathrm{dist}(u, v)$以上であることを考えると、それらの辺は存在しても存在しなくても$(u, v)$をとるかどうかの判定に必要な部分に影響しません。</p>
+<p>以上より、最初に「辺候補をすべて採用したネットワークにおける全点対最短経路長」を求めておいて、
+$(u, v)$の判定には$\min _ {0 \leq x &lt; N} \mathrm{dist}(u, x) + \mathrm{dist}(x, v)$を用いればよいです。</p>
+<p>こうすることで、前計算$\Theta (N^3)$、判定$\Theta (N)$になり、全体の計算量オーダー$\Theta (N^3)$になります。</p>
+<h2 id="実装例">実装例</h2>
+<h3 id="worst-theta-n4">worst $\Theta (N^4)$</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> A <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][](</span>N<span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    solve<span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> A<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 非負の辺しかないので、Aの最小の値に関しては確定できる。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// それ以外にも、重みの昇順に見ていくことを考えると、
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 1. 重み分の辺をはる
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 2. すでに制約が満たされている
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// のどちらかしかありえない。なぜなら、重みより小さい辺を新しくはると別の場所で制約違反が必ず起きるし、より大きな辺をはるとどうやっても達成できないから。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// さらに、追加していく辺が重み昇順であることを考えると、タイプ1の時はチェックすらしなくてよい。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    Tuple<span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">)[]</span> edges<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#ae81ff">1.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            edges <span style="color:#f92672">~=</span> tuple<span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> j<span style="color:#f92672">,</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    edges<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">!</span><span style="color:#e6db74">&#34;a[2] &lt; b[2]&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> dist <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[][](</span>N<span style="color:#f92672">,</span> N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>d<span style="color:#f92672">;</span> dist<span style="color:#f92672">)</span> d<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> ok <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>e<span style="color:#f92672">;</span> edges<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dist<span style="color:#f92672">[</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]][</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]]</span> <span style="color:#f92672">==</span> e<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">])</span> <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dist<span style="color:#f92672">[</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]][</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]]</span> <span style="color:#f92672">&lt;</span> e<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">])</span> ok <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> dist<span style="color:#f92672">[</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]][</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">+=</span> e<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// floyd-warshallっぽく更新
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">// 辺をセット
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            dist<span style="color:#f92672">[</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]][</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]]</span> <span style="color:#f92672">=</span> dist<span style="color:#f92672">[</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]][</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]]</span> <span style="color:#f92672">=</span> e<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]]</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span> <span style="color:#f92672">&amp;&amp;</span> dist<span style="color:#f92672">[</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                    dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> dist<span style="color:#f92672">[</span>j<span style="color:#f92672">][</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> min<span style="color:#f92672">(</span>dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">],</span> dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]]</span> <span style="color:#f92672">+</span> dist<span style="color:#f92672">[</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]][</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]]</span> <span style="color:#f92672">+</span> dist<span style="color:#f92672">[</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]][</span>j<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>ok<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        writeln<span style="color:#f92672">(-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><a href="https://atcoder.jp/contests/abc074/submissions/50664969">提出</a></p>
+<h3 id="theta-n3">$\Theta (N^3)$</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> A <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][](</span>N<span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    solve<span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> A<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Θ(N^3)解法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    Tuple<span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">)[]</span> edges<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#ae81ff">1.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            edges <span style="color:#f92672">~=</span> tuple<span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> j<span style="color:#f92672">,</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    edges<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">!</span><span style="color:#e6db74">&#34;a[2] &lt; b[2]&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> dist <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[][](</span>N<span style="color:#f92672">,</span> N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>d<span style="color:#f92672">;</span> dist<span style="color:#f92672">)</span> d<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>e<span style="color:#f92672">;</span> edges<span style="color:#f92672">)</span> dist<span style="color:#f92672">[</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]][</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]]</span> <span style="color:#f92672">=</span> dist<span style="color:#f92672">[</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]][</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]]</span> <span style="color:#f92672">=</span> e<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>k<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>k<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span> <span style="color:#f92672">||</span> dist<span style="color:#f92672">[</span>k<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> min<span style="color:#f92672">(</span>dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">],</span> dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>k<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> dist<span style="color:#f92672">[</span>k<span style="color:#f92672">][</span>j<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> ok <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>e<span style="color:#f92672">;</span> edges<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> d <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">||</span> i <span style="color:#f92672">==</span> e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">])</span> <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            d <span style="color:#f92672">=</span> min<span style="color:#f92672">(</span>d<span style="color:#f92672">,</span> dist<span style="color:#f92672">[</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]][</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> dist<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>d <span style="color:#f92672">==</span> e<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">])</span> <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>d <span style="color:#f92672">&lt;</span> e<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">])</span> ok <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>e<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> d<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">+=</span> e<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>ok<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        writeln<span style="color:#f92672">(-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><a href="https://atcoder.jp/contests/abc074/submissions/50670075">提出</a></p>
+<h2 id="終わりに">終わりに</h2>
+<p>この問題は私にとって非常に難しかったです。
+最小重みの辺を確定させることができるのは最初に気が付きましたが、そこからが本当に長かった。</p>
+<p>辺候補を昇順に見ていくことがツボで、こうすることであとから追加する辺の影響を考えなくてよくなるのですが、これに気が付くまでかなり時間を要しました。
+逆に、これに気が付いてからは割と道筋が見えてきて、あとは採用した辺を用いた最短経路問題をどうにかできればよいというところまで来ました。</p>
+<p>結局この点は解決できず、$O(N^4)$で解きました。
+あとから解説を見て$\Theta (N^3)$解法を理解しましたが、
+「その時点での最短経路はそれまでの辺を全採用したことにしても変わらない」という点に気が付いていなかったなという感想です。</p>
+<p>こういうad-hoc寄りな問題全般に言えることですが、
+問題を考えるプロセスや、解決したときの喜びは大きいです。しかし、この問題がコンテストに出たらと思うとぞっとします。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/two-pointer-approach/">尺取り法備忘録</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-27</div>
+  <div class="post-title"><a href="/post/abc74d/">ABC74D - Restoreing Road Network</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-22</div>
+  <div class="post-title"><a href="/post/two-pointer-approach/">尺取り法備忘録</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-15</div>
+  <div class="post-title"><a href="/post/geometric-progression-sum/">等比数列の和を計算する2つの対数時間アルゴリズム</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-27</div>
+  <div class="post-title"><a href="/post/abc74d/">ABC74D - Restoreing Road Network</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-27</div>
+  <div class="post-title"><a href="/post/yukicoder2616/">No.2616 中央番目の中央値</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-01-03</div>
+  <div class="post-title"><a href="/post/abc167e/">ABC167E - Colorful Blocks</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
