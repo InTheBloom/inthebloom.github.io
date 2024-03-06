@@ -11,6 +11,26 @@ img {
     margin-top: 3em;
 }
 
+#content h2::before {
+    content: "## ";
+}
+
+#content h3 {
+    padding-top: 2em;
+}
+
+#content h3::before {
+    content: "### ";
+}
+
+#content h4 {
+    padding-top: 2em;
+}
+
+#content h4::before {
+    content: "#### ";
+}
+
 #main-menu-nav-items {
     grid-template-columns: repeat(5, 20%);
 }
