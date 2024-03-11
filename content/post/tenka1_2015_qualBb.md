@@ -13,7 +13,7 @@ tags:
   - 一問解説
 archives:
   - 2024
-  - 2024-28
+  - 2024-02
 # sample
 # - yyyy
 # - yyyy-mm

@@ -10,6 +10,7 @@ date: 2024-03-06
 
 tags:
   - 競技プログラミング
+  - upsolve
 archives:
   - 2024
   - 2024-03
