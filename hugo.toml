@@ -7,7 +7,7 @@ author = "InTheBloom"
 publishDir = "docs"
 
 theme = "simplog"
-paginate = 5
+paginate = 10
 summarylength = 5
 enableInlineShortcodes = true
 ignoreErrors = ["error-remote-getjson"]
