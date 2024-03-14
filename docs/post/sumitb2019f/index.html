@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>三井住友信託銀行プログラミングコンテスト2019F - Interval Running - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=2ff9e2099f448f8851068b56bf7d39825f49a25c" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="三井住友信託銀行プログラミングコンテスト2019F - Interval Running - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/sumitb2019f/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="三井住友信託銀行プログラミングコンテスト2019F - Interval Running - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/sumitb2019f/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=2ff9e2099f448f8851068b56bf7d39825f49a25c">
+<link rel="stylesheet" href="/css/color.css?c=2ff9e2099f448f8851068b56bf7d39825f49a25c">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=2ff9e2099f448f8851068b56bf7d39825f49a25c">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>三井住友信託銀行プログラミングコンテスト2019F - Interval Running</h1>
+
+<span class="sub">Published on 2024-03-14</span><br>
+<span class="sub">Last Modified 2024-03-14</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題概要">問題概要</a>
+      <ul>
+        <li><a href="#問題文">問題文</a></li>
+        <li><a href="#制約">制約</a></li>
+      </ul>
+    </li>
+    <li><a href="#解法">解法</a></li>
+    <li><a href="#実装例">実装例</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="問題概要">問題概要</h2>
+<h3 id="問題文">問題文</h3>
+<p>高橋くんと青木くんが同じ方向に向かって走っている。</p>
+<ul>
+<li>高橋くんは最初の$T _ 1$分間は分速$A _ 1$メートルで走り、続く$T _ 2$分間は分速$A _ 2$メートルで走る。</li>
+<li>青木くんは最初の$T _ 1$分間は分速$B _ 1$メートルで走り、続く$T _ 2$分間は分速$B _ 2$メートルで走る。</li>
+</ul>
+<p>二人は同時に同じ位置からスタートし、上記の動きを繰り返す。</p>
+<p>高橋くんと青木くんが同じ位置に来る回数を求めよ。
+無限回同じ位置に来る場合は、その旨を報告せよ。
+ただし、スタート地点はカウントしない。</p>
+<h3 id="制約">制約</h3>
+<ul>
+<li>$1 \leq T _ i \leq 100000$</li>
+<li>$1 \leq A _ i \leq 10^{10}$</li>
+<li>$1 \leq B _ i \leq 10^{10}$</li>
+<li>$A _ i \neq B _ i$</li>
+</ul>
+<h2 id="解法">解法</h2>
+<p>高橋くんと青木くんの速度によっては同じ位置に来る回数がかなり多くなるため、二人の位置をトレスして答えるのは間に合いません。
+うまく計算する必要があります。</p>
+<p>典型的な考え方として、複数物体の動きを追う問題に対して、相対値を考えるとうまく行くことがあります。
+今回は、一方から見たもう一方の運動の相対速度を考えることで問題がシンプルになります。</p>
+<p>$V _ i \coloneqq A _ i - B _ i$を考えます。
+この値は、青木くんがスタート地点で静止しているとみなしたときの高橋くんの速度になります。</p>
+<p>これにより、問題は次のように変化します。</p>
+<blockquote>
+<p>高橋くんは、次の動きを繰り返す。</p>
+<ul>
+<li>最初の$T _ 1$分間は分速$V _ 1$メートルで走り、続く$T _ 2$分間は分速$V _ 2$メートルで走る。</li>
+</ul>
+<p>何回スタート地点に戻ってくるだろうか。</p>
+</blockquote>
+<p>ここで、変更された問題においては高橋くんが負の座標に来ることがあることに注意してください。</p>
+<p>まず、無限回になる条件は、最初の$T _ 1 + T _ 2$分間動いたあと、スタート地点に戻っていることです。
+そうでない場合、1周期分のズレが十分な回数積み重なると、スタート地点に戻ってこれなくなるからです。</p>
+<p>以降、有限回戻ってくるような場合について考えます。
+このとき、「ある周回でスタート地点に戻ってこられるか」という問題を考えると、これは単調性があります。</p>
+<p>これがなぜかと言われると、かっちり論理的に理由を説明できないです。(すみません)
+しかし、感覚的には次のような感じです。</p>
+<ul>
+<li>高橋くんがスタート地点に戻ってこられるとき、振り子のような運動をする必要がある。ただし、この振り幅は右方向と左方向で差があるため、周回するごとにどんどん原点から離れていく。振り幅の差は一定であるから、一回原点に戻れなくなったら、それ以降も戻れない。</li>
+</ul>
+<p>よって、戻ってこれなくなる周回がどこかを二分探索することで答えを求めることができます。</p>
+<p>「振り子のような動きをしている」と言ったように、普通、高橋くんは1周期で2回スタート地点に戻ることになります。
+2回戻ってくるというのは、すなわち次のようなことです。</p>
+<ul>
+<li>元いた座標から最初の$T _ 1$分移動した座標を$X _ 1$、そこから$T _ 2$分移動した座標を$X _ 2$とする。このとき、$X _ 1$が$0$<strong>でなく、</strong>$X _ 1$と$X _ 2$の符号が異なる。</li>
+</ul>
+<p>$X _ 1$が$0$であるとき、1周期で1回しかスタート地点に戻ってきていないことに注意してください。
+上記のように、1周期で1回しかスタート地点に戻ってきていないときは、スタート地点に戻ってこられる最後の1回になります。
+また、最初の1回目の移動では1回しかカウントされませんが、上記の判定では「2回戻ってくる動きである」と判定され、特別扱いする必要がなくなります。</p>
+<p>具体的な実装としては、次のようになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    x<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>    BigInt cur <span style="color:#f92672">=</span> one_cycle<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    cur <span style="color:#f92672">*=</span> x<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    cur <span style="color:#f92672">+=</span> v<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">*</span> T<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    BigInt nex <span style="color:#f92672">=</span> cur <span style="color:#f92672">+</span> v<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">*</span> T<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>cur <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> cur<span style="color:#f92672">)</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> q <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> nex<span style="color:#f92672">)</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> <span style="color:#f92672">(</span>p <span style="color:#f92672">^</span> q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>$f(x)$は「$x$周目の動きで2回戻ってこられるか？」を判定しています。
+符号判定はxorでうまく処理しています。</p>
+<h2 id="実装例">実装例</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> T<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> A<span style="color:#f92672">,</span> B<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    T <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>    A <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">long</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>    B <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">long</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    solve<span style="color:#f92672">(</span>T<span style="color:#f92672">,</span> A<span style="color:#f92672">,</span> B<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> T<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> A<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> B<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> v <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>A<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> B<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">],</span> A<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> B<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> one_cycle <span style="color:#f92672">=</span> v<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">*</span> T<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> v<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">*</span> T<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>one_cycle <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        writeln<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;infinity&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        x<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>        BigInt cur <span style="color:#f92672">=</span> one_cycle<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        cur <span style="color:#f92672">*=</span> x<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        cur <span style="color:#f92672">+=</span> v<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">*</span> T<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        BigInt nex <span style="color:#f92672">=</span> cur <span style="color:#f92672">+</span> v<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">*</span> T<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>cur <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> cur<span style="color:#f92672">)</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> q <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> nex<span style="color:#f92672">)</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> <span style="color:#f92672">(</span>p <span style="color:#f92672">^</span> q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> ng <span style="color:#f92672">=</span> <span style="color:#ae81ff">10L</span><span style="color:#f92672">^^</span><span style="color:#ae81ff">18</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> abs<span style="color:#f92672">(</span>ok <span style="color:#f92672">-</span> ng<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> mid <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ok <span style="color:#f92672">+</span> ng<span style="color:#f92672">)</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>f<span style="color:#f92672">(</span>mid<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ok <span style="color:#f92672">=</span> mid<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ng <span style="color:#f92672">=</span> mid<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> ok<span style="color:#f92672">)</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> ok <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 最後ピッタリ踏むか？
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    BigInt last <span style="color:#f92672">=</span> one_cycle<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    last <span style="color:#f92672">*=</span> ok<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    last <span style="color:#f92672">+=</span> v<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">*</span> T<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>last <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> ans<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>最初の余分なカウントを引いていること、最後に1回だけ戻ってくるケースを処理していることに注意してください。</p>
+<h2 id="終わりに">終わりに</h2>
+<p>一回目にスタート地点にいるせいで、かなり誤答しました。
+とてもむずかしかったです。
+相対値を利用する問題はたくさんあるので、慣れていけたらいいと思います。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+	<a class="post-tag" href="/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">典型テク</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/abc35d/">ABC35D - トレジャーハント</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-03-14</div>
+  <div class="post-title"><a href="/post/sumitb2019f/">三井住友信託銀行プログラミングコンテスト2019F - Interval Running</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-03-12</div>
+  <div class="post-title"><a href="/post/abc35d/">ABC35D - トレジャーハント</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-03-11</div>
+  <div class="post-title"><a href="/post/abc344/">ABC344 (upsolved)</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-03-14</div>
+  <div class="post-title"><a href="/post/sumitb2019f/">三井住友信託銀行プログラミングコンテスト2019F - Interval Running</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-03-12</div>
+  <div class="post-title"><a href="/post/abc35d/">ABC35D - トレジャーハント</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-28</div>
+  <div class="post-title"><a href="/post/tenka1_2015_qualbb/">天下一プログラマーコンテスト2015予選B - 天下一リテラル</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "典型テク"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-03-14</div>
+  <div class="post-title"><a href="/post/sumitb2019f/">三井住友信託銀行プログラミングコンテスト2019F - Interval Running</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-03-12</div>
+  <div class="post-title"><a href="/post/abc35d/">ABC35D - トレジャーハント</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-22</div>
+  <div class="post-title"><a href="/post/two-pointer-approach/">尺取り法備忘録</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e5%85%b8%e5%9e%8b%e3%83%86%e3%82%af/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
