@@ -6,49 +6,64 @@
     <description>Recent content in 2023-10 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 31 Oct 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://inthebloom.github.io/archives/2023-10/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2023-10/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC235E、あるいはクエリ並列処理</title>
       <link>http://inthebloom.github.io/post/abc235e/</link>
       <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc235e/</guid>
-      <description>問題概要 問題&#xA;辺の重みがすべて異なる無向連結グラフ$G$が与えられる。 さらに、クエリ$i$で$G$中のどの辺とも異なる重みをもつ辺$(u_i, v_i, w_i)$が与えられる。 クエリ$i$で与えられた辺を$G$に追加したグラフ$G&amp;rsquo;$を考える。 すべての$i$に対して、辺$(u_i, v_i, w_i)$は$G&amp;rsquo;$の最小全域木に含まれるか判定せよ。</description>
+      <description>問題概要 問題
+辺の重みがすべて異なる無向連結グラフ$G$が与えられる。 さらに、クエリ$i$で$G$中のどの辺とも異なる重みをもつ辺$(u_i, v_i, w_i)$が与えられる。 クエリ$i$で与えられた辺を$G$に追加したグラフ$G&amp;rsquo;$を考える。 すべての$i$に対して、辺$(u_i, v_i, w_i)$は$G&amp;rsquo;$の最小全域木に含まれるか判定せよ。</description>
     </item>
+    
     <item>
       <title>PG BATTLE 2023参加記録</title>
       <link>http://inthebloom.github.io/post/pgbattle2023/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/pgbattle2023/</guid>
       <description>始まりは突然に 10月9日に、やきとりさん(@yktr_drm06)からPG BATTLEに誘われて、 私、やきとりさん、ryotaさん(@95s7k84695a)のチームで参加することになりました。</description>
     </item>
+    
     <item>
       <title>Functional Graphのサイクル検出をいい感じに</title>
       <link>http://inthebloom.github.io/post/functional-graph-cycle/</link>
       <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/functional-graph-cycle/</guid>
       <description>はじめに グラフ表現に帰着できる問題を考察していると、Functional Graphと呼ばれるグラフのサイクル検出に帰着する場合があります。 本稿では、Functional Graphのサイクル検出の比較的簡単な実装を紹介します。</description>
     </item>
+    
     <item>
       <title>yukicoder contest407参加記録</title>
       <link>http://inthebloom.github.io/post/yuki407/</link>
       <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/yuki407/</guid>
-      <description>はじめに 本稿は2023-10-06に行われたyukicoder contest 407の参加記録です。&#xA;戦績 雑振り返り A - napsack Problem?</description>
+      <description>はじめに 本稿は2023-10-06に行われたyukicoder contest 407の参加記録です。
+戦績 雑振り返り A - napsack Problem?</description>
     </item>
+    
     <item>
       <title>割れるし割りたいのに割れない数を割る方法</title>
       <link>http://inthebloom.github.io/post/mod-division-tech/</link>
       <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/mod-division-tech/</guid>
       <description>状況設定 $x, ~ y, ~ z \in \mathbb N$ $x\%y = 0$ $1 &amp;lt; \mathrm{gcd}(y, z)$ $x$は陽に求められないほど大きく、$y$、$z$は常識的な大きさ 問題 $xy^{-1}$を$z$で割った非負最小剰余を求めよ。</description>
     </item>
+    
     <item>
       <title>ワーシャル・フロイド法について調べて、納得したこと</title>
       <link>http://inthebloom.github.io/post/floyd-warshall/</link>
       <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/floyd-warshall/</guid>
-      <description>はじめに 辺に任意の重みがある$N$頂点有向グラフ(ネットワーク)において、負の長さの閉路が存在しないとき、 全点対の最短経路を$O(N^3)$時間で求めるワーシャル・フロイド法と呼ばれるアルゴリズムが存在する。&#xA;本稿では、筆者がワーシャル・フロイド法について調べ、理解したことを記録する。&#xA;ワーシャル・フロイド法でできるもの 負閉路が存在しないネットワークにおいて、任意の2頂点間の最短経路を求める。</description>
+      <description>はじめに 辺に任意の重みがある$N$頂点有向グラフ(ネットワーク)において、負の長さの閉路が存在しないとき、 全点対の最短経路を$O(N^3)$時間で求めるワーシャル・フロイド法と呼ばれるアルゴリズムが存在する。
+本稿では、筆者がワーシャル・フロイド法について調べ、理解したことを記録する。
+ワーシャル・フロイド法でできるもの 負閉路が存在しないネットワークにおいて、任意の2頂点間の最短経路を求める。</description>
     </item>
+    
   </channel>
 </rss>
