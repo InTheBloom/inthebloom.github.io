@@ -6,55 +6,42 @@
     <description>Recent content in アルゴリズム on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://inthebloom.github.io/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>等比数列の和を計算する2つの対数時間アルゴリズム</title>
       <link>http://inthebloom.github.io/post/geometric-progression-sum/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/geometric-progression-sum/</guid>
-      <description>概要 隣り合う2つの項の比が一定である数列を、等比数列という。 より厳密には、初項$a$、公比$r$によって定まる次の数列のことを指す。
-$a_1 = a$ $a_i = ra_{i-1} ~ (2 \leq i)$ 本稿では、等比数列の最初の$n$項の和$S_n = a + ar + ar^2 + \dots ar^{n-1}$を任意の法$M$で割った非負最小剰余を$O(\log n)$時間で求めるアルゴリズムを紹介する。</description>
+      <description>概要 隣り合う2つの項の比が一定である数列を、等比数列という。 より厳密には、初項$a$、公比$r$によって定まる次の数列のことを指す。&#xA;$a_1 = a$ $a_i = ra_{i-1} ~ (2 \leq i)$ 本稿では、等比数列の最初の$n$項の和$S_n = a + ar + ar^2 + \dots ar^{n-1}$を任意の法$M$で割った非負最小剰余を$O(\log n)$時間で求めるアルゴリズムを紹介する。</description>
     </item>
-    
     <item>
       <title>ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目</title>
       <link>http://inthebloom.github.io/post/uec-advent2023/</link>
       <pubDate>Tue, 05 Dec 2023 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/uec-advent2023/</guid>
       <description>まえがき この記事は、 電通大生による電通大生のためのUEC Advent Calendar 2023 の6日目担当です。</description>
     </item>
-    
     <item>
       <title>Functional Graphのサイクル検出をいい感じに</title>
       <link>http://inthebloom.github.io/post/functional-graph-cycle/</link>
       <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/functional-graph-cycle/</guid>
       <description>はじめに グラフ表現に帰着できる問題を考察していると、Functional Graphと呼ばれるグラフのサイクル検出に帰着する場合があります。 本稿では、Functional Graphのサイクル検出の比較的簡単な実装を紹介します。</description>
     </item>
-    
     <item>
       <title>ワーシャル・フロイド法について調べて、納得したこと</title>
       <link>http://inthebloom.github.io/post/floyd-warshall/</link>
       <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/floyd-warshall/</guid>
-      <description>はじめに 辺に任意の重みがある$N$頂点有向グラフ(ネットワーク)において、負の長さの閉路が存在しないとき、 全点対の最短経路を$O(N^3)$時間で求めるワーシャル・フロイド法と呼ばれるアルゴリズムが存在する。
-本稿では、筆者がワーシャル・フロイド法について調べ、理解したことを記録する。
-ワーシャル・フロイド法でできるもの 負閉路が存在しないネットワークにおいて、任意の2頂点間の最短経路を求める。</description>
+      <description>はじめに 辺に任意の重みがある$N$頂点有向グラフ(ネットワーク)において、負の長さの閉路が存在しないとき、 全点対の最短経路を$O(N^3)$時間で求めるワーシャル・フロイド法と呼ばれるアルゴリズムが存在する。&#xA;本稿では、筆者がワーシャル・フロイド法について調べ、理解したことを記録する。&#xA;ワーシャル・フロイド法でできるもの 負閉路が存在しないネットワークにおいて、任意の2頂点間の最短経路を求める。</description>
     </item>
-    
     <item>
       <title>繰り返し二乗法について</title>
       <link>http://inthebloom.github.io/post/modpow/</link>
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/modpow/</guid>
-      <description>はじめに この度私のライブラリに冪乗の余りを求める、いわゆるmodPow関数を追加しました。 丁度いい機会ということで、本稿ではmodpowの仕組みを説明し、詳細な実装方法と実装例を示します。 数学をガバっていたらすみません。
-modpowとは 以下、$\times{}$は整数の積を表します。</description>
+      <description>はじめに この度私のライブラリに冪乗の余りを求める、いわゆるmodPow関数を追加しました。 丁度いい機会ということで、本稿ではmodpowの仕組みを説明し、詳細な実装方法と実装例を示します。 数学をガバっていたらすみません。&#xA;modpowとは 以下、$\times{}$は整数の積を表します。</description>
     </item>
-    
   </channel>
 </rss>
