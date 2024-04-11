@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ABC247F - Cards - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=417e63ad04020387916178308956fd2593d7dc1b" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="ABC247F - Cards - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/abc247f/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="ABC247F - Cards - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/abc247f/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=417e63ad04020387916178308956fd2593d7dc1b">
+<link rel="stylesheet" href="/css/color.css?c=417e63ad04020387916178308956fd2593d7dc1b">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=417e63ad04020387916178308956fd2593d7dc1b">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>ABC247F - Cards</h1>
+
+<span class="sub">Published on 2024-04-10</span><br>
+<span class="sub">Last Modified 2024-04-10</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題概要">問題概要</a>
+      <ul>
+        <li><a href="#問題文">問題文</a></li>
+        <li><a href="#制約">制約</a></li>
+      </ul>
+    </li>
+    <li><a href="#解法">解法</a></li>
+    <li><a href="#実装例">実装例</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="問題概要">問題概要</h2>
+<p><a href="https://atcoder.jp/contests/abc247/tasks/abc247_f">問題へのリンク</a></p>
+<h3 id="問題文">問題文</h3>
+<p>$1$から$N$の番号がついた$N$枚のカードがあり、カード$i$の表には$P _ i$が、裏には$Q _ i$が書かれている。
+ただし、$P = (P _ 1, \dots, P _ N)$及び$Q = (Q _ 1, \dots, Q _ N)$はそれぞれ$(1, \dots, N)$の置換である。</p>
+<p>$N$枚のカードの部分集合であり、次の条件を満たすものがいくつあるかを$998244353$で割ったあまりを求めよ。</p>
+<ul>
+<li>$1$から$N$のどの数も、表または裏にその数が書かれたカードが、部分集合に少なくとも1枚含まれる。</li>
+</ul>
+<h3 id="制約">制約</h3>
+<ul>
+<li>$1 \leq N \leq 2 \times 10^5$</li>
+<li>$1 \leq P _ i, Q _ i \leq N$</li>
+</ul>
+<h2 id="解法">解法</h2>
+<p>カードを3種類に分類する。</p>
+<ol>
+<li>表と裏に書かれている数が同じ。</li>
+<li>書かれた数の集合が一致するカードが他に存在する。</li>
+<li>その他。</li>
+</ol>
+<p>まず、1のカードは条件を満たすために取るしかない。</p>
+<p>2のカードは、少なくとも片方を取る必要があるため、このペア1組につき解が3倍になる。
+もう少し詳細に説明しよう、カードに書かれた数の集合が$\lbrace x, y \rbrace$であるものが2枚存在するとする。
+このとき、部分集合に$x$または$y$が含まれるようにするためには、この2枚のうち少なくとも1枚は取らなければいけない。
+よって、これらカードについて(とる/とらない)、(とらない/とる)、(とる/とる)の3通りの選択肢が存在し、これは他のカードの選択に影響を及ぼさないため、独立である。
+すなわち、ペアが1組増えるごとに部分集合の数は3倍になる。</p>
+<p>3のカードについて考える。これらどう取ればよいかが一番難しい部分であり、この問題の本質である。</p>
+<p>まずはカードを頂点とみなして、同じ数を含むカードに無向辺をはることにする。
+このとき、カードに書かれている任意の数は、全体で必ず2個存在する。これはカード1とカード2の定義を考えれば明らかである。
+すなわち、任意の頂点に必ず2辺が接続することになる。</p>
+<p>このようにしてできたグラフは、各連結成分は必ず全体がただ一つの閉路に含まれる。すわなち、円環になる。
+これは次の命題が真であることから言える。</p>
+<p>「連結で単純な$N$頂点$N$辺の無向グラフで、すべての頂点の出次数が2であるとき、このグラフはちょうど一つの閉路を持ち、すべての頂点は閉路に含まれる。」</p>
+<details>
+<summary>証明</summary>
+(i) ちょうど一つの閉路を持つこと
+<p>まず、次の命題を帰納法により示す。</p>
+<p>「連結グラフは、全域木を部分グラフに含む」</p>
+<details>
+<summary>証明</summary>
+グラフ$G$の辺集合$E$とする。
+$\vert E \vert = 0$のときは、グラフが連結であるという仮定から、$G$は孤立頂点である。このとき命題は成立。
+<p>$\vert E \vert = k$のときに成立すると仮定する。
+$\vert E \vert = k + 1$のとき、
+$G$が閉路を含まないならば、$G$は木の定義を満たすので、$G$そのものが全域木である。
+$G$が閉路を含むならば、閉路の任意の辺を切断すると、$\vert E \vert = k$に帰着する。</p>
+<p>したがって、グラフが連結であれば全域木が存在する。</p>
+<p><span style="color : red;">折りたたみ内折りたたみ終わり。</span></p>
+</details>
+<p>この命題により、今考えているグラフは全域木を含むことが分かる。任意の全域木を選び、木に含まれない辺を$e = (u, v)$とする。
+このとき木の性質として、$u, v$パスは一意に定まる。
+すなわち、元の(この全域木に$e$を追加したグラフ)は、$u, v$パス → $e$というただ一つの閉路を持つ。</p>
+<p>(ii) すべての頂点が閉路に含まれること</p>
+<p>任意の頂点を選び、$v _ 0$とする。$v _ 0$に隣接する頂点を一つ選び、$v _ 1$とする。
+$v _ 1$の$v _ 0$でない方の隣接頂点を$v _ 2$とする。
+これを繰り返していく。</p>
+<p>すると、グラフは閉路を持つため、いつか$v _ k$は訪問済みの頂点になる。
+このとき、$v _ 0$以外の頂点($v _ x$とする)にたどり着いたとすると、$v _ x$は出次数2の仮定を満たさない。
+さらに、$v _ 0$にたどりついたときに全頂点を訪問済みになっていない場合、連結であるという仮定を満たさない。</p>
+<p>よって、頂点$v _ 0$からはじまり、すべての頂点をちょうど1回訪問し、頂点$v _ 0$に戻ってくるというパターン以外はありえない。
+これはすべての頂点が閉路に含まれるということである。</p>
+<p><span style="color : red;">折りたたみ終わり。</span></p>
+</details>
+<p>つまり、グラフは次の図のようになる。</p>
+<p><img src="/images/abc247f/circle.png" alt=""></p>
+<p>ある一つの連結成分に対して考えると、条件を満たすようなカードの選び方は、「取らないカードの隣接頂点は必ず取る」であることが分かる。
+必要性は、取らないカードが2連続するとき、そのカードをつなぐ数を取れなくなることによる。
+十分性も同様に、任意の数は隣り合うカードのどちらかを取れば含めることができることにより説明できる。</p>
+<p>上の図上部の連結成分に対しては、$\lbrace \lbrace 1, 3 \rbrace, \lbrace 1, 5 \rbrace \rbrace$は条件を満たすが、
+$\lbrace \lbrace 1, 3 \rbrace, \lbrace 3, 4 \rbrace \rbrace$は条件を満たさない。</p>
+<p>あとはこの数え上げを解ければよい。
+これを解くために、次の問題を考えよう。</p>
+<p>列$A = (A _ 0, A _ 2, \dots, A _ {k - 1}), A _ i \in \lbrace 0, 1 \rbrace$であって、次の条件を満たすものはいくつか？</p>
+<ul>
+<li>$0 \leq A _ i + A _ {i + 1 \mod k}$</li>
+</ul>
+<p>この有効な列$A$はそのまま有効なカードのとり方と対応している。
+具体的には、閉路の任意の頂点を固定し、そこから時計回りに頂点を並べた列$(v _ 0, v _ 1, \dots, v _ k)$を考える。
+このとき、$v _ i$を取るかどうかを$A _ i$の値によって決めることで対応付けることができる。</p>
+<p>隣との和が$0$でなければ良いのだから、$0$を使用したいときは$0$と$1$を束ねて使用することにすると見通しが良くなる。
+すなわち、$x$個の$10$と、$k - 2x$個の$1$を並べる問題だと考えれば良い。</p>
+<p>ただし、この方法だと先頭が$0$であるような列が生成できない。
+これは、先頭を$0$、末尾を$1$に固定した状態で、$x - 1$個の$10$と$k - 2x$個の$1$を並べる場合の数を足すことで回避できる。</p>
+<p>この方法により、任意の有効な列をちょうど1回数えることができる。
+これは、次の理由による。</p>
+<ul>
+<li>ある有効な列をこの方法により前から構成するとき、続く文字列が$11, 1$のときは$1$を配置するしかなく、$10$のときは$10$を配置するしか無いため、構成方法が一意に定まる。</li>
+<li>$10$と$1$をどのように並べても、$00$を作ることはできない。</li>
+</ul>
+<p>これらは二項係数の計算ができれば解ける。
+適切に前計算することで各ケース$O(1)$時間で解けるから、全体で$O(k)$時間である。</p>
+<p>これで、有効な列$A$の数え上げが解けた。
+もとの問題に戻ろう。</p>
+<p>一つの連結成分の頂点のとり方は他の連結成分のとり方に影響しないため、場合の数はそれらすべての積になる。
+また、各連結成分の次数の和は$O(N)$個であるため、全体$O(N)$時間で解ける。</p>
+<h2 id="実装例">実装例</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> P <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>    P<span style="color:#f92672">[]</span> <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> Q <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>    Q<span style="color:#f92672">[]</span> <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    solve<span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> P<span style="color:#f92672">,</span> Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> P<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> Q<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// カードを3種類に分類する。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 1. 表と裏で同じ数が書いている
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 2. 同じ数字の割り当てのカードが存在する
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 3. 1, 2に当てはまらない
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 1は必ずとる必要があるので、これを除く。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 2は少なくとも片方をとればよく、この枚数をxとして、任意の取り方が3^(x/2)倍になる。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 3をどう取るか？が本質
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">long</span> MOD <span style="color:#f92672">=</span> <span style="color:#ae81ff">998244353</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>Tuple<span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">)]</span> count<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        count<span style="color:#f92672">[</span>tuple<span style="color:#f92672">(</span>min<span style="color:#f92672">(</span>P<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> Q<span style="color:#f92672">[</span>i<span style="color:#f92672">]),</span> max<span style="color:#f92672">(</span>P<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> Q<span style="color:#f92672">[</span>i<span style="color:#f92672">]))]++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> type1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>tuple<span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> i<span style="color:#f92672">)</span> <span style="color:#66d9ef">in</span> count<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            type1<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> type2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>key<span style="color:#f92672">,</span> val<span style="color:#f92672">;</span> count<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>val <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            type2<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> type3<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> idx <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][](</span>N<span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        idx<span style="color:#f92672">[</span>P<span style="color:#f92672">[</span>i<span style="color:#f92672">]]</span> <span style="color:#f92672">~=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        idx<span style="color:#f92672">[</span>Q<span style="color:#f92672">[</span>i<span style="color:#f92672">]]</span> <span style="color:#f92672">~=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> UF <span style="color:#f92672">=</span> UnionFind<span style="color:#f92672">(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>I<span style="color:#f92672">;</span> idx<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> I<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            UF<span style="color:#f92672">.</span><span style="color:#a6e22e">unite</span><span style="color:#f92672">(</span>I<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">],</span> I<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>UF<span style="color:#f92672">.</span><span style="color:#a6e22e">root</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> i <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">&lt;=</span> UF<span style="color:#f92672">.</span><span style="color:#a6e22e">GroupSize</span><span style="color:#f92672">(</span>i<span style="color:#f92672">))</span> type3 <span style="color:#f92672">~=</span> UF<span style="color:#f92672">.</span><span style="color:#a6e22e">GroupSize</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 3のカードを(a, b)のように考えて、同じ数字を隣り合わせに配置してみると、円環になる。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// この時、空白が高々サイズ1であることが有効なとり方の必要十分条件。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// とるのととらないのをペア(ox)にしてやれば、何個とらないかで場合分けして組み合わせに帰着できる。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 具体的な帰着について考える。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// oとoxの並べ替えと考えると、多項係数になる。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 頭がxになるようなものだけ無理なので、そのようなケースのみxoを使う数え上げもする。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// WA -&gt; 多分議論は合っていて、円環が複数できうるケースに対応できていないものと考えられる。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">alias</span> m <span style="color:#f92672">=</span> PrimeModuloFactorial<span style="color:#f92672">!</span>MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    m<span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>t3<span style="color:#f92672">;</span> type3<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> prod <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>t<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>t3 <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> t<span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> r <span style="color:#f92672">=</span> t3 <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> t<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>t <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                prod<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span> <span style="color:#75715e">// ox数え上げ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">long</span> add <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">factorial</span><span style="color:#f92672">(</span>t <span style="color:#f92672">+</span> r<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                add <span style="color:#f92672">*=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">factorial_inv</span><span style="color:#f92672">(</span>t<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                add <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                add <span style="color:#f92672">*=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">factorial_inv</span><span style="color:#f92672">(</span>r<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                add <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                prod <span style="color:#f92672">+=</span> add<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                prod <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span> <span style="color:#75715e">// xo数え上げ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">long</span> add <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">factorial</span><span style="color:#f92672">(</span>t <span style="color:#f92672">+</span> r <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                add <span style="color:#f92672">*=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">factorial_inv</span><span style="color:#f92672">(</span>t <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                add <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                add <span style="color:#f92672">*=</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">factorial_inv</span><span style="color:#f92672">(</span>r<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                add <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                prod <span style="color:#f92672">+=</span> add<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                prod <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">*=</span> prod<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">*=</span> mod_pow<span style="color:#f92672">(</span><span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> type2<span style="color:#f92672">,</span> MOD<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// check mod_inv
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#a6e22e">assert</span><span style="color:#f92672">(</span>__traits<span style="color:#f92672">(</span>compiles<span style="color:#f92672">,</span> mod_inv<span style="color:#f92672">(</span><span style="color:#ae81ff">998244353</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">1_000_000_007</span><span style="color:#f92672">)));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#a6e22e">PrimeModuloFactorial</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">ulong</span> M<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">((</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> M <span style="color:#f92672">&amp;&amp;</span> M <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">((</span>x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> x<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1L</span><span style="color:#f92672">*</span>i<span style="color:#f92672">*</span>i<span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>x <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">})(</span><span style="color:#66d9ef">cast</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> M<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.conv <span style="color:#f92672">:</span> to<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.format <span style="color:#f92672">:</span> format<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    private:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span><span style="color:#f92672">[]</span> fact<span style="color:#f92672">,</span> fact_inv<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> MOD <span style="color:#f92672">=</span> M<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">build</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">ulong</span> N_<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            N <span style="color:#f92672">=</span> N_<span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            fact<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> fact_inv<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> N<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            fact<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> N<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> fact<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> i <span style="color:#f92672">*</span> fact<span style="color:#f92672">[</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">%</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            fact_inv<span style="color:#f92672">[</span>N<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> mod_inv<span style="color:#f92672">(</span>fact<span style="color:#f92672">[</span>N<span style="color:#f92672">],</span> MOD<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> N<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> i<span style="color:#f92672">;</span> i<span style="color:#f92672">--)</span> fact_inv<span style="color:#f92672">[</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> i <span style="color:#f92672">*</span> fact_inv<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">%</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">binom</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">ulong</span> n_<span style="color:#f92672">,</span> <span style="color:#66d9ef">ulong</span> k_<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">assert</span><span style="color:#f92672">((</span>n_ <span style="color:#f92672">&lt;</span> k_
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">||</span> <span style="color:#f92672">(</span>n_ <span style="color:#f92672">&lt;=</span> N <span style="color:#f92672">&amp;&amp;</span> k_ <span style="color:#f92672">&lt;=</span> N<span style="color:#f92672">)),</span>
+</span></span><span style="display:flex;"><span>                    format<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Out of range of pre-calculation. MAX = %s, n = %s, k = %s.&#34;</span><span style="color:#f92672">,</span> N<span style="color:#f92672">,</span> n_<span style="color:#f92672">,</span> k_<span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> n_<span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> k_<span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>n <span style="color:#f92672">&lt;</span> k<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">long</span> res <span style="color:#f92672">=</span> fact<span style="color:#f92672">[</span>n<span style="color:#f92672">]</span> <span style="color:#f92672">*</span> fact_inv<span style="color:#f92672">[</span>k<span style="color:#f92672">]</span> <span style="color:#f92672">%</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> res <span style="color:#f92672">*</span> fact_inv<span style="color:#f92672">[</span>n<span style="color:#f92672">-</span>k<span style="color:#f92672">]</span> <span style="color:#f92672">%</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">factorial</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">ulong</span> x_<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span>x_ <span style="color:#f92672">&lt;=</span> N<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                    format<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Out of range of pre-calculation. MAX = %s, x = %s.&#34;</span><span style="color:#f92672">,</span> N<span style="color:#f92672">,</span> x_<span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> x_<span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> fact<span style="color:#f92672">[</span>x<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">factorial_inv</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">ulong</span> x_<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span>x_ <span style="color:#f92672">&lt;=</span> N<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                    format<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Out of range of pre-calculation. MAX = %s, x = %s.&#34;</span><span style="color:#f92672">,</span> N<span style="color:#f92672">,</span> x_<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> x_<span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> fact_inv<span style="color:#f92672">[</span>x<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// check mod_pow
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#a6e22e">assert</span><span style="color:#f92672">(</span>__traits<span style="color:#f92672">(</span>compiles<span style="color:#f92672">,</span> mod_pow<span style="color:#f92672">(</span><span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">998244353</span><span style="color:#f92672">)));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">mod_inv</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">long</span> x<span style="color:#f92672">,</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">long</span> MOD<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.format <span style="color:#f92672">:</span> format<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> MOD<span style="color:#f92672">,</span> format<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MOD must satisfy 1 &lt;= MOD. Now MOD =  %s.&#34;</span><span style="color:#f92672">,</span> MOD<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span>MOD <span style="color:#f92672">&lt;=</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">,</span> format<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MOD must satisfy MOD*MOD &lt;= long.max. Now MOD = %s.&#34;</span><span style="color:#f92672">,</span> MOD<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> mod_pow<span style="color:#f92672">(</span>x<span style="color:#f92672">,</span> MOD<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> MOD<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">mod_pow</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> x<span style="color:#f92672">,</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">long</span> MOD<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> x<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;x must satisfy 0 &lt;= x&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> MOD<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;MOD must satisfy 1 &lt;= MOD&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span>MOD <span style="color:#f92672">&lt;=</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;MOD must satisfy MOD*MOD &lt;= long.max&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// normalize
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    a <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span> a <span style="color:#f92672">+=</span> MOD<span style="color:#f92672">;</span> a <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1L</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> base <span style="color:#f92672">=</span> a<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> <span style="color:#f92672">(</span>x<span style="color:#f92672">&amp;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">))</span> <span style="color:#f92672">(</span>res <span style="color:#f92672">*=</span> base<span style="color:#f92672">)</span> <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">(</span>base <span style="color:#f92672">*=</span> base<span style="color:#f92672">)</span> <span style="color:#f92672">%=</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">&gt;&gt;=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res <span style="color:#f92672">%</span> MOD<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UnionFind_Array</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">/*</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">*</span> VERYFYIED
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">*</span>   <span style="color:#f92672">-</span> uniteとsame <span style="color:#f92672">:</span> yosupo <span style="color:#a6e22e">judge</span> <span style="color:#f92672">(</span>https<span style="color:#f92672">:</span><span style="color:#75715e">//judge.yosupo.jp/problem/unionfind)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">*</span> UNVERYFYIED
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">*</span>   <span style="color:#f92672">-</span> countGroups
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">*</span>   <span style="color:#f92672">-</span> GroupSize
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">*</span>   <span style="color:#f92672">-</span> enumGroups
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">*/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> N<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> parent<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> N<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;N must be positive integer.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span> <span style="color:#f92672">=</span> N<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        parent <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        size <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            parent<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            size<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">root</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> x <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>parent<span style="color:#f92672">[</span>x<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> x<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> x<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> parent<span style="color:#f92672">[</span>x<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> root<span style="color:#f92672">(</span>parent<span style="color:#f92672">[</span>x<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">same</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> y<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> x <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> y <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> root<span style="color:#f92672">(</span>x<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> root<span style="color:#f92672">(</span>y<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">unite</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> y<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> x <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> y <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> larger<span style="color:#f92672">,</span> smaller<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>GroupSize<span style="color:#f92672">(</span>x<span style="color:#f92672">)</span> <span style="color:#f92672">&lt;=</span> GroupSize<span style="color:#f92672">(</span>y<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            larger <span style="color:#f92672">=</span> root<span style="color:#f92672">(</span>y<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            smaller <span style="color:#f92672">=</span> root<span style="color:#f92672">(</span>x<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            larger <span style="color:#f92672">=</span> root<span style="color:#f92672">(</span>x<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            smaller <span style="color:#f92672">=</span> root<span style="color:#f92672">(</span>y<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>larger <span style="color:#f92672">==</span> smaller<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        parent<span style="color:#f92672">[</span>smaller<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> larger<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        size<span style="color:#f92672">[</span>larger<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> size<span style="color:#f92672">[</span>smaller<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">countGroups</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>root<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> i<span style="color:#f92672">)</span> res<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">GroupSize</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> x <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> size<span style="color:#f92672">[</span>root<span style="color:#f92672">(</span>x<span style="color:#f92672">)];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> <span style="color:#a6e22e">enumGroups</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> x <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> mp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][](</span>N<span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            mp<span style="color:#f92672">[</span>root<span style="color:#f92672">(</span>i<span style="color:#f92672">)]</span> <span style="color:#f92672">~=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> res<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>m<span style="color:#f92672">;</span> mp<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>m<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">~=</span> m<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> res<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">reset</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> N<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;N must be positive integer.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>N <span style="color:#f92672">!=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span> <span style="color:#f92672">=</span> N<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            parent<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> size<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> N<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            parent<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            size<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> <span style="color:#a6e22e">UnionFind</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> UnionFind_Array<span style="color:#f92672">(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>UnionFindで各閉路の連結成分のサイズを取得する実装になっている。
+UnionFindを用いた影響により、微妙に線形時間ではなくなっていることに注意してほしい。
+<code>solve</code>より下のコードはすべてライブラリである。</p>
+<h2 id="終わりに">終わりに</h2>
+<p>難しかったです。かなり時間がかかりました。
+カードを分類することは本質的ではないものの、分類することによって、タイプ3のカードの集合が成すサイクルに着目する発想をすることができました。</p>
+<p>サイクルから条件を満たすように取る方法の数え上げについては、公式解説により自然な言い換えとその解法が載っています。そちらはまだ理解していませんが、次解くときにはその方針が見えるようになっていれば良いなと思います。</p>
+<p>グラフに関する用語の定義は<a href="https://37zigen.com/graph-definition/">37zigen</a>を参考にしました。
+全域木に関する議論の主張及び証明は、<a href="http://dopal.cs.uec.ac.jp/okamotoy/lect/2012/graphtheory/lect10.pdf">電気通信大学のpdf</a>を参考にしました。
+「連結で単純なN頂点N辺の無向グラフで、すべての頂点の出次数が2であるとき、このグラフはちょうど一つの閉路を持ち、すべての頂点は閉路に含まれる。」という命題に関する議論は、@marble_kyoproさん、@Seed57_cashさん、@coindarwさんに助言頂きました。</p>
+<p>ありがとうございました。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/abc247e/">ABC247E - Max Min</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-10</div>
+  <div class="post-title"><a href="/post/abc247f/">ABC247F - Cards</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-08</div>
+  <div class="post-title"><a href="/post/abc247e/">ABC247E - Max Min</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-03</div>
+  <div class="post-title"><a href="/post/mmacontest018/">MMA Contest 018参加記録 &#43; 怪文書</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-10</div>
+  <div class="post-title"><a href="/post/abc247f/">ABC247F - Cards</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-08</div>
+  <div class="post-title"><a href="/post/abc247e/">ABC247E - Max Min</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-03-14</div>
+  <div class="post-title"><a href="/post/sumitb2019f/">三井住友信託銀行プログラミングコンテスト2019F - Interval Running</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

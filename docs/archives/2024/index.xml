@@ -6,8 +6,15 @@
     <description>Recent content in 2024 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 08 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Apr 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://inthebloom.github.io/archives/2024/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC247F - Cards</title>
+      <link>http://inthebloom.github.io/post/abc247f/</link>
+      <pubDate>Wed, 10 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/abc247f/</guid>
+      <description>問題概要 問題へのリンク&#xA;問題文 $1$から$N$の番号がついた$N$枚のカードがあり、カード$i$の表には$P _ i$が、裏には$Q _ i$が書かれている。 ただし、$P = (P _ 1, \dots, P _ N)$及び$Q = (Q _ 1, \dots, Q _ N)$はそれぞれ$(1, \dots, N)$の置換である。</description>
+    </item>
     <item>
       <title>ABC247E - Max Min</title>
       <link>http://inthebloom.github.io/post/abc247e/</link>
