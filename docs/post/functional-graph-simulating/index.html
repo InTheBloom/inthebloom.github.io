@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>[メモ] Functional Graph上のシミュレーション - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=0ebd702d4af12ee6f01e26f58726f562cc7331da" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="[メモ] Functional Graph上のシミュレーション - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/functional-graph-simulating/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="[メモ] Functional Graph上のシミュレーション - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/functional-graph-simulating/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=0ebd702d4af12ee6f01e26f58726f562cc7331da">
+<link rel="stylesheet" href="/css/color.css?c=0ebd702d4af12ee6f01e26f58726f562cc7331da">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=0ebd702d4af12ee6f01e26f58726f562cc7331da">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>[メモ] Functional Graph上のシミュレーション</h1>
+
+<span class="sub">Published on 2024-04-15</span><br>
+<span class="sub">Last Modified 2024-04-15</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#方法1---ダブリング">方法1 - ダブリング</a>
+      <ul>
+        <li><a href="#利点">利点</a></li>
+        <li><a href="#欠点">欠点</a></li>
+        <li><a href="#補足">補足</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法2---両端キューを用いる方法">方法2 - 両端キューを用いる方法</a>
+      <ul>
+        <li><a href="#利点-1">利点</a></li>
+        <li><a href="#欠点-1">欠点</a></li>
+      </ul>
+    </li>
+    <li><a href="#実装例">実装例</a>
+      <ul>
+        <li><a href="#abc167d---telepoter-ダブリング両端キュー">ABC167D - Telepoter (ダブリング/両端キュー)</a></li>
+        <li><a href="#arc113c---abc-両端キュー">ARC113C - A^B^C (両端キュー)</a></li>
+        <li><a href="#abc258e---packing-potatoes-ダブリング">ABC258E - Packing Potatoes (ダブリング)</a></li>
+        <li><a href="#abc30d---へんてこ辞書-両端キュー">ABC30d - へんてこ辞書 (両端キュー)</a></li>
+        <li><a href="#abc136d---gathering-children-ダブリング">ABC136D - Gathering Children (ダブリング)</a></li>
+        <li><a href="#yukicoder-no2716-falcon-method-ダブリング">yukicoder No.2716 Falcon Method (ダブリング)</a></li>
+        <li><a href="#水以下コンテストb---fffffx-ダブリング">水以下コンテストB - f(f(f(f(f(x))))) (ダブリング)</a></li>
+      </ul>
+    </li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="概要">概要</h2>
+<p>本稿において、$N$頂点$N$辺からなる有向グラフであって、すべての頂点の出次数が1であるグラフを<strong>functional graph</strong>と呼ぶ。</p>
+<p>本稿の目的は、次の問題を時間計算量$O(N \log k)$で解く方法を簡潔にまとめることである。</p>
+<div style="padding : 1em; border : black 1px solid;">
+始点$u$が与えられる。
+頂点$p$を始点とする辺の終点を$f(p)$と表記するとき、
+$\underbrace{f(f( \dots f(u) \dots ))} _ {k \text{times}}$を求めよ。
+</div>
+<h2 id="方法1---ダブリング">方法1 - ダブリング</h2>
+<ul>
+<li>時間計算量(前計算) : $\Theta (N \log k)$</li>
+<li>空間計算量(前計算) : $\Theta (N \log k)$</li>
+<li>クエリ : $O(\log k)$</li>
+</ul>
+<p>次の動的計画法を行う。
+$$\mathrm{dp} _ {i, j} \coloneqq \text{頂点$i$から$2^j$回移動したときに到達する頂点}$$</p>
+<p>初期値</p>
+<p>$$\mathrm{dp} _ {i, 0} = f(i)$$</p>
+<p>更新</p>
+<p>$$\mathrm{dp} _ {i, j + 1} = \mathrm{dp} _ {\mathrm{dp} _ {i, j}, j}$$</p>
+<p>これは$j$の昇順に行うことができる。$j$は$\log(k)$程度までで十分である。
+$k \leq 10^9$であれば30程度、$k \leq 10^{18}$であれば60程度になる。</p>
+<p>上記のテーブルを構築した上で、$f(f( \dots f(u) \dots))$は次のように求める。</p>
+<p>非負整数$x$の二進数表示において、$n ~ \text{bit}$目の値を返す関数を$\mathrm{bit}(x, n)$とする。
+$j = 1, 2, \dots$に対して、順に次を行う。</p>
+<p>$\mathrm{bit}(k, j) = 1$ならば$u \leftarrow \mathrm{dp} _ {u, j}$とする。</p>
+<p>アルゴリズムが終了した時点での$u$の値は$f(f( \dots f(u) \dots ))$に等しい。</p>
+<h3 id="利点">利点</h3>
+<ul>
+<li>前計算が完了していれば、任意の始点に対して1回あたり$O(\log k)$で計算できる。</li>
+</ul>
+<h3 id="欠点">欠点</h3>
+<ul>
+<li>グラフのサイズによってはTime LimitやMemory Limitがギリギリになる場合がある。</li>
+</ul>
+<h3 id="補足">補足</h3>
+<p>$\mathrm{dp} _ {i, j}$の値は必ずしも頂点である必要はなく、ある関数$g$を用いて$g(\mathrm{dp} _ {i, j}) = \text{頂点$i$から$2^j$回移動したときに到達する頂点}$とできる値ならばどのように決めても良い。</p>
+<h2 id="方法2---両端キューを用いる方法">方法2 - 両端キューを用いる方法</h2>
+<ul>
+<li>時間計算量 : $O(N)$</li>
+<li>空間計算量 : $O(N)$</li>
+</ul>
+<p>次のアルゴリズムにより計算する。</p>
+<p>到達済み頂点の集合を$\mathrm{seen}$とする。最初$\mathrm{seen} = \emptyset$である。
+また、現在の頂点を$\mathrm{cur}$とする。最初$\mathrm{cur} = u$である。
+空の両端キューを$\mathrm{deque}$とする。</p>
+<ol>
+<li>$\mathrm{cur} \in \mathrm{seen}$であれば手順4を行う。</li>
+<li>$\mathrm{seen} \leftarrow \mathrm{seen} \cup \mathrm{cur}$とし、$\mathrm{deque}$の末尾に$\mathrm{cur}$を追加する。その後$\mathrm{cur} \leftarrow f(\mathrm{cur})$と更新する。</li>
+<li>手順1を行う。</li>
+<li>$\mathrm{deque}$の先頭要素が$\mathrm{cur}$と等しい、または$k = 0$であれば手順7を行う。</li>
+<li>$\mathrm{deque}$の先頭要素を取り除き、$k \leftarrow k - 1$と更新する。</li>
+<li>手順4を行う。</li>
+<li>$k \leftarrow k \mod \vert \mathrm{deque} \vert$と更新する。ただし$\vert \mathrm{deque} \vert$は$\mathrm{deque}$の要素数である。</li>
+<li>$k = 0$であれば$\mathrm{deque}$の先頭要素を出力し、手順を終了する。</li>
+<li>$\mathrm{deque}$の先頭要素を取り除き、$k \leftarrow k - 1$と更新する。</li>
+<li>手順8を行う。</li>
+</ol>
+<details>
+<summary>アルゴリズムの説明</summary>
+手順1, 2, 3で閉路を含む頂点集合を列挙している。なお、$\mathrm{deque}$内の要素は常に実際の訪問順と等しい。
+<p>手順4, 5, 6で閉路を構成する頂点集合を抽出している。$k$が十分に小さい場合、閉路の頂点を抽出し終わる前にこの部分を抜ける。その時は$\mathrm{deque}$の先頭要素が求める値になっている。</p>
+<p>手順7で閉路のループを一括処理している。$k = 0$には影響しないことに注意。</p>
+<p>手順8, 9, 10で最後の1周をシミュレーションにより求めている。これまでと同様に$k = 0$であれば最初に手順8を行う時点で終了することに注意。</p>
+</details>
+<h3 id="利点-1">利点</h3>
+<ul>
+<li>ダブリングと比較して、Time LimitやMemory Limitの点で有利である。</li>
+</ul>
+<h3 id="欠点-1">欠点</h3>
+<ul>
+<li>始点一つに対して$O(N)$時間かかるため、クエリ処理に向かない。</li>
+<li>ダブリングと比較して、アルゴリズムがやや複雑である。</li>
+</ul>
+<h2 id="実装例">実装例</h2>
+<p>適用できる問題と、その解答コードを掲載する。(ネタバレ注意)
+これを見ながらコーディングすることを想定しているため、問題の解法に関する言及はない。</p>
+<h3 id="abc167d---telepoter-ダブリング両端キュー">ABC167D - Telepoter (ダブリング/両端キュー)</h3>
+<p><a href="https://atcoder.jp/contests/abc167/tasks/abc167_d">問題へのリンク</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> K<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    DList<span style="color:#f92672">!</span><span style="color:#66d9ef">int</span> Q<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span><span style="color:#f92672">[]</span> vis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>vis<span style="color:#f92672">[</span>cur<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Q<span style="color:#f92672">.</span><span style="color:#a6e22e">insertBack</span><span style="color:#f92672">(</span>cur<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        vis<span style="color:#f92672">[</span>cur<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        cur <span style="color:#f92672">=</span> A<span style="color:#f92672">[</span>cur<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ループ入るまでpop
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> K <span style="color:#f92672">&amp;&amp;</span> Q<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span> <span style="color:#f92672">!=</span> cur<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Q<span style="color:#f92672">.</span><span style="color:#a6e22e">removeFront</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        K<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    K <span style="color:#f92672">%=</span> Q<span style="color:#f92672">.</span><span style="color:#a6e22e">dup</span><span style="color:#f92672">.</span><span style="color:#a6e22e">array</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 残りシミュレーション
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> K<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Q<span style="color:#f92672">.</span><span style="color:#a6e22e">removeFront</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        K<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>Q<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> K<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> max_bit <span style="color:#f92672">=</span> <span style="color:#ae81ff">60</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> dp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][](</span>N<span style="color:#f92672">,</span> max_bit <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 初期化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max_bit</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> dp<span style="color:#f92672">[</span>dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]][</span>j<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 繰り返し二乗法の要領でK手を「ほぐす」
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max_bit</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> <span style="color:#f92672">((</span><span style="color:#ae81ff">1L</span> <span style="color:#f92672">&lt;&lt;</span> max_bit<span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span> K<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">=</span> dp<span style="color:#f92672">[</span>ans<span style="color:#f92672">][</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="arc113c---abc-両端キュー">ARC113C - A^B^C (両端キュー)</h3>
+<p><a href="https://atcoder.jp/contests/arc113/tasks/arc113_b">問題へのリンク</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> A<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> B<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> C<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// A^{B^C} % 10を考える。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// Aの冪はmod10で考えるとfunctional graphとみなせる
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span><span style="color:#f92672">[]</span> vis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span><span style="color:#f92672">[](</span><span style="color:#ae81ff">10</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    DList<span style="color:#f92672">!</span><span style="color:#66d9ef">int</span> Q<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    A <span style="color:#f92672">%=</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> A<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> MOD <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>vis<span style="color:#f92672">[</span>cur<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        MOD<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        vis<span style="color:#f92672">[</span>cur<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        Q<span style="color:#f92672">.</span><span style="color:#a6e22e">insertBack</span><span style="color:#f92672">(</span>cur<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 更新
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        cur <span style="color:#f92672">*=</span> A<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        cur <span style="color:#f92672">%=</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> power <span style="color:#f92672">=</span> ModPow<span style="color:#f92672">(</span>B<span style="color:#f92672">,</span> C<span style="color:#f92672">,</span> MOD<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>_<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.(</span>MOD <span style="color:#f92672">+</span> power <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">%</span> MOD<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Q<span style="color:#f92672">.</span><span style="color:#a6e22e">removeFront</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>Q<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="abc258e---packing-potatoes-ダブリング">ABC258E - Packing Potatoes (ダブリング)</h3>
+<p><a href="https://atcoder.jp/contests/abc258/tasks/abc258_e">問題へのリンク</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> Q<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> X<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> W<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 始点を決めれば終点が決まる。これはfunctional graphとみなせて、ダブリングでK番目に蓋をする箱の始点が見つかる。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> X<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>w<span style="color:#f92672">;</span> W<span style="color:#f92672">)</span> sum <span style="color:#f92672">+=</span> w<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">%=</span> sum<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> dp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][](</span>N<span style="color:#f92672">,</span> <span style="color:#ae81ff">64</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 尺取りで最初の1回を見つける。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> w <span style="color:#f92672">=</span> W <span style="color:#f92672">~</span> W<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> s <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>s <span style="color:#f92672">&lt;</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            s <span style="color:#f92672">+=</span> w<span style="color:#f92672">[</span>r<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>            r<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        dp<span style="color:#f92672">[</span>l<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> r <span style="color:#f92672">%</span> N<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        ans<span style="color:#f92672">[</span>l<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>r<span style="color:#f92672">-</span>l<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> N <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>X <span style="color:#f92672">/</span> sum<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        s <span style="color:#f92672">-=</span> W<span style="color:#f92672">[</span>l<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        l<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// doubling
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>k<span style="color:#f92672">;</span> <span style="color:#ae81ff">1.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">64</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>k<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> dp<span style="color:#f92672">[</span> dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">][</span>k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>_<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Q</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> K <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">long</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        K<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">64</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> <span style="color:#f92672">(</span>K <span style="color:#f92672">&amp;</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1L</span> <span style="color:#f92672">&lt;&lt;</span> i<span style="color:#f92672">)))</span> cur <span style="color:#f92672">=</span> dp<span style="color:#f92672">[</span>cur<span style="color:#f92672">][</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">[</span>cur<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="abc30d---へんてこ辞書-両端キュー">ABC30d - へんてこ辞書 (両端キュー)</h3>
+<p><a href="https://atcoder.jp/contests/abc030/tasks/abc030_d">問題へのリンク</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> a<span style="color:#f92672">,</span> BigInt k<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// functional graphのシミュレーション 単一始点はキューでやると楽
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span><span style="color:#f92672">[</span><span style="color:#66d9ef">int</span><span style="color:#f92672">]</span> seen<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> a<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    DList<span style="color:#f92672">!</span><span style="color:#66d9ef">int</span> Q<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>cur <span style="color:#66d9ef">in</span> seen<span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        seen<span style="color:#f92672">[</span>cur<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        Q<span style="color:#f92672">.</span><span style="color:#a6e22e">insertBack</span><span style="color:#f92672">(</span>cur<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        size<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        cur <span style="color:#f92672">=</span> b<span style="color:#f92672">[</span>cur<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ループだけが残る or kが0になるまでremove
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>k <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>Q<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> cur<span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        Q<span style="color:#f92672">.</span><span style="color:#a6e22e">removeFront</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        size<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>        k<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    k <span style="color:#f92672">%=</span> size<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Q<span style="color:#f92672">.</span><span style="color:#a6e22e">removeFront</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        k<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>Q<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="abc136d---gathering-children-ダブリング">ABC136D - Gathering Children (ダブリング)</h3>
+<p><a href="https://atcoder.jp/contests/abc136/tasks/abc136_d">問題へのリンク</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> dp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][](</span>S<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">18</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// dp[i][j] := 頂点iから2^j回移動した先
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">S</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>S<span style="color:#f92672">[</span>i<span style="color:#f92672">]==</span><span style="color:#e6db74">&#39;R&#39;</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">cast</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">cast</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">17</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">S</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> dp<span style="color:#f92672">[</span>dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]][</span>j<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 10^{100}は過剰なので、10^5回移動したとする
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> move <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">^^</span><span style="color:#ae81ff">5</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>S<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">S</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> bit <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> <span style="color:#66d9ef">cast</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;&lt;</span>bit<span style="color:#f92672">)</span> <span style="color:#f92672">&lt;=</span> move<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> <span style="color:#f92672">(</span>move <span style="color:#f92672">&amp;</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;&lt;</span>bit<span style="color:#f92672">)))</span> cur <span style="color:#f92672">=</span> dp<span style="color:#f92672">[</span>cur<span style="color:#f92672">][</span>bit<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>            bit<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        ans<span style="color:#f92672">[</span>cur<span style="color:#f92672">]++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> a<span style="color:#f92672">;</span> ans<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        write<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> i <span style="color:#f92672">==</span> ans<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;\n&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="yukicoder-no2716-falcon-method-ダブリング">yukicoder No.2716 Falcon Method (ダブリング)</h3>
+<p><a href="https://yukicoder.me/problems/no/2716">問題へのリンク</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N, Q; cin <span style="color:#f92672">&gt;&gt;</span> N <span style="color:#f92672">&gt;&gt;</span> Q;
+</span></span><span style="display:flex;"><span>    string s; cin <span style="color:#f92672">&gt;&gt;</span> s;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> D <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, R <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c : s) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;D&#39;</span>) D<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;R&#39;</span>) R<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (D <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> Q; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> H, W, P; cin <span style="color:#f92672">&gt;&gt;</span> H <span style="color:#f92672">&gt;&gt;</span> W <span style="color:#f92672">&gt;&gt;</span> P;
+</span></span><span style="display:flex;"><span>            cout <span style="color:#f92672">&lt;&lt;</span> (P <span style="color:#f92672">+</span> W) <span style="color:#f92672">%</span> N <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (R <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> Q; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> H, W, P; cin <span style="color:#f92672">&gt;&gt;</span> H <span style="color:#f92672">&gt;&gt;</span> W <span style="color:#f92672">&gt;&gt;</span> P;
+</span></span><span style="display:flex;"><span>            cout <span style="color:#f92672">&lt;&lt;</span> (P <span style="color:#f92672">+</span> H) <span style="color:#f92672">%</span> N <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 両方向でダブリング -&gt; 短い方を採用
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> MAX <span style="color:#f92672">=</span> <span style="color:#ae81ff">32</span>;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span>ll<span style="color:#f92672">&gt;&gt;</span> dp_R(N <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, vector<span style="color:#f92672">&lt;</span>ll<span style="color:#f92672">&gt;</span>(MAX)), dp_D(N <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, vector<span style="color:#f92672">&lt;</span>ll<span style="color:#f92672">&gt;</span>(MAX));
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// dp_R[i][j] := カウンタiからスタートして、(カウンタiは踏む)右に2^jマス進むために踏むマス数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (r <span style="color:#f92672">&lt;</span> l) r <span style="color:#f92672">=</span> l;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (true) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (s[r <span style="color:#f92672">%</span> N] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;R&#39;</span>) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                r<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            dp_R[l][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> r <span style="color:#f92672">-</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            l<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (r <span style="color:#f92672">&lt;</span> l) r <span style="color:#f92672">=</span> l;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (true) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (s[r <span style="color:#f92672">%</span> N] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;D&#39;</span>) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                r<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            dp_D[l][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> r <span style="color:#f92672">-</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            l<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> MAX <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            dp_R[i][j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> dp_R[(i <span style="color:#f92672">+</span> dp_R[i][j]) <span style="color:#f92672">%</span> N][j] <span style="color:#f92672">+</span> dp_R[i][j];
+</span></span><span style="display:flex;"><span>            dp_D[i][j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> dp_D[(i <span style="color:#f92672">+</span> dp_D[i][j]) <span style="color:#f92672">%</span> N][j] <span style="color:#f92672">+</span> dp_D[i][j];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> Q; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> H, W, P; cin <span style="color:#f92672">&gt;&gt;</span> H <span style="color:#f92672">&gt;&gt;</span> W <span style="color:#f92672">&gt;&gt;</span> P;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ll h <span style="color:#f92672">=</span> P;
+</span></span><span style="display:flex;"><span>        ll w <span style="color:#f92672">=</span> P;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> MAX; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> (H <span style="color:#f92672">&amp;</span> (<span style="color:#ae81ff">1LL</span> <span style="color:#f92672">&lt;&lt;</span> j))) {
+</span></span><span style="display:flex;"><span>                h <span style="color:#f92672">+=</span> dp_D[h <span style="color:#f92672">%</span> N][j];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> MAX; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> (W <span style="color:#f92672">&amp;</span> (<span style="color:#ae81ff">1LL</span> <span style="color:#f92672">&lt;&lt;</span> j))) {
+</span></span><span style="display:flex;"><span>                w <span style="color:#f92672">+=</span> dp_R[w <span style="color:#f92672">%</span> N][j];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> min(h, w) <span style="color:#f92672">%</span> N <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="水以下コンテストb---fffffx-ダブリング">水以下コンテストB - f(f(f(f(f(x))))) (ダブリング)</h3>
+<p><a href="https://mofecoder.com/contests/cyan_or_less_01/tasks/cyan_or_less_01_b">問題へのリンク</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// 構文解析部分は省略
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    ll K; cin <span style="color:#f92672">&gt;&gt;</span> K;
+</span></span><span style="display:flex;"><span>    string S; cin <span style="color:#f92672">&gt;&gt;</span> S;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ダブリング
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> dp(MOD, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(<span style="color:#ae81ff">64</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// dp[i][j] := iから2^j回適用した値
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> MOD; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        dp[i][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> analize(S, i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">64</span>; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> MOD; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            dp[i][j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> dp[dp[i][j]][j];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">64</span>; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> (K <span style="color:#f92672">&amp;</span> (<span style="color:#ae81ff">1LL</span> <span style="color:#f92672">&lt;&lt;</span> j))) {
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">=</span> dp[ans][j];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="終わりに">終わりに</h2>
+<p>いっつもバグらせて混乱するのでまとめました。
+追加情報及び不備の指摘は随時募集中です。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">典型テク</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/abc247f/">ABC247F - Cards</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-15</div>
+  <div class="post-title"><a href="/post/functional-graph-simulating/">[メモ] Functional Graph上のシミュレーション</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-10</div>
+  <div class="post-title"><a href="/post/abc247f/">ABC247F - Cards</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-08</div>
+  <div class="post-title"><a href="/post/abc247e/">ABC247E - Max Min</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "典型テク"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-15</div>
+  <div class="post-title"><a href="/post/functional-graph-simulating/">[メモ] Functional Graph上のシミュレーション</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-03-14</div>
+  <div class="post-title"><a href="/post/sumitb2019f/">三井住友信託銀行プログラミングコンテスト2019F - Interval Running</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-03-12</div>
+  <div class="post-title"><a href="/post/abc35d/">ABC35D - トレジャーハント</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e5%85%b8%e5%9e%8b%e3%83%86%e3%82%af/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-15</div>
+  <div class="post-title"><a href="/post/functional-graph-simulating/">[メモ] Functional Graph上のシミュレーション</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-15</div>
+  <div class="post-title"><a href="/post/geometric-progression-sum/">等比数列の和を計算する2つの対数時間アルゴリズム</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-12-05</div>
+  <div class="post-title"><a href="/post/uec-advent2023/">ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

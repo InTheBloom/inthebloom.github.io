@@ -6,8 +6,15 @@
     <description>Recent content in 典型テク on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[メモ] Functional Graph上のシミュレーション</title>
+      <link>http://inthebloom.github.io/post/functional-graph-simulating/</link>
+      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/functional-graph-simulating/</guid>
+      <description>概要 本稿において、$N$頂点$N$辺からなる有向グラフであって、すべての頂点の出次数が1であるグラフをfunctional graphと呼ぶ。&#xA;本稿の目的は、次の問題を時間計算量$O(N \log k)$で解く方法を簡潔にまとめることである。</description>
+    </item>
     <item>
       <title>三井住友信託銀行プログラミングコンテスト2019F - Interval Running</title>
       <link>http://inthebloom.github.io/post/sumitb2019f/</link>
