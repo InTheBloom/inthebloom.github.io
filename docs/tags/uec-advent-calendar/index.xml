@@ -6,21 +6,26 @@
     <description>Recent content in UEC Advent Calendar on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 06 Dec 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://inthebloom.github.io/tags/uec-advent-calendar/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/uec-advent-calendar/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目</title>
       <link>http://inthebloom.github.io/post/uec-advent2023/</link>
       <pubDate>Tue, 05 Dec 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/uec-advent2023/</guid>
       <description>まえがき この記事は、 電通大生による電通大生のためのUEC Advent Calendar 2023 の6日目担当です。</description>
     </item>
+    
     <item>
       <title>あなたの知らない(知ってるかもしれない)SCPの世界 [UEC Advent Calendar 2022] 24日目</title>
       <link>http://inthebloom.github.io/post/uec-advent2022/</link>
       <pubDate>Thu, 22 Dec 2022 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/uec-advent2022/</guid>
-      <description>はじめに あなたは誰？ 始めまして。基礎科学実験Aを落としそうな22生のInと申します。&#xA;アドベントカレンダーの募集をtwitterで見て、楽しそうだなと思ったので初参加です。いろいろと至らない点があるかもしれませんが、ある程度温かい目で見守っていただけるとありがたいです。&#xA;え？この記事、CSS適用されてませんよだって？ほならね？(以下略) (手打ちの温かみのあるサイトなので許して)</description>
+      <description>はじめに あなたは誰？ 始めまして。基礎科学実験Aを落としそうな22生のInと申します。
+アドベントカレンダーの募集をtwitterで見て、楽しそうだなと思ったので初参加です。いろいろと至らない点があるかもしれませんが、ある程度温かい目で見守っていただけるとありがたいです。
+え？この記事、CSS適用されてませんよだって？ほならね？(以下略) (手打ちの温かみのあるサイトなので許して)</description>
     </item>
+    
   </channel>
 </rss>
