@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>No.2758 RDQ - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=f582e9f3abd48b727407669e771c33bee22246a0" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="No.2758 RDQ - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/yukicoder2758/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="No.2758 RDQ - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/yukicoder2758/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=f582e9f3abd48b727407669e771c33bee22246a0">
+<link rel="stylesheet" href="/css/color.css?c=f582e9f3abd48b727407669e771c33bee22246a0">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=f582e9f3abd48b727407669e771c33bee22246a0">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>No.2758 RDQ</h1>
+
+<span class="sub">Published on 2024-05-18</span><br>
+<span class="sub">Last Modified 2024-05-18</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題概要">問題概要</a>
+      <ul>
+        <li><a href="#問題文">問題文</a></li>
+        <li><a href="#制約">制約</a></li>
+      </ul>
+    </li>
+    <li><a href="#解法">解法</a></li>
+    <li><a href="#実装例">実装例</a>
+      <ul>
+        <li><a href="#mo--平方分割">Mo + 平方分割</a></li>
+        <li><a href="#実装例約数列挙">実装例(約数列挙)</a></li>
+      </ul>
+    </li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="問題概要">問題概要</h2>
+<p><a href="https://yukicoder.me/problems/no/2758">問題へのリンク</a></p>
+<h3 id="問題文">問題文</h3>
+<p>長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$が与えられる。次の$Q$質問に答えよ。</p>
+<ul>
+<li>区間$\lbrack L, R \rbrack$の要素$A _ L, A _ {L + 1}, \dots, A _ R$のうち、$K$の倍数はいくつ存在するか。</li>
+</ul>
+<h3 id="制約">制約</h3>
+<ul>
+<li>$2 \leq N \leq 5 \times 10^4$</li>
+<li>$1 \leq Q \leq 5 \times 10^4$</li>
+<li>$1 \leq A _ i \leq 10^5$</li>
+<li>$1 \leq L _ j &lt; R _ j \leq N \, (1 \leq j \leq Q)$</li>
+<li>$1 \leq K _ j \leq 10^5$</li>
+</ul>
+<h2 id="解法">解法</h2>
+<p>素直な方針として、次のものがある。
+「$10^5$以下のすべての法について、$A _ i$が法で割り切れるなら$1$、割り切れないなら$0$とした数列を作成し、累積和をとっておく。
+クエリに答えるパートでは、$K _ j$を法とした累積和配列を$\mathrm{acc} _ {K _ j}$としたとき、$\mathrm{acc} _ {K _ j} \lbrack R _ j \rbrack - \mathrm{acc} _ {K _ j} \lbrack L _ j - 1 \rbrack$を答える。」
+しかし、これは空間/時間ともに$\mathcal{O}(10^5 N)$が必要であり、間に合わない。
+そこで、クエリで要求される区間だけを見ることでうまく解けないかを考えてみる。</p>
+<p>Mo&rsquo;s algorithmを適用する。
+これにより全体の移動回数$\mathcal{O} (N \sqrt{Q})$で次の配列$B$をクエリごとに得ることができる。
+$$B \lbrack i \rbrack \coloneqq (\text{$\lbrack L _ j, R _ j \rbrack$に含まれる$i$の数})$$
+この配列$B$を用いて$K$の倍数をカウントすることを考える。
+この時クエリあたり$\mathcal{O}((\text{配列$B$の長さ}) / K)$回の計算が必要で、十分大きな$K$に対してなら解けたことになる。
+$K$の値が小さなときがボトルネックになっているので、その時は別の解法に切り替えるようにしよう。</p>
+<p>十分小さな$K$に対しては集計がネックになる代わりに、空間をあまり使わずに前計算ができることが多い。
+本問題においては$M = (\text{配列$B$の長さ})$とする。本問題においては$1$以上$\sqrt{M}$以下の数に対しては「素直な方針」を適用するとある程度最善になる。
+この前計算に必要なメモリは$\mathcal{O}(N \sqrt{M})$で、制約の上で十分実現できる。</p>
+<p>これで全体$\mathcal{O}(N \sqrt{Q} + (N + Q) \sqrt{M})$で解ける。</p>
+<p>公式解説の方法も理解しておこう。実はこの問題は、最初説明した「素直な方針」を拡張することでもっと楽に解ける。
+「$A _ i$が法で割り切れるなら$1$、割り切れないなら$0$とした数列」というものを考えたが、$A _ i$を割り切る法は制約において十分に少ない。
+そこで、$1$になる要素だけをメモリに記録しておくことで、大幅に高速化することができる。</p>
+<p>「$A _ i$を割り切る法」というのはすなわち$A _ i$の約数であるから、「素直な方針」で$1$になる要素の数は高度合成数を用いて上から評価できる。
+<a href="https://algo-method.com/descriptions/92">高度合成数の一覧</a>を見ると、$114N$で抑えることができ、十分可能である。
+具体的なやり方としては、例えばmapを用いて「本来$1$になるインデックス」を昇順に保持するという感じになる。実装例を参照されたい。
+この方針では約数関数を$\mathrm{d}(x)$として、$\mathcal{O}(N \mathrm{d}(\max A) + Q \log N)$となる。</p>
+<h2 id="実装例">実装例</h2>
+<h3 id="mo--平方分割">Mo + 平方分割</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;tuple&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ll <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N, Q; cin <span style="color:#f92672">&gt;&gt;</span> N <span style="color:#f92672">&gt;&gt;</span> Q;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A(N);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> A[i];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 賢いやり方不明。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// ある程度大きなKに対してはMoを適用し、小さなKに対しては空間N√Nで計算しながらやる。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> L(Q), R(Q), K(Q);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> Q; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        cin <span style="color:#f92672">&gt;&gt;</span> L[i] <span style="color:#f92672">&gt;&gt;</span> R[i] <span style="color:#f92672">&gt;&gt;</span> K[i];
+</span></span><span style="display:flex;"><span>        L[i]<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 0-indexedで開区間
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> index(Q), priority(Q);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> width <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>) sqrt((<span style="color:#66d9ef">double</span>) Q) <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> Q; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        index[i] <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>        priority[i] <span style="color:#f92672">=</span> L[i] <span style="color:#f92672">/</span> width;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sort(index.begin(), index.end(), [<span style="color:#f92672">&amp;</span>](<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (priority[x] <span style="color:#f92672">==</span> priority[y]) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> ((priority[x]) <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> R[x] <span style="color:#f92672">&lt;</span> R[y];
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> R[y] <span style="color:#f92672">&lt;</span> R[x];
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> priority[x] <span style="color:#f92672">&lt;</span> priority[y];
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> max_mod <span style="color:#f92672">=</span> <span style="color:#ae81ff">100000</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> sqrt_N <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>) sqrt((<span style="color:#66d9ef">double</span>) N);
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> count_all(max_mod <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> acc(sqrt_N, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(N <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 前計算
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> sqrt_N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> N; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> add <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (A[j] <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) add <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            acc[i][j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> acc[i][j] <span style="color:#f92672">+</span> add;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> ans(Q);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// [l, r)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> Q; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> idx <span style="color:#f92672">=</span> index[i];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> L[idx]) {
+</span></span><span style="display:flex;"><span>            count_all[A[l]]<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>            l<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (L[idx] <span style="color:#f92672">&lt;</span> l) {
+</span></span><span style="display:flex;"><span>            l<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>            count_all[A[l]]<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> R[idx]) {
+</span></span><span style="display:flex;"><span>            count_all[A[r]]<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>            r<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (R[idx] <span style="color:#f92672">&lt;</span> r) {
+</span></span><span style="display:flex;"><span>            r<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>            count_all[A[r]]<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (K[idx] <span style="color:#f92672">&lt;</span> sqrt_N) {
+</span></span><span style="display:flex;"><span>            ans[idx] <span style="color:#f92672">=</span> acc[K[idx]][R[idx]] <span style="color:#f92672">-</span> acc[K[idx]][L[idx]];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> K[idx];
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (cur <span style="color:#f92672">&lt;=</span> max_mod) {
+</span></span><span style="display:flex;"><span>                ans[idx] <span style="color:#f92672">+=</span> count_all[cur];
+</span></span><span style="display:flex;"><span>                cur <span style="color:#f92672">+=</span> K[idx];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> v : ans) cout <span style="color:#f92672">&lt;&lt;</span> v <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="実装例約数列挙">実装例(約数列挙)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> divisors (<span style="color:#66d9ef">int</span> N) {
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> res;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#ae81ff">1LL</span> <span style="color:#f92672">*</span> i <span style="color:#f92672">*</span> i <span style="color:#f92672">&lt;=</span> N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> (N <span style="color:#f92672">%</span> i)) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>        res.push_back(i);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">1LL</span> <span style="color:#f92672">*</span> i <span style="color:#f92672">*</span> i <span style="color:#f92672">==</span> N) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>        res.push_back(N <span style="color:#f92672">/</span> i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    sort(res.begin(), res.end());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N, Q; cin <span style="color:#f92672">&gt;&gt;</span> N <span style="color:#f92672">&gt;&gt;</span> Q;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A(N);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> A[i];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> acc;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> d : divisors(A[i])) {
+</span></span><span style="display:flex;"><span>            acc[d].push_back(i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> Q; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> L, R, K; cin <span style="color:#f92672">&gt;&gt;</span> L <span style="color:#f92672">&gt;&gt;</span> R <span style="color:#f92672">&gt;&gt;</span> K;
+</span></span><span style="display:flex;"><span>        L<span style="color:#f92672">--</span>, R<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> lit <span style="color:#f92672">=</span> lower_bound(acc[K].begin(), acc[K].end(), L);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> rit <span style="color:#f92672">=</span> upper_bound(acc[K].begin(), acc[K].end(), R);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> (rit <span style="color:#f92672">-</span> lit) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="終わりに">終わりに</h2>
+<p>つくづくMo&rsquo;s algorithmは便利だなぁと思った。
+後から考えてみると、私の解法はかなり行き当たりばったりでゴリ押し解法だなと感じた。
+C++のイテレータあたりの仕様やテクニックが全然わからないため、こういう感じの問題を解くときいつも困っている。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/abc352/">ABC352参加記録</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-05-18</div>
+  <div class="post-title"><a href="/post/yukicoder2758/">No.2758 RDQ</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-05-06</div>
+  <div class="post-title"><a href="/post/abc352/">ABC352参加記録</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-15</div>
+  <div class="post-title"><a href="/post/functional-graph-simulating/">[メモ] Functional Graph上のシミュレーション</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-05-18</div>
+  <div class="post-title"><a href="/post/yukicoder2758/">No.2758 RDQ</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-10</div>
+  <div class="post-title"><a href="/post/abc247f/">ABC247F - Cards</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-08</div>
+  <div class="post-title"><a href="/post/abc247e/">ABC247E - Max Min</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

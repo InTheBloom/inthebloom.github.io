@@ -6,7 +6,17 @@
     <description>Recent content on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 06 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>No.2758 RDQ</title>
+      <link>http://inthebloom.github.io/post/yukicoder2758/</link>
+      <pubDate>Sat, 18 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/yukicoder2758/</guid>
+      <description>問題概要 問題へのリンク
+問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$が与えられる。次の$Q$質問に答えよ。</description>
+    </item>
+    
     <item>
       <title>ABC352参加記録</title>
       <link>http://inthebloom.github.io/post/abc352/</link>
