@@ -14,7 +14,7 @@
       
       <guid>http://inthebloom.github.io/post/yukicoder2758/</guid>
       <description>問題概要 問題へのリンク
-問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$が与えられる。次の$Q$質問に答えよ。</description>
+問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$が与えられる。次の$Q$個の質問に答えよ。</description>
     </item>
     
     <item>
