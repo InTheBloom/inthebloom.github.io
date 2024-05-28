@@ -6,7 +6,17 @@
     <description>Recent content in 典型テク on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 15 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[覚書] 陽なDAG上のdpを楽に処理する</title>
+      <link>http://inthebloom.github.io/post/dp-in-explicit-dag/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/dp-in-explicit-dag/</guid>
+      <description>定義 本稿におけるDAGとは、次のことを指します。
+有向グラフ$G$であって、任意の$v \in V(G)$に対して次の条件を満たすもの。</description>
+    </item>
+    
     <item>
       <title>[メモ] Functional Graph上のシミュレーション</title>
       <link>http://inthebloom.github.io/post/functional-graph-simulating/</link>

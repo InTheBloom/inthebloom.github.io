@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>[覚書] 陽なDAG上のdpを楽に処理する - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=796f75cebf9b25ab0e68fba57197e565ef4b1ad3" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="[覚書] 陽なDAG上のdpを楽に処理する - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/dp-in-explicit-dag/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="[覚書] 陽なDAG上のdpを楽に処理する - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/dp-in-explicit-dag/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=796f75cebf9b25ab0e68fba57197e565ef4b1ad3">
+<link rel="stylesheet" href="/css/color.css?c=796f75cebf9b25ab0e68fba57197e565ef4b1ad3">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=796f75cebf9b25ab0e68fba57197e565ef4b1ad3">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>[覚書] 陽なDAG上のdpを楽に処理する</h1>
+
+<span class="sub">Published on 2024-05-27</span><br>
+<span class="sub">Last Modified 2024-05-27</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#定義">定義</a></li>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#明示的なdagのどこがしんどいのか">明示的なDAGのどこがしんどいのか</a></li>
+    <li><a href="#配るdp">配るdp</a></li>
+    <li><a href="#もらうdp">もらうdp</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="定義">定義</h2>
+<p>本稿におけるDAGとは、次のことを指します。</p>
+<p>有向グラフ$G$であって、任意の$v \in V(G)$に対して次の条件を満たすもの。</p>
+<ul>
+<li>始点と終点が$v$であり、かつ少なくとも一つの辺を通る経路が存在しない。</li>
+</ul>
+<h2 id="概要">概要</h2>
+<p>AtCoderの過去問は、暗黙的なDAG上のdpが多い一方、明示的なDAG上のdpをする問題が少ないです。
+そのため、明示的なDAGを渡されたとき、dpをすればよいということがわかっていたとしてもうまい実装が思い浮かばない方は多いかと思います。</p>
+<p>私もそのような場面に何回か出くわし、そのせいで大幅にパフォーマンスを落とした経験があります。
+そこで、それなりに汎用的であると思われるやり方を提案します。
+なお、これは「灯台下暗し」的なもので、人によっては自明かと思います。</p>
+<h2 id="明示的なdagのどこがしんどいのか">明示的なDAGのどこがしんどいのか</h2>
+<p>まずは、しんどくないdpについて考えましょう。
+たとえば、よくある$$\mathrm{dp}\lbrack i \rbrack \lbrack j \rbrack \coloneqq (\text{$i$番目までを見たときに、&hellip;が$j$であるような&hellip;})$$といった形のdpは、
+$$\mathrm{dp}\lbrack i + 1 \rbrack \lbrack j \rbrack = f(\mathrm{dp} \lbrack i \rbrack \lbrack k \rbrack)$$
+といった形の計算により処理できることが多いです。この場合、単純なループ処理だけで計算ができます。更新順は、$i$を深さと見たときのbfs順ととらえることもできます。</p>
+<p>さらに、木上のdpも非常に簡単に処理することができます。
+これは木上の2点間のパスが一意に定まることが理由です。例えば、ある頂点から始めて配る遷移のdpをすることを考えます。
+このとき、パスの一意性から1回目に出会った頂点の値を確定してしまってよいことがいえます。
+つまり、普通にdfs巡回順で更新していくだけで正しい値が求まります。</p>
+<p>これらのdpがbfsやdfs巡回順と同じ順番で出来るのは、ある程度単純なトポロジカル順序を持っているからと言えそうです。
+では、一般のDAGではどうでしょうか。</p>
+<p>結論から言うと、配る遷移をするとき、単純なdfsやbfs巡回順で更新すると値が壊れるようなケースが存在します。さらに、そのようなケースは極めて一般的です。</p>
+<p><img src="/images/dp-in-explicit-dag/dag.png" alt="dag"></p>
+<p>上の図はそのようなグラフの例です。例えば頂点4の値を正しく求めるには、頂点1と頂点2から配られた値が必要なはずです。
+しかし、普通にbfsやdfsをすると、いつ頂点4の値が確定するかがわからないため、他の変数などを管理する必要が出てきます。
+遷移以外に変数を管理する必要があるため、より面倒になりがちです。</p>
+<p>一般のDAG上でのdpのしんどさについて説明したところで、次は処理方法の説明に入ります。</p>
+<h2 id="配るdp">配るdp</h2>
+<p>頂点をトポロジカルソートをすると、dp部分をいつもの更新とほぼ同様に扱えます。
+多くの場合は次の手順で解けると思います。</p>
+<ol>
+<li>頂点をトポロジカルソートする。</li>
+<li>頂点における答えを記録しておく配列に対して、スタート地点以外をすべて異常値で初期化しておく。</li>
+<li>トポロジカルソートされた順番に頂点を見ていき、<strong>異常値なら無視、正常値なら遷移</strong>とする。</li>
+</ol>
+<p>異常値を無視している理由は、一般のDAGの場合スタート地点の入次数が0とは限らないからです。スタート地点ではない場所からの遷移で値が壊れるのを防止しています。</p>
+<p><a href="https://atcoder.jp/contests/abc335/tasks/abc335_e">ABC335E</a>に適用してみましょう。</p>
+<p>この問題は、重みが等しい頂点をまとめて、重みが真に大きい方向にのみ辺を作ったDAGを考えると、最長経路問題に帰着します。
+最長経路問題は配る遷移で解くことができるので、上記の方法を適用できます。</p>
+<p>本稿で提案しているのはこの部分です。
+いつものdpとほとんど同様に遷移できていることがわかると思います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> update_ord <span style="color:#f92672">=</span> topological_sort<span style="color:#f92672">(</span>graph<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>v<span style="color:#f92672">;</span> update_ord<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dist<span style="color:#f92672">[</span>v<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>to<span style="color:#f92672">;</span> graph<span style="color:#f92672">[</span>v<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        dist<span style="color:#f92672">[</span>to<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> max<span style="color:#f92672">(</span>dist<span style="color:#f92672">[</span>to<span style="color:#f92672">],</span> dist<span style="color:#f92672">[</span>v<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><a href="https://atcoder.jp/contests/abc335/submissions/53988439">提出</a></p>
+<p>もう一問例題を挙げておきます。
+<a href="https://yukicoder.me/problems/no/2639">yukicoder No.2639</a>を考えましょう。
+こちらもグリッドグラフであることを除けばほぼ同じです。グリッドグラフからDAGを構築して、トポロジカルソートしましょう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> update_ord <span style="color:#f92672">=</span> topological_sort(graph);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> score(H <span style="color:#f92672">*</span> W, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> v: update_ord) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> nex: graph[v]) {
+</span></span><span style="display:flex;"><span>        score[nex] <span style="color:#f92672">=</span> max(score[nex], score[v] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><a href="https://yukicoder.me/submissions/983997">提出</a></p>
+<h2 id="もらうdp">もらうdp</h2>
+<p>こちらの方が楽です。自分の子の値が確定してしまえばよいので、確定するまで再帰的に掘っていけば良いです。すなわち、メモ化再帰で実装するのが楽です。
+この方法は意識せずに行っている方が多いかと思います。典型的な例でいうと、ゲームの後退解析などはこの例に当てはまります。
+陽にグラフが与えられていたとしても、やることは同じです。</p>
+<p>こちらも例題を提示しておきます。
+<a href="https://atcoder.jp/contests/abc188/tasks/abc188_e">ABC188E</a>を考えましょう。この問題は下流のDAGに属する頂点の最大の値が求まればよいです。
+$\mathrm{dp}\lbrack i \rbrack \coloneqq (\text{頂点$i$より下流のDAGに属する頂点における最大の$A$})$とすると、子からもらう遷移になります。</p>
+<p>具体的には、次のような遷移になります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#66d9ef">int</span><span style="color:#f92672">]</span> memo<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">dp</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> pos<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>pos <span style="color:#66d9ef">in</span> memo<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> memo<span style="color:#f92672">[</span>pos<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#66d9ef">int</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>to<span style="color:#f92672">;</span> graph<span style="color:#f92672">[</span>pos<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">=</span> max<span style="color:#f92672">(</span>res<span style="color:#f92672">,</span> dp<span style="color:#f92672">(</span>to<span style="color:#f92672">),</span> A<span style="color:#f92672">[</span>to<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> memo<span style="color:#f92672">[</span>pos<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> res<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>メモ化しないと計算が爆発するので注意です。</p>
+<p><a href="https://atcoder.jp/contests/abc188/submissions/53959903">提出</a></p>
+<h2 id="終わりに">終わりに</h2>
+<p>今週のUECCPでABC188Eを解きなおした際、mid_さんがこのメモ化再帰の解法について言及していたことがきっかけでこのエントリを作成しました。
+今振り返ると、今までの自分はトポロジカルソートとdp更新を同時にやっていくようなあまり賢くない解法をとっていて、さらにそれが賢くないことに気づいてすらいなかったようです。</p>
+<p>このエントリが、私の様に陽なDAG上でのdpに苦しむ人の助けになれば幸いです。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">典型テク</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/yukicoder2758/">No.2758 RDQ</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-05-27</div>
+  <div class="post-title"><a href="/post/dp-in-explicit-dag/">[覚書] 陽なDAG上のdpを楽に処理する</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-05-18</div>
+  <div class="post-title"><a href="/post/yukicoder2758/">No.2758 RDQ</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-05-06</div>
+  <div class="post-title"><a href="/post/abc352/">ABC352参加記録</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "典型テク"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-05-27</div>
+  <div class="post-title"><a href="/post/dp-in-explicit-dag/">[覚書] 陽なDAG上のdpを楽に処理する</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-15</div>
+  <div class="post-title"><a href="/post/functional-graph-simulating/">[メモ] Functional Graph上のシミュレーション</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-03-14</div>
+  <div class="post-title"><a href="/post/sumitb2019f/">三井住友信託銀行プログラミングコンテスト2019F - Interval Running</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e5%85%b8%e5%9e%8b%e3%83%86%e3%82%af/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

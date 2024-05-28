@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-<link rel="alternate" href="/index.xml?c=739896e9737784618185afab72357f0fcb2a59c8" type="application/rss+xml" title="RSS" />
+<link rel="alternate" href="/index.xml?c=796f75cebf9b25ab0e68fba57197e565ef4b1ad3" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="サイト内全文検索 - InTheDayDream">
 </meta>
 <meta property="og:url" content="http://inthebloom.github.io/search/">
@@ -37,11 +37,11 @@
 <meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=739896e9737784618185afab72357f0fcb2a59c8">
-<link rel="stylesheet" href="/css/color.css?c=739896e9737784618185afab72357f0fcb2a59c8">
+<link rel="stylesheet" href="/css/main.css?c=796f75cebf9b25ab0e68fba57197e565ef4b1ad3">
+<link rel="stylesheet" href="/css/color.css?c=796f75cebf9b25ab0e68fba57197e565ef4b1ad3">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=739896e9737784618185afab72357f0fcb2a59c8">
+<link rel="stylesheet" href="/css/custom.css?c=796f75cebf9b25ab0e68fba57197e565ef4b1ad3">
 
 
 
@@ -140,22 +140,28 @@
 
 const data = [
   {
+    url: "/post/dp-in-explicit-dag/",
+    title: "[覚書] 陽なDAG上のdpを楽に処理する",
+    date: "2024-05-27T00:00:00Z",
+    body: "[覚書] 陽なDAG上のdpを楽に処理する 定義 本稿におけるDAGとは、次のことを指します。 有向グラフ$G$であって、任意の$v \\in V(G)$に対して次の条件を満たすもの。 始点と終点が$v$であり、かつ少なくとも一つの辺を通る経路が存在しない。 概要 AtCoderの過去問は、暗黙的なDAG上のdpが多い一方、明示的なDAG上のdpをする問題が少ないです。 そのため、明示的なDAGを渡されたとき、dpをすればよいということがわかっていたとしてもうまい実装が思い浮かばない方は多いかと思います。 私もそのような場面に何回か出くわし、そのせいで大幅にパフォーマンスを落とした経験があります。 そこで、それなりに汎用的であると思われるやり方を提案します。 なお、これは「灯台下暗し」的なもので、人によっては自明かと思います。 明示的なDAGのどこがしんどいのか まずは、しんどくないdpについて考えましょう。 たとえば、よくある$$\\mathrm{dp}\\lbrack i \\rbrack \\lbrack j \\rbrack \\coloneqq (\\text{$i$番目までを見たときに、\u0026hellip;が$j$であるような\u0026hellip;})$$といった形のdpは、 $$\\mathrm{dp}\\lbrack i + 1 \\rbrack \\lbrack j \\rbrack = f(\\mathrm{dp} \\lbrack i \\rbrack \\lbrack k \\rbrack)$$ といった形の計算により処理できることが多いです。この場合、単純なループ処理だけで計算ができます。更新順は、$i$を深さと見たときのbfs順ととらえることもできます。 さらに、木上のdpも非常に簡単に処理することができます。 これは木上の2点間のパスが一意に定まることが理由です。例えば、ある頂点から始めて配る遷移のdpをすることを考えます。 このとき、パスの一意性から1回目に出会った頂点の値を確定してしまってよいことがいえます。 つまり、普通にdfs巡回順で更新していくだけで正しい値が求まります。 これらのdpがbfsやdfs巡回順と同じ順番で出来るのは、ある程度単純なトポロジカル順序を持っているからと言えそうです。 では、一般のDAGではどうでしょうか。 結論から言うと、配る遷移をするとき、単純なdfsやbfs巡回順で更新すると値が壊れるようなケースが存在します。さらに、そのようなケースは極めて一般的です。 上の図はそのようなグラフの例です。例えば頂点4の値を正しく求めるには、頂点1と頂点2から配られた値が必要なはずです。 しかし、普通にbfsやdfsをすると、いつ頂点4の値が確定するかがわからないため、他の変数などを管理する必要が出てきます。 遷移以外に変数を管理する必要があるため、より面倒になりがちです。 一般のDAG上でのdpのしんどさについて説明したところで、次は処理方法の説明に入ります。 配るdp 頂点をトポロジカルソートをすると、dp部分をいつもの更新とほぼ同様に扱えます。 多くの場合は次の手順で解けると思います。 頂点をトポロジカルソートする。 頂点における答えを記録しておく配列に対して、スタート地点以外をすべて異常値で初期化しておく。 トポロジカルソートされた順番に頂点を見ていき、異常値なら無視、正常値なら遷移とする。 異常値を無視している理由は、一般のDAGの場合スタート地点の入次数が0とは限らないからです。スタート地点ではない場所からの遷移で値が壊れるのを防止しています。 ABC335Eに適用してみましょう。 この問題は、重みが等しい頂点をまとめて、重みが真に大きい方向にのみ辺を作ったDAGを考えると、最長経路問題に帰着します。 最長経路問題は配る遷移で解くことができるので、上記の方法を適用できます。 本稿で提案しているのはこの部分です。 いつものdpとほとんど同様に遷移できていることがわかると思います。 auto update_ord = topological_sort(graph); foreach (v; update_ord) { if (dist[v] == -1) continue; foreach (to; graph[v]) { dist[to] = max(dist[to], dist[v] + 1); } } 提出 もう一問例題を挙げておきます。 yukicoder No.2639を考えましょう。 こちらもグリッドグラフであることを除けばほぼ同じです。グリッドグラフからDAGを構築して、トポロジカルソートしましょう。 auto update_ord = topological_sort(graph); vector\u0026lt;int\u0026gt; score(H * W, 1); for (auto v: update_ord) { for (auto nex: graph[v]) { score[nex] = max(score[nex], score[v] + 1); } } 提出 もらうdp こちらの方が楽です。自分の子の値が確定してしまえばよいので、確定するまで再帰的に掘っていけば良いです。すなわち、メモ化再帰で実装するのが楽です。 この方法は意識せずに行っている方が多いかと思います。典型的な例でいうと、ゲームの後退解析などはこの例に当てはまります。 陽にグラフが与えられていたとしても、やることは同じです。 こちらも例題を提示しておきます。 ABC188Eを考えましょう。この問題は下流のDAGに属する頂点の最大の値が求まればよいです。 $\\mathrm{dp}\\lbrack i \\rbrack \\coloneqq (\\text{頂点$i$より下流のDAGに属する頂点における最大の$A$})$とすると、子からもらう遷移になります。 具体的には、次のような遷移になります。 int[int] memo; int dp (int pos) { if (pos in memo) return memo[pos]; int res = -int.max; foreach (to; graph[pos]) { res = max(res, dp(to), A[to]); } return memo[pos] = res; } メモ化しないと計算が爆発するので注意です。 提出 終わりに 今週のUECCPでABC188Eを解きなおした際、mid_さんがこのメモ化再帰の解法について言及していたことがきっかけでこのエントリを作成しました。 今振り返ると、今までの自分はトポロジカルソートとdp更新を同時にやっていくようなあまり賢くない解法をとっていて、さらにそれが賢くないことに気づいてすらいなかったようです。 このエントリが、私の様に陽なDAG上でのdpに苦しむ人の助けになれば幸いです。"
+  },
+  {
     url: "/",
     title: "InTheDayDream",
-    date: "2024-05-18T00:00:00Z",
+    date: "2024-05-27T00:00:00Z",
     body: "InTheDayDream"
+  },
+  {
+    url: "/post/",
+    title: "Posts",
+    date: "2024-05-27T00:00:00Z",
+    body: "Posts"
   },
   {
     url: "/post/yukicoder2758/",
     title: "No.2758 RDQ",
     date: "2024-05-18T00:00:00Z",
     body: "No.2758 RDQ 問題概要 問題へのリンク 問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \\dots, A _ N)$が与えられる。次の$Q$個の質問に答えよ。 区間$\\lbrack L, R \\rbrack$の要素$A _ L, A _ {L + 1}, \\dots, A _ R$のうち、$K$の倍数はいくつ存在するか。 制約 $2 \\leq N \\leq 5 \\times 10^4$ $1 \\leq Q \\leq 5 \\times 10^4$ $1 \\leq A _ i \\leq 10^5$ $1 \\leq L _ j \u0026lt; R _ j \\leq N \\, (1 \\leq j \\leq Q)$ $1 \\leq K _ j \\leq 10^5$ 解法 素直な方針として、次のものが思いつく。 「$10^5$以下のすべての法について、$A _ i$が法で割り切れるなら$1$、割り切れないなら$0$とした数列を作成し、累積和をとっておく。 クエリに答えるパートでは、$K _ j$を法とした累積和配列を$\\mathrm{acc} _ {K _ j}$としたとき、$\\mathrm{acc} _ {K _ j} \\lbrack R _ j \\rbrack - \\mathrm{acc} _ {K _ j} \\lbrack L _ j - 1 \\rbrack$を答える。」 しかし、これは空間/時間ともに$\\mathcal{O}(10^5 N)$が必要であり、間に合わない。 そこで、クエリで要求される区間だけを見ることでうまく解けないかを考えてみる。 Mo\u0026rsquo;s algorithmを適用する。 これにより全体の移動回数$\\mathcal{O} (N \\sqrt{Q})$で次の配列$B$をクエリごとに得ることができる。 $$B \\lbrack i \\rbrack \\coloneqq (\\text{$\\lbrack L _ j, R _ j \\rbrack$に含まれる$i$の数})$$ この配列$B$を用いて$K$の倍数をカウントすることを考える。 この時クエリあたり$\\mathcal{O}((\\text{配列$B$の長さ}) / K)$回の計算が必要で、十分大きな$K$に対してなら間に合う。 $K$の値が小さなときがボトルネックになっているので、その時は別の解法に切り替えるようにしよう。 十分小さな$K$に対しては集計がネックになる代わりに、空間をあまり使わずに前計算ができることが多い。 以降、$M = (\\text{配列$B$の長さ})$とする。本問題においては$1$以上$\\sqrt{M}$以下の数に対して「素直な方針」を適用すると、数学的にある程度最善になる事が見込める。 この前計算に必要なメモリは$\\mathcal{O}(N \\sqrt{M})$で、制約の上で十分実現できる。 これで全体$\\mathcal{O}(N \\sqrt{Q} + (N + Q) \\sqrt{M})$で解ける。 公式解説の方法も理解しておこう。実はこの問題は、最初説明した「素直な方針」を拡張することでもっと楽に解ける。 「$A _ i$が法で割り切れるなら$1$、割り切れないなら$0$とした数列」というものを考えたが、実は$A _ i$を割り切る法は制約において十分に少ない。 そこで、$1$になる要素だけをメモリに記録しておくことで、大幅に高速化することができる。 「$A _ i$を割り切る法」というのはすなわち$A _ i$の約数であるから、「素直な方針」で$1$になる要素の数は高度合成数を用いて上から評価できる。 高度合成数の一覧を見ると、$114N$で抑えることができ、これは制約下で可能である。 具体的なやり方としては、例えばvectorを要素に持つmapを用いる方法がある。空でない配列に対して「本来$1$になるインデックス」を昇順に保持するという感じになる。実装例を参照されたい。 座標圧縮を用いてmapを使用しないこともできると思う。 この方針では約数関数を$\\mathrm{d}(x)$として、$\\mathcal{O}(N \\mathrm{d}(\\max A) + Q \\log N)$となる。 実装例 Mo + 平方分割 #include \u0026lt;iostream\u0026gt; #include \u0026lt;vector\u0026gt; #include \u0026lt;algorithm\u0026gt; #include \u0026lt;tuple\u0026gt; #include \u0026lt;cmath\u0026gt; using namespace std; using ll = long long; int main () { int N, Q; cin \u0026gt;\u0026gt; N \u0026gt;\u0026gt; Q; vector\u0026lt;int\u0026gt; A(N); for (int i = 0; i \u0026lt; N; i++) cin \u0026gt;\u0026gt; A[i]; // 賢いやり方不明。 // ある程度大きなKに対してはMoを適用し、小さなKに対しては空間N√Nで計算しながらやる。 vector\u0026lt;int\u0026gt; L(Q), R(Q), K(Q); for (int i = 0; i \u0026lt; Q; i++) { cin \u0026gt;\u0026gt; L[i] \u0026gt;\u0026gt; R[i] \u0026gt;\u0026gt; K[i]; L[i]--; // 0-indexedで開区間 } vector\u0026lt;int\u0026gt; index(Q), priority(Q); const int width = (int) sqrt((double) Q) + 10; for (int i = 0; i \u0026lt; Q; i++) { index[i] = i; priority[i] = L[i] / width; } sort(index.begin(), index.end(), [\u0026amp;](int x, int y) { if (priority[x] == priority[y]) { if ((priority[x]) % 2 == 0) return R[x] \u0026lt; R[y]; return R[y] \u0026lt; R[x]; } return priority[x] \u0026lt; priority[y]; }); const int max_mod = 100000; const int sqrt_N = (int) sqrt((double) N); vector\u0026lt;int\u0026gt; count_all(max_mod + 1); vector\u0026lt;vector\u0026lt;int\u0026gt;\u0026gt; acc(sqrt_N, vector\u0026lt;int\u0026gt;(N + 1, 0)); // 前計算 for (int i = 1; i \u0026lt; sqrt_N; i++) { for (int j = 0; j \u0026lt; N; j++) { int add = 0; if (A[j] % i == 0) add = 1; acc[i][j + 1] = acc[i][j] + add; } } vector\u0026lt;int\u0026gt; ans(Q); int l = 0, r = 0; // [l, r) for (int i = 0; i \u0026lt; Q; i++) { int idx = index[i]; while (l \u0026lt; L[idx]) { count_all[A[l]]--; l++; } while (L[idx] \u0026lt; l) { l--; count_all[A[l]]++; } while (r \u0026lt; R[idx]) { count_all[A[r]]++; r++; } while (R[idx] \u0026lt; r) { r--; count_all[A[r]]--; } if (K[idx] \u0026lt; sqrt_N) { ans[idx] = acc[K[idx]][R[idx]] - acc[K[idx]][L[idx]]; } else { int cur = K[idx]; while (cur \u0026lt;= max_mod) { ans[idx] += count_all[cur]; cur += K[idx]; } } } for (auto v : ans) cout \u0026lt;\u0026lt; v \u0026lt;\u0026lt; \u0026#34;\\n\u0026#34;; } 実装例(約数列挙) #include \u0026lt;iostream\u0026gt; #include \u0026lt;vector\u0026gt; #include \u0026lt;map\u0026gt; #include \u0026lt;algorithm\u0026gt; using namespace std; vector\u0026lt;int\u0026gt; divisors (int N) { vector\u0026lt;int\u0026gt; res; for (int i = 1; 1LL * i * i \u0026lt;= N; i++) { if (0 \u0026lt; (N % i)) continue; res.push_back(i); if (1LL * i * i == N) continue; res.push_back(N / i); } sort(res.begin(), res.end()); return res; } int main () { int N, Q; cin \u0026gt;\u0026gt; N \u0026gt;\u0026gt; Q; vector\u0026lt;int\u0026gt; A(N); for (int i = 0; i \u0026lt; N; i++) cin \u0026gt;\u0026gt; A[i]; map\u0026lt;int, vector\u0026lt;int\u0026gt;\u0026gt; acc; for (int i = 0; i \u0026lt; N; i++) { for (auto d : divisors(A[i])) { acc[d].push_back(i); } } for (int i = 0; i \u0026lt; Q; i++) { int L, R, K; cin \u0026gt;\u0026gt; L \u0026gt;\u0026gt; R \u0026gt;\u0026gt; K; L--, R--; auto lit = lower_bound(acc[K].begin(), acc[K].end(), L); auto rit = upper_bound(acc[K].begin(), acc[K].end(), R); cout \u0026lt;\u0026lt; (rit - lit) \u0026lt;\u0026lt; \u0026#34;\\n\u0026#34;; } } 終わりに つくづくMo\u0026rsquo;s algorithmは便利だなと思った。 後から考えてみると、私の解法はかなり行き当たりばったりでゴリ押し解法であるように感じる。 C++のイテレータあたりの仕様やテクニックが全然わからないため、公式解説の方法を実装するときにどうしたらよいか困った。 ランダムアクセスイテレータのインクリメントやデクリメントは変なバグやUBを踏みそうで怖い。"
-  },
-  {
-    url: "/post/",
-    title: "Posts",
-    date: "2024-05-18T00:00:00Z",
-    body: "Posts"
   },
   {
     url: "/post/abc352/",
