@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UECCP on InTheDayDream</title>
+    <link>http://inthebloom.github.io/tags/ueccp/</link>
+    <description>Recent content in UECCP on InTheDayDream</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://inthebloom.github.io/tags/ueccp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UECCPバーチャルコンテストを発起し、完走した</title>
+      <link>http://inthebloom.github.io/post/ueccp-2024-first-half/</link>
+      <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://inthebloom.github.io/post/ueccp-2024-first-half/</guid>
+      <description>UECCPバーチャルコンテストについて 私が電通大競プログラミングサークルに呼びかけて、4月から8月までAtCoder Problemsを利用したバーチャルコンテストを週1回開催しました。 某H先生のご厚意により、競プロサークルで利用できる教室があったため、そこをオンサイト会場(笑)として利用しました。 4月22日から8月5日まで合計13回開催しました。</description>
+    </item>
+  </channel>
+</rss>

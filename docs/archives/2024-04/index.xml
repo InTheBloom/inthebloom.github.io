@@ -6,45 +6,35 @@
     <description>Recent content in 2024-04 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 15 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2024-04/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://inthebloom.github.io/archives/2024-04/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[メモ] Functional Graph上のシミュレーション</title>
       <link>http://inthebloom.github.io/post/functional-graph-simulating/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/functional-graph-simulating/</guid>
-      <description>概要 本稿において、$N$頂点$N$辺からなる有向グラフであって、すべての頂点の出次数が1であるグラフをfunctional graphと呼ぶ。
-本稿の目的は、次の問題を時間計算量$O(N \log k)$で解く方法を簡潔にまとめることである。</description>
+      <description>概要 本稿において、$N$頂点$N$辺からなる有向グラフであって、すべての頂点の出次数が1であるグラフをfunctional graphと呼ぶ。&#xA;本稿の目的は、次の問題を時間計算量$O(N \log k)$で解く方法を簡潔にまとめることである。</description>
     </item>
-    
     <item>
       <title>ABC247F - Cards</title>
       <link>http://inthebloom.github.io/post/abc247f/</link>
       <pubDate>Wed, 10 Apr 2024 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/abc247f/</guid>
-      <description>問題概要 問題へのリンク
-問題文 $1$から$N$の番号がついた$N$枚のカードがあり、カード$i$の表には$P _ i$が、裏には$Q _ i$が書かれている。 ただし、$P = (P _ 1, \dots, P _ N)$及び$Q = (Q _ 1, \dots, Q _ N)$はそれぞれ$(1, \dots, N)$の置換である。</description>
+      <description>問題概要 問題へのリンク&#xA;問題文 $1$から$N$の番号がついた$N$枚のカードがあり、カード$i$の表には$P _ i$が、裏には$Q _ i$が書かれている。 ただし、$P = (P _ 1, \dots, P _ N)$及び$Q = (Q _ 1, \dots, Q _ N)$はそれぞれ$(1, \dots, N)$の置換である。</description>
     </item>
-    
     <item>
       <title>ABC247E - Max Min</title>
       <link>http://inthebloom.github.io/post/abc247e/</link>
       <pubDate>Mon, 08 Apr 2024 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/abc247e/</guid>
-      <description>問題概要 問題へのリンク
-問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$及び整数$X, Y$が与えられる。次の条件をすべて満たす整数の組$(L, R)$の個数を求めよ。</description>
+      <description>問題概要 問題へのリンク&#xA;問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$及び整数$X, Y$が与えられる。次の条件をすべて満たす整数の組$(L, R)$の個数を求めよ。</description>
     </item>
-    
     <item>
       <title>MMA Contest 018参加記録 &#43; 怪文書</title>
       <link>http://inthebloom.github.io/post/mmacontest018/</link>
       <pubDate>Wed, 03 Apr 2024 00:00:00 +0000</pubDate>
-      
       <guid>http://inthebloom.github.io/post/mmacontest018/</guid>
       <description>オンサイトに行ってきました。 MMA Contest 018 - connpass</description>
     </item>
-    
   </channel>
 </rss>
