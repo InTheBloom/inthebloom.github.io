@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>暗黙のコピーコンストラクタにご注意を - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=e865ed2fad86c6d12b0ba14a852499d46ff98b0a" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="暗黙のコピーコンストラクタにご注意を - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/cpp-copy-constructor/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="暗黙のコピーコンストラクタにご注意を - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/cpp-copy-constructor/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=e865ed2fad86c6d12b0ba14a852499d46ff98b0a">
+<link rel="stylesheet" href="/css/color.css?c=e865ed2fad86c6d12b0ba14a852499d46ff98b0a">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=e865ed2fad86c6d12b0ba14a852499d46ff98b0a">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>暗黙のコピーコンストラクタにご注意を</h1>
+
+<span class="sub">Published on 2024-08-17</span><br>
+<span class="sub">Last Modified 2024-08-17</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#hackで落とされた">Hackで落とされた&hellip;</a></li>
+    <li><a href="#コピーコンストラクタの罠">コピーコンストラクタの罠</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="hackで落とされた">Hackで落とされた&hellip;</h2>
+<p><a href="https://codeforces.com/contest/2004">Educational Codeforces Round 169 (Rated for Div. 2)</a>のD問題がHackされ、TLEで落ちました。</p>
+<p><img src="/images/cpp-copy-constructor/submission.png" alt=""></p>
+<p>アルゴリズムは正しい自信があったので、定数倍で落ちていると思っていましたが、原因は意外なところにありました。</p>
+<h2 id="コピーコンストラクタの罠">コピーコンストラクタの罠</h2>
+<p>落ちたコードを掲載します。
+目的の街にいくために必要な中継のポータルは高々1つになるので、ポータルの色を決め打ちして<code>upper_bound</code>で探しています。
+これで8通りの色それぞれに2回<code>upper_bound</code>をすればよく、十分間に合うという感じです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ll <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">int</span> iINF <span style="color:#f92672">=</span> <span style="color:#ae81ff">1&#39;000&#39;000&#39;000</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n, q; cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> q;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 中継は高々1回
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 中継のポータルを決め打ちして探索することで8 * 2 * logくらいでみつかる。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> portal(n);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> portal[i];
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> ord(<span style="color:#ae81ff">128</span>);
+</span></span><span style="display:flex;"><span>    ord[<span style="color:#e6db74">&#39;B&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    ord[<span style="color:#e6db74">&#39;G&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    ord[<span style="color:#e6db74">&#39;R&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    ord[<span style="color:#e6db74">&#39;Y&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    map<span style="color:#f92672">&lt;</span>string, vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> mp;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        mp[portal[i]].push_back(i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> q; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> x, y; cin <span style="color:#f92672">&gt;&gt;</span> x <span style="color:#f92672">&gt;&gt;</span> y;
+</span></span><span style="display:flex;"><span>        x<span style="color:#f92672">--</span>, y<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (y <span style="color:#f92672">&lt;</span> x) swap(x, y);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> iINF;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 中継ポータルを決め打ちする
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c1 : portal[x]) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c2 : portal[y]) {
+</span></span><span style="display:flex;"><span>                string key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>                key <span style="color:#f92672">+=</span> c1;
+</span></span><span style="display:flex;"><span>                key <span style="color:#f92672">+=</span> c2;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (ord[key[<span style="color:#ae81ff">1</span>]] <span style="color:#f92672">&lt;</span> ord[key[<span style="color:#ae81ff">0</span>]]) swap(key[<span style="color:#ae81ff">0</span>], key[<span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">auto</span> vec <span style="color:#f92672">=</span> mp[key];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                { <span style="color:#75715e">// xの左
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> upper_bound(vec.begin(), vec.end(), x);
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (it <span style="color:#f92672">!=</span> vec.end()) {
+</span></span><span style="display:flex;"><span>                        ans <span style="color:#f92672">=</span> min(ans, abs(x <span style="color:#f92672">-</span> <span style="color:#f92672">*</span>it) <span style="color:#f92672">+</span> abs(<span style="color:#f92672">*</span>it <span style="color:#f92672">-</span> y));
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (it <span style="color:#f92672">!=</span> vec.begin()) {
+</span></span><span style="display:flex;"><span>                        it<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>                        ans <span style="color:#f92672">=</span> min(ans, abs(x <span style="color:#f92672">-</span> <span style="color:#f92672">*</span>it) <span style="color:#f92672">+</span> abs(<span style="color:#f92672">*</span>it <span style="color:#f92672">-</span> y));
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                { <span style="color:#75715e">// yより右
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> upper_bound(vec.begin(), vec.end(), y);
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (it <span style="color:#f92672">!=</span> vec.end()) {
+</span></span><span style="display:flex;"><span>                        ans <span style="color:#f92672">=</span> min(ans, abs(x <span style="color:#f92672">-</span> <span style="color:#f92672">*</span>it) <span style="color:#f92672">+</span> abs(<span style="color:#f92672">*</span>it <span style="color:#f92672">-</span> y));
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (ans <span style="color:#f92672">==</span> iINF) {
+</span></span><span style="display:flex;"><span>            cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> t; cin <span style="color:#f92672">&gt;&gt;</span> t;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> t; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        solve();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>TLEを引き起こしている場所は次の部分でした。(抜粋)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// 中継ポータルを決め打ちする
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c1 : portal[x]) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c2 : portal[y]) {
+</span></span><span style="display:flex;"><span>        string key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>        key <span style="color:#f92672">+=</span> c1;
+</span></span><span style="display:flex;"><span>        key <span style="color:#f92672">+=</span> c2;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (ord[key[<span style="color:#ae81ff">1</span>]] <span style="color:#f92672">&lt;</span> ord[key[<span style="color:#ae81ff">0</span>]]) swap(key[<span style="color:#ae81ff">0</span>], key[<span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/* ↓これがダメ */</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> vec <span style="color:#f92672">=</span> mp[key];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        { <span style="color:#75715e">// xの左
+</span></span></span></code></pre></div><p>ここで、のちのコードを記述しやすくするために、ポータルの色が<code>key</code>であるような街番号を昇順に格納した<code>std::vector&lt;int&gt;</code>(すなわち、<code>mp[key]</code>のことです)を<code>vec</code>に代入しています。
+このとき、実は<code>mp[key]</code>の長さ分の<code>std::vector&lt;int&gt;</code>がいちいち作られていたようです。</p>
+<p>正直C++の仕様には全然詳しくないので細かいことへの言及は避けますが、<a href="https://qiita.com/hiro4669/items/44144f0f9739a8aa1285">CPP事始め: コピーコンストラクタ，代入演算子</a>によると、<code>auto vec = mp[key];</code>はコピーコンストラクタが呼ばれてしまうようです。
+これを回避するためには、参照を利用するとよいです。すなわち、<code>std::vector&lt;int&gt;&amp;</code>で受けます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> vec <span style="color:#f92672">=</span> mp[key];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> vec <span style="color:#f92672">=</span> mp[key]; <span style="color:#75715e">// こうしても良い
+</span></span></span></code></pre></div><h2 id="まとめ">まとめ</h2>
+<p>色々見ている限り、C++では構造体やクラスなどは何も指定しなければコピーが走る傾向にあるようです。
+皆様もC++で別の変数に参照を持つみたいなことをやろうとするときはお気をつけください。</p>
+<p>最後に文句だけ言わせてください。</p>
+<p><strong>D言語なら動的配列の代入演算子は参照が渡されるからC++とかいうの許せね〜 これHackされなかったら830位くらいだったっていうのもマジで許せね〜(Hackされて3000位くらいまで落ちた) マジでレート返してくれ！！！</strong></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://cpprefjp.github.io/reference/vector/vector/op_assign.html">std::vector::operator= cpprefjp - C++日本語リファレンス</a></li>
+<li><a href="https://qiita.com/hiro4669/items/44144f0f9739a8aa1285">CPP事始め: コピーコンストラクタ，代入演算子</a></li>
+</ul>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/ueccp-2024-first-half/">UECCPバーチャルコンテストを発起し、完走した</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-08-17</div>
+  <div class="post-title"><a href="/post/cpp-copy-constructor/">暗黙のコピーコンストラクタにご注意を</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-08-08</div>
+  <div class="post-title"><a href="/post/ueccp-2024-first-half/">UECCPバーチャルコンテストを発起し、完走した</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-05-27</div>
+  <div class="post-title"><a href="/post/dp-in-explicit-dag/">[覚書] 陽なDAG上のdpを楽に処理する</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
