@@ -6,35 +6,45 @@
     <description>Recent content in mementos on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 03 Apr 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://inthebloom.github.io/tags/mementos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/mementos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MMA Contest 018参加記録 &#43; 怪文書</title>
       <link>http://inthebloom.github.io/post/mmacontest018/</link>
       <pubDate>Wed, 03 Apr 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/mmacontest018/</guid>
       <description>オンサイトに行ってきました。 MMA Contest 018 - connpass</description>
     </item>
+    
     <item>
       <title>20歳になりました。</title>
       <link>http://inthebloom.github.io/post/20th-birthday/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/20th-birthday/</guid>
-      <description>せっかく20歳になったので、なんか書きます 本日2024年3月1日は私の誕生日です。こんな私でも20歳になってしまいました。 日本では明治時代からの名残(？)から20歳を子供から大人に変化する節目とするそうです。 なんてことでしょう、いつの間にか大人になってしまいました。&#xA;誕生日ではしゃぐノリはあまり好きではないのですが、節目なので記念に何か書いておこうと思います。</description>
+      <description>せっかく20歳になったので、なんか書きます 本日2024年3月1日は私の誕生日です。こんな私でも20歳になってしまいました。 日本では明治時代からの名残(？)から20歳を子供から大人に変化する節目とするそうです。 なんてことでしょう、いつの間にか大人になってしまいました。
+誕生日ではしゃぐノリはあまり好きではないのですが、節目なので記念に何か書いておこうと思います。</description>
     </item>
+    
     <item>
       <title>Ubuntuが死んだのでDebianをインストールする</title>
       <link>http://inthebloom.github.io/post/debian-install/</link>
       <pubDate>Tue, 13 Feb 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/debian-install/</guid>
-      <description>はじめに 2023年の2月あたりからおよそ1年間にわたりUbuntu22.04.3LTSを使用してきた。&#xA;ここ一週間ほど、急にネットワーク接続がおかしくなったり、システムの電源を切ることすらままならなくなる事態が発生してしまった。 いくつか解決策を調べてみたり、応急手当として手元にあったUSBのwifiアダプターをさして(何故かこちらを経由するとうまく接続できる場合があったのである。しかし、特定のネットワークにはつながらないので意味不明であった。)みたりした。&#xA;しかし、私の知識と熱意では到底解決できそうにないし、そもそも私がコストをかけるべきはこんなところではないだろうと思い始めてきたところで、OSの入れ替えを決行することにした。</description>
+      <description>はじめに 2023年の2月あたりからおよそ1年間にわたりUbuntu22.04.3LTSを使用してきた。
+ここ一週間ほど、急にネットワーク接続がおかしくなったり、システムの電源を切ることすらままならなくなる事態が発生してしまった。 いくつか解決策を調べてみたり、応急手当として手元にあったUSBのwifiアダプターをさして(何故かこちらを経由するとうまく接続できる場合があったのである。しかし、特定のネットワークにはつながらないので意味不明であった。)みたりした。
+しかし、私の知識と熱意では到底解決できそうにないし、そもそも私がコストをかけるべきはこんなところではないだろうと思い始めてきたところで、OSの入れ替えを決行することにした。</description>
     </item>
+    
     <item>
       <title>2023年お疲れ様でした。</title>
       <link>http://inthebloom.github.io/post/2023-final/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/2023-final/</guid>
       <description>2023年12月31日 今年も大晦日と呼ばれるこの日がやってきました。 折角この場があるので、何か書きます。 それぞれの章は独立しており、関連性はありません。 なので突拍子もないことが書いてあるかもしれません。 ご了承くださいな。</description>
     </item>
+    
   </channel>
 </rss>

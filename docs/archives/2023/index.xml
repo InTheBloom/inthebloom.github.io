@@ -6,280 +6,402 @@
     <description>Recent content in 2023 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 31 Dec 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://inthebloom.github.io/archives/2023/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2023/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2023年お疲れ様でした。</title>
       <link>http://inthebloom.github.io/post/2023-final/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/2023-final/</guid>
       <description>2023年12月31日 今年も大晦日と呼ばれるこの日がやってきました。 折角この場があるので、何か書きます。 それぞれの章は独立しており、関連性はありません。 なので突拍子もないことが書いてあるかもしれません。 ご了承くださいな。</description>
     </item>
+    
     <item>
       <title>ABC290E - Make it Palindrome</title>
       <link>http://inthebloom.github.io/post/abc290e/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc290e/</guid>
-      <description>問題概要 問題へのリンク&#xA;文字列$X$に対して、$f(X) = $($X$を回分にするために変更する必要のある要素の個数の最小値)と定める。 長さ$N$の数列$A$が与えられるので、$A$のすべての連続部分列の集合$X$として、 $\sum_{x \in X} f(x)$を求めよ。</description>
+      <description>問題概要 問題へのリンク
+文字列$X$に対して、$f(X) = $($X$を回分にするために変更する必要のある要素の個数の最小値)と定める。 長さ$N$の数列$A$が与えられるので、$A$のすべての連続部分列の集合$X$として、 $\sum_{x \in X} f(x)$を求めよ。</description>
     </item>
+    
     <item>
       <title>ABC221E - LEQ</title>
       <link>http://inthebloom.github.io/post/abc221e/</link>
       <pubDate>Sat, 16 Dec 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc221e/</guid>
-      <description>問題概要 問題へのリンク&#xA;長さ$N$の整数列$A = (A_1, A_2, \dots , A_N)$が与えらえる。 $A$の長さ$2$以上の部分列であって、次の条件を満たすものをの総数を$998244353$で割ったあまりを求めよ。</description>
+      <description>問題概要 問題へのリンク
+長さ$N$の整数列$A = (A_1, A_2, \dots , A_N)$が与えらえる。 $A$の長さ$2$以上の部分列であって、次の条件を満たすものをの総数を$998244353$で割ったあまりを求めよ。</description>
     </item>
+    
     <item>
       <title>列をいくつかの連続部分列へ分解する小技</title>
       <link>http://inthebloom.github.io/post/split-into-continuous-subsequences/</link>
       <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/split-into-continuous-subsequences/</guid>
       <description>問題 数列$A$の連続部分列を、$i, j \in [1, N]$かつ$i \leq j$なる$i, j$を選択し、 $A$の$i$項目から$j$項目までを順番を変えずに取り出したものとし、$B_{i, j}$と表記することとする。</description>
     </item>
+    
     <item>
       <title>ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目</title>
       <link>http://inthebloom.github.io/post/uec-advent2023/</link>
       <pubDate>Tue, 05 Dec 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/uec-advent2023/</guid>
       <description>まえがき この記事は、 電通大生による電通大生のためのUEC Advent Calendar 2023 の6日目担当です。</description>
     </item>
+    
     <item>
       <title>ABC330参加記録</title>
       <link>http://inthebloom.github.io/post/abc330/</link>
       <pubDate>Sat, 25 Nov 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc330/</guid>
-      <description>はじめに 本稿は、2023-11-25に行われたABC330の参加記録です。 眠れない夜にはコンテストの参加記録を書くのが良いと古事記にも書いてあった要出典ので更新します。&#xA;戦績 今回の提出記録は以下の通りです。</description>
+      <description>はじめに 本稿は、2023-11-25に行われたABC330の参加記録です。 眠れない夜にはコンテストの参加記録を書くのが良いと古事記にも書いてあった要出典ので更新します。
+戦績 今回の提出記録は以下の通りです。</description>
     </item>
+    
     <item>
       <title>ABC328参加記録</title>
       <link>http://inthebloom.github.io/post/abc328/</link>
       <pubDate>Sun, 12 Nov 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc328/</guid>
-      <description>はじめに 本稿は、2023-11-11に行われたABC328の参加記録です。&#xA;戦績 今回の提出は以下の通りでした。&#xA;AからEの5問正解できました。 今回のレーティング変動は以下の通りでした。</description>
+      <description>はじめに 本稿は、2023-11-11に行われたABC328の参加記録です。
+戦績 今回の提出は以下の通りでした。
+AからEの5問正解できました。 今回のレーティング変動は以下の通りでした。</description>
     </item>
+    
     <item>
       <title>ABC100D - Patisserie ABC</title>
       <link>http://inthebloom.github.io/post/abc100d/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc100d/</guid>
-      <description>問題概要 問題へのリンク&#xA;$N$種類のケーキがある。$i$種類目のケーキは「綺麗さ」$x_i$、「おいしさ」$y_i$、「人気度」$z_i$を持っている。 このうち$M$種類のケーキを選んで食べる。ただし、同じ種類のケーキを2つとることはできない。&#xA;選んだ$M$種類のケーキに対して、スコアを $\left| \displaystyle\sum_{i=1}^M x_i \right| + \left| \displaystyle\sum_{i=1}^M y_i \right| + \left| \displaystyle\sum_{i=1}^M z_i \right|$ と定める。 スコアの最大値を求めよ。</description>
+      <description>問題概要 問題へのリンク
+$N$種類のケーキがある。$i$種類目のケーキは「綺麗さ」$x_i$、「おいしさ」$y_i$、「人気度」$z_i$を持っている。 このうち$M$種類のケーキを選んで食べる。ただし、同じ種類のケーキを2つとることはできない。
+選んだ$M$種類のケーキに対して、スコアを $\left| \displaystyle\sum_{i=1}^M x_i \right| + \left| \displaystyle\sum_{i=1}^M y_i \right| + \left| \displaystyle\sum_{i=1}^M z_i \right|$ と定める。 スコアの最大値を求めよ。</description>
     </item>
+    
     <item>
       <title>ABC327参加記録</title>
       <link>http://inthebloom.github.io/post/abc327/</link>
       <pubDate>Sun, 05 Nov 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc327/</guid>
-      <description>はじめに 本稿は、2023-11-04に行われたABC327の参加記録です。&#xA;戦績 今回の提出状況は次の通りです。&#xA;AからEまでの5問正解できました。 パフォーマンスは1513で、 レーティング変化は1207→1241(+34)でした。</description>
+      <description>はじめに 本稿は、2023-11-04に行われたABC327の参加記録です。
+戦績 今回の提出状況は次の通りです。
+AからEまでの5問正解できました。 パフォーマンスは1513で、 レーティング変化は1207→1241(+34)でした。</description>
     </item>
+    
     <item>
       <title>ABC190F - Shift and Inversions</title>
       <link>http://inthebloom.github.io/post/abc190f/</link>
       <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc190f/</guid>
-      <description>問題概要 問題へのリンク&#xA;$0$から$N-1$までの整数をちょうど一つづつ含む数列$A$が与えられる。 $k \in \mathbb{Z}$に対して、数列$B$を次のように定める。 $$ \begin{equation*} B \coloneqq \{b_i\}_{i=0}^{N-1}, ~ b_i = a_{i+k ~ \mathrm{mod} ~ N} \end{equation*} $$ $k = 0, 1, 2, \dots , N-1$のそれぞれに対して、$B$の転倒数を求めよ。</description>
+      <description>問題概要 問題へのリンク
+$0$から$N-1$までの整数をちょうど一つづつ含む数列$A$が与えられる。 $k \in \mathbb{Z}$に対して、数列$B$を次のように定める。 $$ \begin{equation*} B \coloneqq \{b_i\}_{i=0}^{N-1}, ~ b_i = a_{i+k ~ \mathrm{mod} ~ N} \end{equation*} $$ $k = 0, 1, 2, \dots , N-1$のそれぞれに対して、$B$の転倒数を求めよ。</description>
     </item>
+    
     <item>
       <title>ABC235E、あるいはクエリ並列処理</title>
       <link>http://inthebloom.github.io/post/abc235e/</link>
       <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc235e/</guid>
-      <description>問題概要 問題&#xA;辺の重みがすべて異なる無向連結グラフ$G$が与えられる。 さらに、クエリ$i$で$G$中のどの辺とも異なる重みをもつ辺$(u_i, v_i, w_i)$が与えられる。 クエリ$i$で与えられた辺を$G$に追加したグラフ$G&amp;rsquo;$を考える。 すべての$i$に対して、辺$(u_i, v_i, w_i)$は$G&amp;rsquo;$の最小全域木に含まれるか判定せよ。</description>
+      <description>問題概要 問題
+辺の重みがすべて異なる無向連結グラフ$G$が与えられる。 さらに、クエリ$i$で$G$中のどの辺とも異なる重みをもつ辺$(u_i, v_i, w_i)$が与えられる。 クエリ$i$で与えられた辺を$G$に追加したグラフ$G&amp;rsquo;$を考える。 すべての$i$に対して、辺$(u_i, v_i, w_i)$は$G&amp;rsquo;$の最小全域木に含まれるか判定せよ。</description>
     </item>
+    
     <item>
       <title>PG BATTLE 2023参加記録</title>
       <link>http://inthebloom.github.io/post/pgbattle2023/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/pgbattle2023/</guid>
       <description>始まりは突然に 10月9日に、やきとりさん(@yktr_drm06)からPG BATTLEに誘われて、 私、やきとりさん、ryotaさん(@95s7k84695a)のチームで参加することになりました。</description>
     </item>
+    
     <item>
       <title>Functional Graphのサイクル検出をいい感じに</title>
       <link>http://inthebloom.github.io/post/functional-graph-cycle/</link>
       <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/functional-graph-cycle/</guid>
       <description>はじめに グラフ表現に帰着できる問題を考察していると、Functional Graphと呼ばれるグラフのサイクル検出に帰着する場合があります。 本稿では、Functional Graphのサイクル検出の比較的簡単な実装を紹介します。</description>
     </item>
+    
     <item>
       <title>yukicoder contest407参加記録</title>
       <link>http://inthebloom.github.io/post/yuki407/</link>
       <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/yuki407/</guid>
-      <description>はじめに 本稿は2023-10-06に行われたyukicoder contest 407の参加記録です。&#xA;戦績 雑振り返り A - napsack Problem?</description>
+      <description>はじめに 本稿は2023-10-06に行われたyukicoder contest 407の参加記録です。
+戦績 雑振り返り A - napsack Problem?</description>
     </item>
+    
     <item>
       <title>割れるし割りたいのに割れない数を割る方法</title>
       <link>http://inthebloom.github.io/post/mod-division-tech/</link>
       <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/mod-division-tech/</guid>
       <description>状況設定 $x, ~ y, ~ z \in \mathbb N$ $x\%y = 0$ $1 &amp;lt; \mathrm{gcd}(y, z)$ $x$は陽に求められないほど大きく、$y$、$z$は常識的な大きさ 問題 $xy^{-1}$を$z$で割った非負最小剰余を求めよ。</description>
     </item>
+    
     <item>
       <title>ワーシャル・フロイド法について調べて、納得したこと</title>
       <link>http://inthebloom.github.io/post/floyd-warshall/</link>
       <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/floyd-warshall/</guid>
-      <description>はじめに 辺に任意の重みがある$N$頂点有向グラフ(ネットワーク)において、負の長さの閉路が存在しないとき、 全点対の最短経路を$O(N^3)$時間で求めるワーシャル・フロイド法と呼ばれるアルゴリズムが存在する。&#xA;本稿では、筆者がワーシャル・フロイド法について調べ、理解したことを記録する。&#xA;ワーシャル・フロイド法でできるもの 負閉路が存在しないネットワークにおいて、任意の2頂点間の最短経路を求める。</description>
+      <description>はじめに 辺に任意の重みがある$N$頂点有向グラフ(ネットワーク)において、負の長さの閉路が存在しないとき、 全点対の最短経路を$O(N^3)$時間で求めるワーシャル・フロイド法と呼ばれるアルゴリズムが存在する。
+本稿では、筆者がワーシャル・フロイド法について調べ、理解したことを記録する。
+ワーシャル・フロイド法でできるもの 負閉路が存在しないネットワークにおいて、任意の2頂点間の最短経路を求める。</description>
     </item>
+    
     <item>
       <title>ABC322参加記録</title>
       <link>http://inthebloom.github.io/post/abc322/</link>
       <pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc322/</guid>
-      <description>はじめに 本稿は、2023/09/30に行われたABC322の参加記録です。&#xA;戦績 今回の提出状況は次の通りです。&#xA;AからDまでの5完でした。パフォーマンス1480で、レーティング変化は1195 =&amp;gt; 1227でした。</description>
+      <description>はじめに 本稿は、2023/09/30に行われたABC322の参加記録です。
+戦績 今回の提出状況は次の通りです。
+AからDまでの5完でした。パフォーマンス1480で、レーティング変化は1195 =&amp;gt; 1227でした。</description>
     </item>
+    
     <item>
       <title>ABC270E - Apple Baskets on Circle</title>
       <link>http://inthebloom.github.io/post/abc270e/</link>
       <pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc270e/</guid>
-      <description>問題概要 問題へのリンク&#xA;円環状に並べてある$1$から$N$の番号が付いた$N$個のかごがある。 かごは$1$から$N$まで順番に並んでおり、かご$N$の隣にはかご$1$がある。&#xA;かご$i$にはりんごが$A_i$個入っている。</description>
+      <description>問題概要 問題へのリンク
+円環状に並べてある$1$から$N$の番号が付いた$N$個のかごがある。 かごは$1$から$N$まで順番に並んでおり、かご$N$の隣にはかご$1$がある。
+かご$i$にはりんごが$A_i$個入っている。</description>
     </item>
+    
     <item>
       <title>ABC202D - aab aba baa</title>
       <link>http://inthebloom.github.io/post/abc202d/</link>
       <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc202d/</guid>
-      <description>問題概要 問題へのリンク&#xA;A個のaとB個のbからなる文字列であって、辞書順でK番目のものを求めよ。&#xA;制約&#xA;1 &amp;lt;= A, B &amp;lt;= 30 辞書順でK番目の文字列が存在する。 解法 まず、問題文の条件を満たす文字列は$\displaystyle\frac{(A+B)!</description>
+      <description>問題概要 問題へのリンク
+A個のaとB個のbからなる文字列であって、辞書順でK番目のものを求めよ。
+制約
+1 &amp;lt;= A, B &amp;lt;= 30 辞書順でK番目の文字列が存在する。 解法 まず、問題文の条件を満たす文字列は$\displaystyle\frac{(A+B)!</description>
     </item>
+    
     <item>
       <title>ABC321参加してきた。</title>
       <link>http://inthebloom.github.io/post/abc321/</link>
       <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc321/</guid>
-      <description>久しぶりに参加記録を書きます。 ここ1か月くらい参加記録をずっとさぼっていましたが、hugoに移行したことでだいぶん楽になったので今週はちゃんと書きます。&#xA;本稿はABC321の参加記録です。&#xA;戦績 今回の提出は以下の通りでした。</description>
+      <description>久しぶりに参加記録を書きます。 ここ1か月くらい参加記録をずっとさぼっていましたが、hugoに移行したことでだいぶん楽になったので今週はちゃんと書きます。
+本稿はABC321の参加記録です。
+戦績 今回の提出は以下の通りでした。</description>
     </item>
+    
     <item>
       <title>InTheDayDreamをhugoに移行するためにやったことたち</title>
       <link>http://inthebloom.github.io/post/hugo-setting/</link>
       <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/hugo-setting/</guid>
-      <description>手動ブログ運営はしんどい！ さて、皆様はhatenablogなどのサービスを全く介さずに、単にインターネット上の置き場所にWebページを展開したことがありますでしょうか？ 私がしばらく運営している当ブログは、github pagesを利用した完全な手動運用のサイトです。&#xA;まあこれが辛いんです結構</description>
+      <description>手動ブログ運営はしんどい！ さて、皆様はhatenablogなどのサービスを全く介さずに、単にインターネット上の置き場所にWebページを展開したことがありますでしょうか？ 私がしばらく運営している当ブログは、github pagesを利用した完全な手動運用のサイトです。
+まあこれが辛いんです結構</description>
     </item>
+    
     <item>
       <title>ABC315参加記録</title>
       <link>http://inthebloom.github.io/post/abc315/</link>
       <pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc315/</guid>
-      <description>はじめに 本稿は2023/8/19に行われたABC315の参加記録です。&#xA;戦績 今回の提出は以下のとおりです。&#xA;レーティング変化は以下のとおりです。</description>
+      <description>はじめに 本稿は2023/8/19に行われたABC315の参加記録です。
+戦績 今回の提出は以下のとおりです。
+レーティング変化は以下のとおりです。</description>
     </item>
+    
     <item>
       <title>繰り返し二乗法について</title>
       <link>http://inthebloom.github.io/post/modpow/</link>
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/modpow/</guid>
-      <description>はじめに この度私のライブラリに冪乗の余りを求める、いわゆるmodPow関数を追加しました。 丁度いい機会ということで、本稿ではmodpowの仕組みを説明し、詳細な実装方法と実装例を示します。 数学をガバっていたらすみません。&#xA;modpowとは 以下、$\times{}$は整数の積を表します。</description>
+      <description>はじめに この度私のライブラリに冪乗の余りを求める、いわゆるmodPow関数を追加しました。 丁度いい機会ということで、本稿ではmodpowの仕組みを説明し、詳細な実装方法と実装例を示します。 数学をガバっていたらすみません。
+modpowとは 以下、$\times{}$は整数の積を表します。</description>
     </item>
+    
     <item>
       <title>ABC310参加記録</title>
       <link>http://inthebloom.github.io/post/abc310/</link>
       <pubDate>Mon, 17 Jul 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc310/</guid>
-      <description>はじめに 本稿は、2023/7/15に開催されたABC310の参加記録となっています。&#xA;戦績 まずは、今回の戦績です。 A,B,Cの3完で、パフォーマンスは1142で、 レーティング変化は961=&amp;gt;981(+20)でした。</description>
+      <description>はじめに 本稿は、2023/7/15に開催されたABC310の参加記録となっています。
+戦績 まずは、今回の戦績です。 A,B,Cの3完で、パフォーマンスは1142で、 レーティング変化は961=&amp;gt;981(+20)でした。</description>
     </item>
+    
     <item>
       <title>ABC309参加記録</title>
       <link>http://inthebloom.github.io/post/abc309/</link>
       <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc309/</guid>
-      <description>始めに 本稿は2023/7/8に開催された、ABC309の参加記録です。&#xA;戦績 今回の戦績を紹介します。 A, B, C, D, Eの5完で、 パフォーマンスが1130で、レーティング変化が964=&amp;gt;982でした。 以下は今回の提出です。</description>
+      <description>始めに 本稿は2023/7/8に開催された、ABC309の参加記録です。
+戦績 今回の戦績を紹介します。 A, B, C, D, Eの5完で、 パフォーマンスが1130で、レーティング変化が964=&amp;gt;982でした。 以下は今回の提出です。</description>
     </item>
+    
     <item>
       <title>unstableをstableにする小技</title>
       <link>http://inthebloom.github.io/post/sorttech/</link>
       <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/sorttech/</guid>
-      <description>はじめに 先日(2023/7/1)のABC308のC問題にややこしいソート問題が出ました。 本稿はその問題を簡潔に解く実装のアイディアの紹介です。&#xA;無理やりstable化 標準ライブラリで一番簡単に使えるソートは安定ソートでないことが多いです。 このため、競技プログラミングでよくある2値以上を取る要素のソートのときなどに、 もとの順序が破壊されて困ることがあります。 これを解消するには、比較関数を自炊してソートに渡してあげればよいです。</description>
+      <description>はじめに 先日(2023/7/1)のABC308のC問題にややこしいソート問題が出ました。 本稿はその問題を簡潔に解く実装のアイディアの紹介です。
+無理やりstable化 標準ライブラリで一番簡単に使えるソートは安定ソートでないことが多いです。 このため、競技プログラミングでよくある2値以上を取る要素のソートのときなどに、 もとの順序が破壊されて困ることがあります。 これを解消するには、比較関数を自炊してソートに渡してあげればよいです。</description>
     </item>
+    
     <item>
       <title>ABC307参加記録</title>
       <link>http://inthebloom.github.io/post/abc307/</link>
       <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc307/</guid>
-      <description>はじめに 本稿は、2023年6月24日に行われたABC307の参加記録です。&#xA;戦績 今回の戦績です。 今回はパフォーマンス1166で、 レート変動は842-&amp;gt;879でした。</description>
+      <description>はじめに 本稿は、2023年6月24日に行われたABC307の参加記録です。
+戦績 今回の戦績です。 今回はパフォーマンス1166で、 レート変動は842-&amp;gt;879でした。</description>
     </item>
+    
     <item>
       <title>KaTeX導入してみる</title>
       <link>http://inthebloom.github.io/post/katex/</link>
       <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/katex/</guid>
-      <description>KaTeXを使ってみる $\LaTeX{}$風の数式を表示できるJavaScriptライブラリ(らしい)である$\KaTeX{}$を導入してみました。 本稿では、$\KaTeX$の紹介と、自分がどうやって導入したかを説明します。&#xA;注意！ 筆者は$\KaTeX{}$及び$\LaTeX{}$に全く詳しくありません。 内容がガバガバかもしれないです。</description>
+      <description>KaTeXを使ってみる $\LaTeX{}$風の数式を表示できるJavaScriptライブラリ(らしい)である$\KaTeX{}$を導入してみました。 本稿では、$\KaTeX$の紹介と、自分がどうやって導入したかを説明します。
+注意！ 筆者は$\KaTeX{}$及び$\LaTeX{}$に全く詳しくありません。 内容がガバガバかもしれないです。</description>
     </item>
+    
     <item>
       <title>ABC99C - Strange Bank</title>
       <link>http://inthebloom.github.io/post/abc99c/</link>
       <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc99c/</guid>
-      <description>はじめに 個人的に比較的難しく、教育的な動的計画法の問題に出会ったので、メモを残しておく。 防備録的な色合いが強いので、私にとって明らかなことは書かない。&#xA;問題 ABC99C Strange Bank</description>
+      <description>はじめに 個人的に比較的難しく、教育的な動的計画法の問題に出会ったので、メモを残しておく。 防備録的な色合いが強いので、私にとって明らかなことは書かない。
+問題 ABC99C Strange Bank</description>
     </item>
+    
     <item>
       <title>ABC304参加記録</title>
       <link>http://inthebloom.github.io/post/abc304/</link>
       <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc304/</guid>
-      <description>はじめに 競技プログラミングに対してやる気がわかない夜は、コンテストの参加記録を書こう。 そうしよう。&#xA;というわけで、ABC304の参加記録です。&#xA;戦績 残念ながらジャッジにトラブルがあったようで、今回のコンテストはunratedになってしまいました。 そのため特にレート変動はありません。</description>
+      <description>はじめに 競技プログラミングに対してやる気がわかない夜は、コンテストの参加記録を書こう。 そうしよう。
+というわけで、ABC304の参加記録です。
+戦績 残念ながらジャッジにトラブルがあったようで、今回のコンテストはunratedになってしまいました。 そのため特にレート変動はありません。</description>
     </item>
+    
     <item>
       <title>MMA Contest 015 参加記録</title>
       <link>http://inthebloom.github.io/post/mmacontest15/</link>
       <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/mmacontest15/</guid>
-      <description>はじめてのオンサイト、行ってキタ！ 電気通信大学にはMMAという格闘技みたいな名前のサークルがあります。 先日2023年5月28日、そのサークルの有志がオンサイトコンテストを開いていたので、(ヒマなので)参加してきました！&#xA;MMA Contest 015というオンサイト競技プログラミングコンテストを開催します！</description>
+      <description>はじめてのオンサイト、行ってキタ！ 電気通信大学にはMMAという格闘技みたいな名前のサークルがあります。 先日2023年5月28日、そのサークルの有志がオンサイトコンテストを開いていたので、(ヒマなので)参加してきました！
+MMA Contest 015というオンサイト競技プログラミングコンテストを開催します！</description>
     </item>
+    
     <item>
       <title>ABC300参加記録</title>
       <link>http://inthebloom.github.io/post/abc300/</link>
       <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc300/</guid>
-      <description>ABC参加しました。 今回もABC300に参加してきました。 久しぶりに参加記録を書きます。&#xA;戦績 まずは、今回の戦績をざっくり振り返ります。 以下は今回の提出です。</description>
+      <description>ABC参加しました。 今回もABC300に参加してきました。 久しぶりに参加記録を書きます。
+戦績 まずは、今回の戦績をざっくり振り返ります。 以下は今回の提出です。</description>
     </item>
+    
     <item>
       <title>ABC296参加記録</title>
       <link>http://inthebloom.github.io/post/abc296/</link>
       <pubDate>Mon, 03 Apr 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc296/</guid>
-      <description>ABC参加してきました。 こんにちは。今回のABC296も参加してきましたので、軽い参加記録です。&#xA;戦績 今回の戦績についてです。&#xA;今回はA, B, Cの3完、パフォーマンス650で、レート変動は627→630(+3)でした。</description>
+      <description>ABC参加してきました。 こんにちは。今回のABC296も参加してきましたので、軽い参加記録です。
+戦績 今回の戦績についてです。
+今回はA, B, Cの3完、パフォーマンス650で、レート変動は627→630(+3)でした。</description>
     </item>
+    
     <item>
       <title>ABC294参加記録</title>
       <link>http://inthebloom.github.io/post/abc294/</link>
       <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc294/</guid>
-      <description>ABC294に参加しました。 こんにちは。今週もABC294に参加してきましたので，その参加記録です。&#xA;戦績など まずは，今回の戦績です。&#xA;A, B, C, Dの4完でした。今回のパフォーマンスは626で，レート変動は633→632(-1)でした。</description>
+      <description>ABC294に参加しました。 こんにちは。今週もABC294に参加してきましたので，その参加記録です。
+戦績など まずは，今回の戦績です。
+A, B, C, Dの4完でした。今回のパフォーマンスは626で，レート変動は633→632(-1)でした。</description>
     </item>
+    
     <item>
       <title>ABC293参加記録</title>
       <link>http://inthebloom.github.io/post/abc293/</link>
       <pubDate>Fri, 17 Mar 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc293/</guid>
-      <description>ABC293参加してきました。(今更感) もっとエントリ更新に力を入れると言っておきながらABC292の分をサボってしまいました。ABC293からすでに6日くらい経過していますが、一応有言実行ということで参加記録です。(すまんかった)&#xA;総評 今回の戦績です。&#xA;A, Bの2完でした。パフォーマンス375、レート変動553→535(-18)でした。</description>
+      <description>ABC293参加してきました。(今更感) もっとエントリ更新に力を入れると言っておきながらABC292の分をサボってしまいました。ABC293からすでに6日くらい経過していますが、一応有言実行ということで参加記録です。(すまんかった)
+総評 今回の戦績です。
+A, Bの2完でした。パフォーマンス375、レート変動553→535(-18)でした。</description>
     </item>
+    
     <item>
       <title>ABC291参加記録 ~ DPお前もう船降りろ ~</title>
       <link>http://inthebloom.github.io/post/abc291/</link>
       <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc291/</guid>
       <description>はじめに 今週もAtCoder Beginners Contest 291に参加してきましたので、軽く参加記録です。</description>
     </item>
+    
     <item>
       <title>ABC290参加記録</title>
       <link>http://inthebloom.github.io/post/abc290/</link>
       <pubDate>Tue, 21 Feb 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc290/</guid>
-      <description>ABC290参加した。 お久しぶりです。最近AtCoderコンテストの参加記録をサボりがちなので、流石にエントリを生成します。&#xA;今週行われたToyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290）は、どうやらオンサイトのコンテストに向けての予選を兼ねているそうで、希望者は好成績を出すことができれば3/18日に行われる決勝イベントに招待されるそうです。なんかすごいですね。</description>
+      <description>ABC290参加した。 お久しぶりです。最近AtCoderコンテストの参加記録をサボりがちなので、流石にエントリを生成します。
+今週行われたToyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290）は、どうやらオンサイトのコンテストに向けての予選を兼ねているそうで、希望者は好成績を出すことができれば3/18日に行われる決勝イベントに招待されるそうです。なんかすごいですね。</description>
     </item>
+    
     <item>
       <title>精説ARC155A</title>
       <link>http://inthebloom.github.io/post/arc155a/</link>
       <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/arc155a/</guid>
       <description>はじめに 先日1月29日にAtCoder Regular Contest 155がありました。ARCのA問題は，ARCがA~Fの6問体制になったARC104から現在に至るまでdifficultyの最大値は緑でした。しかし，今回のA問題は水色でした。</description>
     </item>
+    
     <item>
       <title>ABC284参加記録</title>
       <link>http://inthebloom.github.io/post/abc284/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc284/</guid>
-      <description>今週もABCのお時間になりました。 みなさん，あけましておめでとうございます。本日2023年1月7日は記念すべき新年最初のAtCoder Beginners Contestでした。今週も参加してきたのでいつも通り参加記録です。&#xA;早速余談ですが，皆様は正月休みを有意義に使えましたか？私は久しぶりに帰省して，運動不足解消にと鍋蓋山に登りました。</description>
+      <description>今週もABCのお時間になりました。 みなさん，あけましておめでとうございます。本日2023年1月7日は記念すべき新年最初のAtCoder Beginners Contestでした。今週も参加してきたのでいつも通り参加記録です。
+早速余談ですが，皆様は正月休みを有意義に使えましたか？私は久しぶりに帰省して，運動不足解消にと鍋蓋山に登りました。</description>
     </item>
+    
   </channel>
 </rss>

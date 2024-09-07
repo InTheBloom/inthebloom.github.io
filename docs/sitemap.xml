@@ -3,30 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://inthebloom.github.io/archives/2024/</loc>
-    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://inthebloom.github.io/archives/2024-08/</loc>
-    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
+    <loc>http://inthebloom.github.io/archives/2024-09/</loc>
+    <lastmod>2024-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/archives/</loc>
+    <lastmod>2024-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/</loc>
+    <lastmod>2024-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/post/</loc>
+    <lastmod>2024-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/post/range-kth-smallest/</loc>
+    <lastmod>2024-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/tags/</loc>
+    <lastmod>2024-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/</loc>
+    <lastmod>2024-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
+    <lastmod>2024-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://inthebloom.github.io/archives/2024-08/</loc>
     <lastmod>2024-08-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/tags/c&#43;&#43;/</loc>
     <lastmod>2024-08-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://inthebloom.github.io/</loc>
-    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://inthebloom.github.io/post/</loc>
-    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://inthebloom.github.io/tags/</loc>
-    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://inthebloom.github.io/post/cpp-copy-constructor/</loc>
-    <lastmod>2024-08-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://inthebloom.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2024-08-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/tags/ueccp/</loc>
@@ -60,9 +69,6 @@
     <lastmod>2024-04-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/archives/2024-04/</loc>
-    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://inthebloom.github.io/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/</loc>
     <lastmod>2024-04-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://inthebloom.github.io/post/abc247f/</loc>

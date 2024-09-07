@@ -6,28 +6,36 @@
     <description>Recent content in 2024-05 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 27 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://inthebloom.github.io/archives/2024-05/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2024-05/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[覚書] 陽なDAG上のdpを楽に処理する</title>
       <link>http://inthebloom.github.io/post/dp-in-explicit-dag/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/dp-in-explicit-dag/</guid>
-      <description>定義 本稿におけるDAGとは、次のことを指します。&#xA;有向グラフ$G$であって、任意の$v \in V(G)$に対して次の条件を満たすもの。</description>
+      <description>定義 本稿におけるDAGとは、次のことを指します。
+有向グラフ$G$であって、任意の$v \in V(G)$に対して次の条件を満たすもの。</description>
     </item>
+    
     <item>
       <title>No.2758 RDQ</title>
       <link>http://inthebloom.github.io/post/yukicoder2758/</link>
       <pubDate>Sat, 18 May 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/yukicoder2758/</guid>
-      <description>問題概要 問題へのリンク&#xA;問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$が与えられる。次の$Q$個の質問に答えよ。</description>
+      <description>問題概要 問題へのリンク
+問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$が与えられる。次の$Q$個の質問に答えよ。</description>
     </item>
+    
     <item>
       <title>ABC352参加記録</title>
       <link>http://inthebloom.github.io/post/abc352/</link>
       <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
+      
       <guid>http://inthebloom.github.io/post/abc352/</guid>
-      <description>はじめに いくつかの理由でしばらく更新していませんでしたが、久しぶりに更新することにしました。&#xA;戦績 順位: 771th パフォーマンス: 1697 レーティング変動: 1509 → 1529 (+20) 問題の振り返り ABC352のリンク</description>
+      <description>はじめに いくつかの理由でしばらく更新していませんでしたが、久しぶりに更新することにしました。
+戦績 順位: 771th パフォーマンス: 1697 レーティング変動: 1509 → 1529 (+20) 問題の振り返り ABC352のリンク</description>
     </item>
+    
   </channel>
 </rss>

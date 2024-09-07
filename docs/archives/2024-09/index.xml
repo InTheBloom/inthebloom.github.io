@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2024-09 on InTheDayDream</title>
+    <link>http://inthebloom.github.io/archives/2024-09/</link>
+    <description>Recent content in 2024-09 on InTheDayDream</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 07 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2024-09/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Range Kth Smallestに対する4つの解法と2つの実装例</title>
+      <link>http://inthebloom.github.io/post/range-kth-smallest/</link>
+      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/range-kth-smallest/</guid>
+      <description>問題 $N$要素の数列$A$が与えられる。$Q$個のクエリに解答せよ。
+$A$の$[l _ i, r _ i)$内にある要素の中で$k _ i + 1$番目に小さい値を答える。 $1 \leq N \leq 2 \times 10 ^ 5, \quad 1 \leq Q \leq 2 \times 10 ^ 5, \quad 1 \leq A _ i \leq 10 ^ 9$</description>
+    </item>
+    
+  </channel>
+</rss>
