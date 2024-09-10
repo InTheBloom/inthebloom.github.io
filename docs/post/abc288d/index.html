@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ABC288D - Range Add Query - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=0a2e7b04718fef16d7fd83548574033bb5c6b728" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="ABC288D - Range Add Query - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/abc288d/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="ABC288D - Range Add Query - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/abc288d/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=0a2e7b04718fef16d7fd83548574033bb5c6b728">
+<link rel="stylesheet" href="/css/color.css?c=0a2e7b04718fef16d7fd83548574033bb5c6b728">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=0a2e7b04718fef16d7fd83548574033bb5c6b728">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>ABC288D - Range Add Query</h1>
+
+<span class="sub">Published on 2024-09-10</span><br>
+<span class="sub">Last Modified 2024-09-10</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題概要">問題概要</a>
+      <ul>
+        <li><a href="#問題文">問題文</a></li>
+        <li><a href="#制約">制約</a></li>
+      </ul>
+    </li>
+    <li><a href="#解法">解法</a>
+      <ul>
+        <li><a href="#実装例">実装例</a></li>
+      </ul>
+    </li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<p>想定解法と全然異なる怪しい解法で通したので書きます。</p>
+<h2 id="問題概要">問題概要</h2>
+<p><a href="https://atcoder.jp/contests/abc288/tasks/abc288_d">問題へのリンク</a></p>
+<h3 id="問題文">問題文</h3>
+<p>数列$X = (X _ 1, X _ 2, \dots, X _ n)$が<strong>良い数列</strong>であるとは、次の操作を0回以上行ってすべての要素を$0$に出来る事をいう。</p>
+<ul>
+<li>長さ$K$の範囲と整数$c$を自由に選んで、選んだ区間にあるすべての数に$c$を加算する。</li>
+</ul>
+<p>長さ$N$の数列$A$が与えられる。次の$Q$個のクエリに答えよ。</p>
+<ul>
+<li>$A$の$l _ i$番目から$r _ i$番目までを抜き出した長さ$r _ i - l _ i + 1$の数列が良い数列であるか判定する。</li>
+</ul>
+<h3 id="制約">制約</h3>
+<ul>
+<li>$1 \leq N \leq 2 \times 10 ^ 5$</li>
+<li>$1 \leq K \leq \min(10, N)$</li>
+<li>$-10 ^ 9 \leq A _ i \leq 10 ^ 9$</li>
+<li>$1 \leq Q \leq 2 \times 10 ^ 5$</li>
+<li>$K \leq r _ i - l _ i + 1$</li>
+</ul>
+<h2 id="解法">解法</h2>
+<p>まずクエリ$O(N)$の解法を説明する。
+与えられた数列$X$に対して、次の貪欲法を行う。</p>
+<ul>
+<li>数列の左端から見ていく。今見ている場所が$X _ i$であるとする。そこを左端として区間加算が行えるならば、$c = -X _ i$として区間加算を行う。</li>
+</ul>
+<p>この貪欲法を行った後、すべての要素が$0$であれば<code>Yes</code>である。
+区間加算はimos法等で適切に処理することで$O(N)$で出来るため、クエリ$O(N)$の解法を得た。(正当性: 区間加算はどの順序で行っても結果は変わらない。よって、始点が早いものから行うとしてよい。今見ている場所を$0$以外にするような区間加算をしてしまうと、それ以降の区間加算で戻されることはないので、必ず$0$にするような区間加算をするしかない。)</p>
+<p>この解法をベースに解く。
+上記解法では数列$X$の値が非零である場所が$O(N)$個であるせいでクエリ$O(N)$から落とすことが出来ないでいる。もし仮に非零である要素が十分に少なければ、考慮すべき区間加算の数も少なくすることが出来る。</p>
+<p>非零要素を絞るための準備として、「元の数列$A$を作るときに必要な長さ$K$の区間加算クエリがどうなるか」を考える。
+これを求めるのは簡単で、上記で説明した貪欲法</p>
+<blockquote>
+<ul>
+<li>数列の左端から見ていく。今見ている場所が$X _ i$であるとする。そこを左端として区間加算が行えるならば、$c = -X _ i$として区間加算を行う。</li>
+</ul>
+</blockquote>
+<p>を数列$A$に対して適用してやればよい。(より詳しい方法は実装例を参照せよ。)
+例えば、入力例1に対して以下の図のようになる。</p>
+<div>
+    <img src="/images/abc288d/sample1.jpg" alt="sample1" style="max-height: 50vh;">
+</div>
+<p>図の赤枠はクエリ2で与えられる区間である。</p>
+<p>ここで次の事実に注目する。</p>
+<ul>
+<li>$[l _ i, r _ i - K - 1]$から始まる区間加算は、必ずキャンセルすることが出来る。</li>
+</ul>
+<p>この性質により、クエリ2では-4, -4, -4と+2, +2, +2を<strong>そもそも考慮しなくてよい</strong>ことがわかる。
+結果的に、$(3, 3, 0, 0, 0, 5)$が良い数列であるかを判定する問題と等価になる。</p>
+<p>整理すると、この状況下で考慮すべき区間加算クエリは、</p>
+<ol>
+<li>$l _ i$よりすこし前から始まっていて、区間内に影響するもの。</li>
+<li>$r _ i$よりすこし前から始まっていて、区間内で完結しないもの。</li>
+</ol>
+<p>だけであることがわかる。これで非零要素を$O(K)$個に絞ることが出来た。
+ここからナイーブに操作すると結局$O(N)$時間かかってしまうが、片方の区間加算の影響をもう片方に持っていき、長さ$O(K)$の区間が良い数列であるかを判定するようにすれば良い。
+文章のみで説明するのが厳しいので、再び図を用いる。</p>
+<div>
+    <img src="/images/abc288d/slide.jpg" alt="sample1" style="max-height: 50vh;">
+</div>
+<p>上記図のように、区間加算クエリ2回で幅$K$だけ影響をずらすことが出来る。最終的な移動位置は$O(1)$で求まるため、これで長さが高々$O(K)$である数列が良い数列であるか判定する問題に帰着できた。</p>
+<p>判定はさぼると$O(K ^ 2)$で、いろいろと細かい部分を頑張ると$O(K)$になる。よって全体$O(N + QK)$で解ける。</p>
+<h3 id="実装例">実装例</h3>
+<p>$O(N + QK ^ 2)$である。面倒なのであまり説明はしないが、不明点があればTwitter等で聞いてほしい。</p>
+<p><a href="https://atcoder.jp/contests/abc288/submissions/57626736">提出</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> K<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> K<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> A <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// クエリO(N)かけられないよな～からスタート。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// Kが小さいなぁ～
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// じゃあ逆に、最初の列を幅KのRAQで構築したと考えたらどうだろう。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// -&gt; 重要なのは高々O(K)個のRAQだけで、クエリ区間に含まれるRAQはすべて打ち消すことが出来るじゃないか。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// -&gt; じゃあ、片方に寄せ集めてこれを消せればOKではないですかね？
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> acc <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> raq <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// もらう
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> i<span style="color:#f92672">)</span> acc<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> acc<span style="color:#f92672">[</span>i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// そこから積む値は？
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        raq<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">-</span> acc<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 実際積んでおく
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        acc<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> raq<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">+</span> K <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> acc<span style="color:#f92672">[</span>i <span style="color:#f92672">+</span> K<span style="color:#f92672">]</span> <span style="color:#f92672">-=</span> raq<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> q <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span><span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> v<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        q <span style="color:#f92672">~=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        buf<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> v<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">get</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">reset</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>v<span style="color:#f92672">;</span> q<span style="color:#f92672">)</span> buf<span style="color:#f92672">[</span>v<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        q<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> Q <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> string<span style="color:#f92672">[](</span>Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>z<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Q</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> l<span style="color:#f92672">,</span> r<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>l<span style="color:#f92672">,</span> r<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        l<span style="color:#f92672">--,</span> r<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        reset<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 後ろ側のクエリ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">K</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            add<span style="color:#f92672">(</span>r <span style="color:#f92672">-</span> i<span style="color:#f92672">,</span> raq<span style="color:#f92672">[</span>r <span style="color:#f92672">-</span> i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 前側のクエリ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">K</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">-</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> rem <span style="color:#f92672">=</span> K <span style="color:#f92672">-</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> d <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">-</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">/</span> K<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            add<span style="color:#f92672">(</span>l <span style="color:#f92672">+</span> d <span style="color:#f92672">*</span> K <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> <span style="color:#f92672">(</span>K <span style="color:#f92672">-</span> rem <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">),</span> <span style="color:#f92672">-</span>raq<span style="color:#f92672">[</span>l <span style="color:#f92672">-</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">+</span> d <span style="color:#f92672">*</span> K <span style="color:#f92672">&lt;=</span> r<span style="color:#f92672">)</span> add<span style="color:#f92672">(</span>l <span style="color:#f92672">+</span> d <span style="color:#f92672">*</span> K<span style="color:#f92672">,</span> raq<span style="color:#f92672">[</span>l <span style="color:#f92672">-</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 累積
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> r <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> K<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>cur <span style="color:#f92672">&lt;=</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> cur<span style="color:#f92672">)</span> add<span style="color:#f92672">(</span>cur<span style="color:#f92672">,</span> get<span style="color:#f92672">(</span>cur <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>                cur<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 消せるかトライする。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> r <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> K<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>cur <span style="color:#f92672">&lt;=</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;=</span> cur <span style="color:#f92672">&amp;&amp;</span> cur <span style="color:#f92672">+</span> K <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">K</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                        add<span style="color:#f92672">(</span>cur <span style="color:#f92672">+</span> K <span style="color:#f92672">-</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#f92672">-</span>get<span style="color:#f92672">(</span>cur<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>                cur<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">bool</span> ok <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">2</span> <span style="color:#f92672">*</span> K<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">-</span> i <span style="color:#f92672">&lt;</span> l<span style="color:#f92672">)</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>get<span style="color:#f92672">(</span>r <span style="color:#f92672">-</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> ok <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>ok<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans<span style="color:#f92672">[</span>z<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Yes&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans<span style="color:#f92672">[</span>z<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;No&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Q</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">...)</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.conv <span style="color:#f92672">:</span> to<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.array <span style="color:#f92672">:</span> split<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="終わりに">終わりに</h2>
+<p>今日2時間くらい眺めてたら天啓が降ってきたので解いた。
+天才以外お断りパズルみたいなやつから得られる知見が無さ過ぎて苦しい。
+こういうのから共通点や思考のテクを抽出できる人が強いんだろうなって気持ちになって、すごく不快だった。</p>
+<p>それはそれとして、配列の使用した場所だけを戻すことで計算量を下げるテクいいですよね。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/range-kth-smallest/">Range Kth Smallestに対する4つの解法と2つの実装例</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-09-10</div>
+  <div class="post-title"><a href="/post/abc288d/">ABC288D - Range Add Query</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-09-07</div>
+  <div class="post-title"><a href="/post/range-kth-smallest/">Range Kth Smallestに対する4つの解法と2つの実装例</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-08-17</div>
+  <div class="post-title"><a href="/post/cpp-copy-constructor/">暗黙のコピーコンストラクタにご注意を</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-09-10</div>
+  <div class="post-title"><a href="/post/abc288d/">ABC288D - Range Add Query</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-05-18</div>
+  <div class="post-title"><a href="/post/yukicoder2758/">No.2758 RDQ</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-10</div>
+  <div class="post-title"><a href="/post/abc247f/">ABC247F - Cards</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
