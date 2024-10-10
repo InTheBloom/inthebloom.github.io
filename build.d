@@ -23,6 +23,7 @@ void main () {
 
 bool checkDeleteOrNot () {
     writeln("Do you want to clear the previous directory before building the site? [Y/N]");
+    stdout.flush;
     while (true) {
         auto reply = readln.chomp;
         if (reply == "Y") return true;

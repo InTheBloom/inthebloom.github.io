@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2024-10 on InTheDayDream</title>
+    <link>http://inthebloom.github.io/archives/2024-10/</link>
+    <description>Recent content in 2024-10 on InTheDayDream</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 10 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2024-10/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>比較的シンプルなクイックソートとマージソートの実装</title>
+      <link>http://inthebloom.github.io/post/simple-nlogn-sort/</link>
+      <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/simple-nlogn-sort/</guid>
+      <description>はじめに 比較的頭を壊しにくいクイックソートとマージソートの実装方針を共有します。 オーダーも悪化しません。定数倍はわかりませんが、最適実装に比べて高々2倍とかだと思います。(適当) 実装例はすべてC++です。
+クイックソート 列を与えられたときに適切にswapしながら境界線を探すパートが最難関です。 この部分を2回に分けて行います。</description>
+    </item>
+    
+  </channel>
+</rss>

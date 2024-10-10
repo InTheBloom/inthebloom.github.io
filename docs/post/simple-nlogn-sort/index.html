@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>比較的シンプルなクイックソートとマージソートの実装 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="alternate" href="/index.xml?c=07bd994089f91db7abea1b0b31df841ce2385348" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="比較的シンプルなクイックソートとマージソートの実装 - InTheDayDream">
+</meta>
+<meta property="og:url" content="http://inthebloom.github.io/post/simple-nlogn-sort/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" /></meta>
+<meta name="twitter:site" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:creator" content="@UU9782wsEdANDhp"></meta>
+<meta name="twitter:title" content="比較的シンプルなクイックソートとマージソートの実装 - InTheDayDream"></meta>
+<meta name="twitter:url" content="http://inthebloom.github.io/post/simple-nlogn-sort/"></meta>
+<meta name="twitter:description" content=""></meta>
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=07bd994089f91db7abea1b0b31df841ce2385348">
+<link rel="stylesheet" href="/css/color.css?c=07bd994089f91db7abea1b0b31df841ce2385348">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=07bd994089f91db7abea1b0b31df841ce2385348">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>比較的シンプルなクイックソートとマージソートの実装</h1>
+
+<span class="sub">Published on 2024-10-10</span><br>
+<span class="sub">Last Modified 2024-10-10</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#クイックソート">クイックソート</a></li>
+    <li><a href="#マージソート">マージソート</a></li>
+    <li><a href="#参考">参考</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="はじめに">はじめに</h2>
+<p>比較的頭を壊しにくいクイックソートとマージソートの実装方針を共有します。
+オーダーも悪化しません。定数倍はわかりませんが、最適実装に比べて高々2倍とかだと思います。(適当)
+実装例はすべてC++です。</p>
+<h2 id="クイックソート">クイックソート</h2>
+<p>列を与えられたときに適切にswapしながら境界線を探すパートが最難関です。
+この部分を2回に分けて行います。</p>
+<p>1回目は前から走査していき、ピボット未満の値が出てきたらその時点での先頭とswapします。
+2回目は後ろから走査していき、ピボット超過の値が出てきたらその時点で末尾とswapします。</p>
+<p>こうすることで列全体は(ピボット未満)(ピボットと等しい)(ピボット超過)と分けることが出来て、さらにこれら境界線も手に入ります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;random&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;utility&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cassert&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">T</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> quick_sort (std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;&amp;</span> A, size_t L, size_t R) {
+</span></span><span style="display:flex;"><span>    assert(<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> L);
+</span></span><span style="display:flex;"><span>    assert(R <span style="color:#f92672">&lt;=</span> A.size());
+</span></span><span style="display:flex;"><span>    assert(L <span style="color:#f92672">&lt;=</span> R);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (R <span style="color:#f92672">-</span> L <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> (L), r <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> (R);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>random_device rd;
+</span></span><span style="display:flex;"><span>    T piv <span style="color:#f92672">=</span> A[l <span style="color:#f92672">+</span> rd() <span style="color:#f92672">%</span> (r <span style="color:#f92672">-</span> l)];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> lb <span style="color:#f92672">=</span> l, rb <span style="color:#f92672">=</span> r;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// [l, lb)はpiv未満の値が入る。[rb, r)はpiv超過の値が入る。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> l; i <span style="color:#f92672">&lt;</span> r; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (A[i] <span style="color:#f92672">&lt;</span> piv) std<span style="color:#f92672">::</span>swap(A[i], A[lb<span style="color:#f92672">++</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> r <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; l <span style="color:#f92672">&lt;=</span> i; i<span style="color:#f92672">--</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (piv <span style="color:#f92672">&lt;</span> A[i]) std<span style="color:#f92672">::</span>swap(A[i], A[<span style="color:#f92672">--</span>rb]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    quick_sort(A, l, lb);
+</span></span><span style="display:flex;"><span>    quick_sort(A, rb, r);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A(N);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>random_device rd;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> v : A) v <span style="color:#f92672">=</span> rd() <span style="color:#f92672">%</span> <span style="color:#ae81ff">10000</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> A.size(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> A[i] <span style="color:#f92672">&lt;&lt;</span> (i <span style="color:#f92672">==</span> A.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;\n&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    quick_sort(A, <span style="color:#ae81ff">0</span>, A.size());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> A.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        assert(A[i] <span style="color:#f92672">&lt;=</span> A[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> A.size(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> A[i] <span style="color:#f92672">&lt;&lt;</span> (i <span style="color:#f92672">==</span> A.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;\n&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>実行例:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>6469 715 7203 2864 4958 3626 9044 2876 7437 248
+</span></span><span style="display:flex;"><span>248 715 2864 2876 3626 4958 6469 7203 7437 9044
+</span></span></code></pre></div><p>これ実装しているときに普通にバグらせていたのは内緒です。
+注意点としては</p>
+<ol>
+<li>再帰の打ち切り</li>
+<li>ピボット値の選択</li>
+</ol>
+<p>あたりです。</p>
+<h2 id="マージソート">マージソート</h2>
+<p>再帰にかけた後に列をマージする部分が面倒です。この部分を工夫します。</p>
+<p>列をマージするときに一時的に作業配列を使う部分で、左半分を昇順、右半分を降順に詰めます。
+つまり、作業配列に詰めた後に大小関係が(小 大 小)となるようにします。
+こうすると、常に右端と左端の大小だけを気にすればよくなり、片方を使い切ったので&hellip;みたいな場合分けが消えます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;random&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;utility&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cassert&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">T</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> merge_sort (std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;&amp;</span> A, size_t L, size_t R) {
+</span></span><span style="display:flex;"><span>    assert(<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> L);
+</span></span><span style="display:flex;"><span>    assert(R <span style="color:#f92672">&lt;=</span> A.size());
+</span></span><span style="display:flex;"><span>    assert(L <span style="color:#f92672">&lt;=</span> R);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (R <span style="color:#f92672">-</span> L <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> tmp;
+</span></span><span style="display:flex;"><span>    tmp.resize(std<span style="color:#f92672">::</span>max(R <span style="color:#f92672">-</span> L, tmp.size()));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> (L), r <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> (R);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> (l <span style="color:#f92672">+</span> r) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    merge_sort(A, l, m);
+</span></span><span style="display:flex;"><span>    merge_sort(A, m, r);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> m <span style="color:#f92672">-</span> l; i<span style="color:#f92672">++</span>) tmp[l <span style="color:#f92672">+</span> i] <span style="color:#f92672">=</span> A[l <span style="color:#f92672">+</span> i];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> r <span style="color:#f92672">-</span> m; i<span style="color:#f92672">++</span>) tmp[r <span style="color:#f92672">-</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> A[m <span style="color:#f92672">+</span> i];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// マージ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> tl <span style="color:#f92672">=</span> l, tr <span style="color:#f92672">=</span> r <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> r <span style="color:#f92672">-</span> l; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (tmp[tl] <span style="color:#f92672">&lt;</span> tmp[tr]) {
+</span></span><span style="display:flex;"><span>            A[l <span style="color:#f92672">+</span> i] <span style="color:#f92672">=</span> tmp[tl];
+</span></span><span style="display:flex;"><span>            tl<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            A[l <span style="color:#f92672">+</span> i] <span style="color:#f92672">=</span> tmp[tr];
+</span></span><span style="display:flex;"><span>            tr<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A(N);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>random_device rd;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> v : A) v <span style="color:#f92672">=</span> rd() <span style="color:#f92672">%</span> <span style="color:#ae81ff">10000</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> A.size(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> A[i] <span style="color:#f92672">&lt;&lt;</span> (i <span style="color:#f92672">==</span> A.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;\n&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    merge_sort(A, <span style="color:#ae81ff">0</span>, A.size());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> A.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        assert(A[i] <span style="color:#f92672">&lt;=</span> A[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> A.size(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> A[i] <span style="color:#f92672">&lt;&lt;</span> (i <span style="color:#f92672">==</span> A.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;\n&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39; &#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>実行例:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>9033 6639 7992 2387 8486 7967 3180 6807 3361 9980
+</span></span><span style="display:flex;"><span>2387 3180 3361 6639 6807 7967 7992 8486 9033 9980
+</span></span></code></pre></div><p>一時配列に詰める部分でバグりやすいので気を付けてください。そこ以外は変数名が衝突しなければ難しくないはずです。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li>クイックソート: アルゴリズムイントロダクション(版などは忘れました&hellip;)</li>
+<li>マージソート: UECの授業資料（一般公開されていないやつ）</li>
+</ul>
+<h2 id="終わりに">終わりに</h2>
+<p>g++でコンパイルオプションとして<code>-D_GLIBCXX_DEBUG</code>をつけると範囲外参照を検出してくれるのですが、何行目で落ちてるとか言ってくれなくてかなりデバッグしにくかったです。
+これどうにかなりませんか？</p>
+<p>このエントリ7月に100行くらい書いた状態でずっと放置していたのが最近発見されたので完成させました。</p>
+<p>みなさんはこの実装方針どう思いますか？意見がある方は<a href="https://x.com/UU9782wsEdANDhp">Twitter/X</a>までどうぞ。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/abc288d/">ABC288D - Range Add Query</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-10-10</div>
+  <div class="post-title"><a href="/post/simple-nlogn-sort/">比較的シンプルなクイックソートとマージソートの実装</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-09-07</div>
+  <div class="post-title"><a href="/post/range-kth-smallest/">Range Kth Smallestに対する4つの解法と2つの実装例</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-15</div>
+  <div class="post-title"><a href="/post/functional-graph-simulating/">[メモ] Functional Graph上のシミュレーション</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
