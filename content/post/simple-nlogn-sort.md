@@ -2,7 +2,7 @@
 title: 比較的シンプルなクイックソートとマージソートの実装
 # description: 
 
-date: 2024-07-02
+date: 2024-10-10
 # lastmod: yyyy-mm-dd
 # hidedate: true
 
@@ -12,121 +12,188 @@ tags:
   - アルゴリズム
 archives:
   - 2024
-  - 2024-07
+  - 2024-10
 # sample
 # - yyyy
 # - yyyy-mm
 
-draft: true
 math: true
 # toc: false
 # build: {list: never}
 ---
 
-## ソートを書きませんか？
-特に仮定のない比較によるソートが$\mathcal{O}(N \log N)$時間でできることは有名な事実でしょう。
-しかし、実際に実装してみてと言われると困る人も多いのではないでしょうか。
-本エントリでは、比較的バグらせにくく、楽に(当社比)クイックソート/マージソートを書く方法を紹介します。
-
-「クイックソートは授業で一回実装したけどインデックス管理がヤバすぎて信頼性が無いなぁ」と思っている方におすすめです。
-
-## お断り
-- 実装例ではC++を使用し、`std::vector<int>`をソートします。
-- 再帰を使用します。
-- 定数倍最適ではないです。
-
-## アイデアの発見元
-最後に書いても読まれなさそうなので、前に書きます。
-クイックソートはアルゴリズムイントロダクションのソートのところ、マージソートは電通大の授業資料で見ました。
-前者はどの本だったか覚えておらず、後者は外部非公開資料なので引用が書けません。探したい人は頑張ってください。
+## はじめに
+比較的頭を壊しにくいクイックソートとマージソートの実装方針を共有します。
+オーダーも悪化しません。定数倍はわかりませんが、最適実装に比べて高々2倍とかだと思います。(適当)
+実装例はすべてC++です。
 
 ## クイックソート
-よくある実装は以下のようなものです。
+列を与えられたときに適切にswapしながら境界線を探すパートが最難関です。
+この部分を2回に分けて行います。
 
-1. ピボットを取る。
-2. 左からピボットより大きなものを探す。
-3. 右からピボットより小さなものを探す。
-4. 両者の位置関係をみて、交換したり再帰に回したりする。
+1回目は前から走査していき、ピボット未満の値が出てきたらその時点での先頭とswapします。
+2回目は後ろから走査していき、ピボット超過の値が出てきたらその時点で末尾とswapします。
 
-ネット上で発見した同様の実装:
-- [クイックソート - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%82%BD%E3%83%BC%E3%83%88)
-- [クイックソート quick sort](http://www3.u-toyama.ac.jp/math/algorithm/9.handout.pdf)
-
-この実装では、手順2、3、4あたりでoff-by-oneが発生して壊れたり、普通に配列外参照したり、再帰の区間がおかしくて無限再帰したりしがちです。少なくともプログラミングコンテストで書けと言われて自信を持って書くのはしんどいです。
-そこで、手順を次のように変更します。
-
-1. ピボットを取る。
-2. 左から走査して、ピボット未満のものを発見したら未確定ゾーンの左端と交換する。
-3. 右から走査して、ピボット超過のものを発見したら未確定ゾーンの右端と交換する。
-4. ピボット未満がある範囲とピボット超過がある範囲を再帰にかける。
-
-定数倍悪化を許容して、要素を左右に寄せる部分をシンプルにしています。
-もう少し具体的に書きます。配列$A$の$[L, R)$をソートするとして、最終的に$[L, l)$にピボット未満の値、$[r, R)$にピボット超過の値が入るようにします。最初は$l = L$、$r = R$です。
-
-まず手順2を実行します。
-$i$を$L$から$R - 1$まで動かしていき、$A\lbrack i \rbrack &lt; \mathrm{pivot}$であるとき$A\lbrack l \rbrack$と$A\lbrack i \rbrack$をスワップし、$l$を1増やします。
-これで$A$の$[L, l)$には$\mathrm{pivot}$未満の値のみが入り、逆に$\mathrm{pivot}$未満の値は必ず$[L, l)$に入ります。
-
-次に手順3を実行します。ほぼ同様です。
-$i$を$R - 1$から$L$まで動かしていき、$\mathrm{pivot} &lt; A\lbrack i \rbrack$であるとき$r$を1減らし、$A\lbrack r \rbrack$と$A\lbrack i \rbrack$をスワップします。
-
-最後に$[L, l)$と$[r, R)$を再帰にかければおしまいです。
-以下に実装例を載せます。
+こうすることで列全体は(ピボット未満)(ピボットと等しい)(ピボット超過)と分けることが出来て、さらにこれら境界線も手に入ります。
 
 ```c++
 #include <iostream>
 #include <vector>
 #include <random>
+#include <utility>
+#include <cassert>
 
-void quick_sort (std::vector<int>& A) {
+template<class T>
+void quick_sort (std::vector<T>& A, size_t L, size_t R) {
+    assert(0 <= L);
+    assert(R <= A.size());
+    assert(L <= R);
+    if (R - L <= 1) return;
+
+    int l = static_cast<int> (L), r = static_cast<int> (R);
+
     std::random_device rd;
+    T piv = A[l + rd() % (r - l)];
 
-    auto internal_quick_sort = [&](auto self, int L, int R) -> void {
-        if (R - L <= 1) return;
+    int lb = l, rb = r;
+    // [l, lb)はpiv未満の値が入る。[rb, r)はpiv超過の値が入る。
 
-        // 手順1. ピボットの選択
-        int index = rd() % (R - L);
-        if (index < 0) index += (R - L);
-        index += L;
+    for (int i = l; i < r; i++) {
+        if (A[i] < piv) std::swap(A[i], A[lb++]);
+    }
 
-        int pivot = A[index];
-        int l = L, r = R;
+    for (int i = r - 1; l <= i; i--) {
+        if (piv < A[i]) std::swap(A[i], A[--rb]);
+    }
 
-        // 手順2. 左から走査
-        for (int i = L; i < R; i++) {
-            if (A[i] < pivot) {
-                std::swap(A[l], A[i]);
-                l++;
-            }
-        }
-
-        // 手順3. 右から走査
-        for (int i = R - 1; L <= i; i--) {
-            if (pivot < A[i]) {
-                r--;
-                std::swap(A[r], A[i]);
-            }
-        }
-
-        // 手順4. 再帰
-        self(self, L, l);
-        self(self, r, R);
-    };
-
-    internal_quick_sort(internal_quick_sort, 0, static_cast<int> (A.size()));
+    quick_sort(A, l, lb);
+    quick_sort(A, rb, r);
 }
 
 int main () {
+    const int N = 10;
+    std::vector<int> A(N);
+
     std::random_device rd;
-    std::vector<int> A(20);
-    for (int i = 0; i < A.size(); i++) A[i] = rd() % 100;
+    for (auto& v : A) v = rd() % 10000;
 
-    for (auto v : A) std::cout << v << " ";
-    std::cout << "\n";
+    for (int i = 0; i < A.size(); i++) {
+        std::cout << A[i] << (i == A.size() - 1 ? '\n' : ' ');
+    }
 
-    quick_sort(A);
+    quick_sort(A, 0, A.size());
 
-    for (auto v : A) std::cout << v << " ";
-    std::cout << "\n";
+    for (int i = 0; i < A.size() - 1; i++) {
+        assert(A[i] <= A[i + 1]);
+    }
+
+    for (int i = 0; i < A.size(); i++) {
+        std::cout << A[i] << (i == A.size() - 1 ? '\n' : ' ');
+    }
 }
 ```
+
+実行例:
+```text
+6469 715 7203 2864 4958 3626 9044 2876 7437 248
+248 715 2864 2876 3626 4958 6469 7203 7437 9044
+```
+
+これ実装しているときに普通にバグらせていたのは内緒です。
+注意点としては
+1. 再帰の打ち切り
+2. ピボット値の選択
+
+あたりです。
+
+## マージソート
+再帰にかけた後に列をマージする部分が面倒です。この部分を工夫します。
+
+列をマージするときに一時的に作業配列を使う部分で、左半分を昇順、右半分を降順に詰めます。
+つまり、作業配列に詰めた後に大小関係が(小 大 小)となるようにします。
+こうすると、常に右端と左端の大小だけを気にすればよくなり、片方を使い切ったので...みたいな場合分けが消えます。
+
+```c++
+#include <iostream>
+#include <vector>
+#include <random>
+#include <utility>
+#include <cassert>
+#include <algorithm>
+
+template<class T>
+void merge_sort (std::vector<T>& A, size_t L, size_t R) {
+    assert(0 <= L);
+    assert(R <= A.size());
+    assert(L <= R);
+    if (R - L <= 1) return;
+
+    static std::vector<T> tmp;
+    tmp.resize(std::max(R - L, tmp.size()));
+
+    int l = static_cast<int> (L), r = static_cast<int> (R);
+
+    int m = (l + r) / 2;
+
+    merge_sort(A, l, m);
+    merge_sort(A, m, r);
+
+    for (int i = 0; i < m - l; i++) tmp[l + i] = A[l + i];
+    for (int i = 0; i < r - m; i++) tmp[r - i - 1] = A[m + i];
+
+    // マージ
+    int tl = l, tr = r - 1;
+    for (int i = 0; i < r - l; i++) {
+        if (tmp[tl] < tmp[tr]) {
+            A[l + i] = tmp[tl];
+            tl++;
+        }
+        else {
+            A[l + i] = tmp[tr];
+            tr--;
+        }
+    }
+}
+
+int main () {
+    const int N = 10;
+    std::vector<int> A(N);
+
+    std::random_device rd;
+    for (auto& v : A) v = rd() % 10000;
+
+    for (int i = 0; i < A.size(); i++) {
+        std::cout << A[i] << (i == A.size() - 1 ? '\n' : ' ');
+    }
+
+    merge_sort(A, 0, A.size());
+
+    for (int i = 0; i < A.size() - 1; i++) {
+        assert(A[i] <= A[i + 1]);
+    }
+
+    for (int i = 0; i < A.size(); i++) {
+        std::cout << A[i] << (i == A.size() - 1 ? '\n' : ' ');
+    }
+}
+```
+
+実行例:
+```text
+9033 6639 7992 2387 8486 7967 3180 6807 3361 9980
+2387 3180 3361 6639 6807 7967 7992 8486 9033 9980
+```
+
+一時配列に詰める部分でバグりやすいので気を付けてください。そこ以外は変数名が衝突しなければ難しくないはずです。
+
+## 参考
+- クイックソート: アルゴリズムイントロダクション(版などは忘れました...)
+- マージソート: UECの授業資料（一般公開されていないやつ）
+
+## 終わりに
+g++でコンパイルオプションとして`-D_GLIBCXX_DEBUG`をつけると範囲外参照を検出してくれるのですが、何行目で落ちてるとか言ってくれなくてかなりデバッグしにくかったです。
+これどうにかなりませんか？
+
+このエントリ7月に100行くらい書いた状態でずっと放置していたのが最近発見されたので完成させました。
+
+みなさんはこの実装方針どう思いますか？意見がある方は[Twitter/X](https://x.com/UU9782wsEdANDhp)までどうぞ。
