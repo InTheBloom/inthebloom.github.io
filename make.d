@@ -31,7 +31,8 @@ void main () {
 
     FileName = getFileName();
     if (FileName.length < 3 || FileName[$-3..$] != ".md") {
-        format("Your file name is \"%s\".\nIt doesn't seem to be a markdown file. Is it really ok? (Y/N)", FileName).writeln;
+        format("Your file name is \"%s\".\nIt doesn't seem to be a markdown file. Is it really ok? (Y/N):", FileName).write();
+        stdout.flush;
         while (true) {
             auto input = readln.chomp;
             if (input == "Y") break;
@@ -40,6 +41,7 @@ void main () {
                 return;
             }
             writeln("Answer by Y/N.");
+            stdout.flush;
         }
     }
 
@@ -48,6 +50,7 @@ void main () {
 
 string getFileName () {
     write("File Name? >");
+    stdout.flush;
     return readln.chomp;
 }
 

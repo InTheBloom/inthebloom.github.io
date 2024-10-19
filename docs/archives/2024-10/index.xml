@@ -6,7 +6,16 @@
     <description>Recent content in 2024-10 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 10 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2024-10/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2024-10/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Functional GraphでK回進むクエリ in &lt;O(NlogN), O(logN)&gt;</title>
+      <link>http://inthebloom.github.io/post/functional-graph-logn-simulation/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/functional-graph-logn-simulation/</guid>
+      <description>概要 次の問題を$\langle O(N\log N), O(\log N) \rangle$で解くアルゴリズムを紹介します。</description>
+    </item>
+    
     <item>
       <title>比較的シンプルなクイックソートとマージソートの実装</title>
       <link>http://inthebloom.github.io/post/simple-nlogn-sort/</link>
