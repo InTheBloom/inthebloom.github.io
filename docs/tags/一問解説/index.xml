@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ICPC模擬国内予選D 過去問の共有</title>
-      <link>http://inthebloom.github.io/post/icpc-2024-domesti-d/</link>
+      <link>http://inthebloom.github.io/post/icpc-2024-domestic-d/</link>
       <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://inthebloom.github.io/post/icpc-2024-domesti-d/</guid>
+      <guid>http://inthebloom.github.io/post/icpc-2024-domestic-d/</guid>
       <description>問題概要 問題へのリンク
 問題文 JAG大学ICPC学科には$N$人の学生が在籍しており、それぞれの学生には$1$から$N$までの番号がついている。また、学生の交友関係が$M$個存在する。$i$番目の交友関係は、学生$a _ i$と$b _ i$が友達であり、互いに連絡できることを表す。</description>
     </item>
