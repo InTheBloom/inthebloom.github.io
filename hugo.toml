@@ -2,7 +2,7 @@ baseURL = 'http://inthebloom.github.io/'
 languageCode = 'ja'
 DefaultContentLanguage = "ja"
 title = "InTheDayDream"
-description = "InTheBloom's Website"
+description = "InTheDayDream: InTheBloom's Website"
 author = "InTheBloom"
 publishDir = "docs"
 
