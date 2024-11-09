@@ -6,7 +6,17 @@
     <description>Recent content on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>失われしappleスタイルのemojiを召喚 on mintty</title>
+      <link>http://inthebloom.github.io/post/apple-emoji-on-mintty/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://inthebloom.github.io/post/apple-emoji-on-mintty/</guid>
+      <description>はじめに minttyという端末エミュレータがあります。 msysやcygwinやgitbashにくっついてインストールされるようで、私のwindows環境にもいつの間にかありました。 私は基本的にターミナル暮らしをしており、最近はgitbashにくっついてきたminttyを常用しています。
+さて、そんなminttyですが、デフォルトでemojiを描画出来ません。具体的には次のようになります。</description>
+    </item>
+    
     <item>
       <title>ICPC模擬国内予選D 過去問の共有</title>
       <link>http://inthebloom.github.io/post/icpc-2024-domestic-d/</link>

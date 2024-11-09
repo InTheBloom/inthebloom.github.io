@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>失われしappleスタイルのemojiを召喚 on mintty - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c6a324769970fb15b449862ab025f412f4e3846a">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c6a324769970fb15b449862ab025f412f4e3846a">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c6a324769970fb15b449862ab025f412f4e3846a">
+<link rel="alternate" href="/index.xml?c=c6a324769970fb15b449862ab025f412f4e3846a" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="失われしappleスタイルのemojiを召喚 on mintty - InTheDayDream">
+<meta property="og:url" content="http://inthebloom.github.io/post/apple-emoji-on-mintty/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="失われしappleスタイルのemojiを召喚 on mintty - InTheDayDream">
+<meta name="twitter:url" content="http://inthebloom.github.io/post/apple-emoji-on-mintty/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=c6a324769970fb15b449862ab025f412f4e3846a">
+<link rel="stylesheet" href="/css/color.css?c=c6a324769970fb15b449862ab025f412f4e3846a">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=c6a324769970fb15b449862ab025f412f4e3846a">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>失われしappleスタイルのemojiを召喚 on mintty</h1>
+
+<span class="sub">Published on 2024-11-09</span><br>
+<span class="sub">Last Modified 2024-11-09</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#emoji導入を試みる">emoji導入を試みる</a></li>
+    <li><a href="#調査">調査</a></li>
+    <li><a href="#appleスタイルのインストール">appleスタイルのインストール</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="はじめに">はじめに</h2>
+<p><a href="https://mintty.github.io/">mintty</a>という端末エミュレータがあります。
+msysやcygwinやgitbashにくっついてインストールされるようで、私のwindows環境にもいつの間にかありました。
+私は基本的にターミナル暮らしをしており、最近はgitbashにくっついてきたminttyを常用しています。</p>
+<p>さて、そんなminttyですが、デフォルトでemojiを描画出来ません。具体的には次のようになります。</p>
+<p><img src="/images/apple-emoji-on-mintty/coldface_nostyle.png" alt=""></p>
+<p>これはCold Face🥶(U+1F976)です。なんの趣もありません。ちゃんとemojiを表示したいですね？？？</p>
+<p>今回、minttyで<strong>appleスタイルの</strong>emojiを描画することに成功したので、その方法を書きます。</p>
+<h2 id="emoji導入を試みる">emoji導入を試みる</h2>
+<p>当然先人は居るわけで、「mintty emoji」でググると二番目に出てくるこのページが非常に参考になりました。</p>
+<p><a href="https://kemasoft.net/index.php?mr/mintty%E3%82%84wsltty%E3%81%A7%E3%82%AB%E3%83%A9%E3%83%BC%E7%B5%B5%E6%96%87%E5%AD%97">mr/minttyやwslttyでカラー絵文字 </a></p>
+<p>結論としては、スクリプト一発で出来るようです。以下に上記ページのスクリプトを少し改造したものを掲載します。実際に私の環境で動いたやつです。(改造はwgetをcurlに置き換えた部分だけです。)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># MSYS2(mintty)の場合</span>
+</span></span><span style="display:flex;"><span>emojis_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$APPDATA<span style="color:#e6db74">/mintty&#34;</span> | sed -re <span style="color:#e6db74">&#39;s;^(.).;/\L\1;&#39;</span> -e <span style="color:#e6db74">&#39;s;\\;/;g&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">/emojis&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>getemojis_url<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://raw.githubusercontent.com/mintty/mintty/master/tools/getemojis&#39;</span>
+</span></span><span style="display:flex;"><span>getemojis_script<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>getemojis_url##*/<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 絵文字png用ディレクトリ作成</span>
+</span></span><span style="display:flex;"><span>mkdir -p <span style="color:#e6db74">&#34;</span>$emojis_dir<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> true
+</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;</span>$emojis_dir<span style="color:#e6db74">&#34;</span>       <span style="color:#f92672">||</span> exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;created </span>$emojis_dir<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 絵文字pngダウンロードスクリプトの準備</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -e <span style="color:#e6db74">&#34;</span>$getemojis_script<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> rm -rf <span style="color:#e6db74">&#34;</span>$getemojis_script<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>curl -o <span style="color:#e6db74">&#34;</span>$getemojis_script<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$getemojis_url<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>sed -i <span style="color:#e6db74">&#39;/postproc=sh/s;sh;bash;&#39;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>getemojis_script<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># sh -&gt; bash に修正</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 絵文字pngダウンロード（そこそこ時間が掛かります）</span>
+</span></span><span style="display:flex;"><span>bash <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>getemojis_script<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -d
+</span></span></code></pre></div><p>これでminttyの設定画面からgoogleスタイルのemojiを選択できるようになるはずです。
+でも上記ページにはいろんなスタイルを選択できると書いてありましたが、googleしかありません。<strong>私はappleスタイルが使いたいんですが！</strong></p>
+<h2 id="調査">調査</h2>
+<p>上記スクリプトはhttps://raw.githubusercontent.com/mintty/mintty/master/tools/getemojisをダウンロードしてきて実行するといった内容のようです。(普通に何も見ずに実行しました。セキュリティさん&hellip;)</p>
+<p>そこで、ダウンロード + 実行されたスクリプトを見に行きましょう。
+私の場合は、<code>~/AppData/Roaming/mintty/emojis</code>にgetemojisというスクリプトが生成されていました。
+ソースコードを見ていると、不穏な一文を発見&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;  </span>$emojisurl1<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;for the selected emoji style sets, or (if none selected) all of them:&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;  google&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;and always extracts common emoji graphics.&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Other styles are no longer provided at unicode.org:&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;  [apple facebook windows twitter emojione samsung]&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>echo &gt;&amp;<span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p><strong>Other styles are no longer provided at unicode.org:</strong></p>
+<p>つまり、unicode.orgがgoogle以外のemojiスタイルの画像を提供するのをやめてしまったのが原因のようでした。
+ということは、画像さえ用意できれば別スタイルのemojiを表示できる&hellip;？</p>
+<p>実際、<code>~/AppData/Roaming/mintty/emojis/google/</code>以下はこんな感じでした。</p>
+<p><img src="/images/apple-emoji-on-mintty/google_emoji.png" alt=""></p>
+<p>名前をそのemojiの16進数表現にした透過pngを用意できれば良いっぽいですね。</p>
+<h2 id="appleスタイルのインストール">appleスタイルのインストール</h2>
+<p>というわけで、appleスタイルのemoji画像が集まっているwebページからpngを取得して、<code>~/AppData/Roaming/mintty/emojis/apple/</code>に入れるスクリプトを書きました。</p>
+<p>ソースコードが酷いのは見逃してください。
+<code>requests</code>モジュールを要求しますが、複雑なことは何一つしていないので標準の範囲でも書き直せそうです。</p>
+<p>注意:</p>
+<ul>
+<li><code>saved_image_path</code>を書き換えてください。(他にも直すとこあるかも)</li>
+<li>パス区切り文字を無理やり<code>/</code>にしてます。</li>
+<li><strong>実行時間40分くらい</strong>です。</li>
+</ul>
+<p><a href="https://gist.github.com/InTheBloom/a145117e2a56c4aeee257a952d11ab49">gistにもあがっています。</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#f92672">from</span> html.parser <span style="color:#f92672">import</span> HTMLParser
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> urllib
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EmojigraphReader</span>(HTMLParser):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__ (self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>is_in_emoji_element <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>urls <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">retrive_urls</span> (self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>urls<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handle_starttag</span> (self, tag, attrs):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handle</span> ():
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> tag <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;a&#34;</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> attr <span style="color:#f92672">in</span> attrs:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> attr[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;class&#34;</span> <span style="color:#f92672">and</span> attr[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;pim&#34;</span>:
+</span></span><span style="display:flex;"><span>                        self<span style="color:#f92672">.</span>is_in_emoji_element <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> tag <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;img&#34;</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>is_in_emoji_element:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> attr <span style="color:#f92672">in</span> attrs:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> attr[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;src&#34;</span>: <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>urls<span style="color:#f92672">.</span>append(attr[<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        handle()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handle_endtag</span> (self, tag):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> tag <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;a&#34;</span> <span style="color:#f92672">and</span> self<span style="color:#f92672">.</span>is_in_emoji_element:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>is_in_emoji_element <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span> ():
+</span></span><span style="display:flex;"><span>    emojigraph_apple_emojis_url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://emojigraph.org/apple/&#34;</span>
+</span></span><span style="display:flex;"><span>    current_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://emojigraph.org&#34;</span>
+</span></span><span style="display:flex;"><span>    saved_image_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/Users/namah/AppData/Roaming/mintty/emojis/apple&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 対象ディレクトリ作成</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>isdir(saved_image_path):
+</span></span><span style="display:flex;"><span>        os<span style="color:#f92672">.</span>mkdir(saved_image_path)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># emojigraph.orgへGETを飛ばす。</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Trying GET </span><span style="color:#e6db74">{</span>emojigraph_apple_emojis_url<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    emojigraph_response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(emojigraph_apple_emojis_url)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> <span style="color:#ae81ff">200</span> <span style="color:#f92672">&lt;=</span> emojigraph_response<span style="color:#f92672">.</span>status_code <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">299</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Status code of GET </span><span style="color:#e6db74">{</span>emojigraph_apple_emojis<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{</span>emojigraph_response<span style="color:#f92672">.</span>status_code<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, file<span style="color:#f92672">=</span>sys<span style="color:#f92672">.</span>stderr)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Maybe failed.&#34;</span>, file<span style="color:#f92672">=</span>sys<span style="color:#f92672">.</span>stderr)
+</span></span><span style="display:flex;"><span>        exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Successed!&#34;</span>)
+</span></span><span style="display:flex;"><span>    sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>flush()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># HTML解析(ガバガバ)</span>
+</span></span><span style="display:flex;"><span>    reader <span style="color:#f92672">=</span> EmojigraphReader()
+</span></span><span style="display:flex;"><span>    reader<span style="color:#f92672">.</span>feed(emojigraph_response<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>    image_urls <span style="color:#f92672">=</span> reader<span style="color:#f92672">.</span>retrive_urls()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ダウンロードをする。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 正規表現書きたかったけど技術力が足りんので普通に末尾を見る実装で</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> url <span style="color:#f92672">in</span> image_urls:
+</span></span><span style="display:flex;"><span>        codepoint_plus_png <span style="color:#f92672">=</span> url[url<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#34;_&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>:]
+</span></span><span style="display:flex;"><span>        res <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>urljoin(current_path, url))
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Trying GET </span><span style="color:#e6db74">{</span>urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>urljoin(current_path, url)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> <span style="color:#ae81ff">200</span> <span style="color:#f92672">&lt;=</span> res<span style="color:#f92672">.</span>status_code <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">299</span>:
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Status code of GET </span><span style="color:#e6db74">{</span>url<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{</span>res<span style="color:#f92672">.</span>status_code<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, file<span style="color:#f92672">=</span>sys<span style="color:#f92672">.</span>stderr)
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;Maybe failed. (continue downloading)&#34;</span>, file<span style="color:#f92672">=</span>sys<span style="color:#f92672">.</span>stderr)
+</span></span><span style="display:flex;"><span>            sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>flush()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        img_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(saved_image_path, codepoint_plus_png)<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;/&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">with</span> open(img_path, <span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> img:
+</span></span><span style="display:flex;"><span>            img<span style="color:#f92672">.</span>write(res<span style="color:#f92672">.</span>content)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Saved image to </span><span style="color:#e6db74">{</span>img_path<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>flush()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><p>これを実行すると、メニューにappleのスタイルが増えました！</p>
+<p><img src="/images/apple-emoji-on-mintty/config.png" alt=""></p>
+<p>無事にappleスタイルを表示することが出来ました。やったー！</p>
+<p><img src="/images/apple-emoji-on-mintty/coldface_apple.png" alt=""></p>
+<h2 id="終わりに">終わりに</h2>
+<p>競技プログラミング以外でコード書くことほぼないので、たまに活用できてうれしいね。みたいな話。
+mainを肥大化させる癖マジで直したいです。</p>
+<p>今回スクレイピングしたhtmlは滅茶苦茶シンプルだったからよかったけど、pythonの標準パーサだと複雑なことは出来なさそうだと思いました。
+DOM操作ができる標準ライブラリの普及が待たれる。(需要ないのかな？)</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/trivia/">trivia</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/icpc-2024-domestic-d/">ICPC模擬国内予選D 過去問の共有</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
