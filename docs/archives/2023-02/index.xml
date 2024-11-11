@@ -2,38 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2023-02 on InTheDayDream</title>
-    <link>http://inthebloom.github.io/archives/2023-02/</link>
+    <link>http://localhost:1313/archives/2023-02/</link>
     <description>Recent content in 2023-02 on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 26 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2023-02/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/archives/2023-02/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC291参加記録 ~ DPお前もう船降りろ ~</title>
-      <link>http://inthebloom.github.io/post/abc291/</link>
-      <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc291/</guid>
-      <description>はじめに 今週もAtCoder Beginners Contest 291に参加してきましたので、軽く参加記録です。</description>
+      <link>http://localhost:1313/post/abc291/</link>
+      <pubDate>Sun, 26 Feb 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc291/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC290参加記録</title>
-      <link>http://inthebloom.github.io/post/abc290/</link>
-      <pubDate>Tue, 21 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc290/</guid>
-      <description>ABC290参加した。 お久しぶりです。最近AtCoderコンテストの参加記録をサボりがちなので、流石にエントリを生成します。
-今週行われたToyota Programming Contest 2023 Spring Qual B（AtCoder Beginner Contest 290）は、どうやらオンサイトのコンテストに向けての予選を兼ねているそうで、希望者は好成績を出すことができれば3/18日に行われる決勝イベントに招待されるそうです。なんかすごいですね。</description>
+      <link>http://localhost:1313/post/abc290/</link>
+      <pubDate>Tue, 21 Feb 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc290/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>精説ARC155A</title>
-      <link>http://inthebloom.github.io/post/arc155a/</link>
-      <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/arc155a/</guid>
-      <description>はじめに 先日1月29日にAtCoder Regular Contest 155がありました。ARCのA問題は，ARCがA~Fの6問体制になったARC104から現在に至るまでdifficultyの最大値は緑でした。しかし，今回のA問題は水色でした。</description>
+      <link>http://localhost:1313/post/arc155a/</link>
+      <pubDate>Tue, 07 Feb 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/arc155a/</guid>
+      <description></description>
     </item>
-    
   </channel>
 </rss>

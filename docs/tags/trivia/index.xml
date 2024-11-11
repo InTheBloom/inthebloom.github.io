@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>trivia on InTheDayDream</title>
-    <link>http://inthebloom.github.io/tags/trivia/</link>
-    <description>Recent content in trivia on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Trivia on InTheDayDream</title>
+    <link>http://localhost:1313/tags/trivia/</link>
+    <description>Recent content in Trivia on InTheDayDream</description>
+    <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/trivia/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/trivia/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>失われしappleスタイルのemojiを召喚 on mintty</title>
-      <link>http://inthebloom.github.io/post/apple-emoji-on-mintty/</link>
-      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/apple-emoji-on-mintty/</guid>
-      <description>はじめに minttyという端末エミュレータがあります。 msysやcygwinやgitbashにくっついてインストールされるようで、私のwindows環境にもいつの間にかありました。 私は基本的にターミナル暮らしをしており、最近はgitbashにくっついてきたminttyを常用しています。
-さて、そんなminttyですが、デフォルトでemojiを描画出来ません。具体的には次のようになります。</description>
+      <link>http://localhost:1313/post/apple-emoji-on-mintty/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/apple-emoji-on-mintty/</guid>
+      <description></description>
     </item>
-    
   </channel>
 </rss>

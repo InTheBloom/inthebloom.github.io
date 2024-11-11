@@ -2,20 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2023-01 on InTheDayDream</title>
-    <link>http://inthebloom.github.io/archives/2023-01/</link>
+    <link>http://localhost:1313/archives/2023-01/</link>
     <description>Recent content in 2023-01 on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/archives/2023-01/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Sep 2023 00:00:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/archives/2023-01/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC284参加記録</title>
-      <link>http://inthebloom.github.io/post/abc284/</link>
-      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc284/</guid>
-      <description>今週もABCのお時間になりました。 みなさん，あけましておめでとうございます。本日2023年1月7日は記念すべき新年最初のAtCoder Beginners Contestでした。今週も参加してきたのでいつも通り参加記録です。
-早速余談ですが，皆様は正月休みを有意義に使えましたか？私は久しぶりに帰省して，運動不足解消にと鍋蓋山に登りました。</description>
+      <link>http://localhost:1313/post/abc284/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc284/</guid>
+      <description></description>
     </item>
-    
   </channel>
 </rss>

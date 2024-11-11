@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-
-
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 
 
 
@@ -14,33 +12,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c6a324769970fb15b449862ab025f412f4e3846a">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c6a324769970fb15b449862ab025f412f4e3846a">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c6a324769970fb15b449862ab025f412f4e3846a">
-<link rel="alternate" href="/index.xml?c=c6a324769970fb15b449862ab025f412f4e3846a" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=aa8fccace7b7ff3d95eb1fbe68b267f2fbcb8493">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=aa8fccace7b7ff3d95eb1fbe68b267f2fbcb8493">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=aa8fccace7b7ff3d95eb1fbe68b267f2fbcb8493">
+<link rel="alternate" href="/index.xml?c=aa8fccace7b7ff3d95eb1fbe68b267f2fbcb8493" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="典型テク - InTheDayDream">
-<meta property="og:url" content="http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">
+<meta property="og:url" content="http://localhost:1313/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="典型テク - InTheDayDream">
-<meta name="twitter:url" content="http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">
+<meta name="twitter:url" content="http://localhost:1313/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://inthebloom.github.io//images/featured_image.jpg">
+<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c6a324769970fb15b449862ab025f412f4e3846a">
-<link rel="stylesheet" href="/css/color.css?c=c6a324769970fb15b449862ab025f412f4e3846a">
+<link rel="stylesheet" href="/css/main.css?c=aa8fccace7b7ff3d95eb1fbe68b267f2fbcb8493">
+<link rel="stylesheet" href="/css/color.css?c=aa8fccace7b7ff3d95eb1fbe68b267f2fbcb8493">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c6a324769970fb15b449862ab025f412f4e3846a">
+<link rel="stylesheet" href="/css/custom.css?c=aa8fccace7b7ff3d95eb1fbe68b267f2fbcb8493">
 
 
 
@@ -95,7 +93,15 @@
   <div class="post-title"><a href="/post/mod-division-tech/">割れるし割りたいのに割れない数を割る方法</a></div>
   
   <div class="post-summary">
-    状況設定 $x, ~ y, ~ z \in \mathbb N$ $x\%y = 0$ $1 &lt; \mathrm{gcd}(y, z)$ $x$は陽に求められないほど大きく、$y$、$z$は常識的な大きさ 問題 $xy^{-1}$を$z$で割った非負最小剰余を求めよ。
+    <h2 id="状況設定">状況設定</h2>
+<ul>
+<li>$x, ~ y, ~ z \in \mathbb N$</li>
+<li>$x\%y = 0$</li>
+<li>$1 &lt; \mathrm{gcd}(y, z)$</li>
+<li>$x$は陽に求められないほど大きく、$y$、$z$は常識的な大きさ</li>
+</ul>
+<h3 id="問題">問題</h3>
+<p>$xy^{-1}$を$z$で割った非負最小剰余を求めよ。</p>
   </div>
   
 </li>
@@ -105,10 +111,9 @@
   <div class="post-title"><a href="/post/abc202d/">ABC202D - aab aba baa</a></div>
   
   <div class="post-summary">
-    問題概要 問題へのリンク
-A個のaとB個のbからなる文字列であって、辞書順でK番目のものを求めよ。
-制約
-1 &lt;= A, B &lt;= 30 辞書順でK番目の文字列が存在する。 解法 まず、問題文の条件を満たす文字列は$\displaystyle\frac{(A+B)!
+    <h2 id="問題概要">問題概要</h2>
+<p><a href="https://atcoder.jp/contests/abc202/tasks/abc202_d">問題へのリンク</a></p>
+<p>A個の<code>a</code>とB個の<code>b</code>からなる文字列であって、辞書順でK番目のものを求めよ。</p>
   </div>
   
 </li>
@@ -118,8 +123,9 @@ A個のaとB個のbからなる文字列であって、辞書順でK番目のも
   <div class="post-title"><a href="/post/sorttech/">unstableをstableにする小技</a></div>
   
   <div class="post-summary">
-    はじめに 先日(2023/7/1)のABC308のC問題にややこしいソート問題が出ました。 本稿はその問題を簡潔に解く実装のアイディアの紹介です。
-無理やりstable化 標準ライブラリで一番簡単に使えるソートは安定ソートでないことが多いです。 このため、競技プログラミングでよくある2値以上を取る要素のソートのときなどに、 もとの順序が破壊されて困ることがあります。 これを解消するには、比較関数を自炊してソートに渡してあげればよいです。
+    <h2 id="はじめに">はじめに</h2>
+<p>先日(2023/7/1)の<a href="https://atcoder.jp/contests/abc308">ABC308</a>のC問題にややこしいソート問題が出ました。
+本稿はその問題を簡潔に解く実装のアイディアの紹介です。</p>
   </div>
   
 </li>

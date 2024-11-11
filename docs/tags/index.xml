@@ -2,181 +2,144 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on InTheDayDream</title>
-    <link>http://inthebloom.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>trivia</title>
-      <link>http://inthebloom.github.io/tags/trivia/</link>
-      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/trivia/</guid>
+      <title>Trivia</title>
+      <link>http://localhost:1313/tags/trivia/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/trivia/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>一問解説</title>
-      <link>http://inthebloom.github.io/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/</link>
-      <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/</guid>
+      <link>http://localhost:1313/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/</link>
+      <pubDate>Tue, 29 Oct 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>競技プログラミング</title>
-      <link>http://inthebloom.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
-      <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</guid>
+      <link>http://localhost:1313/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
+      <pubDate>Tue, 29 Oct 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>アルゴリズム</title>
-      <link>http://inthebloom.github.io/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/</link>
-      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/</guid>
+      <link>http://localhost:1313/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>C&#43;&#43;</title>
-      <link>http://inthebloom.github.io/tags/c&#43;&#43;/</link>
-      <pubDate>Sat, 17 Aug 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/c&#43;&#43;/</guid>
+      <link>http://localhost:1313/tags/c&#43;&#43;/</link>
+      <pubDate>Sat, 17 Aug 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/c&#43;&#43;/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>UECCP</title>
-      <link>http://inthebloom.github.io/tags/ueccp/</link>
-      <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/ueccp/</guid>
+      <link>http://localhost:1313/tags/ueccp/</link>
+      <pubDate>Thu, 08 Aug 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/ueccp/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>典型テク</title>
-      <link>http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/</link>
-      <pubDate>Mon, 27 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/</guid>
+      <link>http://localhost:1313/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/</link>
+      <pubDate>Mon, 27 May 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>コンテスト参加記録</title>
-      <link>http://inthebloom.github.io/tags/%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/</link>
-      <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/</guid>
+      <link>http://localhost:1313/tags/%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/</link>
+      <pubDate>Mon, 06 May 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mementos</title>
-      <link>http://inthebloom.github.io/tags/mementos/</link>
-      <pubDate>Wed, 03 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/mementos/</guid>
+      <title>Mementos</title>
+      <link>http://localhost:1313/tags/mementos/</link>
+      <pubDate>Wed, 03 Apr 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/mementos/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>upsolve</title>
-      <link>http://inthebloom.github.io/tags/upsolve/</link>
-      <pubDate>Mon, 11 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/upsolve/</guid>
+      <title>Upsolve</title>
+      <link>http://localhost:1313/tags/upsolve/</link>
+      <pubDate>Mon, 11 Mar 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/upsolve/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>尺取り法</title>
-      <link>http://inthebloom.github.io/tags/%E5%B0%BA%E5%8F%96%E3%82%8A%E6%B3%95/</link>
-      <pubDate>Thu, 22 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/%E5%B0%BA%E5%8F%96%E3%82%8A%E6%B3%95/</guid>
+      <link>http://localhost:1313/tags/%E5%B0%BA%E5%8F%96%E3%82%8A%E6%B3%95/</link>
+      <pubDate>Thu, 22 Feb 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E5%B0%BA%E5%8F%96%E3%82%8A%E6%B3%95/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>数学</title>
-      <link>http://inthebloom.github.io/tags/%E6%95%B0%E5%AD%A6/</link>
-      <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/%E6%95%B0%E5%AD%A6/</guid>
+      <link>http://localhost:1313/tags/%E6%95%B0%E5%AD%A6/</link>
+      <pubDate>Thu, 15 Feb 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E6%95%B0%E5%AD%A6/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>linux</title>
-      <link>http://inthebloom.github.io/tags/linux/</link>
-      <pubDate>Tue, 13 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/linux/</guid>
+      <title>Linux</title>
+      <link>http://localhost:1313/tags/linux/</link>
+      <pubDate>Tue, 13 Feb 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/linux/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>二項係数</title>
-      <link>http://inthebloom.github.io/tags/%E4%BA%8C%E9%A0%85%E4%BF%82%E6%95%B0/</link>
-      <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/%E4%BA%8C%E9%A0%85%E4%BF%82%E6%95%B0/</guid>
+      <link>http://localhost:1313/tags/%E4%BA%8C%E9%A0%85%E4%BF%82%E6%95%B0/</link>
+      <pubDate>Sat, 27 Jan 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E4%BA%8C%E9%A0%85%E4%BF%82%E6%95%B0/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>UEC Advent Calendar</title>
-      <link>http://inthebloom.github.io/tags/uec-advent-calendar/</link>
-      <pubDate>Tue, 05 Dec 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/uec-advent-calendar/</guid>
+      <link>http://localhost:1313/tags/uec-advent-calendar/</link>
+      <pubDate>Tue, 05 Dec 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/uec-advent-calendar/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>二分探索</title>
-      <link>http://inthebloom.github.io/tags/%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2/</link>
-      <pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2/</guid>
+      <link>http://localhost:1313/tags/%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2/</link>
+      <pubDate>Tue, 26 Sep 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>辞書順</title>
-      <link>http://inthebloom.github.io/tags/%E8%BE%9E%E6%9B%B8%E9%A0%86/</link>
-      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/%E8%BE%9E%E6%9B%B8%E9%A0%86/</guid>
+      <link>http://localhost:1313/tags/%E8%BE%9E%E6%9B%B8%E9%A0%86/</link>
+      <pubDate>Sun, 24 Sep 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%E8%BE%9E%E6%9B%B8%E9%A0%86/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>hugo</title>
-      <link>http://inthebloom.github.io/tags/hugo/</link>
-      <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/hugo/</guid>
+      <title>Hugo</title>
+      <link>http://localhost:1313/tags/hugo/</link>
+      <pubDate>Fri, 15 Sep 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/hugo/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>katex</title>
-      <link>http://inthebloom.github.io/tags/katex/</link>
-      <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/tags/katex/</guid>
+      <title>Katex</title>
+      <link>http://localhost:1313/tags/katex/</link>
+      <pubDate>Fri, 23 Jun 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/katex/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

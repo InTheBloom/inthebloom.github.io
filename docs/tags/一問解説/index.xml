@@ -2,215 +2,151 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>一問解説 on InTheDayDream</title>
-    <link>http://inthebloom.github.io/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/</link>
+    <link>http://localhost:1313/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/</link>
     <description>Recent content in 一問解説 on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://inthebloom.github.io/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ICPC模擬国内予選D 過去問の共有</title>
-      <link>http://inthebloom.github.io/post/icpc-2024-domestic-d/</link>
-      <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/icpc-2024-domestic-d/</guid>
-      <description>問題概要 問題へのリンク
-問題文 JAG大学ICPC学科には$N$人の学生が在籍しており、それぞれの学生には$1$から$N$までの番号がついている。また、学生の交友関係が$M$個存在する。$i$番目の交友関係は、学生$a _ i$と$b _ i$が友達であり、互いに連絡できることを表す。</description>
+      <link>http://localhost:1313/post/icpc-2024-domestic-d/</link>
+      <pubDate>Tue, 29 Oct 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/icpc-2024-domestic-d/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC288D - Range Add Query</title>
-      <link>http://inthebloom.github.io/post/abc288d/</link>
-      <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc288d/</guid>
-      <description>想定解法と全然異なる怪しい解法で通したので書きます。
-問題概要 問題へのリンク
-問題文 数列$X = (X _ 1, X _ 2, \dots, X _ n)$が良い数列であるとは、次の操作を0回以上行ってすべての要素を$0$に出来る事をいう。</description>
+      <link>http://localhost:1313/post/abc288d/</link>
+      <pubDate>Tue, 10 Sep 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc288d/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>No.2758 RDQ</title>
-      <link>http://inthebloom.github.io/post/yukicoder2758/</link>
-      <pubDate>Sat, 18 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/yukicoder2758/</guid>
-      <description>問題概要 問題へのリンク
-問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$が与えられる。次の$Q$個の質問に答えよ。</description>
+      <link>http://localhost:1313/post/yukicoder2758/</link>
+      <pubDate>Sat, 18 May 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/yukicoder2758/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC247F - Cards</title>
-      <link>http://inthebloom.github.io/post/abc247f/</link>
-      <pubDate>Wed, 10 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc247f/</guid>
-      <description>問題概要 問題へのリンク
-問題文 $1$から$N$の番号がついた$N$枚のカードがあり、カード$i$の表には$P _ i$が、裏には$Q _ i$が書かれている。 ただし、$P = (P _ 1, \dots, P _ N)$及び$Q = (Q _ 1, \dots, Q _ N)$はそれぞれ$(1, \dots, N)$の置換である。</description>
+      <link>http://localhost:1313/post/abc247f/</link>
+      <pubDate>Wed, 10 Apr 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc247f/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC247E - Max Min</title>
-      <link>http://inthebloom.github.io/post/abc247e/</link>
-      <pubDate>Mon, 08 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc247e/</guid>
-      <description>問題概要 問題へのリンク
-問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$及び整数$X, Y$が与えられる。次の条件をすべて満たす整数の組$(L, R)$の個数を求めよ。</description>
+      <link>http://localhost:1313/post/abc247e/</link>
+      <pubDate>Mon, 08 Apr 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc247e/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>三井住友信託銀行プログラミングコンテスト2019F - Interval Running</title>
-      <link>http://inthebloom.github.io/post/sumitb2019f/</link>
-      <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/sumitb2019f/</guid>
-      <description>問題概要 問題文 高橋くんと青木くんが同じ方向に向かって走っている。
-高橋くんは最初の$T _ 1$分間は分速$A _ 1$メートルで走り、続く$T _ 2$分間は分速$A _ 2$メートルで走る。 青木くんは最初の$T _ 1$分間は分速$B _ 1$メートルで走り、続く$T _ 2$分間は分速$B _ 2$メートルで走る。 二人は同時に同じ位置からスタートし、上記の動きを繰り返す。</description>
+      <link>http://localhost:1313/post/sumitb2019f/</link>
+      <pubDate>Thu, 14 Mar 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/sumitb2019f/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC35D - トレジャーハント</title>
-      <link>http://inthebloom.github.io/post/abc35d/</link>
-      <pubDate>Tue, 12 Mar 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc35d/</guid>
-      <description>問題概要 問題へのリンク
-問題文 $1$から$N$の番号が割り振られた$N$個の町があり、$M$本の道がこれらの町を結んでいる。 $i$番目の道を用いることで$a _ i$番目の町から$b _ i$番目の町へと移動できるが、逆はできない。</description>
+      <link>http://localhost:1313/post/abc35d/</link>
+      <pubDate>Tue, 12 Mar 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc35d/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>天下一プログラマーコンテスト2015予選B - 天下一リテラル</title>
-      <link>http://inthebloom.github.io/post/tenka1_2015_qualbb/</link>
-      <pubDate>Wed, 28 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/tenka1_2015_qualbb/</guid>
-      <description>問題概要 問題
-スクリプト言語hnwには整数型、辞書型、集合型が存在する。 整数型のリテラルは$0$以上$10^6$以下の整数を十進数で表記したものである。 辞書型、集合型のリテラルは以下のEBNFに従う。</description>
+      <link>http://localhost:1313/post/tenka1_2015_qualbb/</link>
+      <pubDate>Wed, 28 Feb 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/tenka1_2015_qualbb/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC74D - Restoring Road Network</title>
-      <link>http://inthebloom.github.io/post/abc74d/</link>
-      <pubDate>Tue, 27 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc74d/</guid>
-      <description>問題 問題へのリンク
-問題
-行と列の大きさがそれぞれ$N$の非負整数数表$A$がある。 表の$i$行$j$列目の成分を$A _ {i, j}$と表記する。 ここで、$A$は次の条件を満たす。</description>
+      <link>http://localhost:1313/post/abc74d/</link>
+      <pubDate>Tue, 27 Feb 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc74d/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>No.2616 中央番目の中央値</title>
-      <link>http://inthebloom.github.io/post/yukicoder2616/</link>
-      <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/yukicoder2616/</guid>
-      <description>問題概要 問題へのリンク
-長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</description>
+      <link>http://localhost:1313/post/yukicoder2616/</link>
+      <pubDate>Sat, 27 Jan 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/yukicoder2616/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC167E - Colorful Blocks</title>
-      <link>http://inthebloom.github.io/post/abc167e/</link>
-      <pubDate>Wed, 03 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc167e/</guid>
-      <description>問題概要 問題へのリンク
-$N$個の横一列に並んだブロック列に色を塗る。 色は整数で表され、$1$から$M$までの$M$種類ある。 必ずしもすべての色を使う必要はない。 隣り合うブロックが同じ色である箇所が$K$以下の色の塗り方の総数を$998244353$で割ったあまりを求めよ。</description>
+      <link>http://localhost:1313/post/abc167e/</link>
+      <pubDate>Wed, 03 Jan 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc167e/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC290E - Make it Palindrome</title>
-      <link>http://inthebloom.github.io/post/abc290e/</link>
-      <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc290e/</guid>
-      <description>問題概要 問題へのリンク
-文字列$X$に対して、$f(X) = $($X$を回分にするために変更する必要のある要素の個数の最小値)と定める。 長さ$N$の数列$A$が与えられるので、$A$のすべての連続部分列の集合$X$として、 $\sum_{x \in X} f(x)$を求めよ。</description>
+      <link>http://localhost:1313/post/abc290e/</link>
+      <pubDate>Sun, 31 Dec 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc290e/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC221E - LEQ</title>
-      <link>http://inthebloom.github.io/post/abc221e/</link>
-      <pubDate>Sat, 16 Dec 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc221e/</guid>
-      <description>問題概要 問題へのリンク
-長さ$N$の整数列$A = (A_1, A_2, \dots , A_N)$が与えらえる。 $A$の長さ$2$以上の部分列であって、次の条件を満たすものをの総数を$998244353$で割ったあまりを求めよ。</description>
+      <link>http://localhost:1313/post/abc221e/</link>
+      <pubDate>Sat, 16 Dec 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc221e/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC100D - Patisserie ABC</title>
-      <link>http://inthebloom.github.io/post/abc100d/</link>
-      <pubDate>Mon, 06 Nov 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc100d/</guid>
-      <description>問題概要 問題へのリンク
-$N$種類のケーキがある。$i$種類目のケーキは「綺麗さ」$x_i$、「おいしさ」$y_i$、「人気度」$z_i$を持っている。 このうち$M$種類のケーキを選んで食べる。ただし、同じ種類のケーキを2つとることはできない。
-選んだ$M$種類のケーキに対して、スコアを $\left| \displaystyle\sum_{i=1}^M x_i \right| + \left| \displaystyle\sum_{i=1}^M y_i \right| + \left| \displaystyle\sum_{i=1}^M z_i \right|$ と定める。 スコアの最大値を求めよ。</description>
+      <link>http://localhost:1313/post/abc100d/</link>
+      <pubDate>Mon, 06 Nov 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc100d/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC190F - Shift and Inversions</title>
-      <link>http://inthebloom.github.io/post/abc190f/</link>
-      <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc190f/</guid>
-      <description>問題概要 問題へのリンク
-$0$から$N-1$までの整数をちょうど一つづつ含む数列$A$が与えられる。 $k \in \mathbb{Z}$に対して、数列$B$を次のように定める。 $$ \begin{equation*} B \coloneqq \{b_i\}_{i=0}^{N-1}, ~ b_i = a_{i+k ~ \mathrm{mod} ~ N} \end{equation*} $$ $k = 0, 1, 2, \dots , N-1$のそれぞれに対して、$B$の転倒数を求めよ。</description>
+      <link>http://localhost:1313/post/abc190f/</link>
+      <pubDate>Wed, 01 Nov 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc190f/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC235E、あるいはクエリ並列処理</title>
-      <link>http://inthebloom.github.io/post/abc235e/</link>
-      <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc235e/</guid>
-      <description>問題概要 問題
-辺の重みがすべて異なる無向連結グラフ$G$が与えられる。 さらに、クエリ$i$で$G$中のどの辺とも異なる重みをもつ辺$(u_i, v_i, w_i)$が与えられる。 クエリ$i$で与えられた辺を$G$に追加したグラフ$G&amp;rsquo;$を考える。 すべての$i$に対して、辺$(u_i, v_i, w_i)$は$G&amp;rsquo;$の最小全域木に含まれるか判定せよ。</description>
+      <link>http://localhost:1313/post/abc235e/</link>
+      <pubDate>Tue, 31 Oct 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc235e/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC270E - Apple Baskets on Circle</title>
-      <link>http://inthebloom.github.io/post/abc270e/</link>
-      <pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc270e/</guid>
-      <description>問題概要 問題へのリンク
-円環状に並べてある$1$から$N$の番号が付いた$N$個のかごがある。 かごは$1$から$N$まで順番に並んでおり、かご$N$の隣にはかご$1$がある。
-かご$i$にはりんごが$A_i$個入っている。</description>
+      <link>http://localhost:1313/post/abc270e/</link>
+      <pubDate>Tue, 26 Sep 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc270e/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC202D - aab aba baa</title>
-      <link>http://inthebloom.github.io/post/abc202d/</link>
-      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc202d/</guid>
-      <description>問題概要 問題へのリンク
-A個のaとB個のbからなる文字列であって、辞書順でK番目のものを求めよ。
-制約
-1 &amp;lt;= A, B &amp;lt;= 30 辞書順でK番目の文字列が存在する。 解法 まず、問題文の条件を満たす文字列は$\displaystyle\frac{(A+B)!</description>
+      <link>http://localhost:1313/post/abc202d/</link>
+      <pubDate>Sun, 24 Sep 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc202d/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>ABC99C - Strange Bank</title>
-      <link>http://inthebloom.github.io/post/abc99c/</link>
-      <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/abc99c/</guid>
-      <description>はじめに 個人的に比較的難しく、教育的な動的計画法の問題に出会ったので、メモを残しておく。 防備録的な色合いが強いので、私にとって明らかなことは書かない。
-問題 ABC99C Strange Bank</description>
+      <link>http://localhost:1313/post/abc99c/</link>
+      <pubDate>Tue, 13 Jun 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/abc99c/</guid>
+      <description></description>
     </item>
-    
     <item>
       <title>精説ARC155A</title>
-      <link>http://inthebloom.github.io/post/arc155a/</link>
-      <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://inthebloom.github.io/post/arc155a/</guid>
-      <description>はじめに 先日1月29日にAtCoder Regular Contest 155がありました。ARCのA問題は，ARCがA~Fの6問体制になったARC104から現在に至るまでdifficultyの最大値は緑でした。しかし，今回のA問題は水色でした。</description>
+      <link>http://localhost:1313/post/arc155a/</link>
+      <pubDate>Tue, 07 Feb 2023 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/arc155a/</guid>
+      <description></description>
     </item>
-    
   </channel>
 </rss>

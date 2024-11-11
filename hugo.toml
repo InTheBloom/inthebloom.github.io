@@ -7,10 +7,11 @@ author = "InTheBloom"
 publishDir = "docs"
 
 theme = "simplog"
-paginate = 10
-summarylength = 5
+pagination.pagerSize = 15
+summarylength = 0
 enableInlineShortcodes = true
 ignoreErrors = ["error-remote-getjson"]
+timeZone = "Asia/Tokyo"
 googleAnalytics = ""
 disqusShortname = ""
 
