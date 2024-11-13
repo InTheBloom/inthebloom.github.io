@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2023-03 on InTheDayDream</title>
-    <link>http://localhost:1313/archives/2023-03/</link>
+    <link>https://inthebloom.github.io/archives/2023-03/</link>
     <description>Recent content in 2023-03 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/archives/2023-03/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/archives/2023-03/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC294参加記録</title>
-      <link>http://localhost:1313/post/abc294/</link>
+      <link>https://inthebloom.github.io/post/abc294/</link>
       <pubDate>Tue, 21 Mar 2023 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/abc294/</guid>
+      <guid>https://inthebloom.github.io/post/abc294/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC293参加記録</title>
-      <link>http://localhost:1313/post/abc293/</link>
+      <link>https://inthebloom.github.io/post/abc293/</link>
       <pubDate>Fri, 17 Mar 2023 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/abc293/</guid>
+      <guid>https://inthebloom.github.io/post/abc293/</guid>
       <description></description>
     </item>
   </channel>

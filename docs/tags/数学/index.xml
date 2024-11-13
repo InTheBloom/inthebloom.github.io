@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数学 on InTheDayDream</title>
-    <link>http://localhost:1313/tags/%E6%95%B0%E5%AD%A6/</link>
+    <link>https://inthebloom.github.io/tags/%E6%95%B0%E5%AD%A6/</link>
     <description>Recent content in 数学 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/tags/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>等比数列の和を計算する2つの対数時間アルゴリズム</title>
-      <link>http://localhost:1313/post/geometric-progression-sum/</link>
+      <link>https://inthebloom.github.io/post/geometric-progression-sum/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/geometric-progression-sum/</guid>
+      <guid>https://inthebloom.github.io/post/geometric-progression-sum/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC100D - Patisserie ABC</title>
-      <link>http://localhost:1313/post/abc100d/</link>
+      <link>https://inthebloom.github.io/post/abc100d/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/abc100d/</guid>
+      <guid>https://inthebloom.github.io/post/abc100d/</guid>
       <description></description>
     </item>
     <item>
       <title>割れるし割りたいのに割れない数を割る方法</title>
-      <link>http://localhost:1313/post/mod-division-tech/</link>
+      <link>https://inthebloom.github.io/post/mod-division-tech/</link>
       <pubDate>Thu, 05 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/mod-division-tech/</guid>
+      <guid>https://inthebloom.github.io/post/mod-division-tech/</guid>
       <description></description>
     </item>
     <item>
       <title>繰り返し二乗法について</title>
-      <link>http://localhost:1313/post/modpow/</link>
+      <link>https://inthebloom.github.io/post/modpow/</link>
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/modpow/</guid>
+      <guid>https://inthebloom.github.io/post/modpow/</guid>
       <description></description>
     </item>
   </channel>

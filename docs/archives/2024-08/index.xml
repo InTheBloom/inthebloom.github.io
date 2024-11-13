@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2024-08 on InTheDayDream</title>
-    <link>http://localhost:1313/archives/2024-08/</link>
+    <link>https://inthebloom.github.io/archives/2024-08/</link>
     <description>Recent content in 2024-08 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Sat, 17 Aug 2024 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/archives/2024-08/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/archives/2024-08/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>暗黙のコピーコンストラクタにご注意を</title>
-      <link>http://localhost:1313/post/cpp-copy-constructor/</link>
+      <link>https://inthebloom.github.io/post/cpp-copy-constructor/</link>
       <pubDate>Sat, 17 Aug 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/cpp-copy-constructor/</guid>
+      <guid>https://inthebloom.github.io/post/cpp-copy-constructor/</guid>
       <description></description>
     </item>
     <item>
       <title>UECCPバーチャルコンテストを発起し、完走した</title>
-      <link>http://localhost:1313/post/ueccp-2024-first-half/</link>
+      <link>https://inthebloom.github.io/post/ueccp-2024-first-half/</link>
       <pubDate>Thu, 08 Aug 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/ueccp-2024-first-half/</guid>
+      <guid>https://inthebloom.github.io/post/ueccp-2024-first-half/</guid>
       <description></description>
     </item>
   </channel>
