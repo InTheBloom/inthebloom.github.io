@@ -1,4 +1,4 @@
-baseURL = 'http://inthebloom.github.io/'
+baseURL = 'https://inthebloom.github.io/'
 languageCode = 'ja'
 DefaultContentLanguage = "ja"
 title = "InTheDayDream"
