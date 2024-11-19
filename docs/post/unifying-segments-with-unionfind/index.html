@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>UnionFindによる区間の統合 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=2a021de39ba73dd162dc35d97872c342309f1863">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=2a021de39ba73dd162dc35d97872c342309f1863">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=2a021de39ba73dd162dc35d97872c342309f1863">
+<link rel="alternate" href="/index.xml?c=2a021de39ba73dd162dc35d97872c342309f1863" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="UnionFindによる区間の統合 - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/unifying-segments-with-unionfind/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="UnionFindによる区間の統合 - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/unifying-segments-with-unionfind/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=2a021de39ba73dd162dc35d97872c342309f1863">
+<link rel="stylesheet" href="/css/color.css?c=2a021de39ba73dd162dc35d97872c342309f1863">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=2a021de39ba73dd162dc35d97872c342309f1863">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>UnionFindによる区間の統合</h1>
+
+<span class="sub">Published on 2024-11-19</span><br>
+<span class="sub">Last Modified 2024-11-19</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#方法">方法</a>
+      <ul>
+        <li><a href="#区間取得">区間取得</a></li>
+        <li><a href="#区間統合">区間統合</a></li>
+      </ul>
+    </li>
+    <li><a href="#例題">例題</a>
+      <ul>
+        <li><a href="#問題文">問題文</a></li>
+        <li><a href="#制約">制約</a></li>
+        <li><a href="#解法">解法</a></li>
+      </ul>
+    </li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="概要">概要</h2>
+<p>$N$個の区間を考えて、$i$個目の区間を$[i, i + 1)$とします。
+$O(N)$くらいが許されるとき、隣り合う区間を統合するクエリをUnionFindで処理することができます。
+より具体的には、次の操作をならし$O(\alpha (n))$時間で行うことができます。</p>
+<ul>
+<li>$u$が属する区間を$R$とする。$R$と、$R$に(左右どちらかに)<strong>隣接する</strong>区間を統合する。</li>
+<li>$u$が属する区間の最左と最右の点を答える。</li>
+</ul>
+<h2 id="方法">方法</h2>
+<p>$N$頂点のUnionFindと、補助のデータとして2要素タプルの長さ$N$の配列$\mathrm{range}$を持ちます。ここで、$\mathrm{range[i]}$は$i$を根とする連結成分が表す区間です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> uf <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> UnionFind<span style="color:#f92672">(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> range <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Tuple<span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">)[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> range<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> tuple<span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> i<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>初期状態では$\mathrm{range}[i]$は$(i, i)$を持ちます。$i$個目の区間は$[i, i + 1)$を表すので、閉区間で表現するなら$(i, i)$というわけです。</p>
+<h3 id="区間取得">区間取得</h3>
+<p>まず、$u$が属する区間の取得を考えます。これは単にUnionFindの代表元を用いて操作すればよいです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> r <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">root</span><span style="color:#f92672">(</span>u<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>とします。$\mathrm{range}$の定義から、$\mathrm{range}[r]$が$u$の属する区間です。</p>
+<p>騙されている気がしますが、初期状態では明らかに正しいです。じゃあ初期状態以外はどうなのかというと、区間マージの際にこれらの不変条件を壊さないように操作をすることで正しさを常に保つので大丈夫です。</p>
+<h3 id="区間統合">区間統合</h3>
+<p>$u$の属する区間と、一つ右の区間を統合することを考えます。
+二つの区間で代表元を取得して、それぞれ$\mathrm{cur}, \mathrm{right}$とします。$\mathrm{cur}$は$\mathrm{u}$から取得できます。$\mathrm{right}$は$\mathrm{range}[u]$を用いて取得できます。具体的には、</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">root</span><span style="color:#f92672">(</span>u<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> right <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">root</span><span style="color:#f92672">(</span>range<span style="color:#f92672">[</span>cur<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>です。</p>
+<p>これらをUnionFindで統合します。新しく決まった根を$r$とします。
+$\mathrm{range}[r]$を$\mathrm{range}$の定義が壊れないように修正します。
+つまり、$\mathrm{range}[r] = (\mathrm{range}[\mathrm{cur}][0], \mathrm{range}[\mathrm{right}][1])$にします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> r <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">unite</span><span style="color:#f92672">(</span>cur<span style="color:#f92672">,</span> right<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>range<span style="color:#f92672">[</span>r<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> tuple<span style="color:#f92672">(</span>range<span style="color:#f92672">[</span>cur<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">],</span> range<span style="color:#f92672">[</span>right<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]);</span>
+</span></span></code></pre></div><p>ここで、$\mathrm{range}[\mathrm{cur}]$や$\mathrm{range}[\mathrm{right}]$の修正を<strong>行わない</strong>ことに注意してください。この操作以降、区間を取りまとめて管理するのは$r$の仕事であり、もはや$\mathrm{cur}$や$\mathrm{right}$は根にはなりえません。なので、無視してもよいのです。</p>
+<p>もう少しかみ砕くと、$\mathrm{range}[\mathrm{cur}][0] \leq x \leq \mathrm{range}[\mathrm{right}][1]$を満たすすべての数$x$に対して、その代表元は$r$になっています。</p>
+<h2 id="例題">例題</h2>
+<p><a href="https://atcoder.jp/contests/abc380/tasks/abc380_e">ABC380E - 1D Bucket Tool</a></p>
+<h3 id="問題文">問題文</h3>
+<p>$1$から$N$の番号がついた$N$個のマスが一列に並んでいます。
+$1 \leq i &lt; N$について、マス$i$とマス$i + 1$は隣接しています。</p>
+<p>最初、マス$i$は色$i$で塗られています。</p>
+<p>クエリが$Q$個与えられるので、順に処理してください。クエリは次の2種類のいずれかです。</p>
+<ul>
+<li><code>1 x c</code>: マス$x$から始めて「いまいるマスと同じ色に塗られている隣接するマス」への移動を繰り返すことで到達可能なマスを全て色$c$に塗り替える</li>
+<li><code>2 c</code>: 色$c$で塗られているマスの個数を答える</li>
+</ul>
+<h3 id="制約">制約</h3>
+<ul>
+<li>$1 \leq N \leq 5 \times 10 ^ 5$</li>
+<li>$1 \leq Q \leq 2 \times 10 ^ 5$</li>
+</ul>
+<h3 id="解法">解法</h3>
+<p>さっくりと説明します。</p>
+<p>まず、重要な考察として、一度くっついてしまったらそれ以降分離しません。つまり、区間のマージができればよさそうです。</p>
+<p>上記で説明した情報のほかに、「連結成分の色」と、「色ごとのカウント」を用意します。
+マージクエリが来たら、一旦今の連結成分の色をカウントの減らして、色を変え、変えた先の色のカウントを増やします。
+最後に隣接領域と色が同じであればマージを行います。</p>
+<p>細かい部分は自力で詰めるのがよいと思います。ぜひチャレンジしてみてください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> Q<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> uf <span style="color:#f92672">=</span> UnionFind<span style="color:#f92672">(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* range[i] := 根をiとする連結成分が管理する区間 */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> range <span style="color:#f92672">=</span> iota<span style="color:#f92672">(</span>N<span style="color:#f92672">).</span><span style="color:#a6e22e">map</span><span style="color:#f92672">!((</span>i<span style="color:#f92672">)</span> <span style="color:#f92672">=&gt;</span> tuple<span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> i<span style="color:#f92672">)).</span><span style="color:#a6e22e">array</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* color[i] := 根をiとする連結成分の色 */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> color <span style="color:#f92672">=</span> iota<span style="color:#f92672">(</span>N<span style="color:#f92672">).</span><span style="color:#a6e22e">array</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* count[i] := 色iの現在の数 */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> count <span style="color:#f92672">=</span> generate<span style="color:#f92672">!(()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">).</span><span style="color:#a6e22e">take</span><span style="color:#f92672">(</span>N<span style="color:#f92672">).</span><span style="color:#a6e22e">array</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span><span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Q</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> query <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> query<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>t <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> query<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> c <span style="color:#f92672">=</span> query<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> r <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">root</span><span style="color:#f92672">(</span>x<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/* xの属する連結成分のカウントを取り消し */</span>
+</span></span><span style="display:flex;"><span>            count<span style="color:#f92672">[</span>color<span style="color:#f92672">[</span>r<span style="color:#f92672">]]</span> <span style="color:#f92672">-=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">GroupSize</span><span style="color:#f92672">(</span>r<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/* 色の変更 + カウント */</span>
+</span></span><span style="display:flex;"><span>            color<span style="color:#f92672">[</span>r<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> c<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            count<span style="color:#f92672">[</span>color<span style="color:#f92672">[</span>r<span style="color:#f92672">]]</span> <span style="color:#f92672">+=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">GroupSize</span><span style="color:#f92672">(</span>r<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/* 同じ色で隣接している連結成分をマージする */</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> range<span style="color:#f92672">[</span>r<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> left <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">root</span><span style="color:#f92672">(</span>range<span style="color:#f92672">[</span>r<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>color<span style="color:#f92672">[</span>left<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> color<span style="color:#f92672">[</span>r<span style="color:#f92672">])</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// 左側マージ成功 + 新しい区間の範囲を正しくして、今見てる根を新しいほうにする
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">int</span> nr <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">unite</span><span style="color:#f92672">(</span>left<span style="color:#f92672">,</span> r<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                    range<span style="color:#f92672">[</span>nr<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> range<span style="color:#f92672">[</span>left<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>                    range<span style="color:#f92672">[</span>nr<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> range<span style="color:#f92672">[</span>r<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>                    r <span style="color:#f92672">=</span> nr<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>range<span style="color:#f92672">[</span>r<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> right <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">root</span><span style="color:#f92672">(</span>range<span style="color:#f92672">[</span>r<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>color<span style="color:#f92672">[</span>right<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> color<span style="color:#f92672">[</span>r<span style="color:#f92672">])</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// 右側マージ成功
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">int</span> nr <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">unite</span><span style="color:#f92672">(</span>r<span style="color:#f92672">,</span> right<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                    range<span style="color:#f92672">[</span>nr<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> range<span style="color:#f92672">[</span>r<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>                    range<span style="color:#f92672">[</span>nr<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> range<span style="color:#f92672">[</span>right<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>                    r <span style="color:#f92672">=</span> nr<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>t <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> query<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">~=</span> count<span style="color:#f92672">[</span>c<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>v<span style="color:#f92672">;</span> ans<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        writeln<span style="color:#f92672">(</span>v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">...)</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.conv <span style="color:#f92672">:</span> to<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.array <span style="color:#f92672">:</span> split<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// UnionFind省略
+</span></span></span></code></pre></div><h2 id="終わりに">終わりに</h2>
+<p>一回実装しないとやり方がよくわからないシリーズかなと思います。ミソは、別に配列を持って、現在の根の場所に連結成分の情報を書き込むことです。
+初めて見たときは少し混乱しましたが、UnionFindで扱える問題が広くなるよいアイデアだと思います。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">典型テク</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/apple-emoji-on-mintty/">失われしappleスタイルのemojiを召喚 on mintty</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-11-19</div>
+  <div class="post-title"><a href="/post/unifying-segments-with-unionfind/">UnionFindによる区間の統合</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-10-29</div>
+  <div class="post-title"><a href="/post/icpc-2024-domestic-d/">ICPC模擬国内予選D 過去問の共有</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-10-19</div>
+  <div class="post-title"><a href="/post/functional-graph-logn-simulation/">Functional GraphでK回進むクエリ in &lt;O(NlogN), O(logN)&gt;</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "典型テク"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-11-19</div>
+  <div class="post-title"><a href="/post/unifying-segments-with-unionfind/">UnionFindによる区間の統合</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-05-27</div>
+  <div class="post-title"><a href="/post/dp-in-explicit-dag/">[覚書] 陽なDAG上のdpを楽に処理する</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-04-15</div>
+  <div class="post-title"><a href="/post/functional-graph-simulating/">[メモ] Functional Graph上のシミュレーション</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e5%85%b8%e5%9e%8b%e3%83%86%e3%82%af/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-11-19</div>
+  <div class="post-title"><a href="/post/unifying-segments-with-unionfind/">UnionFindによる区間の統合</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-10-19</div>
+  <div class="post-title"><a href="/post/functional-graph-logn-simulation/">Functional GraphでK回進むクエリ in &lt;O(NlogN), O(logN)&gt;</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-10-10</div>
+  <div class="post-title"><a href="/post/simple-nlogn-sort/">比較的シンプルなクイックソートとマージソートの実装</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
