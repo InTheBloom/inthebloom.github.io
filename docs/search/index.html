@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=88e7cf5d8b674758cd637064b67d47144035bfd2">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=88e7cf5d8b674758cd637064b67d47144035bfd2">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=88e7cf5d8b674758cd637064b67d47144035bfd2">
-<link rel="alternate" href="/index.xml?c=88e7cf5d8b674758cd637064b67d47144035bfd2" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=6bcfb3a8216f5251f3a508252a874b0d04305ac4">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=6bcfb3a8216f5251f3a508252a874b0d04305ac4">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=6bcfb3a8216f5251f3a508252a874b0d04305ac4">
+<link rel="alternate" href="/index.xml?c=6bcfb3a8216f5251f3a508252a874b0d04305ac4" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="サイト内全文検索 - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/search/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=88e7cf5d8b674758cd637064b67d47144035bfd2">
-<link rel="stylesheet" href="/css/color.css?c=88e7cf5d8b674758cd637064b67d47144035bfd2">
+<link rel="stylesheet" href="/css/main.css?c=6bcfb3a8216f5251f3a508252a874b0d04305ac4">
+<link rel="stylesheet" href="/css/color.css?c=6bcfb3a8216f5251f3a508252a874b0d04305ac4">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=88e7cf5d8b674758cd637064b67d47144035bfd2">
+<link rel="stylesheet" href="/css/custom.css?c=6bcfb3a8216f5251f3a508252a874b0d04305ac4">
 
 
 
@@ -139,22 +139,28 @@
 
 const data = [
   {
-    url: "/post/reached-1600/",
-    title: "AtCoder Algorithm 1600達成！",
-    date: "2024-11-22T00:00:00+09:00",
-    body: "AtCoder Algorithm 1600達成！ 喜び 2024-11-22のABC381でついにrating 1600+を達成しました！ 競技プログラミングを始めた頃、自分がここまでこれるとは思っていませんでした。嬉しいです！ 今後 まずは1600+を保てるくらいの実力をつけていきたいです。 向こう数年くらいで黄色に到達できたらなお嬉しいです。 がんばります！"
-  },
-  {
     url: "/",
     title: "InTheDayDream",
-    date: "2024-11-22T00:00:00+09:00",
+    date: "2024-12-03T00:00:00+09:00",
     body: "InTheDayDream"
   },
   {
     url: "/post/",
     title: "Posts",
-    date: "2024-11-22T00:00:00+09:00",
+    date: "2024-12-03T00:00:00+09:00",
     body: "Posts"
+  },
+  {
+    url: "/post/subsequences-by-delimiter/",
+    title: "区切り文字による連続部分列の切り出し",
+    date: "2024-12-03T00:00:00+09:00",
+    body: "区切り文字による連続部分列の切り出し 概要 次の問題を解くアルゴリズムを考えます。 問題 数列$A = (a _ 1, a _ 2, \\dots, a _ N)$と数$D$が与えられる。 次の条件を満たす$A$の連続部分列をすべて列挙せよ。 非空 数$D$を含まない その連続部分列をすべて含み、かつ数$D$を含まないようなものが存在しない 例 $A = (1, 2, 2, 2, 1, 1, 3, 1, 4, 4), D = 1$のとき、 $(2, 2, 2), (3), (4, 4)$ 解法 $a _ i = D$なる$i$を事前にすべて列挙するのでもよいですが、$O(1)$ extra spaceでよりスマートに解けます。 尺取りベースで解きます。 まず$l = 1, r = 1$とします。これは、今見ている区間が$[l, r)$ということです。 次に、$r = N + 1$または$a _ r = D$となるまで$r$を1づつ増加させます。 まず、これで最も左の連続部分列が切り出せます。ただし、$a _ l = D$であるとき、$[l, r)$が空になるので、必要に応じて無視します。 次に、$l, r$をともに$r + 1$で置き換えます。これは、極大な連続部分列を切り出すという制約から、一つ前の$[l, r]$中の数が新しい$l$になることはありえないからです。極大でなくてよいのであれば、$l$を1増やすことになります。 $l = N + 1$であれば終了、そうでなければ最初に戻ります。 実装例 void main () { const int N = 10; const auto A = [1, 2, 2, 2, 1, 1, 3, 1, 4, 4]; const int D = 1; int l = 0, r = 0; while (l \u0026lt; N) { // rの修正 if (r \u0026lt; l) r = l; // 右端の探索 while (r \u0026lt; N) { if (A[r] == D) break; r++; } // 空でなければ採用 if (l \u0026lt; r) { foreach (i; l..r) { import std.stdio; write(A[i], i == r - 1 ? \u0026#39;\\n\u0026#39; : \u0026#39; \u0026#39;); } } // lの更新 l = r + 1; } } wandbox 例題 解法については省略します。 ABC33C ABC116C 終わりに 通常の尺取りと違って、区切りが数と数の隙間にあるのではなく、数そのものになるような場合を考えました。 この制約においては、通常のように$l = r$で更新すると、区切りの数の部分で無限ループすることになります。 空区間を許容してしまえば、$l = r + 1$で更新するだけでこの問題を回避することができます。 この区切りが数そのものであるのか、それともその隙間にあるのかという問題はより普遍的なものです。 最も有名な例は二分探索でしょう。二分探索のoff-by-oneで苦しむ現象の裏には大体この問題が隠れていると私は考えています。"
+  },
+  {
+    url: "/post/reached-1600/",
+    title: "AtCoder Algorithm 1600達成！",
+    date: "2024-11-22T00:00:00+09:00",
+    body: "AtCoder Algorithm 1600達成！ 喜び 2024-11-22のABC381でついにrating 1600+を達成しました！ 競技プログラミングを始めた頃、自分がここまでこれるとは思っていませんでした。嬉しいです！ 今後 まずは1600+を保てるくらいの実力をつけていきたいです。 向こう数年くらいで黄色に到達できたらなお嬉しいです。 がんばります！"
   },
   {
     url: "/post/unifying-segments-with-unionfind/",
