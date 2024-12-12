@@ -6,7 +6,7 @@ date: 2024-12-12
 # lastmod: yyyy-mm-dd
 # hidedate: true
 
-# ogimage: https://hoge/fuga/piyo.img
+ogimage: /images/uec-advent2024/ogp.png
 
 tags:
   - アルゴリズム
