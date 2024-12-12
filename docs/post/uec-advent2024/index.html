@@ -7,16 +7,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Y-Fast Trieを編む [UEC Advent Calendar 2024] 12日目 - InTheDayDream</title>
+<title>BSTより高速なデータ構造、Y-Fast Trie [UEC Advent Calendar 2024] 12日目 - InTheDayDream</title>
 <meta name="description" content="">
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
-<link rel="alternate" href="/index.xml?c=db402a10c8de5f89c3c52415aa52342247cd68ae" type="application/rss+xml" title="RSS" />
-<meta property="og:title" content="Y-Fast Trieを編む [UEC Advent Calendar 2024] 12日目 - InTheDayDream">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=52acc9b85c145bd733f3d84f5383c92420e9a13b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=52acc9b85c145bd733f3d84f5383c92420e9a13b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=52acc9b85c145bd733f3d84f5383c92420e9a13b">
+<link rel="alternate" href="/index.xml?c=52acc9b85c145bd733f3d84f5383c92420e9a13b" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="BSTより高速なデータ構造、Y-Fast Trie [UEC Advent Calendar 2024] 12日目 - InTheDayDream">
 <meta property="og:url" content="http://localhost:1313/post/uec-advent2024/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
@@ -27,18 +27,18 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
-<meta name="twitter:title" content="Y-Fast Trieを編む [UEC Advent Calendar 2024] 12日目 - InTheDayDream">
+<meta name="twitter:title" content="BSTより高速なデータ構造、Y-Fast Trie [UEC Advent Calendar 2024] 12日目 - InTheDayDream">
 <meta name="twitter:url" content="http://localhost:1313/post/uec-advent2024/">
 <meta name="twitter:description" content="">
 
 <meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
-<link rel="stylesheet" href="/css/color.css?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
+<link rel="stylesheet" href="/css/main.css?c=52acc9b85c145bd733f3d84f5383c92420e9a13b">
+<link rel="stylesheet" href="/css/color.css?c=52acc9b85c145bd733f3d84f5383c92420e9a13b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
+<link rel="stylesheet" href="/css/custom.css?c=52acc9b85c145bd733f3d84f5383c92420e9a13b">
 
 
 
@@ -101,10 +101,10 @@
 
 
 
-<h1>Y-Fast Trieを編む [UEC Advent Calendar 2024] 12日目</h1>
+<h1>BSTより高速なデータ構造、Y-Fast Trie [UEC Advent Calendar 2024] 12日目</h1>
 
-<span class="sub">Published on 2024-12-11</span><br>
-<span class="sub">Last Modified 2024-12-11</span>
+<span class="sub">Published on 2024-12-12</span><br>
+<span class="sub">Last Modified 2024-12-12</span>
 
 
 
@@ -117,8 +117,11 @@
   <ul>
     <li><a href="#まえがき">まえがき</a></li>
     <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#データ構造とは">データ構造とは</a></li>
-    <li><a href="#y-fast-trie">Y-Fast Trie</a></li>
+    <li><a href="#y-fast-trieの概要">Y-Fast Trieの概要</a>
+      <ul>
+        <li><a href="#y-fast-trieのインターフェース">Y-Fast Trieのインターフェース</a></li>
+      </ul>
+    </li>
     <li><a href="#binary-trieによるsuccessor-query">Binary Trieによるsuccessor query</a>
       <ul>
         <li><a href="#binary-trie">Binary Trie</a></li>
@@ -135,37 +138,34 @@
 今年もUECアドカレの季節がやってきましたね。Twitterでカレンダーが生えたのを観測したので、これ幸いと枠をいただきました。これで3年目になります。</p>
 <p>このエントリはUEC Advent Calendar 2024の12日目を担当します。</p>
 <iframe src="https://adventar.org/calendars/10127/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
-<p>また、今年もUEC2が建っています。</p>
+<p>また、今年もUEC2が建っています。こちらもぜひどうぞ。</p>
 <iframe src="https://adventar.org/calendars/10198/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
-<p>11日目はえぐちさんの～～～～～～～～～～とはんかくさんの～～～～～でした。</p>
-<p>[感想を書く]</p>
+<p>11日目はえぐちさんの<a href="https://zenn.dev/kk79it/articles/proxmox-tutorial">Proxmoxの運用Tips【自宅鯖】</a>でした。
+自宅鯖という単語、非常に魅力的に感じます。とは言いつつ、前提知識がなさすぎて大半が呪文に見えました。。勉強が必要そうです。</p>
+<p>UEC2ははんかくさんが担当ですが、まだアップされていないみたいです。</p>
 <p>今年も力作ぞろいです。これからのエントリも楽しみですね！</p>
 <h2 id="はじめに">はじめに</h2>
 <p>このエントリでは、Y-Fast Trie(ワイ-ファスト トライ)と呼ばれるデータ構造の動作原理を説明し、実際に組んだものを示します。
 Y-Fast Trieの美しさ、ロマンを体感してください！</p>
 <p>誤りの指摘は随時募集しています。指摘いただいたものは随時修正していきますので、お気軽にどうぞ。</p>
-<h2 id="データ構造とは">データ構造とは</h2>
-<p>Y-Fast Trieは<strong>データ構造</strong>です。まず、データ構造とは何なのかを再考しましょう。</p>
-<p>データ構造とは何かについて厳密に定義を与えるのは難しいですが、大まかに、いくつかの抽象化された操作を行うブラックボックスのようなものです。
-pythonの<code>set</code>(<a href="https://docs.python.org/ja/3/library/stdtypes.html#set">リファレンス</a>)を例に考えてみましょう。私たちは、setが内部で何を行っているかを知ることなく、</p>
+<h2 id="y-fast-trieの概要">Y-Fast Trieの概要</h2>
+<p>Y-Fast Trieは非負整数値に対して各種操作を提供する<strong>データ構造</strong>です。</p>
+<p>データ構造とは何かについて厳密に定義を与えるのは難しいです。
+ここでは、大まかに、<strong>できる操作の集合</strong>と、<strong>操作を実現する具体的なアルゴリズム</strong>をひとまとめにしたものをデータ構造と呼ぶことにしましょう。</p>
+<p>前者を<strong>インターフェース</strong>、後者を<strong>内部実装</strong>と呼ぶことにします。</p>
+<p>性能を議論する上で、各種操作をどれくらい効率よく、どれくらい省メモリで行えるかが知りたいです。
+そこで、本文書内ではインターフェースについて考えるとき、同時に各種操作の時間計算量と、全体を通しての空間計算量に言及します。</p>
+<p>計算量というのは、かかる時間や必要な領域を定量的に評価するための概念です。
+詳細は<a href="https://noshi91.hatenablog.com/entry/2019/10/08/235335">計算量について(外部リンク)</a>を参照してください。</p>
+<p>例えば、C++の<code>std::vector</code>は</p>
 <ul>
-<li>setに値を追加する</li>
-<li>setにある値が存在するか確認する</li>
-<li>setにいくつ値が存在するか確認する</li>
+<li>$i$番目の要素への読み書き: $O(1)$時間</li>
+<li>要素を末尾へ挿入: ならし$O(1)$時間</li>
 </ul>
-<p>などの操作を行うことができます。上記のような、あるデータ構造が行うことができる操作の集合を<strong>インターフェース</strong>と呼ぶことにします。</p>
-<p>インターフェースは外から見たときのふるまいを定義します。たとえば、<code>set</code>のインターフェースを<code>list</code>を用いて実装することも可能です。</p>
-<p>しかし、読者の大半が<code>list</code>で構築された<code>set</code>インターフェースは使い物にならないことを知っていると思います。値の存在確認や削除に圧倒的に時間がかかるからです。</p>
-<p>このように、データ構造を考えるうえでは、インターフェースのみではなく、</p>
-<ul>
-<li>各操作にどれだけ時間がかかるのか</li>
-<li>データ構造はどれくらいのメモリを必要とするのか</li>
-</ul>
-<p>を含めて議論するべきでしょう。
-これらを踏まえて、Y-Fast Trieの性能を見ていきます。</p>
-<h2 id="y-fast-trie">Y-Fast Trie</h2>
-<p>Y-Fast Trieは非負整数の集合を扱うことができます。
-具体的には、扱う整数の範囲を$\lbrack 0, 2 ^ w - 1 \rbrack$としたとき、以下のクエリをサポートします。</p>
+<p>というインターフェースを提供するデータ構造です。空間計算量は、確保した列の長さ$N$に対して、$O(N)$です。
+空間計算量が$O(N)$であるとは、格納した値や補助のデータを含めて$O(N)$byteしか必要としないことを表します。</p>
+<h3 id="y-fast-trieのインターフェース">Y-Fast Trieのインターフェース</h3>
+<p>Y-Fast Trieは、扱う整数の範囲を$\lbrack 0, 2 ^ w - 1 \rbrack$としたとき、以下のインターフェースを提供します。</p>
 <table>
   <thead>
       <tr>
@@ -197,22 +197,28 @@ pythonの<code>set</code>(<a href="https://docs.python.org/ja/3/library/stdtypes
       </tr>
   </tbody>
 </table>
-<p>また、操作$N$回を行うとき、空間計算量は$O(N)$になります。</p>
-<p>計算量というのは、かかる時間や必要な領域を定量的に評価するための概念です。
-詳細は<a href="https://noshi91.hatenablog.com/entry/2019/10/08/235335">計算量について(外部リンク)</a>を参照してください。</p>
-<p>$\text{expected}$はその操作にかかる時間が確率変数で表現されることを表します。値はその期待値です。
-空間計算量が$O(N)$であるとは、格納した値や補助のデータを含めて$O(N)$byteしか必要としないことを表します。</p>
-<p>このインターフェースを二分探索木により実装した場合、各操作は$O(\log(N))$時間になります。
-一方、Y-Fast Trieは$O(\log(w))$時間です。</p>
-<p>$w$は整数を表現するのに必要なビット数であり、自然な仮定の元ではY-Fast Trieは二分探索木よりも理論的に高速です。
-(ほとんどの環境で、<code>long long int</code>などの型を用いたときに$w = 64$になるはずです。)
-扱う値を非負整数に絞ることにより、二分探索木よりも高速な動作を実現することができます。</p>
+<p>$\text{expected}$という表記はその操作にかかる時間が確率変数で表現されることを表します。値はその期待値です。</p>
+<p>このインターフェースの内部実装を<a href="https://ja.wikipedia.org/wiki/%E8%B5%A4%E9%BB%92%E6%9C%A8">赤黒木</a>や<a href="https://ja.wikipedia.org/wiki/AVL%E6%9C%A8">AVL木</a>といった二分探索木にした場合、各操作は全体の操作回数を$N$として、$O(\log(N))$時間になります。
+一方、Y-Fast Trieは$N$に依存することなく、$O(\log(w))$時間です。</p>
+<p>$w$は整数を表現するのに必要なビット数であり、ほとんどのケースで$w \leq 64$になります。自然な仮定の元ではY-Fast Trieは二分探索木よりも理論的に高速です。</p>
+<p>驚くべきことに、Y-Fast Trie空間計算量は$O(N)$です。
+扱う値を非負整数に絞ることにより、二分探索木と同等レベルに省メモリかつ二分探索木よりも期待値的に高速な操作を提供します。</p>
+<p>つまり、ロマンたっぷりというわけです。</p>
 <p>前置きはここまでです。次の章からはY-Fast Trieの動作原理を見ていきましょう。</p>
 <h2 id="binary-trieによるsuccessor-query">Binary Trieによるsuccessor query</h2>
 <p>Y-Fast Trieの仕組みを理解するためには、trie木を知る必要があります。
 trieは<strong>グラフ</strong>の一種です。グラフとは、頂点集合$V$と頂点間を結ぶ辺集合$E$の組のことで、ものとものの<strong>つながりかた</strong>だけを抜き出した数学モデルです。</p>
 <p><img src="/images/uec-advent2024/graph_sample.png" alt="graph\_sample.png"></p>
 <p>これがグラフです。この場合、頂点数が6で、辺数が8です。<a href="https://csacademy.com/app/graph_editor/">Graph Editor</a>でビジュアライザを試すことができます。</p>
+<p>プログラム上でグラフを表現するさいは、通常隣接リストを用いた表現を使います。
+これは、各頂点に対応する構造体をつくり、辺を別の構造体へのポインタで表すものです。
+以下に疑似コードを示します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">vertex</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// vertex: 「頂点」の意
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    Data data<span style="color:#f92672">;</span> <span style="color:#75715e">// 頂点番号や、それ以外の値をもたせることもある
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    vertex <span style="color:#f92672">*[]</span> adj<span style="color:#f92672">;</span> <span style="color:#75715e">// 自分から辺がある頂点へのポインタ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// その他、辺に重みをつけることもある
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>うまく実装すると、$O(\vert V \vert + \vert E \vert)$の空間でグラフを表現することができます。</p>
 <p>trieは、文字列の集合を表現するグラフです。
 常に次のルールに従っています。</p>
 <ul>
@@ -286,8 +292,8 @@ trieは<strong>グラフ</strong>の一種です。グラフとは、頂点集�
         <ul class="post-list">
           
           <li class="post-item">
-  <div class="post-date sub">2024-12-11</div>
-  <div class="post-title"><a href="/post/uec-advent2024/">Y-Fast Trieを編む [UEC Advent Calendar 2024] 12日目</a></div>
+  <div class="post-date sub">2024-12-12</div>
+  <div class="post-title"><a href="/post/uec-advent2024/">BSTより高速なデータ構造、Y-Fast Trie [UEC Advent Calendar 2024] 12日目</a></div>
   
 </li>
           
