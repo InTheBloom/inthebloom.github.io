@@ -6,8 +6,15 @@
     <description>Recent content on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2024 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BSTより高速なデータ構造: Y-Fast Trie [UEC Advent Calendar 2024] 12日目</title>
+      <link>https://inthebloom.github.io/post/uec-advent2024/</link>
+      <pubDate>Thu, 12 Dec 2024 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/uec-advent2024/</guid>
+      <description></description>
+    </item>
     <item>
       <title>区切り文字による連続部分列の切り出し</title>
       <link>https://inthebloom.github.io/post/subsequences-by-delimiter/</link>
