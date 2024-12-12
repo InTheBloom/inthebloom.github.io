@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2023-12 on InTheDayDream</title>
-    <link>https://inthebloom.github.io/archives/2023-12/</link>
+    <link>http://localhost:1313/archives/2023-12/</link>
     <description>Recent content in 2023-12 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 31 Dec 2023 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://inthebloom.github.io/archives/2023-12/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/archives/2023-12/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2023年お疲れ様でした。</title>
-      <link>https://inthebloom.github.io/post/2023-final/</link>
+      <link>http://localhost:1313/post/2023-final/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/2023-final/</guid>
+      <guid>http://localhost:1313/post/2023-final/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC290E - Make it Palindrome</title>
-      <link>https://inthebloom.github.io/post/abc290e/</link>
+      <link>http://localhost:1313/post/abc290e/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc290e/</guid>
+      <guid>http://localhost:1313/post/abc290e/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC221E - LEQ</title>
-      <link>https://inthebloom.github.io/post/abc221e/</link>
+      <link>http://localhost:1313/post/abc221e/</link>
       <pubDate>Sat, 16 Dec 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc221e/</guid>
+      <guid>http://localhost:1313/post/abc221e/</guid>
       <description></description>
     </item>
     <item>
       <title>列をいくつかの連続部分列へ分解する小技</title>
-      <link>https://inthebloom.github.io/post/split-into-continuous-subsequences/</link>
+      <link>http://localhost:1313/post/split-into-continuous-subsequences/</link>
       <pubDate>Wed, 13 Dec 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/split-into-continuous-subsequences/</guid>
+      <guid>http://localhost:1313/post/split-into-continuous-subsequences/</guid>
       <description></description>
     </item>
     <item>
       <title>ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目</title>
-      <link>https://inthebloom.github.io/post/uec-advent2023/</link>
+      <link>http://localhost:1313/post/uec-advent2023/</link>
       <pubDate>Tue, 05 Dec 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/uec-advent2023/</guid>
+      <guid>http://localhost:1313/post/uec-advent2023/</guid>
       <description></description>
     </item>
   </channel>

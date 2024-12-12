@@ -2,283 +2,283 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2023 on InTheDayDream</title>
-    <link>https://inthebloom.github.io/archives/2023/</link>
+    <link>http://localhost:1313/archives/2023/</link>
     <description>Recent content in 2023 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 31 Dec 2023 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://inthebloom.github.io/archives/2023/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/archives/2023/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2023年お疲れ様でした。</title>
-      <link>https://inthebloom.github.io/post/2023-final/</link>
+      <link>http://localhost:1313/post/2023-final/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/2023-final/</guid>
+      <guid>http://localhost:1313/post/2023-final/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC290E - Make it Palindrome</title>
-      <link>https://inthebloom.github.io/post/abc290e/</link>
+      <link>http://localhost:1313/post/abc290e/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc290e/</guid>
+      <guid>http://localhost:1313/post/abc290e/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC221E - LEQ</title>
-      <link>https://inthebloom.github.io/post/abc221e/</link>
+      <link>http://localhost:1313/post/abc221e/</link>
       <pubDate>Sat, 16 Dec 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc221e/</guid>
+      <guid>http://localhost:1313/post/abc221e/</guid>
       <description></description>
     </item>
     <item>
       <title>列をいくつかの連続部分列へ分解する小技</title>
-      <link>https://inthebloom.github.io/post/split-into-continuous-subsequences/</link>
+      <link>http://localhost:1313/post/split-into-continuous-subsequences/</link>
       <pubDate>Wed, 13 Dec 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/split-into-continuous-subsequences/</guid>
+      <guid>http://localhost:1313/post/split-into-continuous-subsequences/</guid>
       <description></description>
     </item>
     <item>
       <title>ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目</title>
-      <link>https://inthebloom.github.io/post/uec-advent2023/</link>
+      <link>http://localhost:1313/post/uec-advent2023/</link>
       <pubDate>Tue, 05 Dec 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/uec-advent2023/</guid>
+      <guid>http://localhost:1313/post/uec-advent2023/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC330参加記録</title>
-      <link>https://inthebloom.github.io/post/abc330/</link>
+      <link>http://localhost:1313/post/abc330/</link>
       <pubDate>Sat, 25 Nov 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc330/</guid>
+      <guid>http://localhost:1313/post/abc330/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC328参加記録</title>
-      <link>https://inthebloom.github.io/post/abc328/</link>
+      <link>http://localhost:1313/post/abc328/</link>
       <pubDate>Sun, 12 Nov 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc328/</guid>
+      <guid>http://localhost:1313/post/abc328/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC100D - Patisserie ABC</title>
-      <link>https://inthebloom.github.io/post/abc100d/</link>
+      <link>http://localhost:1313/post/abc100d/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc100d/</guid>
+      <guid>http://localhost:1313/post/abc100d/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC327参加記録</title>
-      <link>https://inthebloom.github.io/post/abc327/</link>
+      <link>http://localhost:1313/post/abc327/</link>
       <pubDate>Sun, 05 Nov 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc327/</guid>
+      <guid>http://localhost:1313/post/abc327/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC190F - Shift and Inversions</title>
-      <link>https://inthebloom.github.io/post/abc190f/</link>
+      <link>http://localhost:1313/post/abc190f/</link>
       <pubDate>Wed, 01 Nov 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc190f/</guid>
+      <guid>http://localhost:1313/post/abc190f/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC235E、あるいはクエリ並列処理</title>
-      <link>https://inthebloom.github.io/post/abc235e/</link>
+      <link>http://localhost:1313/post/abc235e/</link>
       <pubDate>Tue, 31 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc235e/</guid>
+      <guid>http://localhost:1313/post/abc235e/</guid>
       <description></description>
     </item>
     <item>
       <title>PG BATTLE 2023参加記録</title>
-      <link>https://inthebloom.github.io/post/pgbattle2023/</link>
+      <link>http://localhost:1313/post/pgbattle2023/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/pgbattle2023/</guid>
+      <guid>http://localhost:1313/post/pgbattle2023/</guid>
       <description></description>
     </item>
     <item>
       <title>Functional Graphのサイクル検出をいい感じに</title>
-      <link>https://inthebloom.github.io/post/functional-graph-cycle/</link>
+      <link>http://localhost:1313/post/functional-graph-cycle/</link>
       <pubDate>Fri, 13 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/functional-graph-cycle/</guid>
+      <guid>http://localhost:1313/post/functional-graph-cycle/</guid>
       <description></description>
     </item>
     <item>
       <title>yukicoder contest407参加記録</title>
-      <link>https://inthebloom.github.io/post/yuki407/</link>
+      <link>http://localhost:1313/post/yuki407/</link>
       <pubDate>Fri, 06 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/yuki407/</guid>
+      <guid>http://localhost:1313/post/yuki407/</guid>
       <description></description>
     </item>
     <item>
       <title>割れるし割りたいのに割れない数を割る方法</title>
-      <link>https://inthebloom.github.io/post/mod-division-tech/</link>
+      <link>http://localhost:1313/post/mod-division-tech/</link>
       <pubDate>Thu, 05 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/mod-division-tech/</guid>
+      <guid>http://localhost:1313/post/mod-division-tech/</guid>
       <description></description>
     </item>
     <item>
       <title>ワーシャル・フロイド法について調べて、納得したこと</title>
-      <link>https://inthebloom.github.io/post/floyd-warshall/</link>
+      <link>http://localhost:1313/post/floyd-warshall/</link>
       <pubDate>Mon, 02 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/floyd-warshall/</guid>
+      <guid>http://localhost:1313/post/floyd-warshall/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC322参加記録</title>
-      <link>https://inthebloom.github.io/post/abc322/</link>
+      <link>http://localhost:1313/post/abc322/</link>
       <pubDate>Sat, 30 Sep 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc322/</guid>
+      <guid>http://localhost:1313/post/abc322/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC270E - Apple Baskets on Circle</title>
-      <link>https://inthebloom.github.io/post/abc270e/</link>
+      <link>http://localhost:1313/post/abc270e/</link>
       <pubDate>Tue, 26 Sep 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc270e/</guid>
+      <guid>http://localhost:1313/post/abc270e/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC202D - aab aba baa</title>
-      <link>https://inthebloom.github.io/post/abc202d/</link>
+      <link>http://localhost:1313/post/abc202d/</link>
       <pubDate>Sun, 24 Sep 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc202d/</guid>
+      <guid>http://localhost:1313/post/abc202d/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC321参加してきた。</title>
-      <link>https://inthebloom.github.io/post/abc321/</link>
+      <link>http://localhost:1313/post/abc321/</link>
       <pubDate>Sat, 23 Sep 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc321/</guid>
+      <guid>http://localhost:1313/post/abc321/</guid>
       <description></description>
     </item>
     <item>
       <title>InTheDayDreamをhugoに移行するためにやったことたち</title>
-      <link>https://inthebloom.github.io/post/hugo-setting/</link>
+      <link>http://localhost:1313/post/hugo-setting/</link>
       <pubDate>Fri, 15 Sep 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/hugo-setting/</guid>
+      <guid>http://localhost:1313/post/hugo-setting/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC315参加記録</title>
-      <link>https://inthebloom.github.io/post/abc315/</link>
+      <link>http://localhost:1313/post/abc315/</link>
       <pubDate>Thu, 24 Aug 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc315/</guid>
+      <guid>http://localhost:1313/post/abc315/</guid>
       <description></description>
     </item>
     <item>
       <title>繰り返し二乗法について</title>
-      <link>https://inthebloom.github.io/post/modpow/</link>
+      <link>http://localhost:1313/post/modpow/</link>
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/modpow/</guid>
+      <guid>http://localhost:1313/post/modpow/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC310参加記録</title>
-      <link>https://inthebloom.github.io/post/abc310/</link>
+      <link>http://localhost:1313/post/abc310/</link>
       <pubDate>Mon, 17 Jul 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc310/</guid>
+      <guid>http://localhost:1313/post/abc310/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC309参加記録</title>
-      <link>https://inthebloom.github.io/post/abc309/</link>
+      <link>http://localhost:1313/post/abc309/</link>
       <pubDate>Thu, 13 Jul 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc309/</guid>
+      <guid>http://localhost:1313/post/abc309/</guid>
       <description></description>
     </item>
     <item>
       <title>unstableをstableにする小技</title>
-      <link>https://inthebloom.github.io/post/sorttech/</link>
+      <link>http://localhost:1313/post/sorttech/</link>
       <pubDate>Mon, 03 Jul 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/sorttech/</guid>
+      <guid>http://localhost:1313/post/sorttech/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC307参加記録</title>
-      <link>https://inthebloom.github.io/post/abc307/</link>
+      <link>http://localhost:1313/post/abc307/</link>
       <pubDate>Tue, 27 Jun 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc307/</guid>
+      <guid>http://localhost:1313/post/abc307/</guid>
       <description></description>
     </item>
     <item>
       <title>KaTeX導入してみる</title>
-      <link>https://inthebloom.github.io/post/katex/</link>
+      <link>http://localhost:1313/post/katex/</link>
       <pubDate>Fri, 23 Jun 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/katex/</guid>
+      <guid>http://localhost:1313/post/katex/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC99C - Strange Bank</title>
-      <link>https://inthebloom.github.io/post/abc99c/</link>
+      <link>http://localhost:1313/post/abc99c/</link>
       <pubDate>Tue, 13 Jun 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc99c/</guid>
+      <guid>http://localhost:1313/post/abc99c/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC304参加記録</title>
-      <link>https://inthebloom.github.io/post/abc304/</link>
+      <link>http://localhost:1313/post/abc304/</link>
       <pubDate>Mon, 05 Jun 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc304/</guid>
+      <guid>http://localhost:1313/post/abc304/</guid>
       <description></description>
     </item>
     <item>
       <title>MMA Contest 015 参加記録</title>
-      <link>https://inthebloom.github.io/post/mmacontest15/</link>
+      <link>http://localhost:1313/post/mmacontest15/</link>
       <pubDate>Thu, 01 Jun 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/mmacontest15/</guid>
+      <guid>http://localhost:1313/post/mmacontest15/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC300参加記録</title>
-      <link>https://inthebloom.github.io/post/abc300/</link>
+      <link>http://localhost:1313/post/abc300/</link>
       <pubDate>Mon, 01 May 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc300/</guid>
+      <guid>http://localhost:1313/post/abc300/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC296参加記録</title>
-      <link>https://inthebloom.github.io/post/abc296/</link>
+      <link>http://localhost:1313/post/abc296/</link>
       <pubDate>Mon, 03 Apr 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc296/</guid>
+      <guid>http://localhost:1313/post/abc296/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC294参加記録</title>
-      <link>https://inthebloom.github.io/post/abc294/</link>
+      <link>http://localhost:1313/post/abc294/</link>
       <pubDate>Tue, 21 Mar 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc294/</guid>
+      <guid>http://localhost:1313/post/abc294/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC293参加記録</title>
-      <link>https://inthebloom.github.io/post/abc293/</link>
+      <link>http://localhost:1313/post/abc293/</link>
       <pubDate>Fri, 17 Mar 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc293/</guid>
+      <guid>http://localhost:1313/post/abc293/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC291参加記録 ~ DPお前もう船降りろ ~</title>
-      <link>https://inthebloom.github.io/post/abc291/</link>
+      <link>http://localhost:1313/post/abc291/</link>
       <pubDate>Sun, 26 Feb 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc291/</guid>
+      <guid>http://localhost:1313/post/abc291/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC290参加記録</title>
-      <link>https://inthebloom.github.io/post/abc290/</link>
+      <link>http://localhost:1313/post/abc290/</link>
       <pubDate>Tue, 21 Feb 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc290/</guid>
+      <guid>http://localhost:1313/post/abc290/</guid>
       <description></description>
     </item>
     <item>
       <title>精説ARC155A</title>
-      <link>https://inthebloom.github.io/post/arc155a/</link>
+      <link>http://localhost:1313/post/arc155a/</link>
       <pubDate>Tue, 07 Feb 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/arc155a/</guid>
+      <guid>http://localhost:1313/post/arc155a/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC284参加記録</title>
-      <link>https://inthebloom.github.io/post/abc284/</link>
+      <link>http://localhost:1313/post/abc284/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc284/</guid>
+      <guid>http://localhost:1313/post/abc284/</guid>
       <description></description>
     </item>
   </channel>

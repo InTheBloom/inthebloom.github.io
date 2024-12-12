@@ -2,234 +2,234 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2024 on InTheDayDream</title>
-    <link>https://inthebloom.github.io/archives/2024/</link>
+    <link>http://localhost:1313/archives/2024/</link>
     <description>Recent content in 2024 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://inthebloom.github.io/archives/2024/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/archives/2024/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>区切り文字による連続部分列の切り出し</title>
-      <link>https://inthebloom.github.io/post/subsequences-by-delimiter/</link>
+      <link>http://localhost:1313/post/subsequences-by-delimiter/</link>
       <pubDate>Tue, 03 Dec 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/subsequences-by-delimiter/</guid>
+      <guid>http://localhost:1313/post/subsequences-by-delimiter/</guid>
       <description></description>
     </item>
     <item>
       <title>AtCoder Algorithm 1600達成！</title>
-      <link>https://inthebloom.github.io/post/reached-1600/</link>
+      <link>http://localhost:1313/post/reached-1600/</link>
       <pubDate>Fri, 22 Nov 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/reached-1600/</guid>
+      <guid>http://localhost:1313/post/reached-1600/</guid>
       <description></description>
     </item>
     <item>
       <title>UnionFindによる区間の統合</title>
-      <link>https://inthebloom.github.io/post/unifying-segments-with-unionfind/</link>
+      <link>http://localhost:1313/post/unifying-segments-with-unionfind/</link>
       <pubDate>Tue, 19 Nov 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/unifying-segments-with-unionfind/</guid>
+      <guid>http://localhost:1313/post/unifying-segments-with-unionfind/</guid>
       <description></description>
     </item>
     <item>
       <title>失われしappleスタイルのemojiを召喚 on mintty</title>
-      <link>https://inthebloom.github.io/post/apple-emoji-on-mintty/</link>
+      <link>http://localhost:1313/post/apple-emoji-on-mintty/</link>
       <pubDate>Sat, 09 Nov 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/apple-emoji-on-mintty/</guid>
+      <guid>http://localhost:1313/post/apple-emoji-on-mintty/</guid>
       <description></description>
     </item>
     <item>
       <title>ICPC模擬国内予選D 過去問の共有</title>
-      <link>https://inthebloom.github.io/post/icpc-2024-domestic-d/</link>
+      <link>http://localhost:1313/post/icpc-2024-domestic-d/</link>
       <pubDate>Tue, 29 Oct 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/icpc-2024-domestic-d/</guid>
+      <guid>http://localhost:1313/post/icpc-2024-domestic-d/</guid>
       <description></description>
     </item>
     <item>
       <title>Functional GraphでK回進むクエリ in &lt;O(NlogN), O(logN)&gt;</title>
-      <link>https://inthebloom.github.io/post/functional-graph-logn-simulation/</link>
+      <link>http://localhost:1313/post/functional-graph-logn-simulation/</link>
       <pubDate>Sat, 19 Oct 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/functional-graph-logn-simulation/</guid>
+      <guid>http://localhost:1313/post/functional-graph-logn-simulation/</guid>
       <description></description>
     </item>
     <item>
       <title>比較的シンプルなクイックソートとマージソートの実装</title>
-      <link>https://inthebloom.github.io/post/simple-nlogn-sort/</link>
+      <link>http://localhost:1313/post/simple-nlogn-sort/</link>
       <pubDate>Thu, 10 Oct 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/simple-nlogn-sort/</guid>
+      <guid>http://localhost:1313/post/simple-nlogn-sort/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC288D - Range Add Query</title>
-      <link>https://inthebloom.github.io/post/abc288d/</link>
+      <link>http://localhost:1313/post/abc288d/</link>
       <pubDate>Tue, 10 Sep 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc288d/</guid>
+      <guid>http://localhost:1313/post/abc288d/</guid>
       <description></description>
     </item>
     <item>
       <title>Range Kth Smallestに対する4つの解法と2つの実装例</title>
-      <link>https://inthebloom.github.io/post/range-kth-smallest/</link>
+      <link>http://localhost:1313/post/range-kth-smallest/</link>
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/range-kth-smallest/</guid>
+      <guid>http://localhost:1313/post/range-kth-smallest/</guid>
       <description></description>
     </item>
     <item>
       <title>暗黙のコピーコンストラクタにご注意を</title>
-      <link>https://inthebloom.github.io/post/cpp-copy-constructor/</link>
+      <link>http://localhost:1313/post/cpp-copy-constructor/</link>
       <pubDate>Sat, 17 Aug 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/cpp-copy-constructor/</guid>
+      <guid>http://localhost:1313/post/cpp-copy-constructor/</guid>
       <description></description>
     </item>
     <item>
       <title>UECCPバーチャルコンテストを発起し、完走した</title>
-      <link>https://inthebloom.github.io/post/ueccp-2024-first-half/</link>
+      <link>http://localhost:1313/post/ueccp-2024-first-half/</link>
       <pubDate>Thu, 08 Aug 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/ueccp-2024-first-half/</guid>
+      <guid>http://localhost:1313/post/ueccp-2024-first-half/</guid>
       <description></description>
     </item>
     <item>
       <title>[覚書] 陽なDAG上のdpを楽に処理する</title>
-      <link>https://inthebloom.github.io/post/dp-in-explicit-dag/</link>
+      <link>http://localhost:1313/post/dp-in-explicit-dag/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/dp-in-explicit-dag/</guid>
+      <guid>http://localhost:1313/post/dp-in-explicit-dag/</guid>
       <description></description>
     </item>
     <item>
       <title>No.2758 RDQ</title>
-      <link>https://inthebloom.github.io/post/yukicoder2758/</link>
+      <link>http://localhost:1313/post/yukicoder2758/</link>
       <pubDate>Sat, 18 May 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/yukicoder2758/</guid>
+      <guid>http://localhost:1313/post/yukicoder2758/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC352参加記録</title>
-      <link>https://inthebloom.github.io/post/abc352/</link>
+      <link>http://localhost:1313/post/abc352/</link>
       <pubDate>Mon, 06 May 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc352/</guid>
+      <guid>http://localhost:1313/post/abc352/</guid>
       <description></description>
     </item>
     <item>
       <title>[メモ] Functional Graph上のシミュレーション</title>
-      <link>https://inthebloom.github.io/post/functional-graph-simulating/</link>
+      <link>http://localhost:1313/post/functional-graph-simulating/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/functional-graph-simulating/</guid>
+      <guid>http://localhost:1313/post/functional-graph-simulating/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC247F - Cards</title>
-      <link>https://inthebloom.github.io/post/abc247f/</link>
+      <link>http://localhost:1313/post/abc247f/</link>
       <pubDate>Wed, 10 Apr 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc247f/</guid>
+      <guid>http://localhost:1313/post/abc247f/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC247E - Max Min</title>
-      <link>https://inthebloom.github.io/post/abc247e/</link>
+      <link>http://localhost:1313/post/abc247e/</link>
       <pubDate>Mon, 08 Apr 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc247e/</guid>
+      <guid>http://localhost:1313/post/abc247e/</guid>
       <description></description>
     </item>
     <item>
       <title>MMA Contest 018参加記録 &#43; 怪文書</title>
-      <link>https://inthebloom.github.io/post/mmacontest018/</link>
+      <link>http://localhost:1313/post/mmacontest018/</link>
       <pubDate>Wed, 03 Apr 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/mmacontest018/</guid>
+      <guid>http://localhost:1313/post/mmacontest018/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC345参加記録</title>
-      <link>https://inthebloom.github.io/post/abc345/</link>
+      <link>http://localhost:1313/post/abc345/</link>
       <pubDate>Fri, 29 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc345/</guid>
+      <guid>http://localhost:1313/post/abc345/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC346参加記録</title>
-      <link>https://inthebloom.github.io/post/abc346/</link>
+      <link>http://localhost:1313/post/abc346/</link>
       <pubDate>Fri, 29 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc346/</guid>
+      <guid>http://localhost:1313/post/abc346/</guid>
       <description></description>
     </item>
     <item>
       <title>三井住友信託銀行プログラミングコンテスト2019F - Interval Running</title>
-      <link>https://inthebloom.github.io/post/sumitb2019f/</link>
+      <link>http://localhost:1313/post/sumitb2019f/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/sumitb2019f/</guid>
+      <guid>http://localhost:1313/post/sumitb2019f/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC35D - トレジャーハント</title>
-      <link>https://inthebloom.github.io/post/abc35d/</link>
+      <link>http://localhost:1313/post/abc35d/</link>
       <pubDate>Tue, 12 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc35d/</guid>
+      <guid>http://localhost:1313/post/abc35d/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC344 (upsolved)</title>
-      <link>https://inthebloom.github.io/post/abc344/</link>
+      <link>http://localhost:1313/post/abc344/</link>
       <pubDate>Mon, 11 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc344/</guid>
+      <guid>http://localhost:1313/post/abc344/</guid>
       <description></description>
     </item>
     <item>
       <title>MMA Contest 016 (upsolved)</title>
-      <link>https://inthebloom.github.io/post/mmacontest016/</link>
+      <link>http://localhost:1313/post/mmacontest016/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/mmacontest016/</guid>
+      <guid>http://localhost:1313/post/mmacontest016/</guid>
       <description></description>
     </item>
     <item>
       <title>20歳になりました。</title>
-      <link>https://inthebloom.github.io/post/20th-birthday/</link>
+      <link>http://localhost:1313/post/20th-birthday/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/20th-birthday/</guid>
+      <guid>http://localhost:1313/post/20th-birthday/</guid>
       <description></description>
     </item>
     <item>
       <title>天下一プログラマーコンテスト2015予選B - 天下一リテラル</title>
-      <link>https://inthebloom.github.io/post/tenka1_2015_qualbb/</link>
+      <link>http://localhost:1313/post/tenka1_2015_qualbb/</link>
       <pubDate>Wed, 28 Feb 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/tenka1_2015_qualbb/</guid>
+      <guid>http://localhost:1313/post/tenka1_2015_qualbb/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC74D - Restoring Road Network</title>
-      <link>https://inthebloom.github.io/post/abc74d/</link>
+      <link>http://localhost:1313/post/abc74d/</link>
       <pubDate>Tue, 27 Feb 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc74d/</guid>
+      <guid>http://localhost:1313/post/abc74d/</guid>
       <description></description>
     </item>
     <item>
       <title>尺取り法備忘録</title>
-      <link>https://inthebloom.github.io/post/two-pointer-approach/</link>
+      <link>http://localhost:1313/post/two-pointer-approach/</link>
       <pubDate>Thu, 22 Feb 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/two-pointer-approach/</guid>
+      <guid>http://localhost:1313/post/two-pointer-approach/</guid>
       <description></description>
     </item>
     <item>
       <title>等比数列の和を計算する2つの対数時間アルゴリズム</title>
-      <link>https://inthebloom.github.io/post/geometric-progression-sum/</link>
+      <link>http://localhost:1313/post/geometric-progression-sum/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/geometric-progression-sum/</guid>
+      <guid>http://localhost:1313/post/geometric-progression-sum/</guid>
       <description></description>
     </item>
     <item>
       <title>Ubuntuが死んだのでDebianをインストールする</title>
-      <link>https://inthebloom.github.io/post/debian-install/</link>
+      <link>http://localhost:1313/post/debian-install/</link>
       <pubDate>Tue, 13 Feb 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/debian-install/</guid>
+      <guid>http://localhost:1313/post/debian-install/</guid>
       <description></description>
     </item>
     <item>
       <title>No.2616 中央番目の中央値</title>
-      <link>https://inthebloom.github.io/post/yukicoder2616/</link>
+      <link>http://localhost:1313/post/yukicoder2616/</link>
       <pubDate>Sat, 27 Jan 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/yukicoder2616/</guid>
+      <guid>http://localhost:1313/post/yukicoder2616/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC167E - Colorful Blocks</title>
-      <link>https://inthebloom.github.io/post/abc167e/</link>
+      <link>http://localhost:1313/post/abc167e/</link>
       <pubDate>Wed, 03 Jan 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc167e/</guid>
+      <guid>http://localhost:1313/post/abc167e/</guid>
       <description></description>
     </item>
   </channel>

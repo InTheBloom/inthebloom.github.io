@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Y-Fast Trieを編む [UEC Advent Calendar 2024] 12日目 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
+<link rel="alternate" href="/index.xml?c=db402a10c8de5f89c3c52415aa52342247cd68ae" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="Y-Fast Trieを編む [UEC Advent Calendar 2024] 12日目 - InTheDayDream">
+<meta property="og:url" content="http://localhost:1313/post/uec-advent2024/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="Y-Fast Trieを編む [UEC Advent Calendar 2024] 12日目 - InTheDayDream">
+<meta name="twitter:url" content="http://localhost:1313/post/uec-advent2024/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
+<link rel="stylesheet" href="/css/color.css?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=db402a10c8de5f89c3c52415aa52342247cd68ae">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>Y-Fast Trieを編む [UEC Advent Calendar 2024] 12日目</h1>
+
+<span class="sub">Published on 2024-12-11</span><br>
+<span class="sub">Last Modified 2024-12-11</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#まえがき">まえがき</a></li>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#データ構造とは">データ構造とは</a></li>
+    <li><a href="#y-fast-trie">Y-Fast Trie</a></li>
+    <li><a href="#binary-trieによるsuccessor-query">Binary Trieによるsuccessor query</a>
+      <ul>
+        <li><a href="#binary-trie">Binary Trie</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="まえがき">まえがき</h2>
+<p>こんにちは、<a href="https://x.com/UU9782wsEdANDhp">InTheBloom</a>です。
+今年もUECアドカレの季節がやってきましたね。Twitterでカレンダーが生えたのを観測したので、これ幸いと枠をいただきました。これで3年目になります。</p>
+<p>このエントリはUEC Advent Calendar 2024の12日目を担当します。</p>
+<iframe src="https://adventar.org/calendars/10127/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
+<p>また、今年もUEC2が建っています。</p>
+<iframe src="https://adventar.org/calendars/10198/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
+<p>11日目はえぐちさんの～～～～～～～～～～とはんかくさんの～～～～～でした。</p>
+<p>[感想を書く]</p>
+<p>今年も力作ぞろいです。これからのエントリも楽しみですね！</p>
+<h2 id="はじめに">はじめに</h2>
+<p>このエントリでは、Y-Fast Trie(ワイ-ファスト トライ)と呼ばれるデータ構造の動作原理を説明し、実際に組んだものを示します。
+Y-Fast Trieの美しさ、ロマンを体感してください！</p>
+<p>誤りの指摘は随時募集しています。指摘いただいたものは随時修正していきますので、お気軽にどうぞ。</p>
+<h2 id="データ構造とは">データ構造とは</h2>
+<p>Y-Fast Trieは<strong>データ構造</strong>です。まず、データ構造とは何なのかを再考しましょう。</p>
+<p>データ構造とは何かについて厳密に定義を与えるのは難しいですが、大まかに、いくつかの抽象化された操作を行うブラックボックスのようなものです。
+pythonの<code>set</code>(<a href="https://docs.python.org/ja/3/library/stdtypes.html#set">リファレンス</a>)を例に考えてみましょう。私たちは、setが内部で何を行っているかを知ることなく、</p>
+<ul>
+<li>setに値を追加する</li>
+<li>setにある値が存在するか確認する</li>
+<li>setにいくつ値が存在するか確認する</li>
+</ul>
+<p>などの操作を行うことができます。上記のような、あるデータ構造が行うことができる操作の集合を<strong>インターフェース</strong>と呼ぶことにします。</p>
+<p>インターフェースは外から見たときのふるまいを定義します。たとえば、<code>set</code>のインターフェースを<code>list</code>を用いて実装することも可能です。</p>
+<p>しかし、読者の大半が<code>list</code>で構築された<code>set</code>インターフェースは使い物にならないことを知っていると思います。値の存在確認や削除に圧倒的に時間がかかるからです。</p>
+<p>このように、データ構造を考えるうえでは、インターフェースのみではなく、</p>
+<ul>
+<li>各操作にどれだけ時間がかかるのか</li>
+<li>データ構造はどれくらいのメモリを必要とするのか</li>
+</ul>
+<p>を含めて議論するべきでしょう。
+これらを踏まえて、Y-Fast Trieの性能を見ていきます。</p>
+<h2 id="y-fast-trie">Y-Fast Trie</h2>
+<p>Y-Fast Trieは非負整数の集合を扱うことができます。
+具体的には、扱う整数の範囲を$\lbrack 0, 2 ^ w - 1 \rbrack$としたとき、以下のクエリをサポートします。</p>
+<table>
+  <thead>
+      <tr>
+          <th>操作</th>
+          <th>内容</th>
+          <th>時間計算量</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\mathrm{insert}(x)$</td>
+          <td>集合に$x$を追加する</td>
+          <td>$\text{expected } O(\log(w))$</td>
+      </tr>
+      <tr>
+          <td>$\mathrm{remove}(x)$</td>
+          <td>集合から$x$を削除する</td>
+          <td>$\text{expected } O(\log(w))$</td>
+      </tr>
+      <tr>
+          <td>$\mathrm{successor}(x)$</td>
+          <td>集合に含まれる$x$以上最小の値を返す</td>
+          <td>$\text{expected } O(\log(w))$</td>
+      </tr>
+      <tr>
+          <td>$\mathrm{predecessor}(x)$</td>
+          <td>集合に含まれる$x$以下最大の値を返す</td>
+          <td>$\text{expected } O(\log(w))$</td>
+      </tr>
+  </tbody>
+</table>
+<p>また、操作$N$回を行うとき、空間計算量は$O(N)$になります。</p>
+<p>計算量というのは、かかる時間や必要な領域を定量的に評価するための概念です。
+詳細は<a href="https://noshi91.hatenablog.com/entry/2019/10/08/235335">計算量について(外部リンク)</a>を参照してください。</p>
+<p>$\text{expected}$はその操作にかかる時間が確率変数で表現されることを表します。値はその期待値です。
+空間計算量が$O(N)$であるとは、格納した値や補助のデータを含めて$O(N)$byteしか必要としないことを表します。</p>
+<p>このインターフェースを二分探索木により実装した場合、各操作は$O(\log(N))$時間になります。
+一方、Y-Fast Trieは$O(\log(w))$時間です。</p>
+<p>$w$は整数を表現するのに必要なビット数であり、自然な仮定の元ではY-Fast Trieは二分探索木よりも理論的に高速です。
+(ほとんどの環境で、<code>long long int</code>などの型を用いたときに$w = 64$になるはずです。)
+扱う値を非負整数に絞ることにより、二分探索木よりも高速な動作を実現することができます。</p>
+<p>前置きはここまでです。次の章からはY-Fast Trieの動作原理を見ていきましょう。</p>
+<h2 id="binary-trieによるsuccessor-query">Binary Trieによるsuccessor query</h2>
+<p>Y-Fast Trieの仕組みを理解するためには、trie木を知る必要があります。
+trieは<strong>グラフ</strong>の一種です。グラフとは、頂点集合$V$と頂点間を結ぶ辺集合$E$の組のことで、ものとものの<strong>つながりかた</strong>だけを抜き出した数学モデルです。</p>
+<p><img src="/images/uec-advent2024/graph_sample.png" alt="graph\_sample.png"></p>
+<p>これがグラフです。この場合、頂点数が6で、辺数が8です。<a href="https://csacademy.com/app/graph_editor/">Graph Editor</a>でビジュアライザを試すことができます。</p>
+<p>trieは、文字列の集合を表現するグラフです。
+常に次のルールに従っています。</p>
+<ul>
+<li>根と呼ばれる「スタート地点」をもつ。</li>
+<li>各辺には文字が割り当てられる。</li>
+<li>根は空文字列を表現する。他の頂点は、根からそこまでたどったときに通った辺の文字を連結した文字列を表現する。</li>
+</ul>
+<p><img src="/images/uec-advent2024/trie_wiki.png" alt="trie木"></p>
+<p>wikipediaの<a href="https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A9%E3%82%A4_(%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0)">トライ</a>からパブリックドメインの画像をお借りしました。
+これがtrie木です。&ldquo;A&rdquo;, &ldquo;to&rdquo;, &ldquo;tea&rdquo;, &ldquo;ted&rdquo;, &ldquo;ten&rdquo;, &ldquo;i&rdquo;, &ldquo;in&rdquo;, &ldquo;inn&quot;から構築されています。</p>
+<p>trieに文字列を追加/削除することもできます。</p>
+<p>追加するときは、根から出来るだけ既存の頂点を経由して文字を伸ばしていけばよいです。
+削除するときは、その文字列を表現する頂点からはじめて、他の文字列に影響しない部分の頂点を削除しながら根までのぼっていけばよいです。</p>
+<h3 id="binary-trie">Binary Trie</h3>
+<p>進数表記された数字を文字列として扱うことができます。
+つまり、1234を&quot;1234&rdquo;、432795を&quot;432795&quot;としてみなすということです。
+これにより、trieで数字を扱うことができるようになります。</p>
+<p>trieの辺に乗せられる文字を&quot;0&quot;と&quot;1&quot;に限定することにします。
+すると、各ノードは0と1の連結を表現します。
+こうすることで、任意の数を</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+	<a class="post-tag" href="/tags/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0/">データ構造</a>
+	
+	<a class="post-tag" href="/tags/uec-advent-calendar/">UEC Advent Calendar</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/subsequences-by-delimiter/">区切り文字による連続部分列の切り出し</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-12-11</div>
+  <div class="post-title"><a href="/post/uec-advent2024/">Y-Fast Trieを編む [UEC Advent Calendar 2024] 12日目</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-11-19</div>
+  <div class="post-title"><a href="/post/unifying-segments-with-unionfind/">UnionFindによる区間の統合</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-10-19</div>
+  <div class="post-title"><a href="/post/functional-graph-logn-simulation/">Functional GraphでK回進むクエリ in &lt;O(NlogN), O(logN)&gt;</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+
+    
+    
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
