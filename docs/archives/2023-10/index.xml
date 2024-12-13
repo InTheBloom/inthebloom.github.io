@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2023-10 on InTheDayDream</title>
-    <link>https://inthebloom.github.io/archives/2023-10/</link>
+    <link>http://localhost:1313/archives/2023-10/</link>
     <description>Recent content in 2023-10 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 31 Oct 2023 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://inthebloom.github.io/archives/2023-10/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/archives/2023-10/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC235E、あるいはクエリ並列処理</title>
-      <link>https://inthebloom.github.io/post/abc235e/</link>
+      <link>http://localhost:1313/post/abc235e/</link>
       <pubDate>Tue, 31 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc235e/</guid>
+      <guid>http://localhost:1313/post/abc235e/</guid>
       <description></description>
     </item>
     <item>
       <title>PG BATTLE 2023参加記録</title>
-      <link>https://inthebloom.github.io/post/pgbattle2023/</link>
+      <link>http://localhost:1313/post/pgbattle2023/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/pgbattle2023/</guid>
+      <guid>http://localhost:1313/post/pgbattle2023/</guid>
       <description></description>
     </item>
     <item>
       <title>Functional Graphのサイクル検出をいい感じに</title>
-      <link>https://inthebloom.github.io/post/functional-graph-cycle/</link>
+      <link>http://localhost:1313/post/functional-graph-cycle/</link>
       <pubDate>Fri, 13 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/functional-graph-cycle/</guid>
+      <guid>http://localhost:1313/post/functional-graph-cycle/</guid>
       <description></description>
     </item>
     <item>
       <title>yukicoder contest407参加記録</title>
-      <link>https://inthebloom.github.io/post/yuki407/</link>
+      <link>http://localhost:1313/post/yuki407/</link>
       <pubDate>Fri, 06 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/yuki407/</guid>
+      <guid>http://localhost:1313/post/yuki407/</guid>
       <description></description>
     </item>
     <item>
       <title>割れるし割りたいのに割れない数を割る方法</title>
-      <link>https://inthebloom.github.io/post/mod-division-tech/</link>
+      <link>http://localhost:1313/post/mod-division-tech/</link>
       <pubDate>Thu, 05 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/mod-division-tech/</guid>
+      <guid>http://localhost:1313/post/mod-division-tech/</guid>
       <description></description>
     </item>
     <item>
       <title>ワーシャル・フロイド法について調べて、納得したこと</title>
-      <link>https://inthebloom.github.io/post/floyd-warshall/</link>
+      <link>http://localhost:1313/post/floyd-warshall/</link>
       <pubDate>Mon, 02 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/floyd-warshall/</guid>
+      <guid>http://localhost:1313/post/floyd-warshall/</guid>
       <description></description>
     </item>
   </channel>

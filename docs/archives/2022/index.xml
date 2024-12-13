@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2022 on InTheDayDream</title>
-    <link>https://inthebloom.github.io/archives/2022/</link>
+    <link>http://localhost:1313/archives/2022/</link>
     <description>Recent content in 2022 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://inthebloom.github.io/archives/2022/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/archives/2022/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC283参加記録！</title>
-      <link>https://inthebloom.github.io/post/abc283/</link>
+      <link>http://localhost:1313/post/abc283/</link>
       <pubDate>Mon, 26 Dec 2022 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc283/</guid>
+      <guid>http://localhost:1313/post/abc283/</guid>
       <description></description>
     </item>
     <item>
       <title>あなたの知らない(知ってるかもしれない)SCPの世界 [UEC Advent Calendar 2022] 24日目</title>
-      <link>https://inthebloom.github.io/post/uec-advent2022/</link>
+      <link>http://localhost:1313/post/uec-advent2022/</link>
       <pubDate>Thu, 22 Dec 2022 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/uec-advent2022/</guid>
+      <guid>http://localhost:1313/post/uec-advent2022/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC282参加記録</title>
-      <link>https://inthebloom.github.io/post/abc282/</link>
+      <link>http://localhost:1313/post/abc282/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc282/</guid>
+      <guid>http://localhost:1313/post/abc282/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC281に参加してきた。</title>
-      <link>https://inthebloom.github.io/post/abc281/</link>
+      <link>http://localhost:1313/post/abc281/</link>
       <pubDate>Sat, 10 Dec 2022 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc281/</guid>
+      <guid>http://localhost:1313/post/abc281/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC280に参加してきました！</title>
-      <link>https://inthebloom.github.io/post/abc280/</link>
+      <link>http://localhost:1313/post/abc280/</link>
       <pubDate>Sun, 04 Dec 2022 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc280/</guid>
+      <guid>http://localhost:1313/post/abc280/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC279参加してきた！</title>
-      <link>https://inthebloom.github.io/post/abc279/</link>
+      <link>http://localhost:1313/post/abc279/</link>
       <pubDate>Sun, 27 Nov 2022 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc279/</guid>
+      <guid>http://localhost:1313/post/abc279/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC278に参加してみた！</title>
-      <link>https://inthebloom.github.io/post/abc278/</link>
+      <link>http://localhost:1313/post/abc278/</link>
       <pubDate>Sat, 19 Nov 2022 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc278/</guid>
+      <guid>http://localhost:1313/post/abc278/</guid>
       <description></description>
     </item>
   </channel>
