@@ -1,7 +1,7 @@
 {{ $site_obj_t := .Site }}
 {{ range .Params.tags }}
     {{ $t := . }}
-    {{ $tposts := index $site_obj_t.Taxonomies.tags (replace (lower $t) " " "-") }}
+    {{ $tposts := index $site_obj_t.Taxonomies.tags (lower $t) }}
     {{ if gt (len $tposts) 1 }}
     <div class="related-tag-category-list">
         <h4 style="font-size: 1.3em;">Other posts tagged by "{{ $t }}"</h4>
