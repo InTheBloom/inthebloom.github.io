@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e8c59dc2d35674b440990d12636f2167e22c4216">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e8c59dc2d35674b440990d12636f2167e22c4216">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e8c59dc2d35674b440990d12636f2167e22c4216">
-<link rel="alternate" href="/index.xml?c=e8c59dc2d35674b440990d12636f2167e22c4216" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="BSTより高速なデータ構造: Y-Fast Trie [UEC Advent Calendar 2024] 12日目 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/uec-advent2024/">
+<meta property="og:url" content="https://inthebloom.github.io/post/uec-advent2024/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/uec-advent2024/ogp.png">
+<meta property="og:image" content="https://inthebloom.github.io//images/uec-advent2024/ogp.png">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="BSTより高速なデータ構造: Y-Fast Trie [UEC Advent Calendar 2024] 12日目 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/uec-advent2024/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/uec-advent2024/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/uec-advent2024/ogp.png">
+<meta property="og:image" content="https://inthebloom.github.io//images/uec-advent2024/ogp.png">
 
 
-<link rel="stylesheet" href="/css/main.css?c=e8c59dc2d35674b440990d12636f2167e22c4216">
-<link rel="stylesheet" href="/css/color.css?c=e8c59dc2d35674b440990d12636f2167e22c4216">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=e8c59dc2d35674b440990d12636f2167e22c4216">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -157,7 +159,15 @@
 
 
 <h2 id="まえがき">まえがき</h2>
-<p>こんにちは、<a href="https://x.com/UU9782wsEdANDhp">InTheBloom</a>です。
+<p>こんにちは、
+<a
+  
+    href="https://x.com/UU9782wsEdANDhp"
+  
+   target="_blank" rel="noopener">
+    InTheBloom
+</a>
+です。
 今年もUECアドカレの季節がやってきましたね。Twitterでカレンダーが生えたのを観測したので、これ幸いと枠をいただきました。これで3年目になります。</p>
 <p>このエントリはUEC Advent Calendar 2024の12日目を担当します。
 <strong>遅刻しました。すみません！</strong></p>
@@ -168,7 +178,15 @@
 <div style="overflow: scroll;">
     <iframe src="https://adventar.org/calendars/10198/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
 </div>
-<p>11日目はえぐちさんの<a href="https://zenn.dev/kk79it/articles/proxmox-tutorial">Proxmoxの運用Tips【自宅鯖】</a>でした。
+<p>11日目はえぐちさんの
+<a
+  
+    href="https://zenn.dev/kk79it/articles/proxmox-tutorial"
+  
+   target="_blank" rel="noopener">
+    Proxmoxの運用Tips【自宅鯖】
+</a>
+でした。
 自宅鯖という単語、非常に魅力的に感じます。とは言いつつ、前提知識がなさすぎて大半が呪文に見えました。勉強が必要そうです。</p>
 <p>UEC2ははんかくさんが担当ですが、まだアップされていないみたいです。</p>
 <p>今年も力作ぞろいです。これからのエントリも楽しみですね！</p>
@@ -186,7 +204,15 @@ Y-Fast Trieの美しさ、ロマンを体感してください！</p>
 <p>性能を議論する上で、各種操作をどれくらい効率よく、どれくらい省メモリで行えるかが知りたいです。
 そこで、本文書内ではインターフェースを考えるとき、同時に各種操作の時間計算量と、データ構造全体が必要とする空間計算量に言及します。</p>
 <p>計算量というのは、かかる時間や必要な領域を定量的に評価するための概念です。
-詳細は<a href="https://noshi91.hatenablog.com/entry/2019/10/08/235335">計算量について(外部リンク)</a>を参照してください。</p>
+詳細は
+<a
+  
+    href="https://noshi91.hatenablog.com/entry/2019/10/08/235335"
+  
+   target="_blank" rel="noopener">
+    計算量について(外部リンク)
+</a>
+を参照してください。</p>
 <p>例えば、C++の<code>std::vector</code>は</p>
 <ul>
 <li>$i$番目の要素への読み書き: $O(1)$時間</li>
@@ -228,8 +254,32 @@ Y-Fast Trieの美しさ、ロマンを体感してください！</p>
   </tbody>
 </table>
 <p>$\text{expected}$という表記はその操作にかかる時間が確率変数で表現されることを表します。値はその期待値です。</p>
-<p>このインターフェースは<a href="https://en.wikipedia.org/wiki/Predecessor_problem">predecessor problem</a>と呼ばれる有名な問題そのものです。
-通常、内部実装として<a href="https://ja.wikipedia.org/wiki/%E8%B5%A4%E9%BB%92%E6%9C%A8">赤黒木</a>や<a href="https://ja.wikipedia.org/wiki/AVL%E6%9C%A8">AVL木</a>といった二分探索木が使用されます。二分探索木を使用する場合、各操作は全体の操作回数を$N$として、$O(\log(N))$時間になります。
+<p>このインターフェースは
+<a
+  
+    href="https://en.wikipedia.org/wiki/Predecessor_problem"
+  
+   target="_blank" rel="noopener">
+    predecessor problem
+</a>
+と呼ばれる有名な問題そのものです。
+通常、内部実装として
+<a
+  
+    href="https://ja.wikipedia.org/wiki/%E8%B5%A4%E9%BB%92%E6%9C%A8"
+  
+   target="_blank" rel="noopener">
+    赤黒木
+</a>
+や
+<a
+  
+    href="https://ja.wikipedia.org/wiki/AVL%E6%9C%A8"
+  
+   target="_blank" rel="noopener">
+    AVL木
+</a>
+といった二分探索木が使用されます。二分探索木を使用する場合、各操作は全体の操作回数を$N$として、$O(\log(N))$時間になります。
 一方、Y-Fast Trieは$N$に依存することなく、常に$O(\log(w))$時間を保ちます。</p>
 <p>$w$は整数を表現するのに必要なビット数であり、ほとんどのケースで$w \leq 64$になります。自然な仮定の元ではY-Fast Trieは二分探索木よりも理論的に高速です。</p>
 <p>驚くべきことに、Y-Fast Trie空間計算量は$O(N)$です。
@@ -240,7 +290,15 @@ Y-Fast Trieの美しさ、ロマンを体感してください！</p>
 <p>Y-Fast Trieの仕組みを理解するためには、trie木を知る必要があります。
 trieは<strong>グラフ</strong>の一種です。グラフとは、頂点集合$V$と頂点間を結ぶ辺集合$E$の組のことで、ものとものの<strong>つながりかた</strong>だけを抜き出した数学モデルです。</p>
 <p><img src="/images/uec-advent2024/graph_sample.png" alt="graph\_sample.png"></p>
-<p>これがグラフです。この場合、頂点数が6で、辺数が8です。<a href="https://csacademy.com/app/graph_editor/">Graph Editor</a>でビジュアライザを試すことができます。</p>
+<p>これがグラフです。この場合、頂点数が6で、辺数が8です。
+<a
+  
+    href="https://csacademy.com/app/graph_editor/"
+  
+   target="_blank" rel="noopener">
+    Graph Editor
+</a>
+でビジュアライザを試すことができます。</p>
 <p>プログラム上でグラフを表現するときは通常、隣接リストを用いた表現を使います。
 これは、各頂点に対応する構造体をつくり、辺を別の構造体へのポインタで表すものです。
 以下に疑似コードを示します。</p>
@@ -254,7 +312,23 @@ trieは<strong>グラフ</strong>の一種です。グラフとは、頂点集�
 <p>trieは、文字列の集合を表現する木です。</p>
 <p><img src="/images/uec-advent2024/trie_wiki.png" alt="trie木"></p>
 <p>これがtrie木です。この木の場合、&ldquo;A&rdquo;, &ldquo;to&rdquo;, &ldquo;tea&rdquo;, &ldquo;ted&rdquo;, &ldquo;ten&rdquo;, &ldquo;i&rdquo;, &ldquo;in&rdquo;, &ldquo;inn&quot;から構築されています。
-wikipediaの<a href="https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A9%E3%82%A4_(%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0)">トライ</a>からパブリックドメインの画像をお借りしました。(<a href="https://commons.wikimedia.org/wiki/File:Trie_example.svg">source</a>)</p>
+wikipediaの
+<a
+  
+    href="https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A9%E3%82%A4_(%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0)"
+  
+   target="_blank" rel="noopener">
+    トライ
+</a>
+からパブリックドメインの画像をお借りしました。(
+<a
+  
+    href="https://commons.wikimedia.org/wiki/File:Trie_example.svg"
+  
+   target="_blank" rel="noopener">
+    source
+</a>
+)</p>
 <p>trie木は常に次のルールに従っています。</p>
 <ul>
 <li>根と呼ばれる「スタート地点」をもつ。</li>
@@ -421,18 +495,66 @@ wikipediaの<a href="https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A9%E3%82%A4_(
 <p>ここまで、動作原理の説明に終始してきました。
 しかし、実際に動作するように組み上げるのは原理を理解する以上に大変です。
 今回、机上の空論で終わらせないために、実装にチャレンジしました。(想定通りものすごく苦戦して、アドベントカレンダーに遅刻してしまいましたorz)</p>
-<p><a href="https://github.com/InTheBloom/YFastTrie">https://github.com/InTheBloom/YFastTrie</a></p>
+<p>
+<a
+  
+    href="https://github.com/InTheBloom/YFastTrie"
+  
+   target="_blank" rel="noopener">
+    https://github.com/InTheBloom/YFastTrie
+</a>
+</p>
 <p>今回説明しきれなかったハッシュマップの実装や、二分探索木の実装もすべて含んでいます。
 ある程度新しいD言語処理系をインストールした環境であれば実際に動かすことができます。
 興味のある方は是非ご覧ください。</p>
-<p>また、このような複雑なデータ構造は定数倍が悪いという話があります。そのあたりも検証するため、<a href="https://judge.yosupo.jp/">Library Checker</a>の問題で検証を行いました。
+<p>また、このような複雑なデータ構造は定数倍が悪いという話があります。そのあたりも検証するため、
+<a
+  
+    href="https://judge.yosupo.jp/"
+  
+   target="_blank" rel="noopener">
+    Library Checker
+</a>
+の問題で検証を行いました。
 以下に、いくつかの提出リンクを示します。
 (注意として、今回の実装は細かい最適化などをほとんど行っていません。かなり遅い実装なはずです。)</p>
 <ul>
-<li><a href="https://judge.yosupo.jp/submission/255586">Treap (6485ms)</a></li>
-<li><a href="https://judge.yosupo.jp/submission/255468">Binary Trie (メモリ超過によるRE | 4280ms)</a></li>
-<li><a href="https://judge.yosupo.jp/submission/255484">X-Fast Trie (メモリ超過によるRE | 6293ms)</a></li>
-<li><a href="https://judge.yosupo.jp/submission/255632">Y-Fast Trie (細かいチューニングによりギリギリMLEを回避 | 5896ms)</a></li>
+<li>
+<a
+  
+    href="https://judge.yosupo.jp/submission/255586"
+  
+   target="_blank" rel="noopener">
+    Treap (6485ms)
+</a>
+</li>
+<li>
+<a
+  
+    href="https://judge.yosupo.jp/submission/255468"
+  
+   target="_blank" rel="noopener">
+    Binary Trie (メモリ超過によるRE | 4280ms)
+</a>
+</li>
+<li>
+<a
+  
+    href="https://judge.yosupo.jp/submission/255484"
+  
+   target="_blank" rel="noopener">
+    X-Fast Trie (メモリ超過によるRE | 6293ms)
+</a>
+</li>
+<li>
+<a
+  
+    href="https://judge.yosupo.jp/submission/255632"
+  
+   target="_blank" rel="noopener">
+    Y-Fast Trie (細かいチューニングによりギリギリMLEを回避 | 5896ms)
+</a>
+</li>
 </ul>
 <p>結論としては、存外Y-Fast Trieも悪くない感じでした。Binary TrieやX-Fast Trieに比べて明らかに空間使用量が減っていますし、Treapより速いのは驚きました。</p>
 <h2 id="参考資料-あなたもy-fast-trie組みませんか">参考資料 (あなたもY-Fast Trie組みませんか？)</h2>
@@ -441,29 +563,69 @@ wikipediaの<a href="https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A9%E3%82%A4_(
 <p>みんなのデータ構造、Pat Morin著、堀江慧、陣内佑、田中康隆訳、ラムダノート</p>
 <ul>
 <li>5章、6章、7章、13章が特に関係します。本エントリの主情報源です。</li>
-<li>なんと、<a href="https://sites.google.com/view/open-data-structures-ja/home">ここで</a>無料で読めます。知らなかったので2000円払って買いました。(存外紙ベースのほうも悪くないです。)</li>
+<li>なんと、
+<a
+  
+    href="https://sites.google.com/view/open-data-structures-ja/home"
+  
+   target="_blank" rel="noopener">
+    ここで
+</a>
+無料で読めます。知らなかったので2000円払って買いました。(存外紙ベースのほうも悪くないです。)</li>
 </ul>
 </li>
 <li>
-<p>プログラミングコンテストでのデータ構造2 ～平衡二分探索木編～、秋葉拓哉著、<a href="https://www.slideshare.net/slideshow/2-12188757/12188757">https://www.slideshare.net/slideshow/2-12188757/12188757</a></p>
+<p>プログラミングコンテストでのデータ構造2 ～平衡二分探索木編～、秋葉拓哉著、
+<a
+  
+    href="https://www.slideshare.net/slideshow/2-12188757/12188757"
+  
+   target="_blank" rel="noopener">
+    https://www.slideshare.net/slideshow/2-12188757/12188757
+</a>
+</p>
 <ul>
 <li>さっくりと解説されているので、初めての人はこれだけ見て組むのはしんどいです。(1敗) 他のリソースも活用することをお勧めします。</li>
 </ul>
 </li>
 <li>
-<p>Predecessorを高速に解くデータ構造: Y-Fast Trie、goonew著、<a href="https://qiita.com/goonew/items/6ffac4b5e48dc05ca884">https://qiita.com/goonew/items/6ffac4b5e48dc05ca884</a></p>
+<p>Predecessorを高速に解くデータ構造: Y-Fast Trie、goonew著、
+<a
+  
+    href="https://qiita.com/goonew/items/6ffac4b5e48dc05ca884"
+  
+   target="_blank" rel="noopener">
+    https://qiita.com/goonew/items/6ffac4b5e48dc05ca884
+</a>
+</p>
 <ul>
 <li>たくさんの図があり、丁寧に解説されています。binary trieでsuccessorクエリをサポートする方法が特にわかりやすいです。</li>
 </ul>
 </li>
 <li>
-<p>Predecessor Problem、<a href="https://judge.yosupo.jp/problem/predecessor_problem">https://judge.yosupo.jp/problem/predecessor_problem</a></p>
+<p>Predecessor Problem、
+<a
+  
+    href="https://judge.yosupo.jp/problem/predecessor_problem"
+  
+   target="_blank" rel="noopener">
+    https://judge.yosupo.jp/problem/predecessor_problem
+</a>
+</p>
 <ul>
 <li>自力で行うより信頼性が高いテストを行うことができます。</li>
 </ul>
 </li>
 <li>
-<p>Associative Array、<a href="https://judge.yosupo.jp/problem/associative_array">https://judge.yosupo.jp/problem/associative_array</a></p>
+<p>Associative Array、
+<a
+  
+    href="https://judge.yosupo.jp/problem/associative_array"
+  
+   target="_blank" rel="noopener">
+    https://judge.yosupo.jp/problem/associative_array
+</a>
+</p>
 <ul>
 <li>上に同様です。</li>
 </ul>
@@ -474,10 +636,26 @@ wikipediaの<a href="https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A9%E3%82%A4_(
 ここまで見ていただいた方、本当にありがとうございました。</p>
 <p>Y-Fast Trieの動作原理を自分なりにできる限りかみ砕いて説明したつもりです。皆さんはどう感じましたか？
 私のささやかな願いとして、このエントリ調布駅のTrieをみて「トライ」と読んでしまう人が増えるといいなと思っています。</p>
-<p>感想、質問などを寄せていただけると非常に喜びます。私の<a href="https://x.com/UU9782wsEdANDhp">twitter</a>までどうぞ。</p>
+<p>感想、質問などを寄せていただけると非常に喜びます。私の
+<a
+  
+    href="https://x.com/UU9782wsEdANDhp"
+  
+   target="_blank" rel="noopener">
+    twitter
+</a>
+までどうぞ。</p>
 <p>さて、アドベントカレンダーは続きます。
 12月13日はAmiciiさんの担当です。
-また、UEC2はazarasingさんによる<a href="https://azarasing.hatenablog.com/entry/uec2-advent-2024-youtube">Youtube プレイヤーのサイドに出てくる動画群が気に入らないので常に「関連動画」が出てくるようにする拡張機能を雑に作った。</a>です。</p>
+また、UEC2はazarasingさんによる
+<a
+  
+    href="https://azarasing.hatenablog.com/entry/uec2-advent-2024-youtube"
+  
+   target="_blank" rel="noopener">
+    Youtube プレイヤーのサイドに出てくる動画群が気に入らないので常に「関連動画」が出てくるようにする拡張機能を雑に作った。
+</a>
+です。</p>
 <p>次のエントリも是非ご覧ください！</p>
 
 

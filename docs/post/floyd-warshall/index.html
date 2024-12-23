@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ワーシャル・フロイド法について調べて、納得したこと - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/floyd-warshall/">
+<meta property="og:url" content="https://inthebloom.github.io/post/floyd-warshall/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="ワーシャル・フロイド法について調べて、納得したこと - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/floyd-warshall/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/floyd-warshall/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -208,7 +210,15 @@ $$
 <p>遷移を見ればわかるとおり、ワーシャル・フロイド法により求まるのは最短「パス」であるからである。
 つまり、真の最短経路が閉路を含む(同じ頂点を2回以上通る)ものは正しく結果を求めることができない。</p>
 <h3 id="追記2023-10-05">追記(2023-10-05)</h3>
-<p>以下、<a href="https://algo-logic.info/warshall-floyd/">アルゴリズムロジック</a>からの情報を追加します。
+<p>以下、
+<a
+  
+    href="https://algo-logic.info/warshall-floyd/"
+  
+   target="_blank" rel="noopener">
+    アルゴリズムロジック
+</a>
+からの情報を追加します。
 疲れているときに書いたので、普段以上に内容が怪しいかもしれません。ご注意ください。</p>
 <h4 id="負閉路の検出">負閉路の検出</h4>
 <p>負閉路が含まれているとき、閉路中の任意の一つの頂点をiとする。すると、iからiへの最短パスは総和が最小となる負閉路をぐるっと一周回ったものが採用される。
@@ -316,8 +326,24 @@ u_M v_M w_M
 <p>本記事を読んだ方は、ぜひ挑戦してみてほしい。
 大抵の場合、全点対最短距離に帰着するまでのパートはかなり明らかなことが多いので、ネタバレはそこまで問題ではないと思う。</p>
 <ul>
-<li><a href="https://atcoder.jp/contests/abc208/tasks/abc208_d">ABC208D</a></li>
-<li><a href="https://atcoder.jp/contests/abc079/tasks/abc079_d">ABC79D</a></li>
+<li>
+<a
+  
+    href="https://atcoder.jp/contests/abc208/tasks/abc208_d"
+  
+   target="_blank" rel="noopener">
+    ABC208D
+</a>
+</li>
+<li>
+<a
+  
+    href="https://atcoder.jp/contests/abc079/tasks/abc079_d"
+  
+   target="_blank" rel="noopener">
+    ABC79D
+</a>
+</li>
 </ul>
 <h2 id="参考文献">参考文献</h2>
 <ul>
@@ -325,11 +351,27 @@ u_M v_M w_M
 </ul>
 <p>様々なグラフアルゴリズムを簡潔に紹介しています。グラフ理論による厳密な証明などは比重が小さく、数学系でない人も気軽に内容を浚える本だと思います。</p>
 <ul>
-<li>rp523. &ldquo;ワーシャルフロイド法がなぜうまくいくのか、改めて考えてみる&rdquo;. qiita. 2022. <a href="https://qiita.com/rp523/items/8fba3882c4a6ea203757">https://qiita.com/rp523/items/8fba3882c4a6ea203757</a>, (2023-10-02閲覧).</li>
+<li>rp523. &ldquo;ワーシャルフロイド法がなぜうまくいくのか、改めて考えてみる&rdquo;. qiita. 2022. 
+<a
+  
+    href="https://qiita.com/rp523/items/8fba3882c4a6ea203757"
+  
+   target="_blank" rel="noopener">
+    https://qiita.com/rp523/items/8fba3882c4a6ea203757
+</a>
+, (2023-10-02閲覧).</li>
 </ul>
 <p>この動的計画法がどのようにして状態を圧縮しているのかを丁寧に説明しています。</p>
 <ul>
-<li>吉田 雄真. &ldquo;参考文献の書き方&rdquo;. 新潟大学付属図書館. 2021. <a href="https://www.lib.niigata-u.ac.jp/learning_support/doc/20210709-3.pdf">https://www.lib.niigata-u.ac.jp/learning_support/doc/20210709-3.pdf</a>, (2023-10-02閲覧).</li>
+<li>吉田 雄真. &ldquo;参考文献の書き方&rdquo;. 新潟大学付属図書館. 2021. 
+<a
+  
+    href="https://www.lib.niigata-u.ac.jp/learning_support/doc/20210709-3.pdf"
+  
+   target="_blank" rel="noopener">
+    https://www.lib.niigata-u.ac.jp/learning_support/doc/20210709-3.pdf
+</a>
+, (2023-10-02閲覧).</li>
 </ul>
 <p>参考文献リストはこの文献を参考に書きました。</p>
 

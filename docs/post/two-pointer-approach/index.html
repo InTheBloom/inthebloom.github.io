@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="尺取り法備忘録 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/two-pointer-approach/">
+<meta property="og:url" content="https://inthebloom.github.io/post/two-pointer-approach/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="尺取り法備忘録 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/two-pointer-approach/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/two-pointer-approach/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -138,7 +140,15 @@
 <li>ある区間$I$が条件を満たすならば、$\forall i \subseteq I$もまた条件を満たす。</li>
 <li>ある区間$I$が条件を満たすならば、$\forall i \supseteq I$もまた条件を満たす。</li>
 </ul>
-<p><a href="https://qiita.com/drken/items/ecd1a472d3a0e7db8dce#1-3-%E3%81%97%E3%82%83%E3%81%8F%E3%81%A8%E3%82%8A%E6%B3%95%E3%81%8C%E4%BD%BF%E3%81%88%E3%82%8B%E6%9D%A1%E4%BB%B6">けんちょんさんの記事</a>によると、これらの条件は次のようにも言い換えられます。</p>
+<p>
+<a
+  
+    href="https://qiita.com/drken/items/ecd1a472d3a0e7db8dce#1-3-%E3%81%97%E3%82%83%E3%81%8F%E3%81%A8%E3%82%8A%E6%B3%95%E3%81%8C%E4%BD%BF%E3%81%88%E3%82%8B%E6%9D%A1%E4%BB%B6"
+  
+   target="_blank" rel="noopener">
+    けんちょんさんの記事
+</a>
+によると、これらの条件は次のようにも言い換えられます。</p>
 <ul>
 <li>区間の最左のインデックスを$l$、条件を満たす区間の右のインデックス最大値を$f(l)$としたとき、$f(l)$は広義単調増加。</li>
 <li>区間の最左のインデックスを$l$，条件を満たす区間の右のインデックス最小値を$f(l)$としたとき、$f(l)$は広義単調増加。</li>
@@ -296,7 +306,15 @@
 </span></span><span style="display:flex;"><span>    l<span style="color:#f92672">++</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>これで完成です。お疲れ様でした。</p>
-<p><a href="https://onlinejudge.u-aizu.ac.jp/status/users/InTheBloom/submissions/1/DSL_3_C/judge/8931373/C++">提出</a></p>
+<p>
+<a
+  
+    href="https://onlinejudge.u-aizu.ac.jp/status/users/InTheBloom/submissions/1/DSL_3_C/judge/8931373/C++"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
 <h2 id="例題2--abc38c---単調増加">例題2 : ABC38C - 単調増加</h2>
 <p>問題</p>
 <p>長さ$N$の数列$a_1, a_2, \dots, a_N$が与えられる。
@@ -337,7 +355,15 @@ $a_l, a_{l+1}, \dots, a_r$が狭義単調増加となるような$(l, r)$の数�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p><a href="https://atcoder.jp/contests/abc038/submissions/50507872">提出</a></p>
+</span></span></code></pre></div><p>
+<a
+  
+    href="https://atcoder.jp/contests/abc038/submissions/50507872"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
 <h2 id="例題3--abc32c---列">例題3 : ABC32C - 列</h2>
 <p>問題</p>
 <p>長さ$N$の非負数列$S = (s_1, s_2, \dots, s_N)$と整数$K$が与えられる。次の条件を満たす空でない$S$の連続部分列の長さの最大値を求めよ。
@@ -406,7 +432,15 @@ $a_l, a_{l+1}, \dots, a_r$が狭義単調増加となるような$(l, r)$の数�
 </span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p><a href="https://atcoder.jp/contests/abc032/submissions/50505465">提出</a></p>
+</span></span></code></pre></div><p>
+<a
+  
+    href="https://atcoder.jp/contests/abc032/submissions/50505465"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
 <h2 id="終わりに">終わりに</h2>
 <p>右半開区間のありがたみを初めて感じたかもしれない&hellip;
 よくわからなくて苦手だったアルゴリズムだったけれど、意外と便利に感じました。

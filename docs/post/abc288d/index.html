@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ABC288D - Range Add Query - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/abc288d/">
+<meta property="og:url" content="https://inthebloom.github.io/post/abc288d/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="ABC288D - Range Add Query - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/abc288d/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/abc288d/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -135,7 +137,15 @@
 
 <p>想定解法と全然異なる怪しい解法で通したので書きます。</p>
 <h2 id="問題概要">問題概要</h2>
-<p><a href="https://atcoder.jp/contests/abc288/tasks/abc288_d">問題へのリンク</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc288/tasks/abc288_d"
+  
+   target="_blank" rel="noopener">
+    問題へのリンク
+</a>
+</p>
 <h3 id="問題文">問題文</h3>
 <p>数列$X = (X _ 1, X _ 2, \dots, X _ n)$が<strong>良い数列</strong>であるとは、次の操作を0回以上行ってすべての要素を$0$に出来る事をいう。</p>
 <ul>
@@ -197,7 +207,15 @@
 <p>判定はさぼると$O(K ^ 2)$で、いろいろと細かい部分を頑張ると$O(K)$になる。よって全体$O(N + QK)$で解ける。</p>
 <h3 id="実装例">実装例</h3>
 <p>$O(N + QK ^ 2)$である。面倒なのであまり説明はしないが、不明点があればTwitter等で聞いてほしい。</p>
-<p><a href="https://atcoder.jp/contests/abc288/submissions/57626736">提出</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc288/submissions/57626736"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>

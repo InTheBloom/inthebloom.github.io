@@ -1,0 +1,10 @@
+<!-- urlエンコードなしのリンク https://suihan74.github.io/posts/2021/01_27_00_hugo_noencode_render_link/ -->
+<a
+  {{ if eq .Title "" }}
+    {{ printf "href=%q" .Destination | safeHTMLAttr }}
+  {{ else }}
+    href="{{ .Destination | safeURL }}"{{ with .Title}} title="{{ . }}"{{ end }}
+  {{ end }}
+  {{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"{{ end }}>
+    {{ .Text | safeHTML }}
+</a>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="等比数列の和を計算する2つの対数時間アルゴリズム - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/geometric-progression-sum/">
+<meta property="og:url" content="https://inthebloom.github.io/post/geometric-progression-sum/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="等比数列の和を計算する2つの対数時間アルゴリズム - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/geometric-progression-sum/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/geometric-progression-sum/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -165,7 +167,15 @@ S_n = \frac{a(r^n - 1)}{r-1}
 $$
 が成立する。法を$M$としたとき、$\gcd(M, r-1) = 1$であれば法$M$における$r-1$の逆元が存在し、
 $S_n = a(r^n - 1) (r-1)^{-1}$となる。</p>
-<p>$\gcd(M, r-1) \neq 1$であるときも<a href="https://inthebloom.github.io/post/mod-division-tech/">このエントリ</a>で触れた通り、
+<p>$\gcd(M, r-1) \neq 1$であるときも
+<a
+  
+    href="https://inthebloom.github.io/post/mod-division-tech/"
+  
+   target="_blank" rel="noopener">
+    このエントリ
+</a>
+で触れた通り、
 法$M(r-1)$において$r^n - 1$計算し、それを$r-1$で割ることで法$M$における$\frac{r^n-1}{r-1}$の値を得ることができる。
 最後に$a$を乗算することで$S_n$が求まる。</p>
 <p>以上より、$S_n$を$O(\log n)$時間で計算可能である。</p>
@@ -178,8 +188,24 @@ $S_n = a(r^n - 1) (r-1)^{-1}$となる。</p>
 </ol>
 <p>上記の方法により、$S_n$を$O(\log n)$で計算することができる。。</p>
 <h2 id="アルゴリズム2繰り返し2倍法">アルゴリズム2(繰り返し2倍法)</h2>
-<p>「繰り返し2倍法」という名前は<a href="https://atcoder.jp/contests/abc293/editorial/5966?lang=ja">ここ</a>で言及されているものであり、一般的でない可能性に留意してほしい。</p>
-<p><a href="https://inthebloom.github.io/post/modpow/">このエントリ</a>で触れたように、任意の自然数$n$は$\{0, 1\}$のみからなる数列($c$と書くことにする)による表示を一意に持つ。
+<p>「繰り返し2倍法」という名前は
+<a
+  
+    href="https://atcoder.jp/contests/abc293/editorial/5966?lang=ja"
+  
+   target="_blank" rel="noopener">
+    ここ
+</a>
+で言及されているものであり、一般的でない可能性に留意してほしい。</p>
+<p>
+<a
+  
+    href="https://inthebloom.github.io/post/modpow/"
+  
+   target="_blank" rel="noopener">
+    このエントリ
+</a>
+で触れたように、任意の自然数$n$は$\{0, 1\}$のみからなる数列($c$と書くことにする)による表示を一意に持つ。
 つまり、次が成立するような数列$c$が存在して、かつそれは一意である。
 $$
 \begin{equation}
@@ -218,7 +244,15 @@ $(r^1, S_1), (r^2, S_2), (r^4, S_4), \dots , (r^{2^x}, S_{2^x})$
 なお、$a$と$r$を最初に正規化しているが、これは次の理由により正しい値を返す。</p>
 <p>正規化後の値を$a^\prime$と$r^\prime$とするとき、
 「初項$a$、公比$r$の等比数列の先頭$n$項の和を$M$で割った非負最小剰余」と「初項$a^\prime$、公比$r^\prime$の等比数列の先頭$n$項の和を$M$で割った非負最小剰余」が一致する。</p>
-<p>ナイーブな実装とのランダムテストを含めた完全なソースは<a href="https://gist.github.com/InTheBloom/e6e838c01d001076065e6853bf36568f">gist</a>を参照せよ。</p>
+<p>ナイーブな実装とのランダムテストを含めた完全なソースは
+<a
+  
+    href="https://gist.github.com/InTheBloom/e6e838c01d001076065e6853bf36568f"
+  
+   target="_blank" rel="noopener">
+    gist
+</a>
+を参照せよ。</p>
 <h3 id="アルゴリズム1">アルゴリズム1</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">geometric_progression_sum_algorithm1</span>  <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> r<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> n<span style="color:#f92672">,</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">long</span> MOD<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">in</span> <span style="color:#f92672">{</span>

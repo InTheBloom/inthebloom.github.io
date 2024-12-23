@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Katex on InTheDayDream</title>
-    <link>http://localhost:1313/tags/katex/</link>
+    <link>https://inthebloom.github.io/tags/katex/</link>
     <description>Recent content in Katex on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Wed, 20 Sep 2023 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/katex/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/tags/katex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>KaTeX導入してみる</title>
-      <link>http://localhost:1313/post/katex/</link>
+      <link>https://inthebloom.github.io/post/katex/</link>
       <pubDate>Fri, 23 Jun 2023 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/katex/</guid>
+      <guid>https://inthebloom.github.io/post/katex/</guid>
       <description></description>
     </item>
   </channel>

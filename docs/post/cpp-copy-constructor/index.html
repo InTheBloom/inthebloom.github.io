@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="暗黙のコピーコンストラクタにご注意を - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/cpp-copy-constructor/">
+<meta property="og:url" content="https://inthebloom.github.io/post/cpp-copy-constructor/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="暗黙のコピーコンストラクタにご注意を - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/cpp-copy-constructor/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/cpp-copy-constructor/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -105,7 +107,15 @@
 
 
 <h2 id="hackで落とされた">Hackで落とされた&hellip;</h2>
-<p><a href="https://codeforces.com/contest/2004">Educational Codeforces Round 169 (Rated for Div. 2)</a>のD問題がHackされ、TLEで落ちました。</p>
+<p>
+<a
+  
+    href="https://codeforces.com/contest/2004"
+  
+   target="_blank" rel="noopener">
+    Educational Codeforces Round 169 (Rated for Div. 2)
+</a>
+のD問題がHackされ、TLEで落ちました。</p>
 <p><img src="/images/cpp-copy-constructor/submission.png" alt=""></p>
 <p>アルゴリズムは正しい自信があったので、定数倍で落ちていると思っていましたが、原因は意外なところにありました。</p>
 <h2 id="コピーコンストラクタの罠">コピーコンストラクタの罠</h2>
@@ -208,7 +218,15 @@
 </span></span><span style="display:flex;"><span>        { <span style="color:#75715e">// xの左
 </span></span></span></code></pre></div><p>ここで、のちのコードを記述しやすくするために、ポータルの色が<code>key</code>であるような街番号を昇順に格納した<code>std::vector&lt;int&gt;</code>(すなわち、<code>mp[key]</code>のことです)を<code>vec</code>に代入しています。
 このとき、実は<code>mp[key]</code>の長さ分の<code>std::vector&lt;int&gt;</code>がいちいち作られていたようです。</p>
-<p>正直C++の仕様には全然詳しくないので細かいことへの言及は避けますが、<a href="https://qiita.com/hiro4669/items/44144f0f9739a8aa1285">CPP事始め: コピーコンストラクタ，代入演算子</a>によると、<code>auto vec = mp[key];</code>はコピーコンストラクタが呼ばれてしまうようです。
+<p>正直C++の仕様には全然詳しくないので細かいことへの言及は避けますが、
+<a
+  
+    href="https://qiita.com/hiro4669/items/44144f0f9739a8aa1285"
+  
+   target="_blank" rel="noopener">
+    CPP事始め: コピーコンストラクタ，代入演算子
+</a>
+によると、<code>auto vec = mp[key];</code>はコピーコンストラクタが呼ばれてしまうようです。
 これを回避するためには、参照を利用するとよいです。すなわち、<code>std::vector&lt;int&gt;&amp;</code>で受けます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> vec <span style="color:#f92672">=</span> mp[key];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> vec <span style="color:#f92672">=</span> mp[key]; <span style="color:#75715e">// こうしても良い
@@ -219,8 +237,24 @@
 <p><strong>D言語なら動的配列の代入演算子は参照が渡されるからC++とかいうの許せね〜 これHackされなかったら830位くらいだったっていうのもマジで許せね〜(Hackされて3000位くらいまで落ちた) マジでレート返してくれ！！！</strong></p>
 <h2 id="参考">参考</h2>
 <ul>
-<li><a href="https://cpprefjp.github.io/reference/vector/vector/op_assign.html">std::vector::operator= cpprefjp - C++日本語リファレンス</a></li>
-<li><a href="https://qiita.com/hiro4669/items/44144f0f9739a8aa1285">CPP事始め: コピーコンストラクタ，代入演算子</a></li>
+<li>
+<a
+  
+    href="https://cpprefjp.github.io/reference/vector/vector/op_assign.html"
+  
+   target="_blank" rel="noopener">
+    std::vector::operator= cpprefjp - C++日本語リファレンス
+</a>
+</li>
+<li>
+<a
+  
+    href="https://qiita.com/hiro4669/items/44144f0f9739a8aa1285"
+  
+   target="_blank" rel="noopener">
+    CPP事始め: コピーコンストラクタ，代入演算子
+</a>
+</li>
 </ul>
 
 

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="失われしappleスタイルのemojiを召喚 on mintty - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/apple-emoji-on-mintty/">
+<meta property="og:url" content="https://inthebloom.github.io/post/apple-emoji-on-mintty/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="失われしappleスタイルのemojiを召喚 on mintty - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/apple-emoji-on-mintty/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/apple-emoji-on-mintty/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -106,7 +108,15 @@
 
 
 <h2 id="はじめに">はじめに</h2>
-<p><a href="https://mintty.github.io/">mintty</a>という端末エミュレータがあります。
+<p>
+<a
+  
+    href="https://mintty.github.io/"
+  
+   target="_blank" rel="noopener">
+    mintty
+</a>
+という端末エミュレータがあります。
 msysやcygwinやgitbashにくっついてインストールされるようで、私のwindows環境にもいつの間にかありました。
 私は基本的にターミナル暮らしをしており、最近はgitbashにくっついてきたminttyを常用しています。</p>
 <p>さて、そんなminttyですが、デフォルトでemojiを描画出来ません。具体的には次のようになります。</p>
@@ -115,7 +125,15 @@ msysやcygwinやgitbashにくっついてインストールされるようで、
 <p>今回、minttyで<strong>appleスタイルの</strong>emojiを描画することに成功したので、その方法を書きます。</p>
 <h2 id="emoji導入を試みる">emoji導入を試みる</h2>
 <p>当然先人は居るわけで、「mintty emoji」でググると二番目に出てくるこのページが非常に参考になりました。</p>
-<p><a href="https://kemasoft.net/index.php?mr/mintty%E3%82%84wsltty%E3%81%A7%E3%82%AB%E3%83%A9%E3%83%BC%E7%B5%B5%E6%96%87%E5%AD%97">mr/minttyやwslttyでカラー絵文字 </a></p>
+<p>
+<a
+  
+    href="https://kemasoft.net/index.php?mr/mintty%E3%82%84wsltty%E3%81%A7%E3%82%AB%E3%83%A9%E3%83%BC%E7%B5%B5%E6%96%87%E5%AD%97"
+  
+   target="_blank" rel="noopener">
+    mr/minttyやwslttyでカラー絵文字 
+</a>
+</p>
 <p>結論としては、スクリプト一発で出来るようです。以下に上記ページのスクリプトを少し改造したものを掲載します。実際に私の環境で動いたやつです。(改造はwgetをcurlに置き換えた部分だけです。)</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># MSYS2(mintty)の場合</span>
 </span></span><span style="display:flex;"><span>emojis_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$APPDATA<span style="color:#e6db74">/mintty&#34;</span> | sed -re <span style="color:#e6db74">&#39;s;^(.).;/\L\1;&#39;</span> -e <span style="color:#e6db74">&#39;s;\\;/;g&#39;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">/emojis&#34;</span>
@@ -166,7 +184,15 @@ msysやcygwinやgitbashにくっついてインストールされるようで、
 <li>パス区切り文字を無理やり<code>/</code>にしてます。</li>
 <li><strong>実行時間40分くらい</strong>です。</li>
 </ul>
-<p><a href="https://gist.github.com/InTheBloom/a145117e2a56c4aeee257a952d11ab49">gistにもあがっています。</a></p>
+<p>
+<a
+  
+    href="https://gist.github.com/InTheBloom/a145117e2a56c4aeee257a952d11ab49"
+  
+   target="_blank" rel="noopener">
+    gistにもあがっています。
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#f92672">from</span> html.parser <span style="color:#f92672">import</span> HTMLParser
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> urllib
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> requests

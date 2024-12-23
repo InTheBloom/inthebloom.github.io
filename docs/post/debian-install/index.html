@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="Ubuntuが死んだのでDebianをインストールする - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/debian-install/">
+<meta property="og:url" content="https://inthebloom.github.io/post/debian-install/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="Ubuntuが死んだのでDebianをインストールする - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/debian-install/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/debian-install/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -119,7 +121,15 @@
 いくつか解決策を調べてみたり、応急手当として手元にあったUSBのwifiアダプターをさして(何故かこちらを経由するとうまく接続できる場合があったのである。しかし、特定のネットワークにはつながらないので意味不明であった。)みたりした。</p>
 <p>しかし、私の知識と熱意では到底解決できそうにないし、そもそも私がコストをかけるべきはこんなところではないだろうと思い始めてきたところで、OSの入れ替えを決行することにした。</p>
 <h2 id="debianを使ってみる">Debianを使ってみる</h2>
-<p>2023年6月10日にリリースされたという<a href="https://www.debian.or.jp/">Debian12 bookworm</a>を試してみることにした。
+<p>2023年6月10日にリリースされたという
+<a
+  
+    href="https://www.debian.or.jp/"
+  
+   target="_blank" rel="noopener">
+    Debian12 bookworm
+</a>
+を試してみることにした。
 主な理由は、</p>
 <ol>
 <li>Ubuntuに近い操作感であるだろうと思ったから。</li>
@@ -129,20 +139,60 @@
 <h2 id="インストール備忘録">インストール備忘録</h2>
 <p>また何かしらでトラブって、インストール作業が発生するかもしれないので、備忘録を残しておく。</p>
 <h3 id="インストールメディア作成--インストール">インストールメディア作成 + インストール</h3>
-<p>まずは適当にインストールメディアを作成する。イメージファイルを<a href="https://www.debian.org/distrib/netinst.en.html">このリンク</a>から落としてきて、手元のwin機にて<a href="https://rufus.ie/ja/">Rufus</a>で焼いた。</p>
+<p>まずは適当にインストールメディアを作成する。イメージファイルを
+<a
+  
+    href="https://www.debian.org/distrib/netinst.en.html"
+  
+   target="_blank" rel="noopener">
+    このリンク
+</a>
+から落としてきて、手元のwin機にて
+<a
+  
+    href="https://rufus.ie/ja/"
+  
+   target="_blank" rel="noopener">
+    Rufus
+</a>
+で焼いた。</p>
 <p>落としてくるイメージは各自PCのCPUアーキテクチャに依存する。
 私はamdのcpuを使用しているので、amd64を落としてきた。</p>
 <p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1707786002/pictures/debian-install/debian_u8fcz3.png" alt=""></p>
 <p>さて、インストールはUSBをさしてBIOSなりUEFIなりで起動順序変更をしてやればよい。細かいことはググってほしい。
 Debianは比較的親切にインストール案内を出してくれる。guiインストールを選べばあとはポチポチしていたらインストールが終わる。
-公式も<a href="https://www.debian.org/releases/stable/i386/index.ja.html">インストールガイド</a>を出しているので、困ったら見るとよいだろう。</p>
+公式も
+<a
+  
+    href="https://www.debian.org/releases/stable/i386/index.ja.html"
+  
+   target="_blank" rel="noopener">
+    インストールガイド
+</a>
+を出しているので、困ったら見るとよいだろう。</p>
 <h3 id="sudoをなんかいい感じにする">sudoをなんかいい感じにする</h3>
 <p>デフォルト状態だとなんかエラーが出て<code>sudo</code>させてくれない。
-<a href="https://qiita.com/unkomorasi01/items/219b56f2c9ddc8df4fe7">これ</a>が参考になる。
+
+<a
+  
+    href="https://qiita.com/unkomorasi01/items/219b56f2c9ddc8df4fe7"
+  
+   target="_blank" rel="noopener">
+    これ
+</a>
+が参考になる。
 一回super userとしてsudoの設定をしてやれば良いらしい。</p>
 <h3 id="タスクバー的なものをセット">タスクバー的なものをセット</h3>
 <p>GNOMEデフォルトだと「アクティビティ」からしかタスクバー的なものを使えない。windowsに飼い慣らされた我々は、画面の左か下にタスクバーがないと死んでしまうのだ。
-解決は<a href="https://forums.debian.net/viewtopic.php?t=155401">このページ</a>が参考になった。</p>
+解決は
+<a
+  
+    href="https://forums.debian.net/viewtopic.php?t=155401"
+  
+   target="_blank" rel="noopener">
+    このページ
+</a>
+が参考になった。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install gnome-shell-extension-dashtodock
 </span></span></code></pre></div><p>で拡張機能をインストールして、一回ログアウトする。
 再びログインしたら「拡張機能」アプリにdashtodockが追加されているから、有効化する。</p>
@@ -161,14 +211,46 @@ Debianは比較的親切にインストール案内を出してくれる。gui�
 </span></span><span style="display:flex;"><span>sudo apt install vim
 </span></span><span style="display:flex;"><span>sudo apt install texlive-full
 </span></span></code></pre></div><p>余談だが、Debianにプリインストールされているvimはなぜかnetrwが使えなかったし、vimのはずなのに「vim」へのシンボリックリンクすらなくて、「vi」でしか起動できなかった。あれはもしかしてviだったのだろうか。</p>
-<p><code>texlive-full</code>は全部で7GBほどの容量を食う。そんなことしたくないという人は<a href="https://uwabami.github.io/cc-env/DebianTeX.html">このあたり</a>が参考になるかもしれない。</p>
+<p><code>texlive-full</code>は全部で7GBほどの容量を食う。そんなことしたくないという人は
+<a
+  
+    href="https://uwabami.github.io/cc-env/DebianTeX.html"
+  
+   target="_blank" rel="noopener">
+    このあたり
+</a>
+が参考になるかもしれない。</p>
 <p>まずはgitの設定からしよう。
-gitの設定は難しくてよくわからないので、<a href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-Git-%E3%81%AE%E8%A8%AD%E5%AE%9A">このページ</a>や<a href="https://qiita.com/ucan-lab/items/aadbedcacbc2ac86a2b3">このページ</a>を見ながらできそうなやつをポチポチしていく。</p>
+gitの設定は難しくてよくわからないので、
+<a
+  
+    href="https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-Git-%E3%81%AE%E8%A8%AD%E5%AE%9A"
+  
+   target="_blank" rel="noopener">
+    このページ
+</a>
+や
+<a
+  
+    href="https://qiita.com/ucan-lab/items/aadbedcacbc2ac86a2b3"
+  
+   target="_blank" rel="noopener">
+    このページ
+</a>
+を見ながらできそうなやつをポチポチしていく。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --global user.name <span style="color:#e6db74">&#34;InTheBloom&#34;</span>
 </span></span><span style="display:flex;"><span>git config --global user.email <span style="color:#e6db74">&#34;hoge.fuga@example.com&#34;</span>
 </span></span><span style="display:flex;"><span>git config --global core.quotePath false
 </span></span></code></pre></div><p>あとはgithubに接続する設定(?)みたいなのをやっていく。このあたり本当に勉強したほうがいい気がするが、わけわからない単語を並べられてもしんどいというのが本音である。</p>
-<p><a href="https://docs.github.com/ja/authentication/connecting-to-github-with-ssh">これ</a>に沿ってやっていく。</p>
+<p>
+<a
+  
+    href="https://docs.github.com/ja/authentication/connecting-to-github-with-ssh"
+  
+   target="_blank" rel="noopener">
+    これ
+</a>
+に沿ってやっていく。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>inthebloom@debian:~$ ssh-keygen -t ed25519 -C <span style="color:#e6db74">&#34;hoge.fuga@example.com&#34;</span>
 </span></span><span style="display:flex;"><span>inthebloom@debian:~$ cat ~/.ssh/id_ed25519.pub | clip
 </span></span><span style="display:flex;"><span>
@@ -179,7 +261,15 @@ gitの設定は難しくてよくわからないので、<a href="https://git-sc
 </span></span><span style="display:flex;"><span>inthebloom@debian:~$
 </span></span></code></pre></div><p>なんか動いた(最悪)</p>
 <p>次にvimの設定をする。
-自分のvimの設定が<a href="https://github.com/InTheBloom/vim-config">ここ</a>にあるので、これをセットアップする。
+自分のvimの設定が
+<a
+  
+    href="https://github.com/InTheBloom/vim-config"
+  
+   target="_blank" rel="noopener">
+    ここ
+</a>
+にあるので、これをセットアップする。
 詳細は<code>README.md</code>に書いてある。</p>
 <p>次にAtCoder Libraryとboost Libraryをローカルで動かせるようにする。
 まずAtCoder Libraryをcloneする。</p>
@@ -188,7 +278,15 @@ gitの設定は難しくてよくわからないので、<a href="https://git-sc
 <p>私の場合、競技プログラミング以外でg++を使用することはほぼないため、常時参照しても問題にならない。そのため、aliasとして登録しておくと楽になる。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-~/.bashrc" data-lang="~/.bashrc"><span style="display:flex;"><span>alias g++<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g++ -I/home/inthebloom/cp/lib/ac-library&#39;</span>
 </span></span></code></pre></div><p>あとはboostを導入していく。
-<a href="https://boostjp.github.io/howtobuild.html">このページ</a>に従ってやっていく。
+
+<a
+  
+    href="https://boostjp.github.io/howtobuild.html"
+  
+   target="_blank" rel="noopener">
+    このページ
+</a>
+に従ってやっていく。
 まずは現在の最新バージョンを落としてくる。最新バージョンへのリンクは上のリンクにある。</p>
 <p>boostディレクトリを解凍し、</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bootstrap.sh
@@ -203,7 +301,15 @@ gitの設定は難しくてよくわからないので、<a href="https://git-sc
 </span></span></code></pre></div><h4 id="dmdd言語処理系">DMD(D言語処理系)</h4>
 <p>私が普段使ってるD言語処理系は、<code>apt</code>ならldcをインストールできる。
 ただし、公式実装のDegital Mars Dがいいという人(私)は、公式の.debファイルかインストールスクリプトを利用すると楽だと思う。
-<a href="https://dlang.org/download.html">ダウンロードページ</a></p>
+
+<a
+  
+    href="https://dlang.org/download.html"
+  
+   target="_blank" rel="noopener">
+    ダウンロードページ
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsS https://dlang.org/install.sh | bash -s dmd
 </span></span></code></pre></div><p>activateが必要なので、<code>~/.bashrc</code>に次を追記して、常時activatedにしておく。
 行儀悪い方法かもしれないが、別にマナー講師になりたいわけではないので気にしないことにする。</p>
@@ -238,9 +344,41 @@ gitの設定は難しくてよくわからないので、<a href="https://git-sc
 <p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1707786002/pictures/debian-install/disable-shortcut_pwj62u.png" alt=""></p>
 <p>ただし、この拡張機能はあまりに強力で、なんと<code>backspace</code>すら無効化されてしまう。
 そのため、別途有効にしたいキーバインディングは<code>~/.config/Code/User/keybindings.json</code>に追記することにした。
-デフォルト設定は<a href="https://github.com/codebling/vs-code-default-keybindings/blob/master/linux.keybindings.json">ここ</a>にあるため、これを改良して使う。</p>
-<p>フォントは<a href="https://os0x.hatenablog.com/entry/20100822/1282495059">Inconsolata</a>を使う。
-<a href="https://fonts.google.com/specimen/Inconsolata">Google Fonts</a>からダウンロードしてきて、<code>~/.fonts/</code>にttfを配置すると、現在のユーザーで読み込まれる。(<a href="https://turtlechan.hatenablog.com/entry/2019/06/11/211543">参考</a>)</p>
+デフォルト設定は
+<a
+  
+    href="https://github.com/codebling/vs-code-default-keybindings/blob/master/linux.keybindings.json"
+  
+   target="_blank" rel="noopener">
+    ここ
+</a>
+にあるため、これを改良して使う。</p>
+<p>フォントは
+<a
+  
+    href="https://os0x.hatenablog.com/entry/20100822/1282495059"
+  
+   target="_blank" rel="noopener">
+    Inconsolata
+</a>
+を使う。
+
+<a
+  
+    href="https://fonts.google.com/specimen/Inconsolata"
+  
+   target="_blank" rel="noopener">
+    Google Fonts
+</a>
+からダウンロードしてきて、<code>~/.fonts/</code>にttfを配置すると、現在のユーザーで読み込まれる。(
+<a
+  
+    href="https://turtlechan.hatenablog.com/entry/2019/06/11/211543"
+  
+   target="_blank" rel="noopener">
+    参考
+</a>
+)</p>
 <p>あとは、設定を開いて、</p>
 <ul>
 <li><code>Terminal &gt; Integrated: Default Location</code>を<code>editor</code></li>
@@ -253,7 +391,15 @@ gitの設定は難しくてよくわからないので、<a href="https://git-sc
 <h4 id="地味な設定">地味な設定</h4>
 <p>地味にないと困る設定をしていく。
 まず、firefoxの二本指スワイプで進む/戻るを実現する設定をする。
-<a href="https://pankona.github.io/blog/2014/09/15/histryback-by-swipe-on-firefox/">このページ</a>を参考にした。
+
+<a
+  
+    href="https://pankona.github.io/blog/2014/09/15/histryback-by-swipe-on-firefox/"
+  
+   target="_blank" rel="noopener">
+    このページ
+</a>
+を参考にした。
 アドレスバーに<code>about:config</code>を入力し、</p>
 <ul>
 <li><code>mousewheel.default.override_x</code>を2</li>
@@ -261,7 +407,15 @@ gitの設定は難しくてよくわからないので、<a href="https://git-sc
 </ul>
 <p>に設定する。これでスワイプ操作で進む/戻るを実現できる。</p>
 <p>次に、コマンドラインコピーペーストを実現する。
-<a href="https://osima.jp/posts/ubuntu-howto-copy-and-paste-on-terminal/">このページ</a>を参考にした。
+
+<a
+  
+    href="https://osima.jp/posts/ubuntu-howto-copy-and-paste-on-terminal/"
+  
+   target="_blank" rel="noopener">
+    このページ
+</a>
+を参考にした。
 まず、xselというツールをインストールする。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install xsel
 </span></span></code></pre></div><p><code>~/.bashrc</code>に以下を追記</p>
@@ -440,7 +594,15 @@ Precomposition	ON	IMEOn
 <p>手元にusbのwifiアダプタがあるので、一応動かせるようにしておく。
 <code>lsusb</code>コマンドによると、アダプタはTP-Link AC600 wireless Realtek RTL8811AU [Archer T2U Nano]らしい。
 単にさしただけだと反応しないので、何らかの処置が必要らしい。
-いくつかググると、<a href="https://tech.nosuz.jp/post/2021-09/ubuntu_wifi/">このページ</a>がヒットした。</p>
+いくつかググると、
+<a
+  
+    href="https://tech.nosuz.jp/post/2021-09/ubuntu_wifi/"
+  
+   target="_blank" rel="noopener">
+    このページ
+</a>
+がヒットした。</p>
 <p>まず、必要なツールをインストールする。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install dkms
 </span></span><span style="display:flex;"><span>sudo apt install build-essential

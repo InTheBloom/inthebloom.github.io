@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="精説ARC155A - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/arc155a/">
+<meta property="og:url" content="https://inthebloom.github.io/post/arc155a/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="精説ARC155A - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/arc155a/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/arc155a/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -120,8 +122,16 @@
 
 
 <h2 id="はじめに">はじめに</h2>
-<p>先日1月29日に<a href="https://atcoder.jp/contests/arc155">AtCoder Regular Contest
-155</a>がありました。ARCのA問題は，ARCがA~Fの6問体制になったARC104から現在に至るまでdifficultyの最大値は緑でした。しかし，今回のA問題は<em>水色</em>でした。</p>
+<p>先日1月29日に
+<a
+  
+    href="https://atcoder.jp/contests/arc155"
+  
+   target="_blank" rel="noopener">
+    AtCoder Regular Contest
+155
+</a>
+がありました。ARCのA問題は，ARCがA~Fの6問体制になったARC104から現在に至るまでdifficultyの最大値は緑でした。しかし，今回のA問題は<em>水色</em>でした。</p>
 <figure>
 <img
 src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1675259104/pictures/exp_arc155a.html/problems_dziwbv.png"
@@ -174,7 +184,15 @@ S = &quot;12345&quot;)</p>
 <h3 id="小休憩">小休憩</h3>
 <p>ここから少し複雑になります。そこで、今まで何のために場合分けをしていたのかを再確認しておきます。</p>
 <p>ここまで、「最もシンプルな手」すなわち、「与えられた条件から実際にS'を構成してみて、そこから考える」という手段をとってきました。</p>
-<p>ここで問題になるのは、「Kが非常に大きいケースにおいては、S'を構成するのに少し手間がかかりそう」という事実です。なぜKが小さいときにS'を構成しやすいかは<a href="articles/exp_arc155a.html#head3">ここ</a>を見返してみてください。</p>
+<p>ここで問題になるのは、「Kが非常に大きいケースにおいては、S'を構成するのに少し手間がかかりそう」という事実です。なぜKが小さいときにS'を構成しやすいかは
+<a
+  
+    href="articles/exp_arc155a.html#head3"
+  
+  >
+    ここ
+</a>
+を見返してみてください。</p>
 <p>よく見直してみると、K &gt;
 Nのケースにもまだ比較的シンプルにS'を構成できるものが残っています。まずはそれを片づけましょう。</p>
 <h3 id="2n--k--n-の場合">2N &gt; K &gt; N の場合</h3>
@@ -213,17 +231,49 @@ Sの逆順 &gt;
 Kで分けたのとちょうど同じような事情が発生するからです。したがって，</p>
 <ol>
 <li>「あまり」がN以上の時:
-<a href="articles/exp_arc155a.html#head8">この判定</a>を使うことができる</li>
+
+<a
+  
+    href="articles/exp_arc155a.html#head8"
+  
+  >
+    この判定
+</a>
+を使うことができる</li>
 <li>「あまり」がN未満の時:
-<a href="articles/exp_arc155a.html#head4">この判定</a>を使うことができる</li>
+
+<a
+  
+    href="articles/exp_arc155a.html#head4"
+  
+  >
+    この判定
+</a>
+を使うことができる</li>
 </ol>
 <p>というようになります。この計算量は，Kがいくら多くてもざっくりO(N)に近いはずなので，おそらく大丈夫です。以上により，この問題を解くことができます。</p>
 <h2 id="実装例c言語">実装例(C言語)</h2>
 <p>以下に私の実装例を示しますが，可読性をあまり考慮して書いていないので，実装に詰まったときの参考程度が良いと思います。</p>
-<p><a href="https://atcoder.jp/contests/arc155/submissions/38493807">実装例(AtCoder上での提出)</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/arc155/submissions/38493807"
+  
+   target="_blank" rel="noopener">
+    実装例(AtCoder上での提出)
+</a>
+</p>
 <h2 id="あとがき">あとがき</h2>
 <p>今回新しい試みとして解説を作ってみましたが，改めて自分のアイデアを説明するということの難しさを実感します。また，画像の作成が思ったより面倒くさいので，競プロ勢の解説が短文+実装例だけになりがちなのはある程度しょうがないのかなとも思いました。</p>
-<p>誤り，「ここが分からんからもっと細かく」等があれば<a href="https://twitter.com/UU9782wsEdANDhp">Twitter</a>のほうに連絡いただけると幸いです。ここまで読んでいただきありがとうございました。</p>
+<p>誤り，「ここが分からんからもっと細かく」等があれば
+<a
+  
+    href="https://twitter.com/UU9782wsEdANDhp"
+  
+   target="_blank" rel="noopener">
+    Twitter
+</a>
+のほうに連絡いただけると幸いです。ここまで読んでいただきありがとうございました。</p>
 <p>前回の記事から気が付いたら一か月くらいかかってしまいましたが，ABCとかにはちゃんと参加しているのでこれからはまた参加記録毎週書こうかなと思っている所存です。それでは次の記事でお会いしましょう。</p>
 
 

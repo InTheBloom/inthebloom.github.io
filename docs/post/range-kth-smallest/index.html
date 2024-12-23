@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="Range Kth Smallestに対する4つの解法と2つの実装例 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/range-kth-smallest/">
+<meta property="og:url" content="https://inthebloom.github.io/post/range-kth-smallest/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="Range Kth Smallestに対する4つの解法と2つの実装例 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/range-kth-smallest/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/range-kth-smallest/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -133,7 +135,15 @@
 <li>$A$の$[l _ i, r _ i)$内にある要素の中で$k _ i + 1$番目に小さい値を答える。</li>
 </ul>
 <p>$1 \leq N \leq 2 \times 10 ^ 5, \quad 1 \leq Q \leq 2 \times 10 ^ 5, \quad 1 \leq A _ i \leq 10 ^ 9$</p>
-<p><a href="https://judge.yosupo.jp/problem/range_kth_smallest">ジャッジ(library checker)</a></p>
+<p>
+<a
+  
+    href="https://judge.yosupo.jp/problem/range_kth_smallest"
+  
+   target="_blank" rel="noopener">
+    ジャッジ(library checker)
+</a>
+</p>
 <h2 id="解法1">解法1</h2>
 <p>rectangle sumに帰着させる。
 横軸に数列のインデックス、縦軸に値の大きさをとる二次元平面を考え、各$A _ i$に対応する場所に+1を積んでおく。</p>
@@ -146,7 +156,15 @@ rectangle sumの良い感じのやつをまだ持っていないので実装例�
 クエリ$O(\log (\max A _ i))$</p>
 <p>onlineクエリでできるが、列の変更クエリなしのみ対応。dynamic wavelet matrixを用いればlogが付く代わりに変更クエリをさばける。(多分)
 当然持っていないので実装例なし。</p>
-<p><a href="https://miti-7.hatenablog.com/entry/2019/02/01/143655">dynamic wavelet matrixってこんなやつ</a></p>
+<p>
+<a
+  
+    href="https://miti-7.hatenablog.com/entry/2019/02/01/143655"
+  
+   target="_blank" rel="noopener">
+    dynamic wavelet matrixってこんなやつ
+</a>
+</p>
 <p>ちなみに現在のlibrary checker最速実行時間はこの方針に改造を加えたものだと思われる。</p>
 <h2 id="解法3">解法3</h2>
 <p>並列二分探索を用いる。</p>
@@ -159,8 +177,24 @@ rectangle sumの良い感じのやつをまだ持っていないので実装例�
 <p>セグメント木を用いると、Range Sum Queryの更新1セット分が$O(N \log N)$で、二分探索更新1セット分が$O(Q \log N)$になる。
 $O(\log N)$セット行えばすべての二分探索が終わるので、全体$O((N + Q) \log ^ 2 N)$</p>
 <p>offlineかつ変更クエリなしのみ対応。</p>
-<p><a href="https://judge.yosupo.jp/submission/233545">AC(879ms)</a></p>
-<p><a href="https://jupiro.hatenablog.com/entry/2022/02/20/110013">参考元</a></p>
+<p>
+<a
+  
+    href="https://judge.yosupo.jp/submission/233545"
+  
+   target="_blank" rel="noopener">
+    AC(879ms)
+</a>
+</p>
+<p>
+<a
+  
+    href="https://jupiro.hatenablog.com/entry/2022/02/20/110013"
+  
+   target="_blank" rel="noopener">
+    参考元
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#75715e">/// Range Kth Smallest (offlineかつstatic)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">/// 並列二分探索による解法
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">/// aの昇順に配列を構築していくと考える。aをどこまで使えば区間[li, ri]にki以上の要素が入るかを考えると、これは単調である。
@@ -254,7 +288,15 @@ $O(\log N)$セット行えばすべての二分探索が終わるので、全体
 <p>クエリ区間の巡回はMo&rsquo;s algorithmにより$O(N \sqrt{Q})$でできる。Range Sum Queryに平方分割を採用すると、Moの更新が$O(1)$、解の取得が$O(\sqrt{N})$で出来る。(実はRange Sum Queryにセグメント木を用いるより高速になる。)</p>
 <p>全体$O(Q \sqrt{N} + N \sqrt{Q})$</p>
 <p>offlineかつ変更クエリなしのみ対応。</p>
-<p><a href="https://judge.yosupo.jp/submission/233551">AC(372ms)</a></p>
+<p>
+<a
+  
+    href="https://judge.yosupo.jp/submission/233551"
+  
+   target="_blank" rel="noopener">
+    AC(372ms)
+</a>
+</p>
 <p>参考</p>
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">1点更新range sumを平方分割でやると、更新がO(1)でクエリがO(√N)になって、Moと相性が良くなるの、おもしろ〜〜〜</p>&mdash; けむにく＠競プロ (@kemuniku) <a href="https://twitter.com/kemuniku/status/1787782215193231849?ref_src=twsrc%5Etfw">May 7, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#75715e">/// Range Kth Smallest (offlineかつstatic)

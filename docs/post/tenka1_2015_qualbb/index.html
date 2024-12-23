@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="天下一プログラマーコンテスト2015予選B - 天下一リテラル - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/tenka1_2015_qualbb/">
+<meta property="og:url" content="https://inthebloom.github.io/post/tenka1_2015_qualbb/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="天下一プログラマーコンテスト2015予選B - 天下一リテラル - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/tenka1_2015_qualbb/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/tenka1_2015_qualbb/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -129,7 +131,15 @@
 <p>問題</p>
 <p>スクリプト言語hnwには整数型、辞書型、集合型が存在する。
 整数型のリテラルは$0$以上$10^6$以下の整数を十進数で表記したものである。
-辞書型、集合型のリテラルは以下の<a href="https://ja.wikipedia.org/wiki/EBNF">EBNF</a>に従う。</p>
+辞書型、集合型のリテラルは以下の
+<a
+  
+    href="https://ja.wikipedia.org/wiki/EBNF"
+  
+   target="_blank" rel="noopener">
+    EBNF
+</a>
+に従う。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-EBNF" data-lang="EBNF"><span style="display:flex;"><span><span style="color:#66d9ef">DICT </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{&#34;</span> , <span style="color:#66d9ef">EXPR </span>, <span style="color:#e6db74">&#34;:&#34;</span> , <span style="color:#66d9ef">EXPR </span>, { <span style="color:#e6db74">&#34;,&#34;</span> , <span style="color:#66d9ef">EXPR </span>, <span style="color:#e6db74">&#34;:&#34;</span> , <span style="color:#66d9ef">EXPR </span>} , <span style="color:#e6db74">&#34;}&#34;</span> | <span style="color:#e6db74">&#34;{}&#34;</span> ;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">SET  </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{&#34;</span> , <span style="color:#66d9ef">EXPR </span>, { <span style="color:#e6db74">&#34;,&#34;</span> , <span style="color:#66d9ef">EXPR </span>} , <span style="color:#e6db74">&#34;}&#34;</span> ;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">EXPR </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">DICT </span>| <span style="color:#66d9ef">SET </span>| <span style="color:#66d9ef">INTEGER </span>;
@@ -282,7 +292,15 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>後はこの関数に渡した返り値を見てやればよいです。</p>
-<p><a href="https://atcoder.jp/contests/tenka1-2015-qualb/submissions/50711038">提出</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/tenka1-2015-qualb/submissions/50711038"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
 <h2 id="感想">感想</h2>
 <p>$\lvert S \rvert \leq 50000$だったので、特に考えずに再帰処理することができました。
 この問題に関しては判定するだけであって、かつ変な入力は与えられないのでそこまで大変ではありませんでした。

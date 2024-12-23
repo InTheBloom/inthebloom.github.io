@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="[メモ] Functional Graph上のシミュレーション - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/functional-graph-simulating/">
+<meta property="og:url" content="https://inthebloom.github.io/post/functional-graph-simulating/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="[メモ] Functional Graph上のシミュレーション - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/functional-graph-simulating/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/functional-graph-simulating/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -225,7 +227,15 @@ $j = 1, 2, \dots$に対して、順に次を行う。</p>
 <p>適用できる問題と、その解答コードを掲載する。(ネタバレ注意)
 これを見ながらコーディングすることを想定しているため、問題の解法に関する言及はない。</p>
 <h3 id="abc167d---telepoter-ダブリング両端キュー">ABC167D - Telepoter (ダブリング/両端キュー)</h3>
-<p><a href="https://atcoder.jp/contests/abc167/tasks/abc167_d">問題へのリンク</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc167/tasks/abc167_d"
+  
+   target="_blank" rel="noopener">
+    問題へのリンク
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> K<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    DList<span style="color:#f92672">!</span><span style="color:#66d9ef">int</span> Q<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span><span style="color:#f92672">[]</span> vis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
@@ -278,7 +288,15 @@ $j = 1, 2, \dots$に対して、順に次を行う。</p>
 </span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h3 id="arc113c---abc-両端キュー">ARC113C - A^B^C (両端キュー)</h3>
-<p><a href="https://atcoder.jp/contests/arc113/tasks/arc113_b">問題へのリンク</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/arc113/tasks/arc113_b"
+  
+   target="_blank" rel="noopener">
+    問題へのリンク
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> A<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> B<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> C<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// A^{B^C} % 10を考える。
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// Aの冪はmod10で考えるとfunctional graphとみなせる
@@ -307,7 +325,15 @@ $j = 1, 2, \dots$に対して、順に次を行う。</p>
 </span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>Q<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h3 id="abc258e---packing-potatoes-ダブリング">ABC258E - Packing Potatoes (ダブリング)</h3>
-<p><a href="https://atcoder.jp/contests/abc258/tasks/abc258_e">問題へのリンク</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc258/tasks/abc258_e"
+  
+   target="_blank" rel="noopener">
+    問題へのリンク
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> Q<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> X<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> W<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 始点を決めれば終点が決まる。これはfunctional graphとみなせて、ダブリングでK番目に蓋をする箱の始点が見つかる。
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> X<span style="color:#f92672">;</span>
@@ -351,7 +377,15 @@ $j = 1, 2, \dots$に対して、順に次を行う。</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h3 id="abc30d---へんてこ辞書-両端キュー">ABC30d - へんてこ辞書 (両端キュー)</h3>
-<p><a href="https://atcoder.jp/contests/abc030/tasks/abc030_d">問題へのリンク</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc030/tasks/abc030_d"
+  
+   target="_blank" rel="noopener">
+    問題へのリンク
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> a<span style="color:#f92672">,</span> BigInt k<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// functional graphのシミュレーション 単一始点はキューでやると楽
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">bool</span><span style="color:#f92672">[</span><span style="color:#66d9ef">int</span><span style="color:#f92672">]</span> seen<span style="color:#f92672">;</span>
@@ -386,7 +420,15 @@ $j = 1, 2, \dots$に対して、順に次を行う。</p>
 </span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>Q<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h3 id="abc136d---gathering-children-ダブリング">ABC136D - Gathering Children (ダブリング)</h3>
-<p><a href="https://atcoder.jp/contests/abc136/tasks/abc136_d">問題へのリンク</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc136/tasks/abc136_d"
+  
+   target="_blank" rel="noopener">
+    問題へのリンク
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> dp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][](</span>S<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">18</span><span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// dp[i][j] := 頂点iから2^j回移動した先
@@ -418,7 +460,15 @@ $j = 1, 2, \dots$に対して、順に次を行う。</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h3 id="yukicoder-no2716-falcon-method-ダブリング">yukicoder No.2716 Falcon Method (ダブリング)</h3>
-<p><a href="https://yukicoder.me/problems/no/2716">問題へのリンク</a></p>
+<p>
+<a
+  
+    href="https://yukicoder.me/problems/no/2716"
+  
+   target="_blank" rel="noopener">
+    問題へのリンク
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N, Q; cin <span style="color:#f92672">&gt;&gt;</span> N <span style="color:#f92672">&gt;&gt;</span> Q;
 </span></span><span style="display:flex;"><span>    string s; cin <span style="color:#f92672">&gt;&gt;</span> s;
@@ -510,7 +560,15 @@ $j = 1, 2, \dots$に対して、順に次を行う。</p>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="水以下コンテストb---fffffx-ダブリング">水以下コンテストB - f(f(f(f(f(x))))) (ダブリング)</h3>
-<p><a href="https://mofecoder.com/contests/cyan_or_less_01/tasks/cyan_or_less_01_b">問題へのリンク</a></p>
+<p>
+<a
+  
+    href="https://mofecoder.com/contests/cyan_or_less_01/tasks/cyan_or_less_01_b"
+  
+   target="_blank" rel="noopener">
+    問題へのリンク
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// 構文解析部分は省略
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
 </span></span><span style="display:flex;"><span>    ll K; cin <span style="color:#f92672">&gt;&gt;</span> K;

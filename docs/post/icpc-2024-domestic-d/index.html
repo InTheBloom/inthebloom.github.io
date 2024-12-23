@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ICPC模擬国内予選D 過去問の共有 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/icpc-2024-domestic-d/">
+<meta property="og:url" content="https://inthebloom.github.io/post/icpc-2024-domestic-d/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="ICPC模擬国内予選D 過去問の共有 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/icpc-2024-domestic-d/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/icpc-2024-domestic-d/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -131,7 +133,15 @@
 
 
 <h2 id="問題概要">問題概要</h2>
-<p><a href="https://icpc2024.jag-icpc.org/icpcdomestic/contest/all_ja.html">問題へのリンク</a></p>
+<p>
+<a
+  
+    href="https://icpc2024.jag-icpc.org/icpcdomestic/contest/all_ja.html"
+  
+   target="_blank" rel="noopener">
+    問題へのリンク
+</a>
+</p>
 <h3 id="問題文">問題文</h3>
 <p>JAG大学ICPC学科には$N$人の学生が在籍しており、それぞれの学生には$1$から$N$までの番号がついている。また、学生の交友関係が$M$個存在する。$i$番目の交友関係は、学生$a _ i$と$b _ i$が友達であり、互いに連絡できることを表す。</p>
 <p>学科の期末試験では、$N$教科の試験が行われる予定である。はじめ、学生$i$は教科$i$の過去問を持っている。
@@ -192,7 +202,15 @@ $N$教科についてこれを行うと、全体で$O(NK 2 ^ N M)$時間とな�
 $NK 2^ N M$は制約下で$NK 2 ^ N M \leq 23040000 \approx 2.3 \times 10 ^ 7$となる。</p>
 <h2 id="実装例">実装例</h2>
 <p>c++による解答例を示す。
-<a href="https://jag-icpc.org/?2024%2FPractice%2F%E6%A8%A1%E6%93%AC%E5%9B%BD%E5%86%85%E4%BA%88%E9%81%B8%2F%E5%95%8F%E9%A1%8C%E6%96%87%E3%81%A8%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88">jagページ</a>にあるすべてのテストケースに対して、10秒以内程度で正しい解を出力することを確認している。</p>
+
+<a
+  
+    href="https://jag-icpc.org/?2024%2FPractice%2F%E6%A8%A1%E6%93%AC%E5%9B%BD%E5%86%85%E4%BA%88%E9%81%B8%2F%E5%95%8F%E9%A1%8C%E6%96%87%E3%81%A8%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88"
+  
+   target="_blank" rel="noopener">
+    jagページ
+</a>
+にあるすべてのテストケースに対して、10秒以内程度で正しい解を出力することを確認している。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cassert&gt;</span><span style="color:#75715e">

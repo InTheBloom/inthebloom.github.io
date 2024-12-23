@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="[覚書] 陽なDAG上のdpを楽に処理する - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/dp-in-explicit-dag/">
+<meta property="og:url" content="https://inthebloom.github.io/post/dp-in-explicit-dag/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="[覚書] 陽なDAG上のdpを楽に処理する - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/dp-in-explicit-dag/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/dp-in-explicit-dag/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -165,7 +167,15 @@ $$\mathrm{dp}\lbrack i + 1 \rbrack \lbrack j \rbrack = f(\mathrm{dp} \lbrack i \
 <li>トポロジカルソートされた順番に頂点を見ていき、<strong>異常値なら無視、正常値なら遷移</strong>とする。</li>
 </ol>
 <p>異常値を無視している理由は、一般のDAGの場合スタート地点の入次数が0とは限らないからです。スタート地点ではない場所からの遷移で値が壊れるのを防止しています。</p>
-<p><a href="https://atcoder.jp/contests/abc335/tasks/abc335_e">ABC335E</a>に適用してみましょう。</p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc335/tasks/abc335_e"
+  
+   target="_blank" rel="noopener">
+    ABC335E
+</a>
+に適用してみましょう。</p>
 <p>この問題は、重みが等しい頂点をまとめて、重みが真に大きい方向にのみ辺を作ったDAGを考えると、最長経路問題に帰着します。
 最長経路問題は配る遷移で解くことができるので、上記の方法を適用できます。</p>
 <p>本稿で提案しているのはこの部分です。
@@ -178,9 +188,25 @@ $$\mathrm{dp}\lbrack i + 1 \rbrack \lbrack j \rbrack = f(\mathrm{dp} \lbrack i \
 </span></span><span style="display:flex;"><span>        dist<span style="color:#f92672">[</span>to<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> max<span style="color:#f92672">(</span>dist<span style="color:#f92672">[</span>to<span style="color:#f92672">],</span> dist<span style="color:#f92672">[</span>v<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p><a href="https://atcoder.jp/contests/abc335/submissions/53988439">提出</a></p>
+</span></span></code></pre></div><p>
+<a
+  
+    href="https://atcoder.jp/contests/abc335/submissions/53988439"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
 <p>もう一問例題を挙げておきます。
-<a href="https://yukicoder.me/problems/no/2639">yukicoder No.2639</a>を考えましょう。
+
+<a
+  
+    href="https://yukicoder.me/problems/no/2639"
+  
+   target="_blank" rel="noopener">
+    yukicoder No.2639
+</a>
+を考えましょう。
 こちらもグリッドグラフであることを除けばほぼ同じです。グリッドグラフからDAGを構築して、トポロジカルソートしましょう。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> update_ord <span style="color:#f92672">=</span> topological_sort(graph);
 </span></span><span style="display:flex;"><span>
@@ -190,13 +216,29 @@ $$\mathrm{dp}\lbrack i + 1 \rbrack \lbrack j \rbrack = f(\mathrm{dp} \lbrack i \
 </span></span><span style="display:flex;"><span>        score[nex] <span style="color:#f92672">=</span> max(score[nex], score[v] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><a href="https://yukicoder.me/submissions/983997">提出</a></p>
+</span></span></code></pre></div><p>
+<a
+  
+    href="https://yukicoder.me/submissions/983997"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
 <h2 id="もらうdp">もらうdp</h2>
 <p>こちらの方が楽です。自分の子の値が確定してしまえばよいので、確定するまで再帰的に掘っていけば良いです。すなわち、メモ化再帰で実装するのが楽です。
 この方法は意識せずに行っている方が多いかと思います。典型的な例でいうと、ゲームの後退解析などはこの例に当てはまります。
 陽にグラフが与えられていたとしても、やることは同じです。</p>
 <p>こちらも例題を提示しておきます。
-<a href="https://atcoder.jp/contests/abc188/tasks/abc188_e">ABC188E</a>を考えましょう。この問題は下流のDAGに属する頂点の最大の値が求まればよいです。
+
+<a
+  
+    href="https://atcoder.jp/contests/abc188/tasks/abc188_e"
+  
+   target="_blank" rel="noopener">
+    ABC188E
+</a>
+を考えましょう。この問題は下流のDAGに属する頂点の最大の値が求まればよいです。
 $\mathrm{dp}\lbrack i \rbrack \coloneqq (\text{頂点$i$より下流のDAGに属する頂点における最大の$A$})$とすると、子からもらう遷移になります。</p>
 <p>具体的には、次のような遷移になります。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#66d9ef">int</span><span style="color:#f92672">]</span> memo<span style="color:#f92672">;</span>
@@ -211,7 +253,15 @@ $\mathrm{dp}\lbrack i \rbrack \coloneqq (\text{頂点$i$より下流のDAGに属
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> memo<span style="color:#f92672">[</span>pos<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> res<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>メモ化しないと計算が爆発するので注意です。</p>
-<p><a href="https://atcoder.jp/contests/abc188/submissions/53959903">提出</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc188/submissions/53959903"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
 <h2 id="終わりに">終わりに</h2>
 <p>今週のUECCPでABC188Eを解きなおした際、mid_さんがこのメモ化再帰の解法について言及していたことがきっかけでこのエントリを作成しました。
 今振り返ると、今までの自分はトポロジカルソートとdp更新を同時にやっていくようなあまり賢くない解法をとっていて、さらにそれが賢くないことに気づいてすらいなかったようです。</p>

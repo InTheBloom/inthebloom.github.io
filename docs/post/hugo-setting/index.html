@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="InTheDayDreamをhugoに移行するためにやったことたち - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/hugo-setting/">
+<meta property="og:url" content="https://inthebloom.github.io/post/hugo-setting/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="InTheDayDreamをhugoに移行するためにやったことたち - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/hugo-setting/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/hugo-setting/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -149,10 +151,26 @@
 <blockquote>
 <p>ウェブサイトを構築するための世界最速のフレームワーク</p>
 <p>Hugo は、最も人気のあるオープンソースの静的サイト ジェネレーターの 1 つです。 Hugo の驚くべきスピードと柔軟性により、Web サイトの構築が再び楽しくなります。</p>
-<p><a href="https://gohugo.io/">hugo公式サイト</a>より</p>
+<p>
+<a
+  
+    href="https://gohugo.io/"
+  
+   target="_blank" rel="noopener">
+    hugo公式サイト
+</a>
+より</p>
 </blockquote>
 <p>だそうです。すごく簡単に言うと、WordPressなどのようなCMSと違い、設計図のようなものから静的Webサイトを構築するソフトウェアです。
-似たようなソフトウェアに<a href="http://jekyllrb-ja.github.io/">jekyll</a>とかがあります。</p>
+似たようなソフトウェアに
+<a
+  
+    href="http://jekyllrb-ja.github.io/"
+  
+   target="_blank" rel="noopener">
+    jekyll
+</a>
+とかがあります。</p>
 <p>実は、以前jekyllをワチャワチャしてみようと思ったのですが、その時はよくわからずに諦めてしまったことがあります。</p>
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Jekyllなんか知らんけど動かない</p>&mdash; In (@UU9782wsEdANDhp) <a href="https://twitter.com/UU9782wsEdANDhp/status/1639909860077871106?ref_src=twsrc%5Etfw">March 26, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>これはjekyllがプログラミング言語rubyとかなり密接につながっていることが原因の一つです。
@@ -161,7 +179,15 @@ jekyllはちょっと動かしてみたいなーってだけでなんだか色�
 <p>一方、hugoはあまりややこしいことをしなければgo言語の処理系を用意する必要すらないということで、割と良さそうだなと思って試しています。
 もちろんソースからビルドとかしたいなら処理系が必要ですが、各プラットフォーム向けにバイナリが配布されているようなので、それでなんとかします。</p>
 <h2 id="lets-try">let&rsquo;s try!</h2>
-<p>とりあえずバイナリを<a href="https://github.com/gohugoio/hugo/releases">ここ</a>からひったくってきます。
+<p>とりあえずバイナリを
+<a
+  
+    href="https://github.com/gohugoio/hugo/releases"
+  
+   target="_blank" rel="noopener">
+    ここ
+</a>
+からひったくってきます。
 Windowsの方などは<code>hugo_extended_0.118.2_windows-amd64.zip</code>っていうやつをパクってきたらいいと思います。(2023/09/15)
 Linuxなどの方は、ディストリビューションのパッケージとして公開してくれてるやつを引っ張ってきても良いと思います。</p>
 <p>私はUbuntu 22.04.3 LTS (64bit)ですので、aptからパクってくることもできます。</p>
@@ -176,15 +202,63 @@ Linuxなどの方は、ディストリビューションのパッケージとし
 </span></span></code></pre></div><p>だそうです。</p>
 <p>使い方は次のリンクをさっと見ていきましょう。ちなみに私は細かい使い方とか難しいことは何も分かっていません。</p>
 <ul>
-<li><a href="https://gohugo.io/documentation/">公式サイト(英語)</a></li>
-<li><a href="https://knowledge.sakura.ad.jp/22908/">さくらのナレッジ</a></li>
-<li><a href="https://qiita.com/peaceiris/items/ef38cc2a4b5565d0dd7c">私は読んでないけど、なんかドンピシャなやつあった(qiita)</a></li>
-<li><a href="https://zenn.dev/harachan/articles/a043e9a756cae4">こっちは読んだやつ(Zenn)</a></li>
-<li><a href="https://zenn.dev/harachan/articles/21d8f3a9f2ca4e">読んだやつパート2(Zenn)</a></li>
+<li>
+<a
+  
+    href="https://gohugo.io/documentation/"
+  
+   target="_blank" rel="noopener">
+    公式サイト(英語)
+</a>
+</li>
+<li>
+<a
+  
+    href="https://knowledge.sakura.ad.jp/22908/"
+  
+   target="_blank" rel="noopener">
+    さくらのナレッジ
+</a>
+</li>
+<li>
+<a
+  
+    href="https://qiita.com/peaceiris/items/ef38cc2a4b5565d0dd7c"
+  
+   target="_blank" rel="noopener">
+    私は読んでないけど、なんかドンピシャなやつあった(qiita)
+</a>
+</li>
+<li>
+<a
+  
+    href="https://zenn.dev/harachan/articles/a043e9a756cae4"
+  
+   target="_blank" rel="noopener">
+    こっちは読んだやつ(Zenn)
+</a>
+</li>
+<li>
+<a
+  
+    href="https://zenn.dev/harachan/articles/21d8f3a9f2ca4e"
+  
+   target="_blank" rel="noopener">
+    読んだやつパート2(Zenn)
+</a>
+</li>
 </ul>
 <p>もっとちゃんと知りたい人はちゃんと公式サイトを浚いましょうね。</p>
 <p>さて、サイトテーマを決めましょう。hugoは公式サイトで有志が作ったテーマをいっぱい公開してくれています。
-<a href="https://themes.gohugo.io/">ここ</a>で物色しましょう。</p>
+
+<a
+  
+    href="https://themes.gohugo.io/"
+  
+   target="_blank" rel="noopener">
+    ここ
+</a>
+で物色しましょう。</p>
 <p>テーマってなんやねんと思う方もいると思います。
 私の浅いイメージ的には、</p>
 <ul>
@@ -199,7 +273,15 @@ Linuxなどの方は、ディストリビューションのパッケージとし
 どちらかと言うと自分が忘れたときのためのものなので、大して参考にならんかもしれません。
 正直に言うと、このセクションのためにこの記事を書き始めました。</p>
 <h3 id="テーマ選択">テーマ選択</h3>
-<p>テーマは<a href="https://themes.gohugo.io/themes/simplog/">simplog</a>を選択します。
+<p>テーマは
+<a
+  
+    href="https://themes.gohugo.io/themes/simplog/"
+  
+   target="_blank" rel="noopener">
+    simplog
+</a>
+を選択します。
 主な選定理由はタグやカテゴリなどの便利機能をサポートしつつ、シンプルで使いやすそうだからです。</p>
 <p>さて、今まで構築していたリポジトリをローカルにコピーしておいて、破壊しましょう。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp -r ./ path/to/archive/
@@ -347,7 +429,15 @@ Linuxなどの方は、ディストリビューションのパッケージとし
 <code>themes/</code>以下の<code>layouts</code>ではなく、ルート以下の<code>layouts</code>に同様のファイルを用意してあげることで、差異があったら優先的に使ってくれます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp -r themes/simplog/layouts/* ./layouts/
 </span></span></code></pre></div><h4 id="katexの設定">KaTeXの設定</h4>
-<p><a href="https://katex.org/docs/autorender.html">これ</a>を利用する。
+<p>
+<a
+  
+    href="https://katex.org/docs/autorender.html"
+  
+   target="_blank" rel="noopener">
+    これ
+</a>
+を利用する。
 要はCDNからKaTeXを読み込んで、JSでロード時に変換しているっぽい？
 詳しいことはたくさん記事が存在するから各自でやりましょう。</p>
 <p>まず諸々の設定を入れ込んだpartialを作成しよう。</p>
@@ -490,7 +580,15 @@ TOCは<code>layouts/_default/single.html</code>をいじれば良さそう。
 </span></span><span style="display:flex;"><span><span style="color:#f92672">grid-template-columns</span><span style="color:#f92672">:</span> <span style="color:#f92672">repeat</span><span style="color:#f92672">(</span><span style="color:#f92672">4</span><span style="color:#f92672">,</span> <span style="color:#f92672">25</span><span style="color:#f92672">%);</span>
 </span></span></code></pre></div><p>これでタクソノミーを減らすことができた。hugo的にはカテゴリとタグを特別使い分けてなさそう(知らんけど)ので、許されるんじゃないかな</p>
 <h3 id="全文検索をパクる">全文検索をパクる</h3>
-<p><a href="https://maku77.github.io/p/p4n5m3i/">まくまくhugoノート</a>を見ていたら、全文検索を実装できるらしい。
+<p>
+<a
+  
+    href="https://maku77.github.io/p/p4n5m3i/"
+  
+   target="_blank" rel="noopener">
+    まくまくhugoノート
+</a>
+を見ていたら、全文検索を実装できるらしい。
 この機能があれば過去記事とかから情報を検索できてすごく便利だなと思ったので、導入することにした。</p>
 <p>ほとんど上のコードをパクり、<code>/layouts/shortcodes/search.html</code>としてファイルを作成し、<code>search.md</code>というファイルでショートコードを取り込むことにした。
 内容は省略するとして、<code>search.md</code>の内容を載せておく。</p>
@@ -515,7 +613,15 @@ CSSを再度修正し、先程消したカテゴリの分を作る。</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Search&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/search/&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">4</span>
-</span></span></code></pre></div><p>出来上がりは<a href="/search/">検索ページ</a>で確認できる。
+</span></span></code></pre></div><p>出来上がりは
+<a
+  
+    href="/search/"
+  
+  >
+    検索ページ
+</a>
+で確認できる。
 また、詳細なファイルの内容はgithubのリポジトリにおいてある。</p>
 <p>それはそれとして、さっき直したものをまた直すとは計画性のないアホである。</p>
 <h3 id="関連タグの表示を調整する">関連タグの表示を調整する</h3>
@@ -544,7 +650,15 @@ CSSを再度修正し、先程消したカテゴリの分を作る。</p>
 <h3 id="win機でpullしたときに発覚したこと">win機でpullしたときに発覚したこと</h3>
 <p>(これはhugoの記事として適切ではないかもしれません。)</p>
 <p>最初にsimplogを<code>git submodule</code>してとってきましたが、他のPCでこのリポジトリをクローンした場合、自動的にsubmoduleまでとってきてくれるわけではないようです。
-<a href="https://maku77.github.io/p/dsctaq7/">これ</a>を参考にして、次のコマンドを打ったらうまくいきました。</p>
+
+<a
+  
+    href="https://maku77.github.io/p/dsctaq7/"
+  
+   target="_blank" rel="noopener">
+    これ
+</a>
+を参考にして、次のコマンドを打ったらうまくいきました。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule init
 </span></span><span style="display:flex;"><span>git submodule update
 </span></span></code></pre></div><h3 id="フロントマターのテンプレート">フロントマターのテンプレート</h3>

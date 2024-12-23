@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="Functional GraphでK回進むクエリ in &lt;O(NlogN), O(logN)&gt; - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/functional-graph-logn-simulation/">
+<meta property="og:url" content="https://inthebloom.github.io/post/functional-graph-logn-simulation/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="Functional GraphでK回進むクエリ in &lt;O(NlogN), O(logN)&gt; - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/functional-graph-logn-simulation/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/functional-graph-logn-simulation/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -154,7 +156,15 @@
 <p>この事実により、Functional Graphを互いに交わらないサイクルと、これらサイクルに「突き刺さっている」木に分解できます。
 以下はFunctional Graphの例です。頂点7が「突き刺さっている木」で、他はサイクルです。</p>
 <p><img src="/images/functional-graph-logn-simulation/graph.png" alt="functional graph image"></p>
-<p>(<a href="https://hello-world-494ec.firebaseapp.com/">https://hello-world-494ec.firebaseapp.com/</a>で作成)</p>
+<p>(
+<a
+  
+    href="https://hello-world-494ec.firebaseapp.com/"
+  
+   target="_blank" rel="noopener">
+    https://hello-world-494ec.firebaseapp.com/
+</a>
+で作成)</p>
 <p>事前にこれらのサイクルを列挙することが出来れば、サイクル内の点に対するクエリは$O(1)$で処理可能です。また、サイクル外の点は高々$N$回の移動で必ずサイクルに入るため、移動を行えばサイクル内の点に対するクエリに帰着できます。
 移動先は一意なので、ダブリングで高速化することが出来ます。</p>
 <p>このアルゴリズムの計算量を見積もります。
@@ -202,7 +212,15 @@
 通常のダブリングとは進め方が異なるので注意してください。
 具体的には、$j$bit目が立っているかを見るのではなく、$2^j$進んで良いか(クエリで聞かれている分を超えないか)を見ます。</p>
 <h2 id="実装例">実装例</h2>
-<p><a href="https://atcoder.jp/contests/abc367/submissions/58993936">ABC367E - Permute K times (LDC 1.32.2 / 70ms)</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc367/submissions/58993936"
+  
+   target="_blank" rel="noopener">
+    ABC367E - Permute K times (LDC 1.32.2 / 70ms)
+</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
@@ -372,9 +390,33 @@
 <p>という問題がとければよいです。これはLevel Ancestor Problemという名前がついていて、調べるとたくさん解法が出てきます。
 それらの一部にリンクしておきます。</p>
 <ul>
-<li><a href="https://37zigen.com/level-ancestor-problem/">&lt;O(N), O(1)&gt;のオンラインアルゴリズム</a></li>
-<li><a href="https://noshi91.hatenablog.com/entry/2019/09/22/114149">O(N + Q)のオフラインアルゴリズム</a></li>
-<li><a href="https://suisen-kyopro.hatenablog.com/entry/2022/04/04/043452">&lt;O(N), O(log N)&gt;のオンラインアルゴリズム</a></li>
+<li>
+<a
+  
+    href="https://37zigen.com/level-ancestor-problem/"
+  
+   target="_blank" rel="noopener">
+    &lt;O(N), O(1)&gt;のオンラインアルゴリズム
+</a>
+</li>
+<li>
+<a
+  
+    href="https://noshi91.hatenablog.com/entry/2019/09/22/114149"
+  
+   target="_blank" rel="noopener">
+    O(N + Q)のオフラインアルゴリズム
+</a>
+</li>
+<li>
+<a
+  
+    href="https://suisen-kyopro.hatenablog.com/entry/2022/04/04/043452"
+  
+   target="_blank" rel="noopener">
+    &lt;O(N), O(log N)&gt;のオンラインアルゴリズム
+</a>
+</li>
 </ul>
 <p>本アルゴリズムは時間計算量、空間計算量の点でこれらのアルゴリズムに劣ります。
 一方、LAを用いる場合、すべての木についてLAを構築する必要があり、実装がさらに大変になることが予想されます。

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/uec-advent2023/">
+<meta property="og:url" content="https://inthebloom.github.io/post/uec-advent2023/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313/https://res.cloudinary.com/dqoqdn2sk/image/upload/v1701781533/pictures/uecadvent2023/ogp_rxkpup.png">
+<meta property="og:image" content="https://inthebloom.github.io/https://res.cloudinary.com/dqoqdn2sk/image/upload/v1701781533/pictures/uecadvent2023/ogp_rxkpup.png">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/uec-advent2023/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/uec-advent2023/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313/https://res.cloudinary.com/dqoqdn2sk/image/upload/v1701781533/pictures/uecadvent2023/ogp_rxkpup.png">
+<meta property="og:image" content="https://inthebloom.github.io/https://res.cloudinary.com/dqoqdn2sk/image/upload/v1701781533/pictures/uecadvent2023/ogp_rxkpup.png">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -144,16 +146,40 @@ details {
 </style>
 <h2 id="まえがき">まえがき</h2>
 <p>この記事は、
-<a href="https://adventar.org/calendars/8698">電通大生による電通大生のためのUEC Advent Calendar 2023</a>
+
+<a
+  
+    href="https://adventar.org/calendars/8698"
+  
+   target="_blank" rel="noopener">
+    電通大生による電通大生のためのUEC Advent Calendar 2023
+</a>
+
 の6日目担当です。</p>
 <p><span style="font-size: 1.1em; color: red;">2時間ほど遅刻しました！すみません！</span></p>
 <div style="overflow: scroll;">
 <iframe src="https://adventar.org/calendars/8698/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
 </div>
-<p>5日目はトナカイさんによる、<a href="https://reindeeruec.hatenablog.com/entry/2023/12/05/000937">BASHであそぼ</a>でした。
+<p>5日目はトナカイさんによる、
+<a
+  
+    href="https://reindeeruec.hatenablog.com/entry/2023/12/05/000937"
+  
+   target="_blank" rel="noopener">
+    BASHであそぼ
+</a>
+でした。
 私もⅠ類の友人がいますが、彼は毎回提出コマンドを手打ちしていた記憶があります。
 自動化スクリプトをbashでササッと組めるのすごく憧れるんですが、いつもbashを勉強する面倒臭さが勝ってしまいます。
-私もいつの日か<a href="https://www.amazon.co.jp/%E9%80%80%E5%B1%88%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AFPython%E3%81%AB%E3%82%84%E3%82%89%E3%81%9B%E3%82%88%E3%81%86-%E2%80%95%E3%83%8E%E3%83%B3%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E3%81%AB%E3%82%82%E3%81%A7%E3%81%8D%E3%82%8B%E8%87%AA%E5%8B%95%E5%8C%96%E5%87%A6%E7%90%86%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-Al-Sweigart/dp/487311778X">退屈なことはpythonにやらせ</a>られるようになりたいです。</p>
+私もいつの日か
+<a
+  
+    href="https://www.amazon.co.jp/%E9%80%80%E5%B1%88%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AFPython%E3%81%AB%E3%82%84%E3%82%89%E3%81%9B%E3%82%88%E3%81%86-%E2%80%95%E3%83%8E%E3%83%B3%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E3%81%AB%E3%82%82%E3%81%A7%E3%81%8D%E3%82%8B%E8%87%AA%E5%8B%95%E5%8C%96%E5%87%A6%E7%90%86%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-Al-Sweigart/dp/487311778X"
+  
+   target="_blank" rel="noopener">
+    退屈なことはpythonにやらせ
+</a>
+られるようになりたいです。</p>
 <p>実はAdvent Calendarは公開後すぐに枠が埋まってしまったので、2枠目も存在します(なんで？)。</p>
 <div style="overflow: scroll;">
 <iframe src="https://adventar.org/calendars/8704/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
@@ -166,9 +192,25 @@ details {
 <p>それではそろそろ本題に行きましょう。</p>
 <h2 id="はじめに">はじめに</h2>
 <p>こんにちは、こんばんは、おはようございます。
-6日目を担当する、<a href="https://twitter.com/UU9782wsEdANDhp">In</a>と申します。
+6日目を担当する、
+<a
+  
+    href="https://twitter.com/UU9782wsEdANDhp"
+  
+   target="_blank" rel="noopener">
+    In
+</a>
+と申します。
 去年に引き続き、今年も参加させていただきました。</p>
-<p>今年は<a href="https://inthebloom.github.io/post/uec-advent2022/">去年のやつ</a>
+<p>今年は
+<a
+  
+    href="https://inthebloom.github.io/post/uec-advent2022/"
+  
+   target="_blank" rel="noopener">
+    去年のやつ
+</a>
+
 よりも実りのある記事がかければ良いなと思っております。よろしくおねがいします。</p>
 <h2 id="二分探索とは">二分探索とは</h2>
 <p>本記事では、競技プログラミングでよく使うかつ、割とバグらせやすいと思っているアルゴリズムである二分探索の
@@ -371,7 +413,15 @@ $i = N$であれば$B = \emptyset$を判定できます。</p>
 <li>$0 \leq K \leq 10^9$</li>
 <li>$1 \leq a_i, b_i \leq 10^9$</li>
 </ul>
-<p>出典: <a href="https://atcoder.jp/contests/abc309/tasks/abc309_c">AtCoder Beginner Contest 309 - C</a></p>
+<p>出典: 
+<a
+  
+    href="https://atcoder.jp/contests/abc309/tasks/abc309_c"
+  
+   target="_blank" rel="noopener">
+    AtCoder Beginner Contest 309 - C
+</a>
+</p>
 <p>この問題は二分探索に帰着するまでに考察が必要です。
 頭の体操のつもりで考えてみましょう！
 (解けなくても心配しないでください。問題を楽しみましょう！)</p>
@@ -462,7 +512,15 @@ $X$円で売ってもよいと考える売り手の人数が、りんごを $X$�
 <li>$1 \leq N, M \leq 2 \times 10^5$</li>
 <li>$1 \leq A_i, B_i \leq 10^9$</li>
 </ul>
-<p>出典: <a href="https://atcoder.jp/contests/abc312/tasks/abc312_c">AtCoder Beginner Contest 312 - C</a></p>
+<p>出典: 
+<a
+  
+    href="https://atcoder.jp/contests/abc312/tasks/abc312_c"
+  
+   target="_blank" rel="noopener">
+    AtCoder Beginner Contest 312 - C
+</a>
+</p>
 <p>こちらもAtCoderから引っ張ってきました。
 ちなみに私はこの問題の読解で詰まって本番で苦しみまくりました。</p>
 <details>
@@ -537,7 +595,15 @@ $$
 良い機会だと思って思い切って書いてみましたが、正直うまくまとめられなかった感を感じています。</p>
 <p>もし本記事を読んで、「全然わからん！」と思った方がいれば、多分私の理解や説明が甘いせいです。すみません。
 一方で、もし誰かの理解の助けになればうれしいです。</p>
-<p>もし本記事に指摘、感想等いただけるなら、<a href="https://twitter.com/UU9782wsEdANDhp">Twitter</a>の方までお願いします。</p>
+<p>もし本記事に指摘、感想等いただけるなら、
+<a
+  
+    href="https://twitter.com/UU9782wsEdANDhp"
+  
+   target="_blank" rel="noopener">
+    Twitter
+</a>
+の方までお願いします。</p>
 <p>明日(12月7日)はみのさんによる、「2023年度財政状況報告」と、あかあくさんによる「アニメオタクのためのサイトを作った」です。
 興味深いタイトルですね。
 更新が楽しみです。</p>

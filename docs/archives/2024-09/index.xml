@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2024-09 on InTheDayDream</title>
-    <link>http://localhost:1313/archives/2024-09/</link>
+    <link>https://inthebloom.github.io/archives/2024-09/</link>
     <description>Recent content in 2024-09 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 10 Sep 2024 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/archives/2024-09/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/archives/2024-09/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC288D - Range Add Query</title>
-      <link>http://localhost:1313/post/abc288d/</link>
+      <link>https://inthebloom.github.io/post/abc288d/</link>
       <pubDate>Tue, 10 Sep 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/abc288d/</guid>
+      <guid>https://inthebloom.github.io/post/abc288d/</guid>
       <description></description>
     </item>
     <item>
       <title>Range Kth Smallestに対する4つの解法と2つの実装例</title>
-      <link>http://localhost:1313/post/range-kth-smallest/</link>
+      <link>https://inthebloom.github.io/post/range-kth-smallest/</link>
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/range-kth-smallest/</guid>
+      <guid>https://inthebloom.github.io/post/range-kth-smallest/</guid>
       <description></description>
     </item>
   </channel>

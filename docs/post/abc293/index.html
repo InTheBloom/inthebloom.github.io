@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ABC293参加記録 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/abc293/">
+<meta property="og:url" content="https://inthebloom.github.io/post/abc293/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313/https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679017696/pictures/abc293/ogp_wuqc6l.png">
+<meta property="og:image" content="https://inthebloom.github.io/https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679017696/pictures/abc293/ogp_wuqc6l.png">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="ABC293参加記録 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/abc293/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/abc293/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313/https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679017696/pictures/abc293/ogp_wuqc6l.png">
+<meta property="og:image" content="https://inthebloom.github.io/https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679017696/pictures/abc293/ogp_wuqc6l.png">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -120,12 +122,36 @@ Bの2完でした。パフォーマンス<span style="color: gray">375</span>、
 <p>結果だけを見ると正直結構やらかしてしまったなという感じですが、ほとんど理解していないアルゴリズムが問われているので当然の帰結だと思います。あと、これで3週連続冷えなのでじわじわレートが下がっています。</p>
 <h2 id="問題など">問題など</h2>
 <p>今回は解けてはいないけどC問題まで紹介します。</p>
-<h3 id="a---swap-odd-and-evenhttpsatcoderjpcontestsabc293tasksabc293_a"><a href="https://atcoder.jp/contests/abc293/tasks/abc293_a">A - Swap Odd and Even</a></h3>
+<h3 id="a---swap-odd-and-evenhttpsatcoderjpcontestsabc293tasksabc293_a">
+<a
+  
+    href="https://atcoder.jp/contests/abc293/tasks/abc293_a"
+  
+   target="_blank" rel="noopener">
+    A - Swap Odd and Even
+</a>
+</h3>
 <p>問題文はこちらです。</p>
 <p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679018484/pictures/abc293/A_jpruqj.png" alt="A問題"></p>
 <p>操作によって文字列長が変化しない上、制約も優しいので普通にシュミレートすれば解けます。C言語等を使っている人はバッファオーバーランに気をつけましょう。この問題の制約下では文字列長が偶数になることがわかっているのでループ変数に2を加えていく方針でACできます。バッファオーバーランに気をつけるなら、操作に使う変数とループ変数を分けるのが良いでしょう。</p>
-<p><a href="https://atcoder.jp/contests/abc293/submissions/39601481">ACコード</a></p>
-<h3 id="b---call-the-id-numberhttpsatcoderjpcontestsabc293tasksabc293_b"><a href="https://atcoder.jp/contests/abc293/tasks/abc293_b">B - Call the ID Number</a></h3>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc293/submissions/39601481"
+  
+   target="_blank" rel="noopener">
+    ACコード
+</a>
+</p>
+<h3 id="b---call-the-id-numberhttpsatcoderjpcontestsabc293tasksabc293_b">
+<a
+  
+    href="https://atcoder.jp/contests/abc293/tasks/abc293_b"
+  
+   target="_blank" rel="noopener">
+    B - Call the ID Number
+</a>
+</h3>
 <p>問題文はこちらです。</p>
 <p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679019009/pictures/abc293/B_de16vo.png" alt="B問題"></p>
 <p>こちらも基本的には言われたとおりにシュミレートすれば解ける問題になっています。ただし、A問題と比べて複雑になっているので注意深く問題分を読むべきだと思います。</p>
@@ -140,15 +166,39 @@ Bの2完でした。パフォーマンス<span style="color: gray">375</span>、
 </ol>
 <p>最後にもう一度最初から見ていって、要素が-1になっていない人がまだ呼ばれていない人で、これはすでに昇順になっています。</p>
 <p>配列が強すぎる</p>
-<p><a href="https://atcoder.jp/contests/abc293/submissions/39615105">ACコード</a>(前半はソート関数郡です。(必要なかった))</p>
-<h3 id="c---make-takahashi-happyhttpsatcoderjpcontestsabc293tasksabc293_c"><a href="https://atcoder.jp/contests/abc293/tasks/abc293_c">C - Make Takahashi Happy</a></h3>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc293/submissions/39615105"
+  
+   target="_blank" rel="noopener">
+    ACコード
+</a>
+(前半はソート関数郡です。(必要なかった))</p>
+<h3 id="c---make-takahashi-happyhttpsatcoderjpcontestsabc293tasksabc293_c">
+<a
+  
+    href="https://atcoder.jp/contests/abc293/tasks/abc293_c"
+  
+   target="_blank" rel="noopener">
+    C - Make Takahashi Happy
+</a>
+</h3>
 <p>問題文はこちらです。</p>
 <p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1679019909/pictures/abc293/C_oenppw.png" alt="C問題"></p>
 <p>経路上に存在する数字がかぶるかどうかを判定するためには、すべての経路を具体的に知っていなければいけません。すなわち、重複順列の全列挙です。そこで、いくつか方法があります。</p>
 <p>私の取った方法はbit全探索です。0と1を「右に進む」「下に進む」に対応させることで重複順列をすべて列挙することができます。ビット数は<code>w + h - 2</code>になります。たぶん知らないとできません。</p>
 <p>具体的には、最下位ビットの加算を行うたびに全ビットを見ていって、「下に進む」を表しているビットの総数が<code>h - 1</code>に到達したときに求めたい組み合わせの一つになります。高校数学を履修した人にとっては馴染み深い考え方かもしれません。(経路の数を求める問題で出てくるはずです。)</p>
 <p>pythonやc++であれば、順列の列挙をするライブラリが利用できるはずなので、使い方を知っていればACしやすいと思います。C言語にそんなものはありません。(血涙)</p>
-<p><a href="https://atcoder.jp/contests/abc293/submissions/39668102">ACコード</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc293/submissions/39668102"
+  
+   target="_blank" rel="noopener">
+    ACコード
+</a>
+</p>
 <h2 id="完走した感想">完走した感想</h2>
 <p>今回のコンテストはちょうど対策が薄かったところばっかり出てきて中々苦しかったです。特に、組み合わせの列挙は近いうちの目標だったのですが、面倒くさくて放置していました。</p>
 <p>D問題はグラフに関する問題が出ていました。まじでグラフをなんとかしないと茶色から落ちそうなのでがんばります。(C言語は動的配列のサポートが薄く、隣接リストを微妙に作りにくいからずっと面倒臭がって放置しています。)</p>

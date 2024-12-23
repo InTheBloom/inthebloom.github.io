@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="unstableをstableにする小技 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/sorttech/">
+<meta property="og:url" content="https://inthebloom.github.io/post/sorttech/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="unstableをstableにする小技 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/sorttech/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/sorttech/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -105,7 +107,15 @@
 
 
 <h2 id="はじめに">はじめに</h2>
-<p>先日(2023/7/1)の<a href="https://atcoder.jp/contests/abc308">ABC308</a>のC問題にややこしいソート問題が出ました。
+<p>先日(2023/7/1)の
+<a
+  
+    href="https://atcoder.jp/contests/abc308"
+  
+   target="_blank" rel="noopener">
+    ABC308
+</a>
+のC問題にややこしいソート問題が出ました。
 本稿はその問題を簡潔に解く実装のアイディアの紹介です。</p>
 <h2 id="無理やりstable化">無理やりstable化</h2>
 <p>標準ライブラリで一番簡単に使えるソートは安定ソートでないことが多いです。
@@ -140,7 +150,15 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>person<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">!(</span>Less<span style="color:#f92672">);</span>
 </span></span></code></pre></div><p>これ、賢いです。 多分3変数以上に拡張可能です。
 さらに、stableにしたいという目的以外でも応用可能です。</p>
-<p>例えば、<a href="https://atcoder.jp/contests/abc291/tasks/abc291_c">この問題</a>で、
+<p>例えば、
+<a
+  
+    href="https://atcoder.jp/contests/abc291/tasks/abc291_c"
+  
+   target="_blank" rel="noopener">
+    この問題
+</a>
+で、
 構造体に座標を突っ込んでいき、このソートをかければ
 隣接要素が等しいものが一つでもあれば<code>Yes</code>というふうにできます。
 (とは言ったものの、特に理由がなければ普通に<code>std::map</code>なりなんなりを使いましょう)</p>

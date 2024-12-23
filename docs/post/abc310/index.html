@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ABC310参加記録 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/abc310/">
+<meta property="og:url" content="https://inthebloom.github.io/post/abc310/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="ABC310参加記録 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/abc310/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/abc310/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -135,7 +137,15 @@
 
 
 <h2 id="はじめに">はじめに</h2>
-<p>本稿は、2023/7/15に開催された<a href="https://atcoder.jp/contests/abc310">ABC310</a>の参加記録となっています。</p>
+<p>本稿は、2023/7/15に開催された
+<a
+  
+    href="https://atcoder.jp/contests/abc310"
+  
+   target="_blank" rel="noopener">
+    ABC310
+</a>
+の参加記録となっています。</p>
 <h2 id="戦績">戦績</h2>
 <p>まずは、今回の戦績です。
 A,B,Cの3完で、パフォーマンスは<span style="color: green;">1142</span>で、
@@ -157,7 +167,15 @@ A,B,Cの3完で、パフォーマンスは<span style="color: green;">1142</span
 <h2 id="問題と解法">問題と解法</h2>
 <p>解けた問題について振り返ろうと思います。
 今回試験的に問題文を丸コピしてみます。特にことわりがなければ、問題名のリンク先が引用元になっています。</p>
-<h3 id="a---order-something-elsehttpsatcoderjpcontestsabc310tasksabc310_a"><a href="https://atcoder.jp/contests/abc310/tasks/abc310_a">A - Order Something Else</a></h3>
+<h3 id="a---order-something-elsehttpsatcoderjpcontestsabc310tasksabc310_a">
+<a
+  
+    href="https://atcoder.jp/contests/abc310/tasks/abc310_a"
+  
+   target="_blank" rel="noopener">
+    A - Order Something Else
+</a>
+</h3>
 <p>問題文</p>
 <p>高橋君は、レストランで「AtCoder
 ドリンク」というドリンクを飲もうとしています。 AtCoder
@@ -172,8 +190,24 @@ A,B,Cの3完で、パフォーマンスは<span style="color: green;">1142</span
 <p>仮に他に料理を頼むなら、一品だけ頼むのが最適になります。
 したがって、料理を頼まないときの金額と、一品だけ料理を頼むときの金額を全部見て、それらの最小値が解になります。
 制約も十分小さいのでこれでACできます。</p>
-<p><a href="https://atcoder.jp/contests/abc310/submissions/43582669">提出</a></p>
-<h3 id="b---strictly-superiorhttpsatcoderjpcontestsabc310tasksabc310_b"><a href="https://atcoder.jp/contests/abc310/tasks/abc310_b">B - Strictly Superior</a></h3>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc310/submissions/43582669"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
+<h3 id="b---strictly-superiorhttpsatcoderjpcontestsabc310tasksabc310_b">
+<a
+  
+    href="https://atcoder.jp/contests/abc310/tasks/abc310_b"
+  
+   target="_blank" rel="noopener">
+    B - Strictly Superior
+</a>
+</h3>
 <p>問題文</p>
 <p>AtCoder 商店には $N$ 個の商品があります。 $i$
 $(1\leqq{}i\leqq{}N)$ 番目の商品の価格は $P_i$ です。 $i$
@@ -209,8 +243,24 @@ $(1\leqq{}i\leqq{}N)$ 番目の商品の $j$ $(1\leqq{}j\leqq{}C_i)$
 <p>堅苦しく書いたのはそっちのほうが実装に落とし込みやすいかなと思っているからです。
 これを正確に実装すればACが取れます。
 なお、機能を持っているかのチェックは二重ループなどによる全探索でも余裕で間に合います。</p>
-<p><a href="https://atcoder.jp/contests/abc310/submissions/43593231">提出</a></p>
-<h3 id="c---reversiblehttpsatcoderjpcontestsabc310tasksabc310_c"><a href="https://atcoder.jp/contests/abc310/tasks/abc310_c">C - Reversible</a></h3>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc310/submissions/43593231"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
+<h3 id="c---reversiblehttpsatcoderjpcontestsabc310tasksabc310_c">
+<a
+  
+    href="https://atcoder.jp/contests/abc310/tasks/abc310_c"
+  
+   target="_blank" rel="noopener">
+    C - Reversible
+</a>
+</h3>
 <p>問題文</p>
 <p>ボールがいくつか刺さった棒が N 本あり、各ボールには英小文字が $1$
 個書かれています。</p>
@@ -247,8 +297,24 @@ bが等しいということを次で定める。</p>
 ある文字列と、その逆順文字列がどちらも与えられるパターンと、そうでないパターンについて考えると証明できそう(知らん)
 回文が色々とコーナーケースになっているので気をつける必要がありますが、サンプルに載っています。</p>
 <p>自分はアホなので解法2を取りましたが、普通に考えて解法1のほうが楽です。</p>
-<p><a href="https://atcoder.jp/contests/abc310/submissions/43602617">提出</a></p>
-<h3 id="d---peaceful-teamshttpsatcoderjpcontestsabc310tasksabc310_d"><a href="https://atcoder.jp/contests/abc310/tasks/abc310_d">D - Peaceful Teams</a></h3>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc310/submissions/43602617"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
+<h3 id="d---peaceful-teamshttpsatcoderjpcontestsabc310tasksabc310_d">
+<a
+  
+    href="https://atcoder.jp/contests/abc310/tasks/abc310_d"
+  
+   target="_blank" rel="noopener">
+    D - Peaceful Teams
+</a>
+</h3>
 <p>問題文</p>
 <p>$N$ 人のスポーツ選手がいます。</p>
 <p>$N$ 人の選手たちには互いに相性の悪い選手のペアが $M$
@@ -274,10 +340,26 @@ m_i$となります。
 <p>最初にnCtをしているのはビット全探索パートの計算量を落とすためです。
 計算量は全体で$O(N*({}_n\mathrm{C}_t)*(N-T)^T*(チーム分けがOKかどうかの一回の判定分))$くらいかなぁ...よくわからん。</p>
 <p>細部を説明するのは大変な上、かなり怪しい解き方なのでこれ以上は言及しません。</p>
-<p><a href="https://atcoder.jp/contests/abc310/submissions/43646182">提出</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc310/submissions/43646182"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
 <p>余談ですが、公式解説の全探索とdpはもっと一般化した主張にできるんじゃないかな(できたら便利そうだな)と思っていますが、
 数学無理なので無理です。(は？)</p>
-<h3 id="e---nand-repeatedlyhttpsatcoderjpcontestsabc310tasksabc310_e"><a href="https://atcoder.jp/contests/abc310/tasks/abc310_e">E - NAND repeatedly</a></h3>
+<h3 id="e---nand-repeatedlyhttpsatcoderjpcontestsabc310tasksabc310_e">
+<a
+  
+    href="https://atcoder.jp/contests/abc310/tasks/abc310_e"
+  
+   target="_blank" rel="noopener">
+    E - NAND repeatedly
+</a>
+</h3>
 <p>問題文</p>
 <p><code>0</code> と <code>1</code> からなる長さ $N$ の文字列 $S$ が与えられます。 $S$
 は長さ $N$ の数列 $A=(A_1,A_2,&hellip;,A_N)$ の情報を表しており、$S$ の
@@ -305,7 +387,15 @@ $\displaystyle\sum_{i=1}^N \displaystyle\sum_{j=i}^N f(i,j)$
 dp[i][1]$が答えになります。</p>
 <p>正直よくわかっていませんが、始点を固定したとき同じ領域を何回も計算しているのを圧縮しているっぽいです(適当)</p>
 <p>この辺もちゃんと解けるようになりたいなぁ</p>
-<p><a href="https://atcoder.jp/contests/abc310/submissions/43658495">提出</a></p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc310/submissions/43658495"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
 <h2 id="終わりに">終わりに</h2>
 <p>今週のABCは色々とだめなところが多かったなと反省です。
 ここ最近精進をちょっとサボってしまっていたのが悔やまれるので、今週はしっかり取り組みたいです。</p>

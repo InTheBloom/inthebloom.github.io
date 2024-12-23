@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="No.2616 中央番目の中央値 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/yukicoder2616/">
+<meta property="og:url" content="https://inthebloom.github.io/post/yukicoder2616/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="No.2616 中央番目の中央値 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/yukicoder2616/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/yukicoder2616/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -126,7 +128,15 @@
 
 
 <h2 id="問題概要">問題概要</h2>
-<p><a href="https://yukicoder.me/problems/no/2616">問題へのリンク</a></p>
+<p>
+<a
+  
+    href="https://yukicoder.me/problems/no/2616"
+  
+   target="_blank" rel="noopener">
+    問題へのリンク
+</a>
+</p>
 <p>長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</p>
 <ul>
 <li>長さが奇数</li>
@@ -180,7 +190,15 @@ $$
 $$
 \sum_{i=0}^{\min(X, Y)} \binom{X}{X-i} \binom{Y}{i}
 $$
-$\min(X, Y) = X$であるとき、<a href="https://manabitimes.jp/math/622">ヴァンデルモンドの畳み込み</a>という恒等式が成立し、
+$\min(X, Y) = X$であるとき、
+<a
+  
+    href="https://manabitimes.jp/math/622"
+  
+   target="_blank" rel="noopener">
+    ヴァンデルモンドの畳み込み
+</a>
+という恒等式が成立し、
 $$
 \sum_{i=0}^{X} \binom{X}{X-i} \binom{Y}{i} = \binom{X+Y}{X}
 $$
@@ -304,7 +322,15 @@ $$
 <p>久しぶりにyukicoderで難しめの問題が解けた気がする。
 本番はwolfram alphaに投げたら式変形してくれたが、本稿を書くにあたって二項係数が入った恒等式の証明が全然わからなくて苦労した。
 ヴァンデルモンドの畳み込み恒等式は競技プログラミングにおいて様々な応用がありそうな気がするが、筆者のレベルだとあまり見たことがない。</p>
-<p>不明点があれば<a href="https://yukicoder.me/problems/no/2616/editorial">公式解説</a>が詳しい。</p>
+<p>不明点があれば
+<a
+  
+    href="https://yukicoder.me/problems/no/2616/editorial"
+  
+   target="_blank" rel="noopener">
+    公式解説
+</a>
+が詳しい。</p>
 
 
 

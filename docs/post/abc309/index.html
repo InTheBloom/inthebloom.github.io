@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ABC309参加記録 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/abc309/">
+<meta property="og:url" content="https://inthebloom.github.io/post/abc309/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="ABC309参加記録 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/abc309/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/abc309/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -113,14 +115,30 @@
 
 
 <h2 id="始めに">始めに</h2>
-<p>本稿は2023/7/8に開催された、<a href="https://atcoder.jp/contests/abc309">ABC309</a>の参加記録です。</p>
+<p>本稿は2023/7/8に開催された、
+<a
+  
+    href="https://atcoder.jp/contests/abc309"
+  
+   target="_blank" rel="noopener">
+    ABC309
+</a>
+の参加記録です。</p>
 <h2 id="戦績">戦績</h2>
 <p>今回の戦績を紹介します。 A, B, C, D, Eの5完で、
 パフォーマンスが<span style="color: green">1130</span>で、レーティング変化が<span style="color: green">964</span>=&gt;<span style="color: green">982</span>でした。
 以下は今回の提出です。</p>
 <p><img src="https://res.cloudinary.com/dqoqdn2sk/image/upload/v1688999450/pictures/ABC309/submission_xpyyku.png" alt=""></p>
 <h2 id="解いた問題">解いた問題</h2>
-<h3 id="a---ninehttpsatcoderjpcontestsabc309tasksabc309_a"><a href="https://atcoder.jp/contests/abc309/tasks/abc309_a">A - Nine</a></h3>
+<h3 id="a---ninehttpsatcoderjpcontestsabc309tasksabc309_a">
+<a
+  
+    href="https://atcoder.jp/contests/abc309/tasks/abc309_a"
+  
+   target="_blank" rel="noopener">
+    A - Nine
+</a>
+</h3>
 <p>問題概要: 各マスに異なる数字が書かれている3*3の盤面がある。整数A,
 Bが与えられるので、横方向で隣接しているかをせよ。ただしA&lt;Bが保証される。
 また、盤面は以下のとおりである。</p>
@@ -132,8 +150,24 @@ Bが与えられるので、横方向で隣接しているかをせよ。ただ�
 <p>解法:
 法則性を見るなら、Aが3の倍数の時、条件を満たすBをとることができない。したがって、必要十分条件は<code>B-A==1</code>かつ<code>A%3!=0</code>となる。</p>
 <p>また、あり得る入力のパターンが少ないので、解をすべて埋め込むのも手である。</p>
-<p><a href="https://atcoder.jp/contests/abc309/submissions/43340171">提出</a></p>
-<h3 id="b---rotatehttpsatcoderjpcontestsabc309tasksabc309_b"><a href="https://atcoder.jp/contests/abc309/tasks/abc309_b">B - Rotate</a></h3>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc309/submissions/43340171"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
+<h3 id="b---rotatehttpsatcoderjpcontestsabc309tasksabc309_b">
+<a
+  
+    href="https://atcoder.jp/contests/abc309/tasks/abc309_b"
+  
+   target="_blank" rel="noopener">
+    B - Rotate
+</a>
+</h3>
 <p>問題概要:
 N行N列のマスが与えられる。外周を一マス右回りに動かした結果を出力せよ。
 次は操作の例である。</p>
@@ -157,8 +191,24 @@ N行N列のマスが与えられる。外周を一マス右回りに動かした
 そこで、マス目をコピーして、片方は読み取りだけを行うようにした。</p>
 <p>ただし、高次元の配列を参照で持つpythonなどの言語はシャローコピーとディープコピーの違いに気を付ける必要がある。
 D言語も単に代入をすると同じメモリを指す参照のコピーとなるので、プロパティ関数<code>.dup</code>を利用して確実にコピーをする必要がある。</p>
-<p><a href="https://atcoder.jp/contests/abc309/submissions/43352614">提出</a></p>
-<h3 id="c---medicinehttpsatcoderjpcontestsabc309tasksabc309_c"><a href="https://atcoder.jp/contests/abc309/tasks/abc309_c">C - Medicine</a></h3>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc309/submissions/43352614"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
+<h3 id="c---medicinehttpsatcoderjpcontestsabc309tasksabc309_c">
+<a
+  
+    href="https://atcoder.jp/contests/abc309/tasks/abc309_c"
+  
+   target="_blank" rel="noopener">
+    C - Medicine
+</a>
+</h3>
 <p>問題概要:
 N種類の薬を考える。薬iは処方された日を含めてa_i日間、毎日b_i錠ずつ飲む必要がある。
 ここで、今日は1日目であり、すべての薬を処方された。
@@ -173,8 +223,24 @@ K以下になったとき、a_i+1を出力し終了する。
 <p>また、もう一つの解法としては、X日目に飲む必要のある薬の量がO(N)でわかるので、解についての二分探索で解くことができる。
 計算量はO(NlogK)である。</p>
 <p>どっちの解法も個人的にかなり好きであるが、二分探索のほうが汎用性がありそうだなと思う。</p>
-<p><a href="https://atcoder.jp/contests/abc309/submissions/43360062">提出</a></p>
-<h3 id="d---add-one-edgehttpsatcoderjpcontestsabc309tasksabc309_d"><a href="https://atcoder.jp/contests/abc309/tasks/abc309_d">D - Add One Edge</a></h3>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc309/submissions/43360062"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
+<h3 id="d---add-one-edgehttpsatcoderjpcontestsabc309tasksabc309_d">
+<a
+  
+    href="https://atcoder.jp/contests/abc309/tasks/abc309_d"
+  
+   target="_blank" rel="noopener">
+    D - Add One Edge
+</a>
+</h3>
 <p>問題概要:
 N_1+N_2頂点M辺の無向グラフが与えられる。ここで、次の条件が保証される。</p>
 <p>1&lt;=u, v&lt;=N_1となるような任意の2頂点は連結で、 また、N_1+1&lt;=u,
@@ -187,8 +253,24 @@ v&lt;=N_1+N_2となるような任意の2頂点は連結である。
 グラフは二つの連結成分に分けられている。したがって、連結成分内で目的の点から一番遠い点同士を結ぶことで、明らかに最大化することができる。
 重みが均一なグラフのパスの長さはBFS(Breadth-First
 search)を用いて解くことができる。計算量はO(N_1+N_2+M)となり、ネックにはならない。</p>
-<p><a href="https://atcoder.jp/contests/abc309/submissions/43366069">提出</a></p>
-<h3 id="e---family-and-insurancehttpsatcoderjpcontestsabc309tasksabc309_e"><a href="https://atcoder.jp/contests/abc309/tasks/abc309_e">E - Family and Insurance</a></h3>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc309/submissions/43366069"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
+<h3 id="e---family-and-insurancehttpsatcoderjpcontestsabc309tasksabc309_e">
+<a
+  
+    href="https://atcoder.jp/contests/abc309/tasks/abc309_e"
+  
+   target="_blank" rel="noopener">
+    E - Family and Insurance
+</a>
+</h3>
 <p>問題概要:
 N頂点の木が与えられる。いくつかの頂点は正の整数であらわされる「保険」を持っている。
 頂点1を根として、「保険」を持つある頂点から距離が「保険」の値以下であり、かつその子孫であるようなノードは「被保険者」とする。条件を満たさないノードはは保険対象外である。</p>
@@ -196,8 +278,24 @@ N頂点の木が与えられる。いくつかの頂点は正の整数であら�
 <p>解法:
 保険の影響が親に波及することはない。したがって、根から保険の影響が及ぶかどうかを調べていけばよい。現在の保険の影響力が今いるノードの保険の影響力より小さい場合、より影響が大きいほうに乗り換えていけばよい。
 実装自体はほとんどDFS/BFSそのものである。よって計算量はO(N+N-1)となる。</p>
-<p>また、最も影響力の強いノードを優先度付きキューで管理する多点ダイクストラ法でも解くことができる。詳しくは<a href="https://atcoder.jp/contests/abc305/tasks/abc305_e">この問題</a>の解説が詳しい。</p>
-<p><a href="https://atcoder.jp/contests/abc309/submissions/43412100">提出</a></p>
+<p>また、最も影響力の強いノードを優先度付きキューで管理する多点ダイクストラ法でも解くことができる。詳しくは
+<a
+  
+    href="https://atcoder.jp/contests/abc305/tasks/abc305_e"
+  
+   target="_blank" rel="noopener">
+    この問題
+</a>
+の解説が詳しい。</p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc309/submissions/43412100"
+  
+   target="_blank" rel="noopener">
+    提出
+</a>
+</p>
 <h2 id="終わりに">終わりに</h2>
 <p>今回5問解くことができた。
 最近ABCで調子が良いが、気を抜かずに取り組みたいと思う。

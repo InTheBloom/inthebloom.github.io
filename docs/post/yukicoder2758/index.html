@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="alternate" href="/index.xml?c=330467e6ba3dd8e68ec899185edc6939020c70c1" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="alternate" href="/index.xml?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="No.2758 RDQ - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/yukicoder2758/">
+<meta property="og:url" content="https://inthebloom.github.io/post/yukicoder2758/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="No.2758 RDQ - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/yukicoder2758/">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/yukicoder2758/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
-<link rel="stylesheet" href="/css/color.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/main.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
+<link rel="stylesheet" href="/css/color.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=330467e6ba3dd8e68ec899185edc6939020c70c1">
+<link rel="stylesheet" href="/css/custom.css?c=e1a16fa03e9030091247a1a2991fbfb1cdc855de">
 
 
 
@@ -136,7 +138,15 @@
 
 
 <h2 id="問題概要">問題概要</h2>
-<p><a href="https://yukicoder.me/problems/no/2758">問題へのリンク</a></p>
+<p>
+<a
+  
+    href="https://yukicoder.me/problems/no/2758"
+  
+   target="_blank" rel="noopener">
+    問題へのリンク
+</a>
+</p>
 <h3 id="問題文">問題文</h3>
 <p>長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$が与えられる。次の$Q$個の質問に答えよ。</p>
 <ul>
@@ -170,7 +180,15 @@ $K$の値が小さなときがボトルネックになっているので、そ�
 「$A _ i$が法で割り切れるなら$1$、割り切れないなら$0$とした数列」というものを考えたが、実は$A _ i$を割り切る法は制約において十分に少ない。
 そこで、$1$になる要素だけをメモリに記録しておくことで、大幅に高速化することができる。</p>
 <p>「$A _ i$を割り切る法」というのはすなわち$A _ i$の約数であるから、「素直な方針」で$1$になる要素の数は高度合成数を用いて上から評価できる。
-<a href="https://algo-method.com/descriptions/92">高度合成数の一覧</a>を見ると、$114N$で抑えることができ、これは制約下で可能である。
+
+<a
+  
+    href="https://algo-method.com/descriptions/92"
+  
+   target="_blank" rel="noopener">
+    高度合成数の一覧
+</a>
+を見ると、$114N$で抑えることができ、これは制約下で可能である。
 具体的なやり方としては、例えばvectorを要素に持つmapを用いる方法がある。空でない配列に対して「本来$1$になるインデックス」を昇順に保持するという感じになる。実装例を参照されたい。
 座標圧縮を用いてmapを使用しないこともできると思う。
 この方針では約数関数を$\mathrm{d}(x)$として、$\mathcal{O}(N \mathrm{d}(\max A) + Q \log N)$となる。</p>
