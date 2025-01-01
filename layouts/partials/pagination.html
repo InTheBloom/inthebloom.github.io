@@ -3,13 +3,15 @@
 <ul class="pagination">
   {{ with $pag.First }}
   {{ if $pag.HasPrev }}
-  <li class="page-item"><a href="{{ .URL }}" class="page-link" aria-label="First"><span aria-hidden="true">|</span></a></li>
+  <li class="page-item"><a href="{{ .URL }}" class="page-link" aria-label="First"><span aria-hidden="true">|&lt;</span></a></li>
   {{ else }}
   <li class="page-item disabled"><span aria-hidden="true">|</span></li>
   {{ end }}
   {{ end }}
   {{ if $pag.HasPrev }}
-  <li class="page-item"><a href="{{ $pag.Prev.URL }}" class="page-link" aria-label="Previous"><span aria-hidden="true"></span></a></li>
+  <li class="page-item">
+      <a href="{{ $pag.Prev.URL }}" class="page-link" aria-label="Previous"><span aria-hidden="true">&lt;</span></a>
+  </li>
   {{ else }}
   <li class="page-item disabled"><span aria-hidden="true"></span></li>
   {{ end }}
@@ -34,14 +36,14 @@
   {{ end }}
   {{ if $pag.HasNext }}
   <li class="page-item">
-    <a href="{{ $pag.Next.URL }}" class="page-link" aria-label="Next"><span aria-hidden="true">></span></a>
+    <a href="{{ $pag.Next.URL }}" class="page-link" aria-label="Next"><span aria-hidden="true">&gt;</span></a>
   </li>
   {{ else }}
   <li class="page-item disabled"><span aria-hidden="true"></span></li>
   {{ end }}
   {{ with $pag.Last }}
   {{ if $pag.HasNext }}
-  <li class="page-item"><a href="{{ .URL }}" class="page-link" aria-label="Last"><span aria-hidden="true">>|</span></a></li>
+  <li class="page-item"><a href="{{ .URL }}" class="page-link" aria-label="Last"><span aria-hidden="true">&gt;|</span></a></li>
   {{ else }}
   <li class="page-item disabled"><span aria-hidden="true">|</span></li>
   {{ end }}

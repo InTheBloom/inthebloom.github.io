@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://inthebloom.github.io/post/2024-final/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://inthebloom.github.io/archives/2025/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://inthebloom.github.io/archives/2025-01/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://inthebloom.github.io/archives/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://inthebloom.github.io/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://inthebloom.github.io/tags/mementos/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://inthebloom.github.io/post/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://inthebloom.github.io/tags/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://inthebloom.github.io/archives/2024/</loc>
     <lastmod>2024-12-12T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://inthebloom.github.io/archives/2024-12/</loc>
     <lastmod>2024-12-12T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://inthebloom.github.io/archives/</loc>
-    <lastmod>2024-12-12T00:00:00+09:00</lastmod>
-  </url><url>
     <loc>https://inthebloom.github.io/post/uec-advent2024/</loc>
-    <lastmod>2024-12-12T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://inthebloom.github.io/</loc>
-    <lastmod>2024-12-12T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://inthebloom.github.io/post/</loc>
-    <lastmod>2024-12-12T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://inthebloom.github.io/tags/</loc>
     <lastmod>2024-12-12T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://inthebloom.github.io/tags/uec-advent-calendar/</loc>
@@ -45,9 +57,6 @@
     <lastmod>2024-11-22T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://inthebloom.github.io/post/reached-1600/</loc>
-    <lastmod>2024-11-22T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://inthebloom.github.io/tags/mementos/</loc>
     <lastmod>2024-11-22T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://inthebloom.github.io/post/unifying-segments-with-unionfind/</loc>
