@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=1e36c123174a2330c7f8b687a8317ad62dbc52d3">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=1e36c123174a2330c7f8b687a8317ad62dbc52d3">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=1e36c123174a2330c7f8b687a8317ad62dbc52d3">
-<link rel="alternate" href="/index.xml?c=1e36c123174a2330c7f8b687a8317ad62dbc52d3" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=3689c3a874c99b0650dba8d29674303efcfaa2be">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=3689c3a874c99b0650dba8d29674303efcfaa2be">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=3689c3a874c99b0650dba8d29674303efcfaa2be">
+<link rel="alternate" href="/index.xml?c=3689c3a874c99b0650dba8d29674303efcfaa2be" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="BSTより高速なデータ構造: Y-Fast Trie [UEC Advent Calendar 2024] 12日目 - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/uec-advent2024/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/uec-advent2024/ogp.png">
 
 
-<link rel="stylesheet" href="/css/main.css?c=1e36c123174a2330c7f8b687a8317ad62dbc52d3">
-<link rel="stylesheet" href="/css/color.css?c=1e36c123174a2330c7f8b687a8317ad62dbc52d3">
+<link rel="stylesheet" href="/css/main.css?c=3689c3a874c99b0650dba8d29674303efcfaa2be">
+<link rel="stylesheet" href="/css/color.css?c=3689c3a874c99b0650dba8d29674303efcfaa2be">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=1e36c123174a2330c7f8b687a8317ad62dbc52d3">
+<link rel="stylesheet" href="/css/custom.css?c=3689c3a874c99b0650dba8d29674303efcfaa2be">
 
 
 
@@ -106,7 +106,7 @@
 <h1>BSTより高速なデータ構造: Y-Fast Trie [UEC Advent Calendar 2024] 12日目</h1>
 
 <span class="sub">Published on 2024-12-12</span><br>
-<span class="sub">Last Modified 2024-12-12</span>
+<span class="sub">Last Modified 2025-01-02</span>
 
 
 
@@ -449,7 +449,7 @@ wikipediaの
 <p>X-Fast Trieはbinary trieの各層にハッシュマップを導入したデータ構造である。</p>
 <p>この工夫により、$\mathrm{insert}, \mathrm{remove}$を$O(w)$時間、$\mathrm{successor}, \mathrm{predecessor}$を$\text{expected } O(\log(w))$時間で行うことができる。</p>
 <p>使用する領域は変わらず$O(Nw)$となる。(ハッシュマップはうまく実装されていれば$N$個のキー挿入時に$O(N)$領域しか必要ないため、binary trieと比較して定数倍しか膨らまない。)</p>
-<p>(補足: ハッシュマップは忘却計算量が入ることがあると思いますが、このあたりを$\text{expected}$などと合わせたときにどう扱うのかについて、文献を探しても見つかりませんでした。なので、基本的には期待計算量に含まれるという体で書いています。)</p>
+<p>(補足: ハッシュマップは償却計算量が入ることがあると思いますが、このあたりを$\text{expected}$などと合わせたときにどう扱うのかについて、文献を探しても見つかりませんでした。なので、基本的には期待計算量に含まれるという体で書いています。)</p>
 <h2 id="y-fast-trie">Y-Fast Trie</h2>
 <p>とうとうメインディッシュがやってきました。</p>
 <p>X-Fast Trieは検索こそ早いものの、追加と削除が低速でした。また、使用する領域も二分探索木に比べて$w$倍大きいです。
@@ -635,7 +635,7 @@ wikipediaの
 <p>アドベントカレンダーに寄せるエントリということで、かなり気合が入ってしまい、超長文を生成してしまいました。
 ここまで見ていただいた方、本当にありがとうございました。</p>
 <p>Y-Fast Trieの動作原理を自分なりにできる限りかみ砕いて説明したつもりです。皆さんはどう感じましたか？
-私のささやかな願いとして、このエントリ調布駅のTrieをみて「トライ」と読んでしまう人が増えるといいなと思っています。</p>
+私のささやかな願いとして、このエントリをみて、調布駅のTrieを「トライ」と読んでしまう人が増えるといいなと思っています。</p>
 <p>感想、質問などを寄せていただけると非常に喜びます。私の
 <a
   
