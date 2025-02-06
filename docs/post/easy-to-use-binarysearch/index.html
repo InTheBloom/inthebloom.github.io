@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>めぐる式二分探索亜種の提案 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
+<link rel="alternate" href="/index.xml?c=449e7a851cc4b9b7e250da90dc3df873851f0c26" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="めぐる式二分探索亜種の提案 - InTheDayDream">
+<meta property="og:url" content="http://localhost:1313/post/easy-to-use-binarysearch/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="めぐる式二分探索亜種の提案 - InTheDayDream">
+<meta name="twitter:url" content="http://localhost:1313/post/easy-to-use-binarysearch/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
+<link rel="stylesheet" href="/css/color.css?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>めぐる式二分探索亜種の提案</h1>
+
+<span class="sub">Published on 2025-01-26</span><br>
+<span class="sub">Last Modified 2025-01-26</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#めぐる式二分探索の問題点">めぐる式二分探索の問題点</a>
+      <ul>
+        <li><a href="#片側開区間で指定することの欠点">片側開区間で指定することの欠点</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="はじめに">はじめに</h2>
+<p>競技プログラミングにおける二分探索の代表的な実装方法の一つに、<strong>めぐる式二分探索</strong>があります。
+本エントリでは、めぐる式二分探索に改変を加え、より使いやすくしたバージョンを提案します。</p>
+<h2 id="めぐる式二分探索の問題点">めぐる式二分探索の問題点</h2>
+<p>めぐる式二分探索と呼ばれるようになった由来のツイートを掲載します。</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">【めぐるのアルゴリズム講座】<br>二分探索（整数）の書き方<br>難しさ：４ <a href="https://t.co/LGLbkS0D7l">pic.twitter.com/LGLbkS0D7l</a></p>&mdash; 因幡めぐる@競技プログラミング (@meguru\_comp) <a href="https://twitter.com/meguru_comp/status/697008509376835584?ref_src=twsrc%5Etfw">February 9, 2016</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>どのような実装であるかを確認しましょう。
+めぐる式二分探索では、区間$\lbrack \mathrm{ok}, \mathrm{ng})$あるいは$(\mathrm{ng}, \mathrm{ok} \rbrack$を考えて、$\mathrm{mid} = \lfloor \frac{\mathrm{ok} + \mathrm{ng}}{2} \rfloor$における判定関数$\mathrm{solve}$の返り値に応じて$\mathrm{ok}$または$\mathrm{ng}$を更新するというものです。</p>
+<p>めぐる式二分探索の問題は2点あります。
+ひとつは、判定関数の定義域を片側開区間で指定していること。
+もう一つは、$f(\mathrm{ok}) = \mathrm{true}$を必要条件にしていることです。</p>
+<h3 id="片側開区間で指定することの欠点">片側開区間で指定することの欠点</h3>
+<p>関数$\mathrm{solve}$の定義域が有限なときに欠点が顕著になります。
+例として、配列上の二分探索を考えます。</p>
+<p>問題: $N$要素の昇順に並んだ配列$A$が与えられる。ある値$K$</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/2024-final/">2024年を振り返ろう &#43; 怪文書</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-01-26</div>
+  <div class="post-title"><a href="/post/easy-to-use-binarysearch/">めぐる式二分探索亜種の提案</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-12-03</div>
+  <div class="post-title"><a href="/post/subsequences-by-delimiter/">区切り文字による連続部分列の切り出し</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-11-22</div>
+  <div class="post-title"><a href="/post/reached-1600/">AtCoder Algorithm 1600達成！</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-01-26</div>
+  <div class="post-title"><a href="/post/easy-to-use-binarysearch/">めぐる式二分探索亜種の提案</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-12-12</div>
+  <div class="post-title"><a href="/post/uec-advent2024/">BSTより高速なデータ構造: Y-Fast Trie [UEC Advent Calendar 2024] 12日目</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-11-19</div>
+  <div class="post-title"><a href="/post/unifying-segments-with-unionfind/">UnionFindによる区間の統合</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

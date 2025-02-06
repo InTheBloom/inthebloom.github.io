@@ -4,16 +4,23 @@
     <title>2025 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2025/</link>
     <description>Recent content in 2025 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2025 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2025/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ユニークビジョンLT会に登壇してきた</title>
+      <link>https://inthebloom.github.io/post/uniquevision-lt-2025-01-15/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/uniquevision-lt-2025-01-15/</guid>
+      <description>概要 ユニークビジョンプログラミングコンテスト2024クリスマス(AtCoder Beginner Contest 385) に参加し、参加者限定イベントの、ユニークビジョンオフィスにて行われるLT会に登壇者として参加しました。</description>
+    </item>
     <item>
       <title>2024年を振り返ろう &#43; 怪文書</title>
       <link>https://inthebloom.github.io/post/2024-final/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/2024-final/</guid>
-      <description></description>
+      <description>まえがき 2024年も終わりがやってきました。 昨年に引き続き、振り返りとポエムを書こうかなと思います。 見やすい感じにまとめたかったんですが、markdownから変換している都合上、割と見にくい感じになりました。許してほしいです。 あと後ろの方のしょうもないやつを書いていたら2025年になってしまいました。まあ良いということにしておきます。</description>
     </item>
   </channel>
 </rss>

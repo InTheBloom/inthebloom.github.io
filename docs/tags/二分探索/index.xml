@@ -4,7 +4,7 @@
     <title>二分探索 on InTheDayDream</title>
     <link>https://inthebloom.github.io/tags/%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2/</link>
     <description>Recent content in 二分探索 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 28 Sep 2023 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://inthebloom.github.io/post/abc270e/</link>
       <pubDate>Tue, 26 Sep 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc270e/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク 円環状に並べてある$1$から$N$の番号が付いた$N$個のかごがある。 かごは$1$から$N$まで順番に並んでおり、かご$N$の隣にはかご$1$がある。</description>
     </item>
   </channel>
 </rss>

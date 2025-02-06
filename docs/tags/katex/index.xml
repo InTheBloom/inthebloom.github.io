@@ -4,7 +4,7 @@
     <title>Katex on InTheDayDream</title>
     <link>https://inthebloom.github.io/tags/katex/</link>
     <description>Recent content in Katex on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Wed, 20 Sep 2023 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/katex/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://inthebloom.github.io/post/katex/</link>
       <pubDate>Fri, 23 Jun 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/katex/</guid>
-      <description></description>
+      <description>KaTeXを使ってみる $\LaTeX{}$風の数式を表示できるJavaScriptライブラリ(らしい)である$\KaTeX{}$を導入してみました。 本稿では、$\KaTeX$の紹介と、自分がどうやって導入したかを説明します。</description>
     </item>
   </channel>
 </rss>
