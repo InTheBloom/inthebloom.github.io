@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=f1568ff321c6ad1f4131ff595299a5799f1466de">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=f1568ff321c6ad1f4131ff595299a5799f1466de">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=f1568ff321c6ad1f4131ff595299a5799f1466de">
-<link rel="alternate" href="/index.xml?c=f1568ff321c6ad1f4131ff595299a5799f1466de" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=213e5ef15ae65780180e8fc581ca0b9011dedf65">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=213e5ef15ae65780180e8fc581ca0b9011dedf65">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=213e5ef15ae65780180e8fc581ca0b9011dedf65">
+<link rel="alternate" href="/index.xml?c=213e5ef15ae65780180e8fc581ca0b9011dedf65" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="BSTより高速なデータ構造: Y-Fast Trie [UEC Advent Calendar 2024] 12日目 - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/uec-advent2024/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/uec-advent2024/ogp.png">
 
 
-<link rel="stylesheet" href="/css/main.css?c=f1568ff321c6ad1f4131ff595299a5799f1466de">
-<link rel="stylesheet" href="/css/color.css?c=f1568ff321c6ad1f4131ff595299a5799f1466de">
+<link rel="stylesheet" href="/css/main.css?c=213e5ef15ae65780180e8fc581ca0b9011dedf65">
+<link rel="stylesheet" href="/css/color.css?c=213e5ef15ae65780180e8fc581ca0b9011dedf65">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=f1568ff321c6ad1f4131ff595299a5799f1466de">
+<link rel="stylesheet" href="/css/custom.css?c=213e5ef15ae65780180e8fc581ca0b9011dedf65">
 
 
 
@@ -223,35 +223,35 @@ Y-Fast Trieの美しさ、ロマンを体感してください！</p>
 <h3 id="y-fast-trieのインターフェース">Y-Fast Trieのインターフェース</h3>
 <p>Y-Fast Trieは、扱う整数の範囲を$\lbrack 0, 2 ^ w - 1 \rbrack$としたとき、以下のインターフェースを提供します。</p>
 <table>
-<thead>
-<tr>
-<th>操作</th>
-<th>内容</th>
-<th>時間計算量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\mathrm{insert}(x)$</td>
-<td>集合に$x$を追加する</td>
-<td>$\text{expected } O(\log(w))$</td>
-</tr>
-<tr>
-<td>$\mathrm{remove}(x)$</td>
-<td>集合から$x$を削除する</td>
-<td>$\text{expected } O(\log(w))$</td>
-</tr>
-<tr>
-<td>$\mathrm{successor}(x)$</td>
-<td>集合に含まれる$x$以上最小の値を返す</td>
-<td>$\text{expected } O(\log(w))$</td>
-</tr>
-<tr>
-<td>$\mathrm{predecessor}(x)$</td>
-<td>集合に含まれる$x$以下最大の値を返す</td>
-<td>$\text{expected } O(\log(w))$</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>操作</th>
+          <th>内容</th>
+          <th>時間計算量</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\mathrm{insert}(x)$</td>
+          <td>集合に$x$を追加する</td>
+          <td>$\text{expected } O(\log(w))$</td>
+      </tr>
+      <tr>
+          <td>$\mathrm{remove}(x)$</td>
+          <td>集合から$x$を削除する</td>
+          <td>$\text{expected } O(\log(w))$</td>
+      </tr>
+      <tr>
+          <td>$\mathrm{successor}(x)$</td>
+          <td>集合に含まれる$x$以上最小の値を返す</td>
+          <td>$\text{expected } O(\log(w))$</td>
+      </tr>
+      <tr>
+          <td>$\mathrm{predecessor}(x)$</td>
+          <td>集合に含まれる$x$以下最大の値を返す</td>
+          <td>$\text{expected } O(\log(w))$</td>
+      </tr>
+  </tbody>
 </table>
 <p>$\text{expected}$という表記はその操作にかかる時間が確率変数で表現されることを表します。値はその期待値です。</p>
 <p>このインターフェースは

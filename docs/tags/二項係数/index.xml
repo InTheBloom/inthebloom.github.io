@@ -4,7 +4,7 @@
     <title>二項係数 on InTheDayDream</title>
     <link>https://inthebloom.github.io/tags/%E4%BA%8C%E9%A0%85%E4%BF%82%E6%95%B0/</link>
     <description>Recent content in 二項係数 on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/%E4%BA%8C%E9%A0%85%E4%BF%82%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://inthebloom.github.io/post/yukicoder2616/</link>
       <pubDate>Sat, 27 Jan 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/yukicoder2616/</guid>
-      <description>問題概要 問題へのリンク 長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</description>
+      <description></description>
     </item>
   </channel>
 </rss>
