@@ -4,7 +4,7 @@
     <title>2024-09 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2024-09/</link>
     <description>Recent content in 2024-09 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 10 Sep 2024 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2024-09/index.xml" rel="self" type="application/rss+xml" />
@@ -13,14 +13,14 @@
       <link>https://inthebloom.github.io/post/abc288d/</link>
       <pubDate>Tue, 10 Sep 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc288d/</guid>
-      <description></description>
+      <description>想定解法と全然異なる怪しい解法で通したので書きます。</description>
     </item>
     <item>
       <title>Range Kth Smallestに対する4つの解法と2つの実装例</title>
       <link>https://inthebloom.github.io/post/range-kth-smallest/</link>
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/range-kth-smallest/</guid>
-      <description></description>
+      <description>問題 $N$要素の数列$A$が与えられる。$Q$個のクエリに解答せよ。</description>
     </item>
   </channel>
 </rss>

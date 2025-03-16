@@ -4,7 +4,7 @@
     <title>Trivia on InTheDayDream</title>
     <link>https://inthebloom.github.io/tags/trivia/</link>
     <description>Recent content in Trivia on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/trivia/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://inthebloom.github.io/post/apple-emoji-on-mintty/</link>
       <pubDate>Sat, 09 Nov 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/apple-emoji-on-mintty/</guid>
-      <description></description>
+      <description>はじめに mintty という端末エミュレータがあります。 msysやcygwinやgitbashにくっついてインストールされるようで、私のwindows環境にもいつの間にかありました。 私は基本的にターミナル暮らしをしており、最近はgitbashにくっついてきたminttyを常用しています。</description>
     </item>
   </channel>
 </rss>

@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>めぐる式二分探索亜種の提案 - InTheDayDream</title>
+<title>めぐる式二分探索亜種を使ってみませんか？ - InTheDayDream</title>
 <meta name="description" content="">
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
-<link rel="alternate" href="/index.xml?c=449e7a851cc4b9b7e250da90dc3df873851f0c26" type="application/rss+xml" title="RSS" />
-<meta property="og:title" content="めぐる式二分探索亜種の提案 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/post/easy-to-use-binarysearch/">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=24e17566600f2133aeb73c2cb63ae1eee3ffb39e">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=24e17566600f2133aeb73c2cb63ae1eee3ffb39e">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=24e17566600f2133aeb73c2cb63ae1eee3ffb39e">
+<link rel="alternate" href="/index.xml?c=24e17566600f2133aeb73c2cb63ae1eee3ffb39e" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="めぐる式二分探索亜種を使ってみませんか？ - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/easy-to-use-binarysearch/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
-<meta name="twitter:title" content="めぐる式二分探索亜種の提案 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/post/easy-to-use-binarysearch/">
+<meta name="twitter:title" content="めぐる式二分探索亜種を使ってみませんか？ - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/easy-to-use-binarysearch/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
-<link rel="stylesheet" href="/css/color.css?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
+<link rel="stylesheet" href="/css/main.css?c=24e17566600f2133aeb73c2cb63ae1eee3ffb39e">
+<link rel="stylesheet" href="/css/color.css?c=24e17566600f2133aeb73c2cb63ae1eee3ffb39e">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=449e7a851cc4b9b7e250da90dc3df873851f0c26">
+<link rel="stylesheet" href="/css/custom.css?c=24e17566600f2133aeb73c2cb63ae1eee3ffb39e">
 
 
 
@@ -101,10 +103,10 @@
 
 
 
-<h1>めぐる式二分探索亜種の提案</h1>
+<h1>めぐる式二分探索亜種を使ってみませんか？</h1>
 
-<span class="sub">Published on 2025-01-26</span><br>
-<span class="sub">Last Modified 2025-01-26</span>
+<span class="sub">Published on 2025-03-16</span><br>
+<span class="sub">Last Modified 2025-03-16</span>
 
 
 
@@ -116,11 +118,9 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#めぐる式二分探索の問題点">めぐる式二分探索の問題点</a>
-      <ul>
-        <li><a href="#片側開区間で指定することの欠点">片側開区間で指定することの欠点</a></li>
-      </ul>
-    </li>
+    <li><a href="#対象読者">対象読者</a></li>
+    <li><a href="#めぐる式二分探索の好きじゃないところ">めぐる式二分探索の好きじゃないところ</a></li>
+    <li><a href="#解決案">解決案</a></li>
   </ul>
 </nav>
 </div>
@@ -128,20 +128,186 @@
 
 
 <h2 id="はじめに">はじめに</h2>
-<p>競技プログラミングにおける二分探索の代表的な実装方法の一つに、<strong>めぐる式二分探索</strong>があります。
-本エントリでは、めぐる式二分探索に改変を加え、より使いやすくしたバージョンを提案します。</p>
-<h2 id="めぐる式二分探索の問題点">めぐる式二分探索の問題点</h2>
-<p>めぐる式二分探索と呼ばれるようになった由来のツイートを掲載します。</p>
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">【めぐるのアルゴリズム講座】<br>二分探索（整数）の書き方<br>難しさ：４ <a href="https://t.co/LGLbkS0D7l">pic.twitter.com/LGLbkS0D7l</a></p>&mdash; 因幡めぐる@競技プログラミング (@meguru\_comp) <a href="https://twitter.com/meguru_comp/status/697008509376835584?ref_src=twsrc%5Etfw">February 9, 2016</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>どのような実装であるかを確認しましょう。
-めぐる式二分探索では、区間$\lbrack \mathrm{ok}, \mathrm{ng})$あるいは$(\mathrm{ng}, \mathrm{ok} \rbrack$を考えて、$\mathrm{mid} = \lfloor \frac{\mathrm{ok} + \mathrm{ng}}{2} \rfloor$における判定関数$\mathrm{solve}$の返り値に応じて$\mathrm{ok}$または$\mathrm{ng}$を更新するというものです。</p>
-<p>めぐる式二分探索の問題は2点あります。
-ひとつは、判定関数の定義域を片側開区間で指定していること。
-もう一つは、$f(\mathrm{ok}) = \mathrm{true}$を必要条件にしていることです。</p>
-<h3 id="片側開区間で指定することの欠点">片側開区間で指定することの欠点</h3>
-<p>関数$\mathrm{solve}$の定義域が有限なときに欠点が顕著になります。
-例として、配列上の二分探索を考えます。</p>
-<p>問題: $N$要素の昇順に並んだ配列$A$が与えられる。ある値$K$</p>
+<p>私の中で今のところ一番しっくり来ている二分探索の抽象化を紹介します。</p>
+<h2 id="対象読者">対象読者</h2>
+<ul>
+<li>二分探索を毎回べた書きしている。</li>
+<li>以下のような二分探索関数を使用していて、不満がある。よくわからないoff-by-oneで苦しんだことがある。添字バトルで敗北したことがある。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ll <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>ll bsearch (T cond, ll ok, ll ng) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> abs(ok <span style="color:#f92672">-</span> ng)) {
+</span></span><span style="display:flex;"><span>        ll mid <span style="color:#f92672">=</span> (ok <span style="color:#f92672">+</span> ng) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (cond(mid)) {
+</span></span><span style="display:flex;"><span>            ok <span style="color:#f92672">=</span> mid;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            ng <span style="color:#f92672">=</span> mid;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ok;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="めぐる式二分探索の好きじゃないところ">めぐる式二分探索の好きじゃないところ</h2>
+<ol>
+<li><code>true</code>区間の存在を仮定している。</li>
+</ol>
+<p>めぐる式二分探索においては<code>cond(ok)</code>が<code>true</code>となることを仮定してしまっています。
+しかし、実際の二分探索において自然な判定問題を考えると<code>cond(ok)</code>がすでに<code>false</code>になる場合があります。</p>
+<p>例えば、昇順に並んだ長さ$N$の配列$A$において$b$以下である最大の要素がどこにあるか探すとします。
+$A = (2, 5, 10, 15, 47), b = 20$のとき、$A _ 3 = 15$かつ$A _ 4 = 47$なので、答えは$3$です。</p>
+<p>この問題を解くために以下のようなc++コードを書いたとします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">solve</span> (std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> A, <span style="color:#66d9ef">int</span> b) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, ng <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(A.size());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> abs(ok <span style="color:#f92672">-</span> ng)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (ok <span style="color:#f92672">+</span> ng) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (A[mid] <span style="color:#f92672">&lt;=</span> b) {
+</span></span><span style="display:flex;"><span>            ok <span style="color:#f92672">=</span> mid;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            ng <span style="color:#f92672">=</span> mid;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ok;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>さっそく使ってみます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A{<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">47</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> solve(A, b) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>; <span style="color:#75715e">// 出力: 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>うまく動いていそうです。では次のケースではどうでしょうか？</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A{<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">47</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> solve(A, b) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>; <span style="color:#75715e">// 出力: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>$A _ 0 = 2, b = 1$なのでこれは誤りで、解なしが正しいです。
+めぐる式二分探索では、指定範囲に<code>true</code>区間が存在しない場合に<code>ok</code>が動かないまま反復終了してしまい、<code>cond(ok)</code>のみが<code>true</code>であるケースと区別することができません。これが<code>cond(ok)</code>が<code>true</code>を仮定していることの弊害です。</p>
+<p>この問題を解決するために、判定問題を拡張して無理やり<code>true</code>区間を生み出すことがよく行われています。
+例えば、次のような感じです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">solve_correct</span> (std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> A, <span style="color:#66d9ef">int</span> b) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ok <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, ng <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(A.size());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> abs(ok <span style="color:#f92672">-</span> ng)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (ok <span style="color:#f92672">+</span> ng) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (A[mid] <span style="color:#f92672">&lt;=</span> b) {
+</span></span><span style="display:flex;"><span>            ok <span style="color:#f92672">=</span> mid;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            ng <span style="color:#f92672">=</span> mid;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ok;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>ok = -1</code>に変更しました。イメージとしては$A$を勝手に拡張して$A _ {-1} = -\infty$としている感じです。
+修正した二分探索において<code>-1</code>が帰ってきたときは解なしがわかります。アルゴリズムの動作を考えると、実際に$A _ {-1}$にアクセスすることはないことに注意してください。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A{<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">47</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> solve_correct(A, b) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>; <span style="color:#75715e">// 出力: -1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>このように、めぐる式二分探索を利用するときは「<code>true</code>となる区間が存在するか」や「返却値の意味が何か」に注意が必要です。</p>
+<ol start="2">
+<li>区間を開区間指定している。</li>
+</ol>
+<p>これは個人的意見が大きいのですが、二分探索のような各点での評価値を考えるときには閉区間指定の方がわかりやすいと考えています。
+個人的に、二分探索で区間を指定するときは、「解があるとするならこの点以上この点以下」といった風に端点を意識することが多いです。閉区間指定は私の思考様式とマッチしているわけです。</p>
+<p>逆向きに区間を指定するときに、<code>(N - 1, -1)</code>と<code>(N - 1, 0)</code>なら後者の方が自然に感じるというのもあります。
+また、単調増加な数列の一定区間を探索するときなどにも$i$項目以降$j$項目以前といった風に閉区間指定が自然に見える気がします。</p>
+<p>私の体感ですが、半開区間は表現したい区間が空になりうるときに力を発揮するものであり、表現したい区間が非空であることが保証できるのであればほとんどの用途で閉区間の方が利用しやすいです。（植木算に注意する必要がありますが、経験を積んだ競技プログラマは間違えないと思います。）</p>
+<h2 id="解決案">解決案</h2>
+<p>上記問題1、2を解決した実装を考えましょう。</p>
+<p>問題1に対しては、返却値を構造体などにして「値が存在しない」を表現できるようにするとよいです。
+問題2に対しては、めぐる式の更新をベースにして、<code>ok</code>と<code>ng</code>の幅が十分小さくなったあとに注意して処理することで実現できます。</p>
+<p>私が今使用している、D言語による実装例を紹介します。</p>
+<p>まずは二分探索結果を表す構造体です。
+メンバ関数<code>empty()</code>と<code>value()</code>を持っていて、<code>true</code>区間が存在しない場合に<code>value</code>にアクセスしようとすると例外がスローされます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">BsearchResult</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.format<span style="color:#f92672">:</span> format<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">bool</span> has_value <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> T l<span style="color:#f92672">,</span> r<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> T _value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span> <span style="color:#f92672">(</span>T _l<span style="color:#f92672">,</span> T _r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">l</span> <span style="color:#f92672">=</span> _l<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">r</span> <span style="color:#f92672">=</span> _r<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">has_value</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span> <span style="color:#f92672">(</span>T _l<span style="color:#f92672">,</span> T _r<span style="color:#f92672">,</span> T _value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">l</span> <span style="color:#f92672">=</span> _l<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">r</span> <span style="color:#f92672">=</span> _r<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">_value</span> <span style="color:#f92672">=</span> _value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">empty</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">has_value</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    T <span style="color:#a6e22e">value</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> NoTrueRangeException<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                    format<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;No true condition found in the range [%s, %s].&#34;</span><span style="color:#f92672">,</span> l<span style="color:#f92672">,</span> r<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> _value<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">};</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>本命の二分探索（の抜粋）です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span>BsearchResult<span style="color:#f92672">!</span>T <span style="color:#a6e22e">bsearch</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">alias</span> func<span style="color:#f92672">,</span> T<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>T l<span style="color:#f92672">,</span> T r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    T L <span style="color:#f92672">=</span> l<span style="color:#f92672">,</span> R <span style="color:#f92672">=</span> r<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">==</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>func<span style="color:#f92672">(</span>l<span style="color:#f92672">))</span> <span style="color:#66d9ef">return</span> BsearchResult<span style="color:#f92672">!(</span>T<span style="color:#f92672">)(</span>L<span style="color:#f92672">,</span> R<span style="color:#f92672">,</span> l<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> BsearchResult<span style="color:#f92672">!(</span>T<span style="color:#f92672">)(</span>L<span style="color:#f92672">,</span> R<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>min<span style="color:#f92672">(</span>l<span style="color:#f92672">,</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> max<span style="color:#f92672">(</span>l<span style="color:#f92672">,</span> r<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        T m <span style="color:#f92672">=</span> midpoint<span style="color:#f92672">(</span>l<span style="color:#f92672">,</span> r<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>func<span style="color:#f92672">(</span>m<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            l <span style="color:#f92672">=</span> m<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            r <span style="color:#f92672">=</span> m<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> lb <span style="color:#f92672">=</span> func<span style="color:#f92672">(</span>l<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>lb<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> BsearchResult<span style="color:#f92672">!(</span>T<span style="color:#f92672">)(</span>L<span style="color:#f92672">,</span> R<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> rb <span style="color:#f92672">=</span> func<span style="color:#f92672">(</span>r<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>rb<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> BsearchResult<span style="color:#f92672">!(</span>T<span style="color:#f92672">)(</span>L<span style="color:#f92672">,</span> R<span style="color:#f92672">,</span> r<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>rb<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> BsearchResult<span style="color:#f92672">!(</span>T<span style="color:#f92672">)(</span>L<span style="color:#f92672">,</span> R<span style="color:#f92672">,</span> l<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> BsearchException<span style="color:#f92672">(</span>format<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;This code path should never be reached. l: %s, r: %s.&#34;</span><span style="color:#f92672">,</span> L<span style="color:#f92672">,</span> R<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>基本はほとんどめぐる式と同じですが、多少違いがあります。
+半開区間指定と異なり、<code>l == r</code>のときにも非空区間が指定されているので処理が必要です。
+また、二つの位置が十分近くなったあとに通常のめぐる式とは違いがあります。</p>
+<p>説明のため一部抜粋されています。
+完全なソースコードは
+<a
+  
+    href="https://github.com/InTheBloom/InTheBloom_Library/blob/main/dlang/src/bsearch.d"
+  
+   target="_blank" rel="noopener">
+    https://github.com/InTheBloom/InTheBloom_Library/blob/main/dlang/src/bsearch.d
+</a>
+を参照してください。</p>
+<p>意見、感想、改善案、より良いアイデアがあれば是非
+<a
+  
+    href="https://x.com/UU9782wsEdANDhp"
+  
+   target="_blank" rel="noopener">
+    私のtwitter
+</a>
+に教えてください。</p>
 
 
 
@@ -170,7 +336,7 @@
 
 <div class="content-footer-item neighbor">
 	
-	<div class="prev-post">Prev: <a href="/post/2024-final/">2024年を振り返ろう &#43; 怪文書</a></div>
+	<div class="prev-post">Prev: <a href="/post/abc396/">ABC396 A-F</a></div>
 	
 	
 </div>
@@ -195,20 +361,20 @@
         <ul class="post-list">
           
           <li class="post-item">
-  <div class="post-date sub">2025-01-26</div>
-  <div class="post-title"><a href="/post/easy-to-use-binarysearch/">めぐる式二分探索亜種の提案</a></div>
+  <div class="post-date sub">2025-03-16</div>
+  <div class="post-title"><a href="/post/easy-to-use-binarysearch/">めぐる式二分探索亜種を使ってみませんか？</a></div>
   
 </li>
           
           <li class="post-item">
-  <div class="post-date sub">2024-12-03</div>
-  <div class="post-title"><a href="/post/subsequences-by-delimiter/">区切り文字による連続部分列の切り出し</a></div>
+  <div class="post-date sub">2025-03-12</div>
+  <div class="post-title"><a href="/post/abc396/">ABC396 A-F</a></div>
   
 </li>
           
           <li class="post-item">
-  <div class="post-date sub">2024-11-22</div>
-  <div class="post-title"><a href="/post/reached-1600/">AtCoder Algorithm 1600達成！</a></div>
+  <div class="post-date sub">2025-02-07</div>
+  <div class="post-title"><a href="/post/uniquevision-lt-2025-01-15/">ユニークビジョンLT会に登壇してきた</a></div>
   
 </li>
           
@@ -229,8 +395,8 @@
         <ul class="post-list">
           
           <li class="post-item">
-  <div class="post-date sub">2025-01-26</div>
-  <div class="post-title"><a href="/post/easy-to-use-binarysearch/">めぐる式二分探索亜種の提案</a></div>
+  <div class="post-date sub">2025-03-16</div>
+  <div class="post-title"><a href="/post/easy-to-use-binarysearch/">めぐる式二分探索亜種を使ってみませんか？</a></div>
   
 </li>
           
