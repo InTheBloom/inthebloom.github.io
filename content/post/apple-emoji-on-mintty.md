@@ -9,7 +9,7 @@ date: 2024-11-09
 # ogimage: https://hoge/fuga/piyo.img
 
 tags:
-  - trivia
+  - トリビア
 archives:
   - 2024
   - 2024-11

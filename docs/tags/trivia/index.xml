@@ -2,18 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Trivia on InTheDayDream</title>
-    <link>https://inthebloom.github.io/tags/trivia/</link>
+    <link>http://localhost:1313/tags/trivia/</link>
     <description>Recent content in Trivia on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://inthebloom.github.io/tags/trivia/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>失われしappleスタイルのemojiを召喚 on mintty</title>
-      <link>https://inthebloom.github.io/post/apple-emoji-on-mintty/</link>
-      <pubDate>Sat, 09 Nov 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/apple-emoji-on-mintty/</guid>
-      <description>はじめに mintty という端末エミュレータがあります。 msysやcygwinやgitbashにくっついてインストールされるようで、私のwindows環境にもいつの間にかありました。 私は基本的にターミナル暮らしをしており、最近はgitbashにくっついてきたminttyを常用しています。</description>
-    </item>
+    <atom:link href="http://localhost:1313/tags/trivia/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
