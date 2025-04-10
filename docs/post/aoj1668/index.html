@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ICPC国内予選2023 Problem E - Tampered Records（改竄された史料） - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=cb7740dc6a664fe9c1b3bda1a66f4ef47eb3b5fc">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=cb7740dc6a664fe9c1b3bda1a66f4ef47eb3b5fc">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=cb7740dc6a664fe9c1b3bda1a66f4ef47eb3b5fc">
+<link rel="alternate" href="/index.xml?c=cb7740dc6a664fe9c1b3bda1a66f4ef47eb3b5fc" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="ICPC国内予選2023 Problem E - Tampered Records（改竄された史料） - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/aoj1668/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="ICPC国内予選2023 Problem E - Tampered Records（改竄された史料） - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/aoj1668/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=cb7740dc6a664fe9c1b3bda1a66f4ef47eb3b5fc">
+<link rel="stylesheet" href="/css/color.css?c=cb7740dc6a664fe9c1b3bda1a66f4ef47eb3b5fc">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=cb7740dc6a664fe9c1b3bda1a66f4ef47eb3b5fc">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>ICPC国内予選2023 Problem E - Tampered Records（改竄された史料）</h1>
+
+<span class="sub">Published on 2025-04-09</span><br>
+<span class="sub">Last Modified 2025-04-09</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題">問題</a></li>
+    <li><a href="#問題の言いかえ">問題の言いかえ</a></li>
+    <li><a href="#考察">考察</a></li>
+    <li><a href="#解法の概要">解法の概要</a></li>
+    <li><a href="#実装例">実装例</a></li>
+    <li><a href="#感想">感想</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="問題">問題</h2>
+<p>以下
+<a
+  
+    href="https://onlinejudge.u-aizu.ac.jp/challenges/sources/ICPC/Prelim/1668?year=2023"
+  
+   target="_blank" rel="noopener">
+    aoj1668
+</a>
+より引用</p>
+<blockquote>
+<p>改竄された史料</p>
+<p>太古の昔， International Collegiate Puzzle Contest (ICPC) というパズル大会が毎年開催されていた． 各大会は午前・午後の 2 つのラウンドで構成されていた． どちらのラウンドでも，参加者はまず自作のパズル 1 つを他の全参加者に提示し，その後に自分自身以外の全参加者が提示したパズルをできるだけ多く解こうとした．</p>
+<p>参加者の順位は以下の規則に従って決めていた．</p>
+<ul>
+<li>午後のラウンドで解いたパズルの数がより多い参加者がより上位となる．</li>
+<li>午後のラウンドで同数のパズルを解いた参加者のなかでは，午前のラウンドで解いたパズルの数がより多い方が上位となる．</li>
+<li>両ラウンドで解いたパズルの数が完全に一致する参加者同士の順位はくじびきで決める．</li>
+</ul>
+<p>先日，ある年の ICPC の順位表とされる文書が発見された． 他の同様の資料から，この文書は各ラウンドで解いたパズルの数を上位の参加者から順に書き並べたものと考えられる． ところが学者たちは文書は何者かによって改竄されていて，いくつかの数が書き換えられているのではないかという疑いを持っている． もともとの順位表に上述の規則と矛盾がなかったと仮定したとき，少なくともいくつの数が書き換えられているのかを求めてほしい． なお，文書中の解いたパズルの数以外の部分への改竄はなく，参加者の追加や削除もありえない．</p>
+</blockquote>
+<p>ICPCの参加者$n$はひとつのテストケースで$n \leq 6000$となる。含まれるテストケースはひとつのファイルで高々100であり、$n$の合計は$10 ^ 5$を超えない。</p>
+<h2 id="問題の言いかえ">問題の言いかえ</h2>
+<p>問題を競プロ風に言い換える。
+$n \leq 6000$個の数のペア$(x _ i, y _ i)$が与えられる。
+二つのペア$(x _ i, y _ i), (x _ j, y _ j)$に対して、</p>
+<ul>
+<li>$y _ i &lt; y _ j$または$y _ i = y _ j \land x _ i &lt; x _ j$である場合に限り$(x _ i, y _ i) &lt; (x _ j, y _ j)$</li>
+<li>$y _ i = y _ j$かつ$x _ i = x _ j$である場合に限り$(x _ i, y _ i) = (x _ j, y _ j)$</li>
+</ul>
+<p>であるとする。
+任意に数を書き換えることで次の条件が成立するようにする。</p>
+<ul>
+<li>全ての数が$[0, n)$の範囲にある。</li>
+<li>$1 \leq i \leq n - 1$に対して、$(x _ i, y _ i) \leq (x _ {i + 1}, y _ {i + 1})$</li>
+</ul>
+<p>書き換える必要のある数の最小値はいくつか？</p>
+<h2 id="考察">考察</h2>
+<ul>
+<li>
+<p>午後の部の成績がより強く効くので、ここを良い感じに揃えることを考えてみる。すると、$i$番目のペアの午後の成績を$n - i$にすることで$n$回で達成できることがわかる。解が$n$を超えることはなさそう。</p>
+</li>
+<li>
+<p>達成できる改変数には単調性がある。つまり、$k$回で達成できたとすると、$k + 1$回でも達成できる。じゃあ二分探索みたいなのに落とし込めるか？ -&gt; 判定問題を良い感じに貪欲考えようとしてもかなり厳しそう。そもそも解の上界がかなり小さいから二分探索のうまみが少ない。</p>
+</li>
+<li>
+<p>午後 -&gt; 午前の順にそろえるとしたら？ -&gt; 午後の部の成績が同じグループは独立に考えてよい。ひとつのグループが決まっていたら最適な手順はわかる？いや、これだけでも結構厳しそう。しかもグループの決め方で全てが変わってしまうし、グループの分け方を全部探索するのも当然無理。</p>
+</li>
+<li>
+<p>探索ベースの貪欲は厳しそう？端から決めてみたらどうだろうか。 -&gt; 一番シンプルなdpなら$\mathrm{dp}[i][j][k]$が先頭$i$項の順番をそろえて、一番最後のペアが$(j, k)$となる最小コストとなりそう。これなら計算量を無視したら解ける。多分当たり方針っぽい。</p>
+</li>
+<li>
+<p>新しく「最後のペア」を決めるとき、ひとつ前のペアより順番が大きい必要がある。また、出来るだけ小さい方が当然良い。例えば$(1, 1)$とかから変更2回を使って$(n - 1, n - 1)$にわざわざ変更する意味は全くない。変更2回も使うなら当然$(1, 1)$にすべき。これを使ってなんかいい感じにできそう？</p>
+</li>
+<li>
+<p>ナップサックdpの添字を逆転させるテクを用いる。$\mathrm{dp}[i][j]$を「「先頭$i$項の順番をそろえてコストが$j$となるような変更方法で生成されるペア列の末尾のペア」の最小」とする。
+遷移は変更0, 1, 2回の3通りを書けばよい。変更0は$(x _ i, y _ i)$がすでに遷移元より大きい場合のみを考える。変更2は遷移元と同じペアに変更してやればよい。変更1はこれらより少し難しいが、「午後の成績を遷移元と同じ or +1にする」と「午前の成績を遷移元と同じ or 0にする」の4通りのうち有効なものをすべて実行すればよさそう。</p>
+</li>
+</ul>
+<h2 id="解法の概要">解法の概要</h2>
+<p>貪欲法ベースの「最適な決め方」みたいなものはなくて、全探索をベースにするしかない。端から確定させるとすると、一番最後が何だったか以外の情報を捨ててよいため、dpが出来そう。</p>
+<p>率直にやると$\mathrm{dp}[i][j][k]$を先頭$i$項を処理して最後が$(j, k)$になる最小の変更回数となりそう。これは遷移先を良い感じに枝狩りしても$\Omega(N ^ 3)$とか。</p>
+<p>$\mathrm{dp}[i][x][y] = \mathrm{dp}[i][p][q]$だったとしたら、$(x, y)$と$(p, q)$のうちより小さい方だけ保持しておけばよい。（より大きな方から遷移しても明らかに最適解になりえない。）
+添字の入れ替えテクを用いて、同じコストを実現するもののうち、末尾のペアが最小になるものだけを残すようにする。</p>
+<p>$\mathrm{dp}[i][j]$は先頭$i$項を処理してコストが$j$となる物のうち、最小の末尾ペアとなる。この時点で$\Omega(N ^ 2)$。配る遷移を考察すると$O(1)$個しかないので、$O(N ^ 2)$となる。（よくあるもらう形式にしてデータ構造でなんとかするみたいなことは無理そうなので無難に配った方がいい。）</p>
+<h2 id="実装例">実装例</h2>
+<p>
+<a
+  
+    href="https://onlinejudge.u-aizu.ac.jp/status/users/InTheBloom/submissions/1/1668/judge/10361216/C++20"
+  
+   target="_blank" rel="noopener">
+    AC提出
+</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;utility&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">int</span> iINF <span style="color:#f92672">=</span> <span style="color:#ae81ff">1&#39;000&#39;000&#39;000</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">cmp</span> (<span style="color:#66d9ef">const</span> pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> x, <span style="color:#66d9ef">const</span> pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> y) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (x.second <span style="color:#f92672">==</span> y.second) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (x.first <span style="color:#f92672">==</span> y.first) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> x.first <span style="color:#f92672">&lt;</span> y.first <span style="color:#f92672">?</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x.second <span style="color:#f92672">&lt;</span> y.second <span style="color:#f92672">?</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (true) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> n; cin <span style="color:#f92672">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> x(n), y(n);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            cin <span style="color:#f92672">&gt;&gt;</span> x[i] <span style="color:#f92672">&gt;&gt;</span> y[i];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// dp[i][j] := 昇順にi個処理して、変更j回をしたとき、作れる最も小さいスコア
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        vector<span style="color:#f92672">&lt;</span>pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> dp(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>), ndp(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            dp[i] <span style="color:#f92672">=</span> make_pair(iINF, iINF);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        dp[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> make_pair(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> i; i<span style="color:#f92672">--</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                ndp[j] <span style="color:#f92672">=</span> make_pair(iINF, iINF);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (dp[j] <span style="color:#f92672">==</span> make_pair(iINF, iINF)) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">auto</span> cur <span style="color:#f92672">=</span> make_pair(x[i], y[i]);
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 変更0回
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (cmp(dp[j], cur) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (cmp(cur, ndp[j]) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                        ndp[j] <span style="color:#f92672">=</span> cur;
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (j <span style="color:#f92672">==</span> n) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 変更1回
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// どちらを変更するかで分ける。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 午前の部
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (x[i] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(dp[j], make_pair(<span style="color:#ae81ff">0</span>, y[i])) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(make_pair(<span style="color:#ae81ff">0</span>, y[i]), ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                    ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> make_pair(<span style="color:#ae81ff">0</span>, y[i]);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (x[i] <span style="color:#f92672">!=</span> dp[j].first
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(dp[j], make_pair(dp[j].first, y[i])) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(make_pair(dp[j].first, y[i]), ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                    ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> make_pair(dp[j].first, y[i]);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 午後の部
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (y[i] <span style="color:#f92672">!=</span> dp[j].second
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(dp[j], make_pair(x[i], dp[j].second)) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(make_pair(x[i], dp[j].second), ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                    ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> make_pair(x[i], dp[j].second);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (y[i] <span style="color:#f92672">!=</span> dp[j].second <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> dp[j].second <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> n
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(dp[j], make_pair(x[i], dp[j].second <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(make_pair(x[i], dp[j].second <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>), ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                    ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> make_pair(x[i], dp[j].second <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (j <span style="color:#f92672">==</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 変更2回
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// この場合は前とピッタリ合わせればok
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (dp[j].first <span style="color:#f92672">!=</span> x[i] <span style="color:#f92672">&amp;&amp;</span> dp[j].second <span style="color:#f92672">!=</span> y[i]) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (cmp(dp[j], ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>]) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                        ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> dp[j];
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            swap(dp, ndp);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (dp[i] <span style="color:#f92672">!=</span> make_pair(iINF, iINF)) {
+</span></span><span style="display:flex;"><span>                ans <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> ans <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="感想">感想</h2>
+<p>ICPCに採用されるだけあって、かなり良い問題だと感じた。
+dpの方針が見えるまで3日くらい。dpを詰めながら実装するのに2時間くらいかかった。疲れた。</p>
+<p>実装が爆発してしまった。今思うと<code>pair&lt;int, int&gt;</code>はやめて<code>operator&lt;=</code>とかをオーバーロードすべきだったかも（<code>chmin</code>みたいなことができるので。）</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/slicing-co-routine/">co-routineをスライスする</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-09</div>
+  <div class="post-title"><a href="/post/aoj1668/">ICPC国内予選2023 Problem E - Tampered Records（改竄された史料）</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-03-16</div>
+  <div class="post-title"><a href="/post/easy-to-use-binarysearch/">めぐる式二分探索亜種を使ってみませんか？</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-03-12</div>
+  <div class="post-title"><a href="/post/abc396/">ABC396 A-F</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-09</div>
+  <div class="post-title"><a href="/post/aoj1668/">ICPC国内予選2023 Problem E - Tampered Records（改竄された史料）</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-10-29</div>
+  <div class="post-title"><a href="/post/icpc-2024-domestic-d/">ICPC模擬国内予選D 過去問の共有</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-09-10</div>
+  <div class="post-title"><a href="/post/abc288d/">ABC288D - Range Add Query</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
