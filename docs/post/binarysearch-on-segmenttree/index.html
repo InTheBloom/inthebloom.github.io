@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>min_leftとmax_rightの仕組みと実装を理解する - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=2853379308fba7f0fc41ac6c8255cfc72d05394a">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=2853379308fba7f0fc41ac6c8255cfc72d05394a">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=2853379308fba7f0fc41ac6c8255cfc72d05394a">
+<link rel="alternate" href="/index.xml?c=2853379308fba7f0fc41ac6c8255cfc72d05394a" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="min_leftとmax_rightの仕組みと実装を理解する - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/binarysearch-on-segmenttree/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/binarysearch-on-segmenttree/ogp.png">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="min_leftとmax_rightの仕組みと実装を理解する - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/binarysearch-on-segmenttree/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/binarysearch-on-segmenttree/ogp.png">
+
+
+<link rel="stylesheet" href="/css/main.css?c=2853379308fba7f0fc41ac6c8255cfc72d05394a">
+<link rel="stylesheet" href="/css/color.css?c=2853379308fba7f0fc41ac6c8255cfc72d05394a">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=2853379308fba7f0fc41ac6c8255cfc72d05394a">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>min_leftとmax_rightの仕組みと実装を理解する</h1>
+
+<span class="sub">Published on 2025-04-24</span><br>
+<span class="sub">Last Modified 2025-04-24</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#目的">目的</a></li>
+    <li><a href="#min_leftmax_rightとは">min_left、max_rightとは</a>
+      <ul>
+        <li><a href="#問題1">問題1</a></li>
+        <li><a href="#問題2">問題2</a></li>
+        <li><a href="#問題3">問題3</a></li>
+      </ul>
+    </li>
+    <li><a href="#仕組み">仕組み</a>
+      <ul>
+        <li><a href="#l--1のケース">$l = 1$のケース</a></li>
+        <li><a href="#任意のlに対するケース">任意の$l$に対するケース</a></li>
+      </ul>
+    </li>
+    <li><a href="#実装">実装</a></li>
+    <li><a href="#利用例">利用例</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+    <li><a href="#終わりに">終わりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="目的">目的</h2>
+<p>
+<a
+  
+    href="https://github.com/atcoder/ac-library"
+  
+   target="_blank" rel="noopener">
+    AtCoder Library
+</a>
+で使用できるatcoder/segtreeにおけるmin_leftおよびmax_rightが何を行っているかを理解し、自力で実装できるようになることを目指します。</p>
+<h2 id="min_leftmax_rightとは">min_left、max_rightとは</h2>
+<p>Segment Treeのことは一旦忘れて、いくつかの問題を考えてみましょう。</p>
+<h3 id="問題1">問題1</h3>
+<blockquote>
+<p>$N$個の商品があり、一列に並んでいます。左から$i$個目の商品は$A _ i$円です。（商品の値段は非負整数です。）
+あなたは$K$円持っていて、左から順番に商品を一つずつ買います。最大で何個の商品が買えますか？</p>
+</blockquote>
+<p>購入した商品の合計額を保持しておけば$\Theta (N)$時間で解くことができます。</p>
+<h3 id="問題2">問題2</h3>
+<blockquote>
+<p>$N$個の商品があり、一列に並んでいます。左から$i$個目の商品は$A _ i$円です。（商品の値段は非負整数です。）次の$Q$個の質問に解答してください。</p>
+<p>$x$個目の質問: あなたは$K _ x$円持っていて、左から順番に商品を一つずつ買います。最大で何個の商品が買えますか？</p>
+</blockquote>
+<p>この問題は$\Theta (NQ)$時間より高速に解くことができます。（灰色くらいの難易度？）
+商品の金額は非負であるため、一度総額が$K _ x$円を超えてしまうともう下回ることはありません。
+この性質を利用して、解を二分探索で求めることができます。
+$0 \leq i \leq N$に対して、左から$i$個買った時の金額はいくらか？を前計算しておくことで$\Theta (N + Q \log N)$時間で解くことができます。</p>
+<p>さらに一般化した問題を考えます。</p>
+<h3 id="問題3">問題3</h3>
+<blockquote>
+<p>$N$個の商品があり、一列に並んでいます。左から$i$個目の商品は$A _ i$円です。（商品の値段は非負整数です。）次の$Q$個の指示に従ってください。指示はタイプ1とタイプ2の2種類があります。</p>
+<p>タイプ1: $i, P$が与えられる。左から$i$個目の商品の値段を$P$円に変更する。</p>
+<p>タイプ2: $K$が与えられる。左から順番に商品を一つずつ買うとき、最大で何個の商品が買えるかを出力。</p>
+</blockquote>
+<p>タイプ2の指示を同じく二分探索で解くことにしましょう。問題2と同様に解こうとすると左から$i$個買った時の金額を知りたくなりますが、商品の値段が途中で変更されてしまうため、累積和を利用することができません。
+代わりに和を計算するSegment Treeを利用することで問題を解決しましょう。</p>
+<p>Segment Treeでは区間和の取得に$\Theta (\log N)$時間かかるため、全体では$\Theta (N + Q \log ^ 2 N)$時間で解くことができます。</p>
+<hr>
+<p>より深掘りしてみましょう。
+結局、問題3でやりたいことは、$A _ 1 + A _ 2 + \dots + A _ x \leq K$かつ$K &lt; A _ 1 + A _ 2 + \dots + A _ x + A _ {x + 1}$を満たす$x$を見つけることと言えます。
+これは、左端を固定して右端を伸ばしていくとき</p>
+<ol>
+<li>いずれ区間の値が特定の条件を満たさなくなる</li>
+<li>一度条件を満たさなくなると、以後再度条件を満たすことはない</li>
+</ol>
+<p>という2つの仮定をした上で、条件を満たす右端の限界位置を探すことだと解釈できます。
+（今回でいうと、満たすべき条件は総和が$K$以下になること。商品の値段は非負整数なので一度超えるともう下回らない。）</p>
+<p>実は、Segment Treeの内部構造を利用することで、このような$x$を$O(\log N)$時間で探し出すことができます。
+min_leftやmax_rightはこの$x$を探すための関数なのです。</p>
+<p>max_rightをもう少し抽象化しておきましょう。モノイド$(M, +, e)$、各要素が集合$M$に属する長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)、$関数$f: M \rightarrow \lbrace 0, 1 \rbrace$（集合$M$の元を受け取って$0$か$1$を返す関数）が与えられたとします。</p>
+<p>左端を固定したとき、ある右端までは条件をみたし、それ以降条件を満たさなくなるような状況を仮定します。つまり、
+$1 \leq l \leq N$をひとつ固定したとき、全ての$l \leq x \leq N - 1$に対して$f(\sum _ {i = l} ^ x A _ i) \leq f(\sum _ {i = l} ^ {x + 1} A _ i)$が成立する状況を考えます。（この定式化では$\text{true}$に相当する値を$0$、$\text{false}$に相当する値を$1$としていることに注意。）</p>
+<p>このとき、</p>
+<ul>
+<li>$f(\sum _ {i = l} ^ x A _ i) = 0$</li>
+<li>$x = N$または$f(\sum _ {i = l} ^ {x + 1} A _ i) = 1$</li>
+</ul>
+<p>を両方満たすような$x$を探すアルゴリズムです。
+min_leftもほぼ同様で、右端を固定した際に条件を満たす左端の限界位置を探します。</p>
+<p>$f(\sum _ {i = l} ^ l A _ i) = 1$となる場合をどうするかは設計によります。
+例えば、AtCoder Libraryでは$f(e) = \text{true}$（単位元が条件を満たすこと）を$f$に要請することで問題を回避しています。</p>
+<h2 id="仕組み">仕組み</h2>
+<p>「どうやってアルゴリズムを発見したか」ではなく、「どういった仕組みで動いているか」を理解することに重点を置きます。
+以降やや天下り気味にアイデアを見ていきます。</p>
+<h3 id="l--1のケース">$l = 1$のケース</h3>
+<p>まずは$l = 1$のときを考えます。
+$l = 1$を考えるのは、「左端が$l$であって、$r + 1$を含むセグメント（以後、各頂点をセグメントと呼びます。）」を容易に得られるからです。具体的には、最上階にあるセグメントはそのようなものの一つになっています。</p>
+<p>簡単のため、上の章で紹介したものと同じ問題をさらに単純化して扱います。$N = 16$で全ての要素が$1$であるとします。
+ある閾値$K$が与えられるので、区間和$\sum _ {i = l} ^ r A _ i$が$K$以下になる最大の$r$を探します。つまり、以下のような状況です。</p>
+<p><img src="/images/binarysearch-on-segmenttree/max_right_aligned_left_1.png" alt="max_rightの説明画像1"></p>
+<p>まず、「左端が$l$であって、$r + 1$を含むセグメント」を見つけます。この単純化されたケースではルートセグメントをとればよいです。</p>
+<p><img src="/images/binarysearch-on-segmenttree/max_right_aligned_left_2.png" alt="max_rightの説明画像2"></p>
+<p>そのセグメントが子を2つもっている場合、$r + 1$がどちらに含まれるかを判定します。
+単調性を仮定しているため、左のセグメントを含んだ時点で総和が$K$を超えていれば左に、そうでなければ右に含まれるとしてよいです。</p>
+<p><img src="/images/binarysearch-on-segmenttree/max_right_aligned_left_3.png" alt="左端が特殊なmax_rightの説明画像3"></p>
+<p>同様にしてSegment Treeを「降りて」行きます。</p>
+<p><img src="/images/binarysearch-on-segmenttree/max_right_aligned_left_4.png" alt="左端が特殊なmax_rightの説明画像4">
+<img src="/images/binarysearch-on-segmenttree/max_right_aligned_left_5.png" alt="左端が特殊なmax_rightの説明画像5">
+<img src="/images/binarysearch-on-segmenttree/max_right_aligned_left_6.png" alt="左端が特殊なmax_rightの説明画像6"></p>
+<p>今見ているセグメントが最下層まで来たとき終了です。今見ているセグメントまで足すと条件を満たさなくなるという不変条件を維持していたため、求める$r$はそのひとつ左です。</p>
+<p><img src="/images/binarysearch-on-segmenttree/max_right_aligned_left_7.png" alt="左端が特殊なmax_rightの説明画像7"></p>
+<p>このように、「左端が$l$であって、$r + 1$を含むセグメント」さえ見つかれば、$r + 1$が子のどちらに含まれているのかを考えながら降りていくことで見つけることができます。これらの工程はSegment Treeの高さに比例する時間がかかるため、$O(\log N)$時間で行うことができます。</p>
+<h3 id="任意のlに対するケース">任意の$l$に対するケース</h3>
+<p>次に、任意の$l$に対して考えてみます。
+今度は逆に、下から適切に登っていくことで$l = 1$のような状況に帰着させます。
+例として、$l = 4$の例を見ていきます。</p>
+<p><img src="/images/binarysearch-on-segmenttree/max_right_1.png" alt="max_rightの説明画像1"></p>
+<p>今見ているセグメントに$r + 1$が含まれるかを判定します。もし含まれない場合、より大きなセグメントに移動します。</p>
+<p><img src="/images/binarysearch-on-segmenttree/max_right_2.png" alt="max_rightの説明画像2"></p>
+<p>ただし、$l$より左にある要素を含むようなセグメントに行ってはいけません。真上に登れない（自身が右セグメントである）場合、そのセグメントは切り離して右に登ります。</p>
+<p><img src="/images/binarysearch-on-segmenttree/max_right_3.png" alt="max_rightの説明画像3"></p>
+<p>同様にして$r + 1$を含むセグメントになるまで登っていきます。</p>
+<p><img src="/images/binarysearch-on-segmenttree/max_right_4.png" alt="max_rightの説明画像4">
+<img src="/images/binarysearch-on-segmenttree/max_right_5.png" alt="max_rightの説明画像5">
+<img src="/images/binarysearch-on-segmenttree/max_right_6.png" alt="max_rightの説明画像6"></p>
+<p>今見ているセグメントを含めて総和が11を超えれば、そのセグメントに$r + 1$が入っているということになります。</p>
+<p><img src="/images/binarysearch-on-segmenttree/max_right_7.png" alt="max_rightの説明画像7"></p>
+<p>$r + 1$が入っているセグメントが見つかったら$l = 1$のケースに帰着できます。
+先ほどと同様に、「今見ているセグメントを含めると条件を満たさなくなる」を不変条件として降りていきます。</p>
+<p><img src="/images/binarysearch-on-segmenttree/max_right_8.png" alt="max_rightの説明画像8">
+<img src="/images/binarysearch-on-segmenttree/max_right_9.png" alt="max_rightの説明画像9">
+<img src="/images/binarysearch-on-segmenttree/max_right_10.png" alt="max_rightの説明画像10">
+<img src="/images/binarysearch-on-segmenttree/max_right_11.png" alt="max_rightの説明画像11"></p>
+<p>無事max_rightを求めることができました。</p>
+<h2 id="実装">実装</h2>
+<p>以下にRange Sum Queryのみ対応したSegment TreeのC++実装例を示します。
+しかし、Segment Treeの細部は人によって違いがあるでしょう。そのため、自分のSegment Treeで使いやすい形にアレンジするのをお勧めします。</p>
+<p>私のSegment Treeに関して、留意すべき特徴を示しておきます。</p>
+<ol>
+<li>ルートセグメントが0番</li>
+<li>2冪に合わせている</li>
+<li>非再帰</li>
+<li>max_rightおよびmin_leftで判定関数にモノイドを渡したときtrueになることを<strong>要請せず</strong>、閉区間を基本にして扱う</li>
+</ol>
+<p>コード全体の前に、max_rightの部分を解説します。解説はコード中のコメントに記載します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> F<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>BinarySearchResult max_right (F f, <span style="color:#66d9ef">int</span> l) {
+</span></span><span style="display:flex;"><span>    assert(<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> l <span style="color:#f92672">&amp;&amp;</span> l <span style="color:#f92672">&lt;</span> length);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// コーナーケースを回避するために、
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 1. 右端まで全て含んでtrue
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 2. A[l]の時点でfalse
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// となるケースをはじく。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (f(prod(l, length))) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">BinarySearchResult</span>(length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>f(prod(l, l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>))) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">BinarySearchResult</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    l <span style="color:#f92672">+=</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    T acc{};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// r + 1を含む区間が見つかるまで登る。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (true) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 真上に登るとA[l]より左の要素を含むセグメントに行ってしまうため、
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// 自分を確定させて右にずらす。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>            acc <span style="color:#f92672">+=</span> node[l];
+</span></span><span style="display:flex;"><span>            l<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 登る。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        l <span style="color:#f92672">=</span> (l <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// r + 1を含む区間が見つかった。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>f(acc <span style="color:#f92672">+</span> node[l])) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 今見ているセグメントが最下層にたどり着くまで降り続ける。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// どちらかのセグメントに進む。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (f(acc <span style="color:#f92672">+</span> node[<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>])) {
+</span></span><span style="display:flex;"><span>            acc <span style="color:#f92672">+=</span> node[<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>            l <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            l <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    l <span style="color:#f92672">-=</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 求めるrはたどり着いたセグメントのひとつ左にある。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">BinarySearchResult</span>(l <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>コード全体を示します。少なくともC++20ならコンパイルできました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cassert&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">BinarySearchResult</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">bool</span> empty_payload;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> value_payload;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    BinarySearchResult ()<span style="color:#f92672">:</span> empty_payload(true), value_payload() {}
+</span></span><span style="display:flex;"><span>    BinarySearchResult (<span style="color:#66d9ef">int</span> border)<span style="color:#f92672">:</span> empty_payload(false), value_payload(border) {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">empty</span> () {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> empty_payload;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">value</span> () {
+</span></span><span style="display:flex;"><span>        assert(<span style="color:#f92672">!</span>empty());
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> value_payload;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">RSQSegmentTree</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> length{};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> modified_length{};
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> node{};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    RSQSegmentTree (<span style="color:#66d9ef">int</span> length_) {
+</span></span><span style="display:flex;"><span>        assert(<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> length_);
+</span></span><span style="display:flex;"><span>        length <span style="color:#f92672">=</span> length_;
+</span></span><span style="display:flex;"><span>        modified_length <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (modified_length <span style="color:#f92672">&lt;</span> length) {
+</span></span><span style="display:flex;"><span>            modified_length <span style="color:#f92672">*=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        node.resize(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    T <span style="color:#a6e22e">get</span> (<span style="color:#66d9ef">int</span> i) {
+</span></span><span style="display:flex;"><span>        assert(<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> i <span style="color:#f92672">&amp;&amp;</span> i <span style="color:#f92672">&lt;</span> length);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> node[modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set</span> (<span style="color:#66d9ef">int</span> i, T value) {
+</span></span><span style="display:flex;"><span>        assert(<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> i <span style="color:#f92672">&amp;&amp;</span> i <span style="color:#f92672">&lt;</span> length);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> i;
+</span></span><span style="display:flex;"><span>        node[cur] <span style="color:#f92672">=</span> value;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> cur) {
+</span></span><span style="display:flex;"><span>            cur <span style="color:#f92672">=</span> (cur <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>            node[cur] <span style="color:#f92672">=</span> node[<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> cur <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> node[<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> cur <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    T <span style="color:#a6e22e">prod</span> (<span style="color:#66d9ef">int</span> l, <span style="color:#66d9ef">int</span> r) {
+</span></span><span style="display:flex;"><span>        assert(<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> l <span style="color:#f92672">&amp;&amp;</span> l <span style="color:#f92672">&lt;</span> length);
+</span></span><span style="display:flex;"><span>        assert(<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> r <span style="color:#f92672">&amp;&amp;</span> r <span style="color:#f92672">&lt;=</span> length);
+</span></span><span style="display:flex;"><span>        assert(l <span style="color:#f92672">&lt;=</span> r);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">==</span> r) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> T{};
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 閉区間へ変換
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        l <span style="color:#f92672">+=</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        r <span style="color:#f92672">+=</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        T ret{};
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> r) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                ret <span style="color:#f92672">+=</span> node[l];
+</span></span><span style="display:flex;"><span>                l<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (r <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>                ret <span style="color:#f92672">+=</span> node[r];
+</span></span><span style="display:flex;"><span>                r<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            l <span style="color:#f92672">=</span> (l <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>            r <span style="color:#f92672">=</span> (r <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">==</span> r) {
+</span></span><span style="display:flex;"><span>            ret <span style="color:#f92672">+=</span> node[l];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ret;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> F<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    BinarySearchResult max_right (F f, <span style="color:#66d9ef">int</span> l) {
+</span></span><span style="display:flex;"><span>        assert(<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> l <span style="color:#f92672">&amp;&amp;</span> l <span style="color:#f92672">&lt;</span> length);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (f(prod(l, length))) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">BinarySearchResult</span>(length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>f(prod(l, l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>))) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">BinarySearchResult</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        l <span style="color:#f92672">+=</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        T acc{};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (true) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                acc <span style="color:#f92672">+=</span> node[l];
+</span></span><span style="display:flex;"><span>                l<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            l <span style="color:#f92672">=</span> (l <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>f(acc <span style="color:#f92672">+</span> node[l])) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (f(acc <span style="color:#f92672">+</span> node[<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>])) {
+</span></span><span style="display:flex;"><span>                acc <span style="color:#f92672">+=</span> node[<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>                l <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                l <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        l <span style="color:#f92672">-=</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">BinarySearchResult</span>(l <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> F<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    BinarySearchResult min_left (F f, <span style="color:#66d9ef">int</span> r) {
+</span></span><span style="display:flex;"><span>        assert(<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> r <span style="color:#f92672">&amp;&amp;</span> r <span style="color:#f92672">&lt;</span> length);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (f(prod(<span style="color:#ae81ff">0</span>, r <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>))) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">BinarySearchResult</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>f(prod(r, r <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>))) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">BinarySearchResult</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        r <span style="color:#f92672">+=</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        T acc{};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (true) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (r <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>                acc <span style="color:#f92672">+=</span> node[r];
+</span></span><span style="display:flex;"><span>                r<span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            r <span style="color:#f92672">=</span> (r <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>f(acc <span style="color:#f92672">+</span> node[r])) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (f(acc <span style="color:#f92672">+</span> node[<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> r <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>])) {
+</span></span><span style="display:flex;"><span>                acc <span style="color:#f92672">+=</span> node[<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> r <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>];
+</span></span><span style="display:flex;"><span>                r <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> r <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                r <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> r <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        r <span style="color:#f92672">-=</span> modified_length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">BinarySearchResult</span>(r <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="利用例">利用例</h2>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc370/tasks/abc370_d"
+  
+   target="_blank" rel="noopener">
+    ABC370D
+</a>
+</p>
+<p>$(R _ q, C _ q)$から十字に伸ばしていったときに、最も近い1を探す問題です。</p>
+<p>全てのマスに$1$がセットされた$H \times W$のグリッドをRange Sum QueryのできるSegment Treeで二つ持っておきます。
+具体的には、</p>
+<ul>
+<li><code>col[i]</code>:=$i$行目の行を表すSegment Tree</li>
+<li><code>row[i]</code>:=$i$列目の列を表すSegment Tree</li>
+</ul>
+<p>とします。各クエリに対して、</p>
+<ul>
+<li><code>col[R[q]]</code>において$C _ q$からスタートして和が$0$である限界位置</li>
+<li><code>row[C[q]]</code>において$R _ q$からスタートして和が$0$である限界位置</li>
+</ul>
+<p>を+-方向で求められればよいです。
+これはmax_rightとmin_leftが利用できます。</p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc370/submissions/65089899"
+  
+   target="_blank" rel="noopener">
+    AC提出
+</a>
+</p>
+<h2 id="参考文献">参考文献</h2>
+<ul>
+<li>
+<a
+  
+    href="https://github.com/atcoder/ac-library/blob/master/atcoder/segtree.hpp"
+  
+   target="_blank" rel="noopener">
+    ac-library/atcoder/segtree.hpp
+</a>
+</li>
+</ul>
+<p>インターフェースや実装方針を参考にしました。</p>
+<ul>
+<li>
+<a
+  
+    href="https://rsk0315.hatenablog.com/entry/2020/11/25/193834"
+  
+   target="_blank" rel="noopener">
+    非再帰セグ木上の任意始点にぶたん - えびちゃんの日記
+</a>
+</li>
+</ul>
+<p>本エントリの大部分はこの文献に基づいています。こちらも見に行くとよいかもしれません。
+本エントリはこの文献の行間を埋める目的で書きました。</p>
+<h2 id="終わりに">終わりに</h2>
+<p>max_rightおよびmin_leftは比較的定数倍の軽いアルゴリズムであるため、$O(\log N)$時間と$O(\log ^ 2 N)$時間の違いは結構効いてきます。
+個人的になかなか美しいアルゴリズムだと思うので、是非実装してみてください。</p>
+<p>今回のエントリではたくさんの画像を入れて読者が出来るだけ理解しやすいようにしたつもりです。
+不明点、誤りなどがあれば教えてほしいです。試験的にgoogle formを設置してみました。もしよければ何か送信してみてください。（私が喜びます。）</p>
+<p>注: 返信が欲しい場合は連絡先を含めてください。</p>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeRRKZLfwhk6uuZB8ZYTfpG-IZ8TqmIHMknJWkoEZROFNZ9Sw/viewform?embedded=true" width="100%" height="382" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+	<a class="post-tag" href="/tags/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0/">データ構造</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/aoj1668/">ICPC国内予選2023 Problem E - Tampered Records（改竄された史料）</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-24</div>
+  <div class="post-title"><a href="/post/binarysearch-on-segmenttree/">min_leftとmax_rightの仕組みと実装を理解する</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-09</div>
+  <div class="post-title"><a href="/post/aoj1668/">ICPC国内予選2023 Problem E - Tampered Records（改竄された史料）</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-03-16</div>
+  <div class="post-title"><a href="/post/easy-to-use-binarysearch/">めぐる式二分探索亜種を使ってみませんか？</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-24</div>
+  <div class="post-title"><a href="/post/binarysearch-on-segmenttree/">min_leftとmax_rightの仕組みと実装を理解する</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-03-16</div>
+  <div class="post-title"><a href="/post/easy-to-use-binarysearch/">めぐる式二分探索亜種を使ってみませんか？</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-12-12</div>
+  <div class="post-title"><a href="/post/uec-advent2024/">BSTより高速なデータ構造: Y-Fast Trie [UEC Advent Calendar 2024] 12日目</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "データ構造"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-24</div>
+  <div class="post-title"><a href="/post/binarysearch-on-segmenttree/">min_leftとmax_rightの仕組みと実装を理解する</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-12-12</div>
+  <div class="post-title"><a href="/post/uec-advent2024/">BSTより高速なデータ構造: Y-Fast Trie [UEC Advent Calendar 2024] 12日目</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href="/tags/">other tags</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

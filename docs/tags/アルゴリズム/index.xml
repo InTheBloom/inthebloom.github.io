@@ -6,8 +6,15 @@
     <description>Recent content in アルゴリズム on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 16 Mar 2025 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 24 Apr 2025 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>min_leftとmax_rightの仕組みと実装を理解する</title>
+      <link>https://inthebloom.github.io/post/binarysearch-on-segmenttree/</link>
+      <pubDate>Thu, 24 Apr 2025 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/binarysearch-on-segmenttree/</guid>
+      <description>目的 AtCoder Library で使用できるatcoder/segtreeにおけるmin_leftおよびmax_rightが何を行っているかを理解し、自力で実装できるようになることを目指します。</description>
+    </item>
     <item>
       <title>めぐる式二分探索亜種を使ってみませんか？</title>
       <link>https://inthebloom.github.io/post/easy-to-use-binarysearch/</link>
