@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>2way 座標圧縮 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=3f3d60c12482cf62575625d50d61ce2c6c34d160">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=3f3d60c12482cf62575625d50d61ce2c6c34d160">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=3f3d60c12482cf62575625d50d61ce2c6c34d160">
+<link rel="alternate" href="/index.xml?c=3f3d60c12482cf62575625d50d61ce2c6c34d160" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="2way 座標圧縮 - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/coordinate-compression/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="2way 座標圧縮 - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/coordinate-compression/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=3f3d60c12482cf62575625d50d61ce2c6c34d160">
+<link rel="stylesheet" href="/css/color.css?c=3f3d60c12482cf62575625d50d61ce2c6c34d160">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=3f3d60c12482cf62575625d50d61ce2c6c34d160">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>2way 座標圧縮</h1>
+
+<span class="sub">Published on 2025-06-24</span><br>
+<span class="sub">Last Modified 2025-06-24</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#座標圧縮">座標圧縮</a></li>
+    <li><a href="#方法1">方法1</a></li>
+    <li><a href="#方法2">方法2</a></li>
+    <li><a href="#おわりに">おわりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="座標圧縮">座標圧縮</h2>
+<p>次のことを実現するアルゴリズムを指して、<strong>座標圧縮</strong>と呼ぶことがあります。</p>
+<blockquote>
+<p>長さ$N$の数列$A = (A[1], A[2], \dots, A[N])$が与えられる。
+$1 \leq i \leq N$なる$i$に対して、$A[i]$が$A$の中で昇順何番目かを調べる。</p>
+</blockquote>
+<p>$A$における値の重複をどうするかなどは状況によりますが、一般的には重複は一回だけカウントすることが多いです。
+具体例としては、$A = (3, 1, 5, 1, 2, 6, 10)$のとき、</p>
+<ul>
+<li>$A[1] = 3$は3番目</li>
+<li>$A[2] = A[4] = 1$はどちらも2番目</li>
+<li>$A[7] = 10$は6番目</li>
+</ul>
+<p>となります。</p>
+<p>数列の値の大小関係が大事で、具体的な値にはあまり興味のないときなどに使うことがあります。
+座標圧縮で値域をしぼめてデータ構造に乗せるといったことをやりがちです。</p>
+<p>本エントリでは、座標圧縮の方法を2通り紹介します。</p>
+<h2 id="方法1">方法1</h2>
+<p>$A$をコピーした数列$B$を作り、$B$をソートしてから重複を取り除きます。
+先程のように$A = (3, 1, 5, 1, 2, 6, 10)$とするなら、$B = (1, 2, 3, 5, 6, 10)$となります。</p>
+<p>あとはmapなどで$\mathrm{mp}[B[i]] = i$のようにします。
+このように構築したmapに$A$の要素を入れると座標圧縮ができます。</p>
+<p>mapを使うのが嫌な場合は、$B$上で$A[i]$を超えないindexを二分探索で探すと同様のことができます。</p>
+<p>mapを使う例: 
+<a
+  
+    href="https://atcoder.jp/contests/abc036/submissions/67035552"
+  
+   target="_blank" rel="noopener">
+    https://atcoder.jp/contests/abc036/submissions/67035552
+</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cin <span style="color:#f92672">&gt;&gt;</span> N;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> a(N);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> b <span style="color:#f92672">=</span> a;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>sort(b.begin(), b.end());
+</span></span><span style="display:flex;"><span>    b.erase(std<span style="color:#f92672">::</span>unique(b.begin(), b.end()), b.end());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> mp;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> b.size(); i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        mp[b[i]] <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> mp[a[i]] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>二分探索を使う例: 
+<a
+  
+    href="https://atcoder.jp/contests/abc036/submissions/67035612"
+  
+   target="_blank" rel="noopener">
+    https://atcoder.jp/contests/abc036/submissions/67035612
+</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cin <span style="color:#f92672">&gt;&gt;</span> N;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> a(N);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> b <span style="color:#f92672">=</span> a;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>sort(b.begin(), b.end());
+</span></span><span style="display:flex;"><span>    b.erase(std<span style="color:#f92672">::</span>unique(b.begin(), b.end()), b.end());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, ng <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(b.size());
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> std<span style="color:#f92672">::</span>abs(ok <span style="color:#f92672">-</span> ng)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (ok <span style="color:#f92672">+</span> ng) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (b[mid] <span style="color:#f92672">&lt;=</span> a[i]) {
+</span></span><span style="display:flex;"><span>                ok <span style="color:#f92672">=</span> mid;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                ng <span style="color:#f92672">=</span> mid;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> ok <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="方法2">方法2</h2>
+<p>まず、「インデックスソート」を行います。
+これは、次の条件を満たす長さ$N$の数列$\mathrm{ord}$を作成することです。</p>
+<ul>
+<li>$1 \leq i \leq N$に対して、$\mathrm{ord}[i]$は「$A$において昇順で$i$番目の要素があるindex」を表す。</li>
+</ul>
+<p>わかりにくい定義なので、具体例を提示します。
+$A = (7, 3, 9, 1, 5)$とします。</p>
+<p>このとき、</p>
+<ul>
+<li>昇順1番目の要素「1」は、$A$のindex 4にある</li>
+<li>昇順2番目の要素「3」は、$A$のindex 2にある</li>
+<li>昇順3番目の要素「5」は、$A$のindex 5にある</li>
+<li>昇順4番目の要素「7」は、$A$のindex 1にある</li>
+<li>昇順5番目の要素「9」は、$A$のindex 3にある</li>
+</ul>
+<p>となります。</p>
+<p>したがって、$\mathrm{ord} = (4, 2, 5, 1, 3)$です。
+$A$に重複した要素があるとき、タイブレークの順番は適当で大丈夫です。</p>
+<p>作り方としては、まず最初$\mathrm{ord} = (1, 2, 3, \dots, N)$とします。
+次に比較関数
+$\mathrm{ord}[i] &lt; \mathrm{ord}[j] \Leftrightarrow A[\mathrm{ord}[i]] &lt; A[\mathrm{ord}[j]]$
+を用いて$\mathrm{ord}$をソートをすると良いです。
+（$\mathrm{ord}$の要素自体の大小ではなく、その値で$A$にアクセスしたときに大小がどうなるかでソートしている。）</p>
+<p>この$\mathrm{ord}$を使って新しく長さ$N$の数列$B$を作ります。
+$B$は$B[\mathrm{ord}[i]] = i$を満たすようにします。</p>
+<p>これでokです。
+$A[i]$の座標圧縮結果は$B[i]$になっています。</p>
+<p>ただしこの方法は注意点があります。
+$A$が重複した要素を持つ場合、つまり$A[i] = A[j]$なる$i \neq j$がある場合、
+上記アルゴリズムのままだと$B[i] \neq B[j]$になります。</p>
+<p>これを$B[i] = B[j]$にしたい場合は単に$B[\mathrm{ord}[i]] = i$とするのではなく、
+$A[\mathrm{ord}[l]] = A[\mathrm{ord}[r]]$であるような範囲を尺取りで求めて、
+その区間の$B[\mathrm{ord}[i]]$には同じ数を代入する必要があります。
+（詳しくは実装例を参照してください。）</p>
+<p>方法2: 
+<a
+  
+    href="https://atcoder.jp/contests/abc036/submissions/67036368"
+  
+   target="_blank" rel="noopener">
+    https://atcoder.jp/contests/abc036/submissions/67036368
+</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;numeric&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cin <span style="color:#f92672">&gt;&gt;</span> N;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> a(N);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> ord(N);
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>iota(ord.begin(), ord.end(), <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>sort(ord.begin(), ord.end(), [<span style="color:#f92672">&amp;</span>](<span style="color:#66d9ef">int</span> i, <span style="color:#66d9ef">int</span> j) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">bool</span> { <span style="color:#66d9ef">return</span> a[i] <span style="color:#f92672">&lt;</span> a[j]; });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> B(N);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> current <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (a[ord[l]] <span style="color:#f92672">!=</span> a[ord[r]]) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            r<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> l; k <span style="color:#f92672">&lt;</span> r; k<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            B[ord[k]] <span style="color:#f92672">=</span> current;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        current<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        l <span style="color:#f92672">=</span> r;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> B[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="おわりに">おわりに</h2>
+<p>両者得意不得意があります。場面に応じて使い分けるなりライブラリ化するなりしておくと便利だと思います。</p>
+<p>本エントリでは触れませんでしたが、部分木の要素数を持つ二分探索木を使って座標圧縮することもできそうです。額面上の計算量は同じですが、ソートを用いる方法などに比べて定数倍は悪いかもしれません。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/abc408/">ABC408参加記録</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-06-24</div>
+  <div class="post-title"><a href="/post/coordinate-compression/">2way 座標圧縮</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-06-03</div>
+  <div class="post-title"><a href="/post/abc408/">ABC408参加記録</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-05-01</div>
+  <div class="post-title"><a href="/post/toupc001/">TOUPC001に参加してきた</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-06-24</div>
+  <div class="post-title"><a href="/post/coordinate-compression/">2way 座標圧縮</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-24</div>
+  <div class="post-title"><a href="/post/binarysearch-on-segmenttree/">min_leftとmax_rightの仕組みと実装を理解する</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-03-16</div>
+  <div class="post-title"><a href="/post/easy-to-use-binarysearch/">めぐる式二分探索亜種を使ってみませんか？</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
