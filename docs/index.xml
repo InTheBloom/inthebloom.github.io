@@ -6,8 +6,15 @@
     <description>Recent content on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 05 Jul 2025 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ICPC国内予選2025（Chofu Mai）</title>
+      <link>https://inthebloom.github.io/post/icpc2025/</link>
+      <pubDate>Sat, 05 Jul 2025 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/icpc2025/</guid>
+      <description>はじめに ICPC国内予選2025に参加して、予選で敗退した。 正確にはまだ正式発表されていないが、同校3位で50位なのでまず無理だろう。</description>
+    </item>
     <item>
       <title>ABC408参加記録</title>
       <link>https://inthebloom.github.io/post/abc408/</link>
