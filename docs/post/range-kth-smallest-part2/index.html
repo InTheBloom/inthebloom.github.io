@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Range Kth Smallestに対するもう2つの解法 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=36131fa832758a5e80696bfa723679689430b194">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=36131fa832758a5e80696bfa723679689430b194">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=36131fa832758a5e80696bfa723679689430b194">
+<link rel="alternate" href="/index.xml?c=36131fa832758a5e80696bfa723679689430b194" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="Range Kth Smallestに対するもう2つの解法 - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/range-kth-smallest-part2/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="Range Kth Smallestに対するもう2つの解法 - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/range-kth-smallest-part2/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=36131fa832758a5e80696bfa723679689430b194">
+<link rel="stylesheet" href="/css/color.css?c=36131fa832758a5e80696bfa723679689430b194">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=36131fa832758a5e80696bfa723679689430b194">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>Range Kth Smallestに対するもう2つの解法</h1>
+
+<span class="sub">Published on 2025-07-12</span><br>
+<span class="sub">Last Modified 2025-07-12</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#問題再掲">問題（再掲）</a></li>
+    <li><a href="#解法5">解法5</a></li>
+    <li><a href="#解法6">解法6</a></li>
+    <li><a href="#おわりに">おわりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="概要">概要</h2>
+<p>去年の9月に
+<a
+  
+    href="/post/range-kth-smallest/"
+  
+  >
+    Range Kth Smallestに対する4つの解法と2つの実装例
+</a>
+というものを書いた。
+あのときは4つしか解法を知らなかったが、今回さらに2つ解法を知ったので試してみた。</p>
+<h2 id="問題再掲">問題（再掲）</h2>
+<p>$N$要素の数列$A$が与えられる。$Q$個のクエリに解答せよ。</p>
+<ul>
+<li>$A$の$[l _ i, r _ i)$内にある要素の中で$k _ i + 1$番目に小さい値を答える。</li>
+</ul>
+<p>$1 \leq N \leq 2 \times 10 ^ 5, \quad 1 \leq Q \leq 2 \times 10 ^ 5, \quad 1 \leq A _ i \leq 10 ^ 9$</p>
+<p>
+<a
+  
+    href="https://judge.yosupo.jp/problem/range_kth_smallest"
+  
+   target="_blank" rel="noopener">
+    ジャッジ(library checker)
+</a>
+</p>
+<h2 id="解法5">解法5</h2>
+<p>前回の解法3で並列二分探索を紹介したが、通常のセグメント木の代わりに永続セグメント木を用いることで通常の二分探索で解ける。</p>
+<p>まず永続セグメント木について簡単に説明をする。
+永続セグメント木とは、次の操作をサポートするデータ構造である。</p>
+<ul>
+<li><code>init(N)</code>: 永続セグメント木を長さNで初期化する。$O(N)$時間。</li>
+<li><code>set(ver, i, v)</code>: バージョンverのセグメント木のi番目にvをセットした新しいバージョンのセグメント木を作成する。バージョンverのセグメント木は<strong>破壊されない</strong>。$O(\log N)$時間。</li>
+<li><code>get(ver, i)</code>: バージョンverのセグメント木のi番目を取得する。$O(\log N)$時間。</li>
+<li><code>prod(ver, l, r)</code>: バージョンverのセグメント木の区間$[l, r)$に対するモノイド積を取得する。$O(\log N)$時間。</li>
+</ul>
+<p>これをどう実現しているのかについては
+<a
+  
+    href="https://37zigen.com/persistent-segment-tree/"
+  
+   target="_blank" rel="noopener">
+    永続セグメント木・永続遅延セグメント木 - 37zigenのHP
+</a>
+が詳しい。</p>
+<p>細かい解法について説明する。
+元の解法においては、「$A$における小さい方から$x$個の値のある場所に1、それ以外に0をセットしたセグメント木」を考えた。
+そして、$[l _ i, r _ i)$の和が初めて$k _ i$を超えた$x$はいくつか？がわかれば元の問題が解ける。
+これをクエリごとに行うと間に合わないので、全クエリを並列に考えることで計算量を均していた。</p>
+<p>さて、永続セグメント木を用いた解法を考える。</p>
+<p>全て$0$をセットしたセグメント木をバージョン0とする。
+バージョン$x$のセグメント木を「$A$における小さい方から$x$個の値のある場所に1、それ以外に0をセットしたセグメント木」とする。
+1回の<code>set</code>をすることでバージョン$x - 1$からバージョン$x$を作ることができるため、合計$O(N \log N)$時間で全てのバージョンを作れる。</p>
+<p>あとは各クエリで元の解法と同じように二分探索をすれば解ける。各バージョンに直接アクセスできるため、並列二分探索は必要ない。</p>
+<p>並列二分探索に対して優れている点は</p>
+<ul>
+<li>オンラインクエリで解ける</li>
+<li>実装が極めて簡単</li>
+</ul>
+<p>という2点だと思う。逆に劣っている点は</p>
+<ul>
+<li>空間計算量が$O(\log N)$倍悪化する（ちなみに、$\log _ 2 (2 \times 10 ^ 5) \approx 18$）</li>
+<li>定数倍がかなり悪い</li>
+</ul>
+<p>制約が厳しいと実用的に運用するのは難しい。</p>
+<p>
+<a
+  
+    href="https://judge.yosupo.jp/submission/299065"
+  
+   target="_blank" rel="noopener">
+    AC提出（LDC2/2469ms/150.10Mib）
+</a>
+</p>
+<p>並列二分探索に対して実行時間3倍、メモリ11倍になっている。</p>
+<h2 id="解法6">解法6</h2>
+<p>
+<a
+  
+    href="https://37zigen.com/persistent-segment-tree/"
+  
+   target="_blank" rel="noopener">
+    永続セグメント木・永続遅延セグメント木 - 37zigenのHP
+</a>
+に掲載されていた解法。</p>
+<p>あらかじめ$A$を座標圧縮しておく。</p>
+<p>バージョン0のセグメント木はすべての場所に0がセットされているとする。
+バージョン$x$のセグメント木を$1 \leq i \leq x$に対して$A _ i$に1、それ以外に0をセットしたセグメント木とする。
+解法5と同様にこれも$O(N \log N)$時間でバージョン$N$まで構築できる。</p>
+<p>実は、これらのセグメント木たちを用いると、ある区間における$A _ i$たちのみを使って作ったセグメント木をシミュレートできる。</p>
+<p>$p &lt; q$とする。
+バージョン$p$とバージョン$q$のセグメント木を考える。各ノードには担当区間のモノイド積がのっているが、（同じ位置にあるノードの）バージョン$q$における積からバージョン$p$における積を引き算することで$A _ 1$から$A _ p$からの寄与をキャンセルすることができる。
+これであたかも$A _ {p + 1}$から$A _ q$のみを使っているかのような状態を作れる。</p>
+<p>各ノードにおいて累積和を考えているようなものだと思うとわかりやすいかもしれない。</p>
+<p>これを用いてクエリ$[l _ i, r _ i)$に答えよう。（この先クエリは0-indexedで考える。）
+上記の方法を$l _ i, r _ i$に対して適用して、$A _ {l _ i}$から$A _ {r _ i}$のみを使ったセグメント木を仮想的にシミュレートできる。（$A$の添字は1-indexedなままであることに注意。）</p>
+<p>あとはこのセグメント木において<code>prod(0, x)</code>が$k _ i$を初めて超えるような$x$が求まれば元の問題が解ける。
+普通に二分探索すると$O(\log ^ 2 N)$時間だが、max_right（セグメント木上の二分探索）を行うことで$O(\log N)$時間になる。</p>
+<p>構築で$O(N \log N)$時間、各クエリ$O(\log N)$時間なので合計$O((N + Q) \log N)$時間。</p>
+<p>
+<a
+  
+    href="https://judge.yosupo.jp/submission/299145"
+  
+   target="_blank" rel="noopener">
+    AC提出（LDC2/842ms/150.28Mib）
+</a>
+</p>
+<p>いくつか特徴をまとめると、</p>
+<ul>
+<li>逆元が必要なので、モノイドには適用できない</li>
+<li>オンラインクエリで解ける</li>
+<li>同じく空間$O(N \log N)$が必要</li>
+</ul>
+<p>という感じになる。
+この解法は解法4に似ているが、永続化と逆元を活用してMoのパートを累積和に変換しているようなイメージだと思う。</p>
+<p>類似の解法で点追加削除なし、重み変更なしの矩形和取得をオンライン、$O(\log N)$ per queryで解ける。
+こっちは座標圧縮→yの昇順に点追加しながらバージョンを変えていくと同様に累積和みたいになって解ける。
+range kth smallestはMoを変換したような解法になったが、矩形和クエリは平面走査を変換したような解法になっている。
+ただしこちらも空間計算量がかなりネックになる点は注意。</p>
+<p>
+<a
+  
+    href="https://nyaannyaan.github.io/library/data-structure-2d/rectangle-sum.hpp"
+  
+   target="_blank" rel="noopener">
+    矩形和(永続セグメント木) | Nyaan&rsquo;s Library
+</a>
+</p>
+<p>まあ正直領域木みたいなのを用意したほうが取り回しがよさそう。</p>
+<p>
+<a
+  
+    href="https://dyktr06.github.io/kyopro_library/lib/data_structure/range_tree.hpp"
+  
+   target="_blank" rel="noopener">
+    lib/data_structure/range_tree.hpp | kyopro_library
+</a>
+</p>
+<h2 id="おわりに">おわりに</h2>
+<p>永続データ構造重すぎて困りました。</p>
+<p>動的WM以外で点更新ありの解法知っている人は是非教えてください。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+	<a class="post-tag" href="/tags/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0/">データ構造</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/icpc2025/">ICPC国内予選2025（Chofu Mai）</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-07-12</div>
+  <div class="post-title"><a href="/post/range-kth-smallest-part2/">Range Kth Smallestに対するもう2つの解法</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-07-05</div>
+  <div class="post-title"><a href="/post/icpc2025/">ICPC国内予選2025（Chofu Mai）</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-06-03</div>
+  <div class="post-title"><a href="/post/abc408/">ABC408参加記録</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-07-12</div>
+  <div class="post-title"><a href="/post/range-kth-smallest-part2/">Range Kth Smallestに対するもう2つの解法</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-24</div>
+  <div class="post-title"><a href="/post/binarysearch-on-segmenttree/">min_leftとmax_rightの仕組みと実装を理解する</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-03-16</div>
+  <div class="post-title"><a href="/post/easy-to-use-binarysearch/">めぐる式二分探索亜種を使ってみませんか？</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "データ構造"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-07-12</div>
+  <div class="post-title"><a href="/post/range-kth-smallest-part2/">Range Kth Smallestに対するもう2つの解法</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-24</div>
+  <div class="post-title"><a href="/post/binarysearch-on-segmenttree/">min_leftとmax_rightの仕組みと実装を理解する</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-12-12</div>
+  <div class="post-title"><a href="/post/uec-advent2024/">BSTより高速なデータ構造: Y-Fast Trie [UEC Advent Calendar 2024] 12日目</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href="/tags/">other tags</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
