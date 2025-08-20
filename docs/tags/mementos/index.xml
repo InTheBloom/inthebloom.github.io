@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mementos on InTheDayDream</title>
-    <link>http://localhost:1313/tags/mementos/</link>
+    <link>https://inthebloom.github.io/tags/mementos/</link>
     <description>Recent content in Mementos on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/mementos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/tags/mementos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2024年を振り返ろう &#43; 怪文書</title>
-      <link>http://localhost:1313/post/2024-final/</link>
+      <link>https://inthebloom.github.io/post/2024-final/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/2024-final/</guid>
+      <guid>https://inthebloom.github.io/post/2024-final/</guid>
       <description></description>
     </item>
     <item>
       <title>AtCoder Algorithm 1600達成！</title>
-      <link>http://localhost:1313/post/reached-1600/</link>
+      <link>https://inthebloom.github.io/post/reached-1600/</link>
       <pubDate>Fri, 22 Nov 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/reached-1600/</guid>
+      <guid>https://inthebloom.github.io/post/reached-1600/</guid>
       <description></description>
     </item>
     <item>
       <title>MMA Contest 018参加記録 &#43; 怪文書</title>
-      <link>http://localhost:1313/post/mmacontest018/</link>
+      <link>https://inthebloom.github.io/post/mmacontest018/</link>
       <pubDate>Wed, 03 Apr 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/mmacontest018/</guid>
+      <guid>https://inthebloom.github.io/post/mmacontest018/</guid>
       <description></description>
     </item>
     <item>
       <title>20歳になりました。</title>
-      <link>http://localhost:1313/post/20th-birthday/</link>
+      <link>https://inthebloom.github.io/post/20th-birthday/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/20th-birthday/</guid>
+      <guid>https://inthebloom.github.io/post/20th-birthday/</guid>
       <description></description>
     </item>
     <item>
       <title>Ubuntuが死んだのでDebianをインストールする</title>
-      <link>http://localhost:1313/post/debian-install/</link>
+      <link>https://inthebloom.github.io/post/debian-install/</link>
       <pubDate>Tue, 13 Feb 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/debian-install/</guid>
+      <guid>https://inthebloom.github.io/post/debian-install/</guid>
       <description></description>
     </item>
     <item>
       <title>2023年お疲れ様でした。</title>
-      <link>http://localhost:1313/post/2023-final/</link>
+      <link>https://inthebloom.github.io/post/2023-final/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/2023-final/</guid>
+      <guid>https://inthebloom.github.io/post/2023-final/</guid>
       <description></description>
     </item>
   </channel>

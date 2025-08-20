@@ -2,31 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>データ構造 on InTheDayDream</title>
-    <link>http://localhost:1313/tags/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0/</link>
+    <link>https://inthebloom.github.io/tags/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0/</link>
     <description>Recent content in データ構造 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 12 Jul 2025 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Aug 2025 00:00:00 +0900</lastBuildDate>
+    <atom:link href="https://inthebloom.github.io/tags/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC239EとABC372Eをより強い条件で解いてみる</title>
+      <link>https://inthebloom.github.io/post/solve-extra-constraints/</link>
+      <pubDate>Thu, 21 Aug 2025 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/solve-extra-constraints/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Range Kth Smallestに対するもう2つの解法</title>
-      <link>http://localhost:1313/post/range-kth-smallest-part2/</link>
+      <link>https://inthebloom.github.io/post/range-kth-smallest-part2/</link>
       <pubDate>Sat, 12 Jul 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/range-kth-smallest-part2/</guid>
+      <guid>https://inthebloom.github.io/post/range-kth-smallest-part2/</guid>
       <description></description>
     </item>
     <item>
       <title>min_leftとmax_rightの仕組みと実装を理解する</title>
-      <link>http://localhost:1313/post/binarysearch-on-segmenttree/</link>
+      <link>https://inthebloom.github.io/post/binarysearch-on-segmenttree/</link>
       <pubDate>Thu, 24 Apr 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/binarysearch-on-segmenttree/</guid>
+      <guid>https://inthebloom.github.io/post/binarysearch-on-segmenttree/</guid>
       <description></description>
     </item>
     <item>
       <title>BSTより高速なデータ構造: Y-Fast Trie [UEC Advent Calendar 2024] 12日目</title>
-      <link>http://localhost:1313/post/uec-advent2024/</link>
+      <link>https://inthebloom.github.io/post/uec-advent2024/</link>
       <pubDate>Thu, 12 Dec 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/uec-advent2024/</guid>
+      <guid>https://inthebloom.github.io/post/uec-advent2024/</guid>
       <description></description>
     </item>
   </channel>

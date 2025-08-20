@@ -2,87 +2,94 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2025 on InTheDayDream</title>
-    <link>http://localhost:1313/archives/2025/</link>
+    <link>https://inthebloom.github.io/archives/2025/</link>
     <description>Recent content in 2025 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 12 Jul 2025 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/archives/2025/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Aug 2025 00:00:00 +0900</lastBuildDate>
+    <atom:link href="https://inthebloom.github.io/archives/2025/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC239EとABC372Eをより強い条件で解いてみる</title>
+      <link>https://inthebloom.github.io/post/solve-extra-constraints/</link>
+      <pubDate>Thu, 21 Aug 2025 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/solve-extra-constraints/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Range Kth Smallestに対するもう2つの解法</title>
-      <link>http://localhost:1313/post/range-kth-smallest-part2/</link>
+      <link>https://inthebloom.github.io/post/range-kth-smallest-part2/</link>
       <pubDate>Sat, 12 Jul 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/range-kth-smallest-part2/</guid>
+      <guid>https://inthebloom.github.io/post/range-kth-smallest-part2/</guid>
       <description></description>
     </item>
     <item>
       <title>ICPC国内予選2025（Chofu Mai）</title>
-      <link>http://localhost:1313/post/icpc2025/</link>
+      <link>https://inthebloom.github.io/post/icpc2025/</link>
       <pubDate>Sat, 05 Jul 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/icpc2025/</guid>
+      <guid>https://inthebloom.github.io/post/icpc2025/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC408参加記録</title>
-      <link>http://localhost:1313/post/abc408/</link>
+      <link>https://inthebloom.github.io/post/abc408/</link>
       <pubDate>Tue, 03 Jun 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/abc408/</guid>
+      <guid>https://inthebloom.github.io/post/abc408/</guid>
       <description></description>
     </item>
     <item>
       <title>TOUPC001に参加してきた</title>
-      <link>http://localhost:1313/post/toupc001/</link>
+      <link>https://inthebloom.github.io/post/toupc001/</link>
       <pubDate>Thu, 01 May 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/toupc001/</guid>
+      <guid>https://inthebloom.github.io/post/toupc001/</guid>
       <description></description>
     </item>
     <item>
       <title>min_leftとmax_rightの仕組みと実装を理解する</title>
-      <link>http://localhost:1313/post/binarysearch-on-segmenttree/</link>
+      <link>https://inthebloom.github.io/post/binarysearch-on-segmenttree/</link>
       <pubDate>Thu, 24 Apr 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/binarysearch-on-segmenttree/</guid>
+      <guid>https://inthebloom.github.io/post/binarysearch-on-segmenttree/</guid>
       <description></description>
     </item>
     <item>
       <title>ICPC国内予選2023 Problem E - Tampered Records（改竄された史料）</title>
-      <link>http://localhost:1313/post/aoj1668/</link>
+      <link>https://inthebloom.github.io/post/aoj1668/</link>
       <pubDate>Wed, 09 Apr 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/aoj1668/</guid>
+      <guid>https://inthebloom.github.io/post/aoj1668/</guid>
       <description></description>
     </item>
     <item>
       <title>co-routineをスライスする</title>
-      <link>http://localhost:1313/post/slicing-co-routine/</link>
+      <link>https://inthebloom.github.io/post/slicing-co-routine/</link>
       <pubDate>Fri, 21 Mar 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/slicing-co-routine/</guid>
+      <guid>https://inthebloom.github.io/post/slicing-co-routine/</guid>
       <description></description>
     </item>
     <item>
       <title>めぐる式二分探索亜種を使ってみませんか？</title>
-      <link>http://localhost:1313/post/easy-to-use-binarysearch/</link>
+      <link>https://inthebloom.github.io/post/easy-to-use-binarysearch/</link>
       <pubDate>Sun, 16 Mar 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/easy-to-use-binarysearch/</guid>
+      <guid>https://inthebloom.github.io/post/easy-to-use-binarysearch/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC396 A-F</title>
-      <link>http://localhost:1313/post/abc396/</link>
+      <link>https://inthebloom.github.io/post/abc396/</link>
       <pubDate>Wed, 12 Mar 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/abc396/</guid>
+      <guid>https://inthebloom.github.io/post/abc396/</guid>
       <description></description>
     </item>
     <item>
       <title>ユニークビジョンLT会に登壇してきた</title>
-      <link>http://localhost:1313/post/uniquevision-lt-2025-01-15/</link>
+      <link>https://inthebloom.github.io/post/uniquevision-lt-2025-01-15/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/uniquevision-lt-2025-01-15/</guid>
+      <guid>https://inthebloom.github.io/post/uniquevision-lt-2025-01-15/</guid>
       <description></description>
     </item>
     <item>
       <title>2024年を振り返ろう &#43; 怪文書</title>
-      <link>http://localhost:1313/post/2024-final/</link>
+      <link>https://inthebloom.github.io/post/2024-final/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/2024-final/</guid>
+      <guid>https://inthebloom.github.io/post/2024-final/</guid>
       <description></description>
     </item>
   </channel>
