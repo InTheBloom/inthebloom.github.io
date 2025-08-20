@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ABC239EとABC372Eをより強い条件で解いてみる - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=1092e12411fe7031ba35d81cd7adf415bb153963">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=1092e12411fe7031ba35d81cd7adf415bb153963">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=1092e12411fe7031ba35d81cd7adf415bb153963">
+<link rel="alternate" href="/index.xml?c=1092e12411fe7031ba35d81cd7adf415bb153963" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="ABC239EとABC372Eをより強い条件で解いてみる - InTheDayDream">
+<meta property="og:url" content="http://localhost:1313/post/solve-extra-constraints/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="ABC239EとABC372Eをより強い条件で解いてみる - InTheDayDream">
+<meta name="twitter:url" content="http://localhost:1313/post/solve-extra-constraints/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=1092e12411fe7031ba35d81cd7adf415bb153963">
+<link rel="stylesheet" href="/css/color.css?c=1092e12411fe7031ba35d81cd7adf415bb153963">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=1092e12411fe7031ba35d81cd7adf415bb153963">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>ABC239EとABC372Eをより強い条件で解いてみる</h1>
+
+<span class="sub">Published on 2025-08-21</span><br>
+<span class="sub">Last Modified 2025-08-21</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#abc372e---k-th-largest-connected-components">ABC372E - K-th Largest Connected Components</a>
+      <ul>
+        <li><a href="#問題文概略">問題文（概略）</a></li>
+        <li><a href="#方法">方法</a></li>
+        <li><a href="#実装">実装</a></li>
+      </ul>
+    </li>
+    <li><a href="#abc239e---subtree-k-th-max">ABC239E - Subtree K-th Max</a>
+      <ul>
+        <li><a href="#問題文概略-1">問題文（概略）</a></li>
+        <li><a href="#方法-1">方法</a></li>
+        <li><a href="#実装-1">実装</a></li>
+      </ul>
+    </li>
+    <li><a href="#おまけ">おまけ</a>
+      <ul>
+        <li><a href="#q1-k番目の取得ってどうやってるの">Q1. k番目の取得ってどうやってるの？</a></li>
+        <li><a href="#q2-マージテクの解析">Q2. マージテクの解析</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="abc372e---k-th-largest-connected-components">ABC372E - K-th Largest Connected Components</h2>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc372/tasks/abc372_e"
+  
+   target="_blank" rel="noopener">
+    問題
+</a>
+</p>
+<h3 id="問題文概略">問題文（概略）</h3>
+<p>$N$頂点のグラフがあり、頂点$i$には数$i$が書かれている。
+以下の２つのクエリを処理。</p>
+<ul>
+<li>頂点$u, v$を結ぶ無向辺の追加</li>
+<li>$u$の連結成分における$k$番目に大きな数を出力。存在しなければ$-1$とする。</li>
+</ul>
+<p>$N \leq 2 \times 10 ^ 5, Q \leq 2 \times 10 ^ 5, k \leq 10$</p>
+<p>これを$k$の上限なしで解きます。
+方法自体は解説にのっており、新規性0です。
+ですが、せっかく平衡木を組めるので全部自力でやります。</p>
+<h3 id="方法">方法</h3>
+<p>平衡木は実装次第で$k$番目の値を取得するクエリに対応できます。要素数$N$の時$O(\log N)$です。（<code>std::set</code>や<code>std::map</code>、pythonの<code>Set</code>などは非対応。）</p>
+<p>それとマージテクを組み合わせるとできます。
+マージテクとは競技プログラミングでしばしば登場する典型テクです。
+全体で$N$個のモノを、「２つのモノを結合する」という操作を全体が一つになるまで繰り返す過程において、「要素数の小さい方にある要素を大きい方へと移す」というルールを守ることで移動の回数を$O(N\log N)$回にすることができるというものです。</p>
+<p>今回の問題はまさにマージテクが適用可能で、サイズの小さい平衡木から大きい平衡木へと要素を動かすことで移動回数を償却$O(\log N)$回にできます。
+移動の時間計算量は$O(\log N)$なので、全体で$O(N\log^2 N)$時間で適切に集合を管理できます。</p>
+<p>各クエリは$O(\log N)$時間で答えられるので、全体$O(N\log^2 N + Q\log N)$になります。</p>
+<h3 id="実装">実装</h3>
+<p>kyopro_friendsさんの実装ではUnionFindにg++拡張の平衡木を埋め込んで実装していました。が、UnionFindと平衡木を別々に管理してもできます。</p>
+<p>まず$N$頂点でUnionFindを作ります。同時に各代表元に対応する平衡木たちを作ります。初期状態では1要素の平衡木$N$本です。
+注意として、平衡木の配列は代表元が持つデータを表すためのものであって、常に$N$個すべてを使うわけではありません。
+例えばマージ済みの頂点$u, v$の代表元が$u$である時、$v$番目にある平衡木は使いません。</p>
+<p>$u, v$のマージをするときは、まず$u, v$をそれらの代表元を取得しておきます。（変数の節約のため以後$u, v$が代表元であるとします。）
+$u, v$をマージし、新しく根になった頂点を$n$とします。</p>
+<p>まともなUnionFindなら$n$は$u, v$のどちらかになっているので、根になれなかった方の頂点がわかります。
+根になれなかった方に対応する平衡木から新しい根に対応する平衡木へ要素を移動すればよいです。</p>
+<p>少々雑ですが、D言語による実装を示します。
+マージの時一応サイズの確認を行い、必ず大きい方へとマージするように木をswapしてあります。Union By SizeかUnion By Rankをやってれば心配不要だと思います。</p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc372/submissions/68661781"
+  
+   target="_blank" rel="noopener">
+    AC（753ms/56364KiB）
+</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> Q<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> uf <span style="color:#f92672">=</span> UnionFind<span style="color:#f92672">(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> tree <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NodePtr<span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        tree<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> insert<span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span><span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> Q<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> query <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> t <span style="color:#f92672">=</span> query<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>t <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> u <span style="color:#f92672">=</span> query<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> query<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            u <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">root</span><span style="color:#f92672">(</span>u<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            v <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">root</span><span style="color:#f92672">(</span>v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>u <span style="color:#f92672">==</span> v<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            uf<span style="color:#f92672">.</span><span style="color:#a6e22e">unite</span><span style="color:#f92672">(</span>u<span style="color:#f92672">,</span> v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">root</span><span style="color:#f92672">(</span>u<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>u <span style="color:#f92672">==</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                swap<span style="color:#f92672">(</span>u<span style="color:#f92672">,</span> v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>v<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;</span> tree<span style="color:#f92672">[</span>u<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                swap<span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>u<span style="color:#f92672">],</span> tree<span style="color:#f92672">[</span>v<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> tree<span style="color:#f92672">[</span>u<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                tree<span style="color:#f92672">[</span>v<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> insert<span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>v<span style="color:#f92672">],</span> kthValue<span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>u<span style="color:#f92672">],</span> j<span style="color:#f92672">).</span><span style="color:#a6e22e">value</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            tree<span style="color:#f92672">[</span>u<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>t <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> query<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> query<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            v <span style="color:#f92672">=</span> uf<span style="color:#f92672">.</span><span style="color:#a6e22e">root</span><span style="color:#f92672">(</span>v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>k <span style="color:#f92672">&lt;=</span> tree<span style="color:#f92672">[</span>v<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                ans <span style="color:#f92672">~=</span> kthValue<span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>v<span style="color:#f92672">],</span> tree<span style="color:#f92672">[</span>v<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> k<span style="color:#f92672">).</span><span style="color:#a6e22e">value</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                ans <span style="color:#f92672">~=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writefln<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%(%s\n%)&#34;</span><span style="color:#f92672">,</span> ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="abc239e---subtree-k-th-max">ABC239E - Subtree K-th Max</h2>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc239/tasks/abc239_e"
+  
+   target="_blank" rel="noopener">
+    問題
+</a>
+</p>
+<h3 id="問題文概略-1">問題文（概略）</h3>
+<p>$N$頂点、$1$を根とする根付き木がある。頂点$i$には数$X _ i$が書かれている。
+以下のクエリを処理。</p>
+<ul>
+<li>$u$の部分木の頂点に書かれた$k$番目に大きな数を出力。</li>
+</ul>
+<p>$N \leq 2 \times 10 ^ 5, Q \leq 10 ^ 5, k \leq 20$</p>
+<p>同じく$k$の上限なしで解きます。</p>
+<h3 id="方法-1">方法</h3>
+<p>手法は同じで、$k$番目を取得可能な平衡木を適切に管理します。</p>
+<p>一度マージしてしまうと切り離せないので、クエリを先読みして根から遠いものから優先的に答えます。</p>
+<p>木上のマージでも計算量解析は同じで、$O(N\log ^ 2 N + Q\log N)$時間です。</p>
+<h3 id="実装-1">実装</h3>
+<p>初期状態は各頂点に対応する$N$本の平衡木を作成しておきます。要素数は0です。
+$u$の部分木のクエリに答えるときは再帰的にマージしていき、$u$を部分木とする頂点の$X _ i$がすべて$u$番目の平衡木に集約されるようにします。</p>
+<p>このマージの過程で小さい方から大きい方へ移動させてあげればよいです。</p>
+<p>注意点があります。
+例えば$u$の部分木のクエリを処理するために、$u$の子$v$とのマージをしたいとします。この時$v$に対応する平衡木の要素数の方が大きくなることがあります。
+こういうときは$u, v$に対応する平衡木を最初に交換し、$u$側が大きくなるように調整してあげないといけません。
+どちらからどちらへマージしても結局同じことなので、最初に交換してもOKです。</p>
+<p>D言語による実装例を示します。
+キモは葉方向からクエリに答えることと、再帰的なマージをどう実装するか（実装例における関数<code>f</code>）なので、それらを意識すると難しくないと思います。</p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc239/submissions/68626574"
+  
+   target="_blank" rel="noopener">
+    AC（418ms/31796KiB）
+</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> Q<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> X <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> A <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> B <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> B<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        A<span style="color:#f92672">[</span>i<span style="color:#f92672">]--,</span> B<span style="color:#f92672">[</span>i<span style="color:#f92672">]--;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> V <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> K <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> Q<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>V<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> K<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        V<span style="color:#f92672">[</span>i<span style="color:#f92672">]--;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> graph <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        graph<span style="color:#f92672">[</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">]]</span> <span style="color:#f92672">~=</span> B<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        graph<span style="color:#f92672">[</span>B<span style="color:#f92672">[</span>i<span style="color:#f92672">]]</span> <span style="color:#f92672">~=</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> depth <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> pos<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> par<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>to<span style="color:#f92672">;</span> graph<span style="color:#f92672">[</span>pos<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>to <span style="color:#f92672">==</span> par<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            depth<span style="color:#f92672">[</span>to<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> depth<span style="color:#f92672">[</span>pos<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            dfs<span style="color:#f92672">(</span>to<span style="color:#f92672">,</span> pos<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    dfs<span style="color:#f92672">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> ord <span style="color:#f92672">=</span> iota<span style="color:#f92672">(</span>Q<span style="color:#f92672">).</span><span style="color:#a6e22e">array</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    ord<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">!((</span>a<span style="color:#f92672">,</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">=&gt;</span> depth<span style="color:#f92672">[</span>V<span style="color:#f92672">[</span>b<span style="color:#f92672">]]</span> <span style="color:#f92672">&lt;</span> depth<span style="color:#f92672">[</span>V<span style="color:#f92672">[</span>a<span style="color:#f92672">]]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> vis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> tree <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NodePtr<span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 再帰的にuまでマージ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> u<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>vis<span style="color:#f92672">[</span>u<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        vis<span style="color:#f92672">[</span>u<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 自分
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        tree<span style="color:#f92672">[</span>u<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> insert<span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>u<span style="color:#f92672">],</span> X<span style="color:#f92672">[</span>u<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>to<span style="color:#f92672">;</span> graph<span style="color:#f92672">[</span>u<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>depth<span style="color:#f92672">[</span>to<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> depth<span style="color:#f92672">[</span>u<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            f<span style="color:#f92672">(</span>to<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>u<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;</span> tree<span style="color:#f92672">[</span>to<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                swap<span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>u<span style="color:#f92672">],</span> tree<span style="color:#f92672">[</span>to<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> tree<span style="color:#f92672">[</span>to<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                tree<span style="color:#f92672">[</span>u<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> insert<span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>u<span style="color:#f92672">],</span> kthValue<span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>to<span style="color:#f92672">],</span> i<span style="color:#f92672">).</span><span style="color:#a6e22e">value</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// メモリ開放
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            tree<span style="color:#f92672">[</span>to<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>Q<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> ord<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        f<span style="color:#f92672">(</span>V<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        ans<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> kthValue<span style="color:#f92672">(</span>tree<span style="color:#f92672">[</span>V<span style="color:#f92672">[</span>i<span style="color:#f92672">]],</span> tree<span style="color:#f92672">[</span>V<span style="color:#f92672">[</span>i<span style="color:#f92672">]].</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> K<span style="color:#f92672">[</span>i<span style="color:#f92672">]).</span><span style="color:#a6e22e">value</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writefln<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%(%s\n%)&#34;</span><span style="color:#f92672">,</span> ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="おまけ">おまけ</h2>
+<h3 id="q1-k番目の取得ってどうやってるの">Q1. k番目の取得ってどうやってるの？</h3>
+<p>各ノードに部分木サイズをもたせたうえで次のような感じで再帰的に求められます。
+通ったノードは記憶しなくて良いので非再帰でも楽です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">kthValue</span> <span style="color:#f92672">(</span>tree t<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">assert</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> k<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> lSize <span style="color:#f92672">=</span> t<span style="color:#f92672">.</span><span style="color:#a6e22e">lch</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>lSize <span style="color:#f92672">==</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> t<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>k <span style="color:#f92672">&lt;</span> lSize<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> kthValue<span style="color:#f92672">(</span>r<span style="color:#f92672">.</span><span style="color:#a6e22e">lch</span><span style="color:#f92672">,</span> k<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> kthValue<span style="color:#f92672">(</span>r<span style="color:#f92672">.</span><span style="color:#a6e22e">rch</span><span style="color:#f92672">,</span> k <span style="color:#f92672">-</span> lSize <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>（わかる人むけ）または要素数を基準とした<code>split</code>を作って最小or最大を探す実装でもOKです。定数倍は3倍くらいつきます。</p>
+<p>計算量を悪化させずにノードに部分木サイズをのせられるのかという問題が残りますが、都合の良いことに多くの平衡木で可能です。</p>
+<p>一般に、更新の際に部分木の構造が変化してしまうような場所が$O(\log N)$個程度になる平衡戦略を取る木なら同様のことができます。何ならモノイド積とかものります。</p>
+<h3 id="q2-マージテクの解析">Q2. マージテクの解析</h3>
+<p>$N$個のモノに対する任意のマージの操作列を考えます。ただし、すでにマージ済みのものをマージする操作は使わないことにします。
+例えば$N = 4$として</p>
+<ul>
+<li>(1, 3)</li>
+<li>(2, 3)</li>
+<li>(1, 4)</li>
+</ul>
+<p>という操作列を処理すると、</p>
+<ul>
+<li>{1, 2, 3, 4}</li>
+<li>{{1, 3}, 2, 4}</li>
+<li>{{1, 2, 3}, 4}</li>
+<li>{{1, 2, 3, 4}}</li>
+</ul>
+<p>という順で結合していき、全体が一つになります。</p>
+<p>あるモノの移動回数を「自分が所属している塊の要素数はいくつか？」ということに着目して解析します。</p>
+<p>マージテクは小さい方の塊を移動させてマージするため、「自分が移動する必要のあるマージ」をすると、自分が所属する塊の要素数は少なくとも2倍になります。</p>
+<p>よって、このようなマージを$x$回行ったとすると、要素数は$2 ^ x$以上になります。
+モノは全部で$N$個のため、この値が$N$を超えることはありません。
+つまり、$2 ^ x \leq N$となり、ここから$x \leq \log _ 2 N$が従います。</p>
+<p>以上の議論がどのモノについても成立するため、全体の移動回数は$N \log _ 2 N$回以下になります。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0/">データ構造</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/range-kth-smallest-part2/">Range Kth Smallestに対するもう2つの解法</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-08-21</div>
+  <div class="post-title"><a href="/post/solve-extra-constraints/">ABC239EとABC372Eをより強い条件で解いてみる</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-07-12</div>
+  <div class="post-title"><a href="/post/range-kth-smallest-part2/">Range Kth Smallestに対するもう2つの解法</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-07-05</div>
+  <div class="post-title"><a href="/post/icpc2025/">ICPC国内予選2025（Chofu Mai）</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "データ構造"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-08-21</div>
+  <div class="post-title"><a href="/post/solve-extra-constraints/">ABC239EとABC372Eをより強い条件で解いてみる</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-07-12</div>
+  <div class="post-title"><a href="/post/range-kth-smallest-part2/">Range Kth Smallestに対するもう2つの解法</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-24</div>
+  <div class="post-title"><a href="/post/binarysearch-on-segmenttree/">min_leftとmax_rightの仕組みと実装を理解する</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%83%87%e3%83%bc%e3%82%bf%e6%a7%8b%e9%80%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

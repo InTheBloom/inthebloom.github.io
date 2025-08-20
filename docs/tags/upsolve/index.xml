@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Upsolve on InTheDayDream</title>
-    <link>https://inthebloom.github.io/tags/upsolve/</link>
+    <link>http://localhost:1313/tags/upsolve/</link>
     <description>Recent content in Upsolve on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Mon, 11 Mar 2024 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://inthebloom.github.io/tags/upsolve/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/upsolve/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC344 (upsolved)</title>
-      <link>https://inthebloom.github.io/post/abc344/</link>
+      <link>http://localhost:1313/post/abc344/</link>
       <pubDate>Mon, 11 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc344/</guid>
-      <description>贖罪 寝過ごしでABCポカしてしまった。信じられない。。</description>
+      <guid>http://localhost:1313/post/abc344/</guid>
+      <description></description>
     </item>
     <item>
       <title>MMA Contest 016 (upsolved)</title>
-      <link>https://inthebloom.github.io/post/mmacontest016/</link>
+      <link>http://localhost:1313/post/mmacontest016/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/mmacontest016/</guid>
-      <description>はじめに 来るMMA Contest 018に備えて MMA Contest 016 のupsolveを行いました。 問題の振り返りをします。</description>
+      <guid>http://localhost:1313/post/mmacontest016/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2024-10 on InTheDayDream</title>
-    <link>https://inthebloom.github.io/archives/2024-10/</link>
+    <link>http://localhost:1313/archives/2024-10/</link>
     <description>Recent content in 2024-10 on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://inthebloom.github.io/archives/2024-10/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/archives/2024-10/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ICPC模擬国内予選D 過去問の共有</title>
-      <link>https://inthebloom.github.io/post/icpc-2024-domestic-d/</link>
+      <link>http://localhost:1313/post/icpc-2024-domestic-d/</link>
       <pubDate>Tue, 29 Oct 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/icpc-2024-domestic-d/</guid>
-      <description>問題概要 問題へのリンク 問題文 JAG大学ICPC学科には$N$人の学生が在籍しており、それぞれの学生には$1$から$N$までの番号がついている。また、学生の交友関係が$M$個存在する。$i$番目の交友関係は、学生$a _ i$と$b _ i$が友達であり、互いに連絡できることを表す。</description>
+      <guid>http://localhost:1313/post/icpc-2024-domestic-d/</guid>
+      <description></description>
     </item>
     <item>
       <title>Functional GraphでK回進むクエリ in &lt;O(NlogN), O(logN)&gt;</title>
-      <link>https://inthebloom.github.io/post/functional-graph-logn-simulation/</link>
+      <link>http://localhost:1313/post/functional-graph-logn-simulation/</link>
       <pubDate>Sat, 19 Oct 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/functional-graph-logn-simulation/</guid>
-      <description>概要 次の問題を$\langle O(N\log N), O(\log N) \rangle$で解くアルゴリズムを紹介します。</description>
+      <guid>http://localhost:1313/post/functional-graph-logn-simulation/</guid>
+      <description></description>
     </item>
     <item>
       <title>比較的シンプルなクイックソートとマージソートの実装</title>
-      <link>https://inthebloom.github.io/post/simple-nlogn-sort/</link>
+      <link>http://localhost:1313/post/simple-nlogn-sort/</link>
       <pubDate>Thu, 10 Oct 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/simple-nlogn-sort/</guid>
-      <description>はじめに 比較的頭を壊しにくいクイックソートとマージソートの実装方針を共有します。 オーダーも悪化しません。定数倍はわかりませんが、最適実装に比べて高々2倍とかだと思います。(適当) 実装例はすべてC++です。</description>
+      <guid>http://localhost:1313/post/simple-nlogn-sort/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>
