@@ -4,7 +4,7 @@
     <title>2023-11 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2023-11/</link>
     <description>Recent content in 2023-11 on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Sat, 25 Nov 2023 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2023-11/index.xml" rel="self" type="application/rss+xml" />
@@ -13,35 +13,35 @@
       <link>https://inthebloom.github.io/post/abc330/</link>
       <pubDate>Sat, 25 Nov 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc330/</guid>
-      <description>はじめに 本稿は、2023-11-25に行われた ABC330 の参加記録です。 眠れない夜にはコンテストの参加記録を書くのが良いと古事記にも書いてあった要出典ので更新します。</description>
+      <description></description>
     </item>
     <item>
       <title>ABC328参加記録</title>
       <link>https://inthebloom.github.io/post/abc328/</link>
       <pubDate>Sun, 12 Nov 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc328/</guid>
-      <description>はじめに 本稿は、2023-11-11に行われた ABC328 の参加記録です。</description>
+      <description></description>
     </item>
     <item>
       <title>ABC100D - Patisserie ABC</title>
       <link>https://inthebloom.github.io/post/abc100d/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc100d/</guid>
-      <description>問題概要 問題へのリンク $N$種類のケーキがある。$i$種類目のケーキは「綺麗さ」$x_i$、「おいしさ」$y_i$、「人気度」$z_i$を持っている。 このうち$M$種類のケーキを選んで食べる。ただし、同じ種類のケーキを2つとることはできない。</description>
+      <description></description>
     </item>
     <item>
       <title>ABC327参加記録</title>
       <link>https://inthebloom.github.io/post/abc327/</link>
       <pubDate>Sun, 05 Nov 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc327/</guid>
-      <description>はじめに 本稿は、2023-11-04に行われた ABC327 の参加記録です。</description>
+      <description></description>
     </item>
     <item>
       <title>ABC190F - Shift and Inversions</title>
       <link>https://inthebloom.github.io/post/abc190f/</link>
       <pubDate>Wed, 01 Nov 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc190f/</guid>
-      <description>問題概要 問題へのリンク $0$から$N-1$までの整数をちょうど一つづつ含む数列$A$が与えられる。 $k \in \mathbb{Z}$に対して、数列$B$を次のように定める。 $$ \begin{equation*} B \coloneqq \{b_i\}_{i=0}^{N-1}, ~ b_i = a_{i+k ~ \mathrm{mod} ~ N} \end{equation*} $$ $k = 0, 1, 2, \dots , N-1$のそれぞれに対して、$B$の転倒数を求めよ。</description>
+      <description></description>
     </item>
   </channel>
 </rss>
