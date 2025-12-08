@@ -4,10 +4,24 @@
     <title>Tags on InTheDayDream</title>
     <link>https://inthebloom.github.io/tags/</link>
     <description>Recent content in Tags on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 21 Aug 2025 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 07 Dec 2025 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UECPG Advent Calendar</title>
+      <link>https://inthebloom.github.io/tags/uecpg-advent-calendar/</link>
+      <pubDate>Sun, 07 Dec 2025 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/tags/uecpg-advent-calendar/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vim</title>
+      <link>https://inthebloom.github.io/tags/vim/</link>
+      <pubDate>Sun, 07 Dec 2025 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/tags/vim/</guid>
+      <description></description>
+    </item>
     <item>
       <title>データ構造</title>
       <link>https://inthebloom.github.io/tags/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0/</link>
