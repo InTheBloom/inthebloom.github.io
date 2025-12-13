@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>最近知ったスライド最小値関連のアルゴリズムをご紹介 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=974c2930eec358326144eae4ad062695676a968f">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=974c2930eec358326144eae4ad062695676a968f">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=974c2930eec358326144eae4ad062695676a968f">
+<link rel="alternate" href="/index.xml?c=974c2930eec358326144eae4ad062695676a968f" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="最近知ったスライド最小値関連のアルゴリズムをご紹介 - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/uecpg-advent2025-2/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="最近知ったスライド最小値関連のアルゴリズムをご紹介 - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/uecpg-advent2025-2/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=974c2930eec358326144eae4ad062695676a968f">
+<link rel="stylesheet" href="/css/color.css?c=974c2930eec358326144eae4ad062695676a968f">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=974c2930eec358326144eae4ad062695676a968f">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>最近知ったスライド最小値関連のアルゴリズムをご紹介</h1>
+
+<span class="sub">Published on 2025-12-13</span><br>
+<span class="sub">Last Modified 2025-12-13</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#今日紹介すること">今日紹介すること</a></li>
+    <li><a href="#スライド最小値最大値">スライド最小値（最大値）</a>
+      <ul>
+        <li><a href="#アイデア">アイデア</a></li>
+        <li><a href="#アルゴリズム">アルゴリズム</a></li>
+        <li><a href="#適用例">適用例</a></li>
+      </ul>
+    </li>
+    <li><a href="#一番近い自分より小さいやつ">一番近い自分より小さいやつ</a>
+      <ul>
+        <li><a href="#アイデア-1">アイデア</a></li>
+        <li><a href="#アルゴリズム-1">アルゴリズム</a></li>
+      </ul>
+    </li>
+    <li><a href="#ヒストグラム中の最大長方形">ヒストグラム中の最大長方形</a>
+      <ul>
+        <li><a href="#アイデア-2">アイデア</a></li>
+        <li><a href="#アルゴリズム-2">アルゴリズム</a></li>
+        <li><a href="#verify">verify</a></li>
+      </ul>
+    </li>
+    <li><a href="#最大長方形問題">最大長方形問題</a>
+      <ul>
+        <li><a href="#アイデア-3">アイデア</a></li>
+        <li><a href="#アルゴリズム-3">アルゴリズム</a></li>
+        <li><a href="#verify-1">verify</a></li>
+      </ul>
+    </li>
+    <li><a href="#おわりに">おわりに</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="はじめに">はじめに</h2>
+<p>本エントリは
+<a
+  
+    href="https://adventar.org/calendars/12393"
+  
+   target="_blank" rel="noopener">
+    電通大プログラミング教室 Advent Calendar 2025
+</a>
+の13日目です。</p>
+<div style="overflow: scroll;">
+    <iframe src="https://adventar.org/calendars/12393/embed" width="620" height="362" frameborder="0" loading="lazy"></iframe>
+</div>
+<p>昨日はChiharuさんの「言語相対論・言語としてのプログラミング言語」でした。
+私は趣味でゆる言語学ラジオというyoutubeチャンネルをよく視聴しているのですが、</p>
+<blockquote>
+<p>言語とは、ある共同体が使っている言葉の集まりです。そして言葉とは、境界線のない世界に線を引くものです。</p>
+</blockquote>
+<p>という文章をみて、以下の動画を思い出しました。</p>
+<iframe width="500" height="300" src="https://www.youtube.com/embed/J7rAZ2tRoT0" title="論理的に解けない難問「ガヴァガイ問題」を赤ちゃんは解く【赤ちゃんの言語習得2】#108" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p>実際Chiharuさんの指摘は私の肌感覚としても感じます。
+私はC言語からプログラミングを学習し始めたので、プログラムを書くときは（無意識ですが）常にC言語の構文、仕様に沿った世界でものを見ているフシがあります。
+そのためjavascriptの<code>Promise</code>やそれに伴う<code>then</code>、<code>async</code>、<code>await</code>などの理解にはとても苦しんだ覚えがあります。
+あと、twitterで一度「関数型言語をやることで思考方法が変化する」みたいな話を見たことがあります。
+元ツイは忘れましたが、その方が書いたspeakerdeckはありました。</p>
+<p>
+<a
+  
+    href="https://speakerdeck.com/naoya/guan-shu-xing-puroguramingutoxing-sisutemunomentarumoderu"
+  
+   target="_blank" rel="noopener">
+    https://speakerdeck.com/naoya/guan-shu-xing-puroguramingutoxing-sisutemunomentarumoderu
+</a>
+</p>
+<p>振り返りはこのあたりにして、内容に入っていきます。</p>
+<h2 id="今日紹介すること">今日紹介すること</h2>
+<p>今日は私が最近学んだ「スライド最小値」というアルゴリズムを中心に、その応用で解ける問題、似た感じのアルゴリズムをごちゃまぜにして紹介します。
+全部をまとめてうまく抽象化しているというわけではないですが、見た目が全然異なる問題に適用出来て面白いので、興味のある部分だけでも見てもらえたらと思います。</p>
+<h2 id="スライド最小値最大値">スライド最小値（最大値）</h2>
+<p>次の問題を解きます。</p>
+<blockquote>
+<p>長さ$N$の数列$A = (A _ 0, A _ 1, \dots, {A _ N - 1})$が与えられる。
+$i$個目が$[l _ i, r _ i)$であるような$Q$個の右半開区間に対して、それぞれ$\displaystyle \min _ {l _ i \leq j &lt; r _ i}(A _ j)$を求めよ。
+ただし、与えられる区間は「単調増加」するとする。すなわち、$i &lt; j$ならば$l _ i \leq l _ j$かつ$r _ i \leq r _ j$である。</p>
+</blockquote>
+<p>与えられる区間の単調増加制約が無い場合、この問題は（staticな）Range Minimum Queryと呼ばれる問題であり、様々な解法があります。
+<a
+  
+    href="https://maspypy.com/library-checker-static-rmq"
+  
+   target="_blank" rel="noopener">
+    解法の例
+</a>
+</p>
+<p>単調増加制約がある場合は、スライド最小値のアルゴリズムにより$\Theta (N + Q)$時間、空間$\Theta (N)$で解けて、これは他の大体のアルゴリズムよりも優れています。
+一応この問題に関しては線形RMQと呼ばれる完全上位互換が存在しますが、中身が全く異なるであるため、応用を考える上ではスライド最小値にも利があります。</p>
+<h3 id="アイデア">アイデア</h3>
+<p>図の黒枠の区間における最小値を求めたいとしましょう。
+区間の単調増加制約は、黒枠の右側、左側が<strong>右にしか動かない</strong>というものです。</p>
+<p><img src="/images/uecpg-advent2025-2/slidemin-idea-1.png" alt="スライド最小値のアイデア-1"></p>
+<p>ここで、次の図の青い部分（その後ろにより小さい要素が存在する部分）について考えてみましょう。</p>
+<p><img src="/images/uecpg-advent2025-2/slidemin-idea-2.png" alt="スライド最小値のアイデア-2"></p>
+<p>黒枠が右方向にしかスライドしないことを踏まえると、青い部分は今回のみならず、<strong>以後もずっと</strong>最小値にはなりえないことがわかります。
+なぜなら黒枠が右にスライドしたときに先に退場するのは青い部分だからです。</p>
+<p>この部分がキモなのでもう少しかみ砕いた説明をします。
+黒枠内の最初の2つの青と、その右にある赤に着目してみます。
+黒枠が右にスライドしていくとき、赤要素よりも青要素の方が先に区間の外に出ることがわかります。
+したがって、赤い部分が本当に最小値となるかはわからないものの、青い部分は確実に最小値となることはありえないと言えます。</p>
+<p>よって、図の黒枠は6要素を含んでいますが、実は赤い部分の情報だけ保持していればよいということになります。</p>
+<p>次に、右端だけが1スライドしたらどうなるのかを見てみましょう。下図は色分けを変えずに右端を伸ばしたものです。</p>
+<p><img src="/images/uecpg-advent2025-2/slidemin-idea-3.png" alt="スライド最小値のアイデア-3"></p>
+<p>この時、新しく区間に入ってきた要素が元々の右端の要素よりも小さいため、元々の右端の要素が青色に格下げされます。（図では新しく青色になる要素を緑色で表示しています。）
+左から3番目の赤色よりは大きいため、こちらは格下げされずに済みました。</p>
+<p><img src="/images/uecpg-advent2025-2/slidemin-idea-4.png" alt="スライド最小値のアイデア-4"></p>
+<p>青色の定義が「区間内のより右側に自分以下の要素が存在するか」であるため、区間内の赤色のデータのみを抜き取って並べると常に単調増加になります。
+また、青色は解になりえない要素で、赤色は解になりえる要素なのでした。
+したがって、赤色のうち最も左にあるものが区間最小値であることが言えます。</p>
+<h3 id="アルゴリズム">アルゴリズム</h3>
+<p>両端キューを用いて区間内の赤色要素を管理します。
+具体的には、両端キューの奥に左側の要素のインデックスが、両端キューの手前に右側の要素のインデックスが来るように管理します。
+区間$[l _ i, r _ i)$に対する問題を解くときは次のようにすればよいです。</p>
+<ol>
+<li>$r _ {i - 1} \leq x &lt; r _ i$に対して小さいものから順に次を行う。
+<ol>
+<li>両端キューの先頭要素を$t$とする。$A _ t$と$A _ x$を比較し、$A _ x$以上であれば先頭要素をポップするということを繰り返す。</li>
+<li>両端キューが空になるか$A _ t$が$A _ x$未満になったら$x$を両端キューに入れる。</li>
+</ol>
+</li>
+<li>$l _ {i - 1} \leq x &lt; l _ i$に対して小さいものから順に次を行う。
+<ol>
+<li>末尾要素を$t$とする。$t = x$であれば末尾要素をポップするということを繰り返す。</li>
+</ol>
+</li>
+</ol>
+<p>これらを行った後、両端キューの末尾要素が区間最小値である。</p>
+<p>プログラム的には次のような感じになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#75715e">// 最初は区間[0, 0)の管理をしていると考える
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> L <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> R <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Qクエリに対して解答
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> Q<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ステップ1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>R <span style="color:#f92672">&lt;</span> r<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>st<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">()</span> <span style="color:#f92672">&amp;&amp;</span> A<span style="color:#f92672">[</span>R<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> A<span style="color:#f92672">[</span>st<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">()])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            st<span style="color:#f92672">.</span><span style="color:#a6e22e">removeFront</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        st<span style="color:#f92672">.</span><span style="color:#a6e22e">insertFront</span><span style="color:#f92672">(</span>R<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        r<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ステップ2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>L <span style="color:#f92672">&lt;</span> l<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>st<span style="color:#f92672">.</span><span style="color:#a6e22e">back</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> L<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            st<span style="color:#f92672">.</span><span style="color:#a6e22e">removeBack</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        L<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 解を記録
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ans<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> st<span style="color:#f92672">.</span><span style="color:#a6e22e">back</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="適用例">適用例</h3>
+<p>あまりスライド最小値がそのまま使える問題が見つからなかったので、少しわかりにくい例です。
+
+<a
+  
+    href="https://atcoder.jp/contests/abc352/tasks/abc352_d"
+  
+   target="_blank" rel="noopener">
+    ABC352D - Permutation Subsequence
+</a>
+</p>
+<p>$\lbrace a, a + 1, a + 2, \dots, a + K - 1 \rbrace$の方を固定して考える感じです。
+$Q _ i \coloneqq iがある場所$としたとき、$\displaystyle \max _ {a \leq i &lt; a + K} Q _ i - \min _ {a \leq i &lt; a + K} Q _ i$を考えると良くて、この値の最小が解になります。
+実際に$Q$を作り、これに対してスライド最小値とスライド最大値を適用すると$\Theta (N)$時間で解けます。</p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc352/submissions/71639705"
+  
+   target="_blank" rel="noopener">
+    解答例
+</a>
+</p>
+<h2 id="一番近い自分より小さいやつ">一番近い自分より小さいやつ</h2>
+<p>ふざけた名前ですいません。（いい名前が思い浮かばない。）
+次の問題を考えます。</p>
+<blockquote>
+<p>長さ$N$の数列$A = (A _ 0, A _ 1, \dots, A _ {N - 1})$が与えられる。
+$0 \leq i &lt; N$それぞれに対して、$i &lt; j$かつ$A _ j &lt; A _ i$となるような$j$のうち、最小のものを求めよ。</p>
+</blockquote>
+<p>これを$\Theta (N)$時間で解きます。</p>
+<h3 id="アイデア-1">アイデア</h3>
+<p>スライド最小値をベースに考えます。
+区間の左側が動かないとして、右側だけ伸ばしていくときのアルゴリズムの動作を考えます。
+このとき、ある$i$に対して求める$j$は、場所$i$にある要素を<strong>はじめて青くさせるような要素の場所</strong>になります。
+（青く塗られた要素の定義が「区間内で右により小さい要素が存在するようなもの」だったことを思い出してください。）</p>
+<p>したがって、青く塗るタイミングでその原因になった要素の場所をメモしていけばよいです。</p>
+<h3 id="アルゴリズム-1">アルゴリズム</h3>
+<p>同様に両端キューを使いますが、若干違う動きをします。</p>
+<p>長さ$N$の配列$\mathrm{ans}$を用意しておく。
+$0 \leq x &lt; N$に対して小さいものから順に次を行う。</p>
+<ol>
+<li>両端キューの先頭要素を$t$とする。$A _ t$と$A _ x$を比較し、$A _ x$以上であれば$\mathrm{ans}[t]$に$x$を代入してから先頭要素をポップするということを繰り返す。</li>
+<li>両端キューが空になるか$A _ t$が$A _ x$未満になったら$x$を両端キューに入れる。</li>
+</ol>
+<p>終了後、$\mathrm{ans}[i]$は$i$に対する解である。代入されなかった場合は解が存在しない。</p>
+<p>プログラム的には次のようになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> st <span style="color:#f92672">=</span> DList<span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)();</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>st<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">()</span> <span style="color:#f92672">&amp;&amp;</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> A<span style="color:#f92672">[</span>st<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">()])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        ans<span style="color:#f92672">[</span>st<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">()]</span> <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        st<span style="color:#f92672">.</span><span style="color:#a6e22e">removeFront</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    st<span style="color:#f92672">.</span><span style="color:#a6e22e">insertFront</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="ヒストグラム中の最大長方形">ヒストグラム中の最大長方形</h2>
+<p>次の問題を考えます。</p>
+<blockquote>
+<p>長さ$N$の数列$A = (A _ 0, A _ 1, \dots, A _ {N - 1})$が与えられる。$A$をヒストグラムとしてみたとき、ヒストグラム中の面積が最大の長方形を求めよ。</p>
+</blockquote>
+<p>つまりこういうことです。</p>
+<p><img src="/images/uecpg-advent2025-2/maximum-rectangle-in-histgram.png" alt="ヒストグラム最大長方形のイメージ"></p>
+<h3 id="アイデア-2">アイデア</h3>
+<p>長方形の横幅が$i$番目から$j$番目であるとき、長方形の縦幅は$\displaystyle \min _ {i \leq x \leq j}(A _ x)$になります。
+なぜなら、それより大きければ上側にはみ出してしまうし、それより小さければ明らかに面積最大でないからです。</p>
+<p>つまり、面積最大となる長方形は必ず上面がどこかにぴったりくっついていることになります。
+では、逆に高さが$A _ i$であるような長方形が左右にどこまで伸ばせるのかがわかれば、これを各$i$について考えたときの最大値が解になるはずです。</p>
+<p>ここで、左右にどこまで伸ばせるかは$i$と一番近い$A _ i$より小さい要素がどこにあるかに依存します。
+そのような場所を探す方法はすでに前節で説明しましたね。</p>
+<p>前処理に$\Theta (N)$時間、本処理に$\Theta (N)$時間かかるので全体$\Theta (N)$時間で解けます。</p>
+<h3 id="アルゴリズム-2">アルゴリズム</h3>
+<p>前章で紹介した方法を用いて、$0 \leq i &lt; N$それぞれに対して、</p>
+<ol>
+<li>$i &lt; j$かつ$A _ j &lt; A _ i$なる$j$のうち最小のもの</li>
+<li>$j &lt; i$かつ$A _ j &lt; A _ i$なる$j$のうち最大のもの</li>
+</ol>
+<p>を求める。
+これらを用いて、各$i$について、高さが$A _ i$であり、$i$から左右に伸ばしたときの最大長方形を求める。
+その最大値が解である。</p>
+<h3 id="verify">verify</h3>
+<p>同じ問題がAOJに公開されています。
+
+<a
+  
+    href="https://onlinejudge.u-aizu.ac.jp/problems/DPL_3_C"
+  
+   target="_blank" rel="noopener">
+    ヒストグラムの中の最大長方形
+</a>
+</p>
+<p>
+<a
+  
+    href="https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_3_C/review/11151119/InTheBloom/D"
+  
+   target="_blank" rel="noopener">
+    解答例
+</a>
+</p>
+<h2 id="最大長方形問題">最大長方形問題</h2>
+<p>次の問題を考えます。</p>
+<blockquote>
+<p>正方形のタイルが縦$H$個、横$W$個並べられている。
+タイルは白色か黒色であり、上から$i + 1$個目、左から$j + 1$個目のタイルの色は$c _ {i, j}$で表される。
+白色のタイルの実を含む最大の長方形を求めよ。</p>
+</blockquote>
+<p>つまりこういうことです。</p>
+<p><img src="/images/uecpg-advent2025-2/maximum-rectangle-in-grid.png" alt="グリッド最大長方形のイメージ"></p>
+<h3 id="アイデア-3">アイデア</h3>
+<p>長方形の底辺を固定して考えてみます。
+例えば例として下から3個目のマスが底になるようにしてみましょう。わかりやすいように赤線を引きました。</p>
+<p><img src="/images/uecpg-advent2025-2/maximum-rectangle-in-grid-idea-1.png" alt="グリッド最大長方形のアイデア1"></p>
+<p>長方形は黒マスを含まないことを考えると、赤線より上にある黒マスすべてについて、その上にあるマスを含むような長方形はありえません。逆に、それ以外のマスならば、それを含む長方形が少なくとも1つ以上存在します。
+使えるマスを青色に塗った図を以下に示します。</p>
+<p><img src="/images/uecpg-advent2025-2/maximum-rectangle-in-grid-idea-2.png" alt="グリッド最大長方形のアイデア2"></p>
+<p>この青色のマスの中から面積最大の長方形を見つければよいことがわかりました。</p>
+<p>ところで、よくみると青マスの集合はヒストグラムになっています。
+これはたまたまではありません。
+使えるマスの条件を考えると、各列の使えるマスは連結になるため、常にヒストグラムになります。</p>
+<p>そこで、前節で紹介したヒストグラム中の最大長方形アルゴリズムを適用することで$\Theta (W)$時間で解くことができます。
+これを各行について行えばよいため、全体$\Theta (HW)$時間で解くことができます。</p>
+<h3 id="アルゴリズム-3">アルゴリズム</h3>
+<p>ヒストグラム中の最大長方形アルゴリズムに帰着しやすいよう工夫します。</p>
+<ol>
+<li>各列に対して、黒マスが来たらリセットという感じで番号を振る。ただし黒マスは0を振る。（下図参照）
+<img src="/images/uecpg-advent2025-2/maximum-rectangle-in-grid-algorithm-numbering.png" alt="グリッド最大長方形のナンバリング"></li>
+<li>各行に対して、振られた番号を抜き出してヒストグラムの最大長方形アルゴリズムを適用する。これらの最大値が解である。</li>
+</ol>
+<h3 id="verify-1">verify</h3>
+<p>同じ問題がAOJに公開されています。
+
+<a
+  
+    href="https://onlinejudge.u-aizu.ac.jp/problems/DPL_3_B"
+  
+   target="_blank" rel="noopener">
+    最大長方形
+</a>
+</p>
+<p>
+<a
+  
+    href="https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_3_B/review/11151164/InTheBloom/D"
+  
+   target="_blank" rel="noopener">
+    解答例
+</a>
+</p>
+<h2 id="おわりに">おわりに</h2>
+<p>書くの疲れました。
+スタックがすごいのかminやmaxの成す代数構造がすごいのかよくわからないけど、いろいろできるみたいです。
+特に、最大長方形問題への帰着はわかれば当たり前ですが、最初なるほどな～と思いました。
+他にもカルテシアンツリーの構築にも役に立つらしいです。疲れたので調べていません。</p>
+<p>あとは関連アルゴリズムとして、グリッド上の最大正方形問題、Sliding Window Aggregation（SWAG）と呼ばれるデータ構造について紹介しようと思っていたのですが、こちらもやはり疲れたのでやめます。</p>
+<p>明日はまだ埋まっていないみたいなのでヒマな人は是非やってみてください。
+マジで誰もいなければ何か書こうかな。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/uecpg-advent-calendar/">UECPG Advent Calendar</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/uecpg-advent2025/">gVimのススメ &#43; 私のVim操作</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-12-13</div>
+  <div class="post-title"><a href="/post/uecpg-advent2025-2/">最近知ったスライド最小値関連のアルゴリズムをご紹介</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-08-21</div>
+  <div class="post-title"><a href="/post/solve-extra-constraints/">ABC239EとABC372Eをより強い条件で解いてみる</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-07-12</div>
+  <div class="post-title"><a href="/post/range-kth-smallest-part2/">Range Kth Smallestに対するもう2つの解法</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "UECPG Advent Calendar"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-12-13</div>
+  <div class="post-title"><a href="/post/uecpg-advent2025-2/">最近知ったスライド最小値関連のアルゴリズムをご紹介</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-12-08</div>
+  <div class="post-title"><a href="/post/uecpg-advent2025/">gVimのススメ &#43; 私のVim操作</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href="/tags/">other tags</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-12-13</div>
+  <div class="post-title"><a href="/post/uecpg-advent2025-2/">最近知ったスライド最小値関連のアルゴリズムをご紹介</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-07-12</div>
+  <div class="post-title"><a href="/post/range-kth-smallest-part2/">Range Kth Smallestに対するもう2つの解法</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-24</div>
+  <div class="post-title"><a href="/post/binarysearch-on-segmenttree/">min_leftとmax_rightの仕組みと実装を理解する</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
