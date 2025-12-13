@@ -6,8 +6,15 @@
     <description>Recent content in アルゴリズム on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 12 Jul 2025 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Dec 2025 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>最近知ったスライド最小値関連のアルゴリズムをご紹介</title>
+      <link>https://inthebloom.github.io/post/uecpg-advent2025-2/</link>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/uecpg-advent2025-2/</guid>
+      <description>はじめに 本エントリは 電通大プログラミング教室 Advent Calendar 2025 の13日目です。</description>
+    </item>
     <item>
       <title>Range Kth Smallestに対するもう2つの解法</title>
       <link>https://inthebloom.github.io/post/range-kth-smallest-part2/</link>

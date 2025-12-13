@@ -2,7 +2,7 @@
 title: gVimのススメ + 私のVim操作
 # description: 
 
-date: 2025-12-07
+date: 2025-12-08
 # lastmod: yyyy-mm-dd
 # hidedate: true
 
