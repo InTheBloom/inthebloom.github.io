@@ -4,7 +4,7 @@
     <title>Linux on InTheDayDream</title>
     <link>https://inthebloom.github.io/tags/linux/</link>
     <description>Recent content in Linux on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 13 Feb 2024 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://inthebloom.github.io/post/debian-install/</link>
       <pubDate>Tue, 13 Feb 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/debian-install/</guid>
-      <description>はじめに 2023年の2月あたりからおよそ1年間にわたりUbuntu22.</description>
+      <description></description>
     </item>
   </channel>
 </rss>
