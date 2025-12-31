@@ -4,51 +4,58 @@
     <title>Mementos on InTheDayDream</title>
     <link>https://inthebloom.github.io/tags/mementos/</link>
     <description>Recent content in Mementos on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 31 Dec 2025 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/mementos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>End of 2025</title>
+      <link>https://inthebloom.github.io/post/2025-final/</link>
+      <pubDate>Wed, 31 Dec 2025 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/2025-final/</guid>
+      <description></description>
+    </item>
     <item>
       <title>2024年を振り返ろう &#43; 怪文書</title>
       <link>https://inthebloom.github.io/post/2024-final/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/2024-final/</guid>
-      <description>まえがき 2024年も終わりがやってきました。 昨年に引き続き、振り返りとポエムを書こうかなと思います。 見やすい感じにまとめたかったんですが、markdownから変換している都合上、割と見にくい感じになりました。許してほしいです。 あと後ろの方のしょうもないやつを書いていたら2025年になってしまいました。まあ良いということにしておきます。</description>
+      <description></description>
     </item>
     <item>
       <title>AtCoder Algorithm 1600達成！</title>
       <link>https://inthebloom.github.io/post/reached-1600/</link>
       <pubDate>Fri, 22 Nov 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/reached-1600/</guid>
-      <description>喜び 2024-11-22のABC381でついにrating 1600+を達成しました！ 競技プログラミングを始めた頃、自分がここまでこれるとは思っていませんでした。嬉しいです！</description>
+      <description></description>
     </item>
     <item>
       <title>MMA Contest 018参加記録 &#43; 怪文書</title>
       <link>https://inthebloom.github.io/post/mmacontest018/</link>
       <pubDate>Wed, 03 Apr 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/mmacontest018/</guid>
-      <description>オンサイトに行ってきました。 MMA Contest 018 - connpass 電気通信大学のサークル、MMAによるプログラミングコンテストが3月31日に開催されました。 電気通信大学内にオンサイト会場が確保されていたため、私も現地に行って参加してきました。 本エントリはその記録になります。</description>
+      <description></description>
     </item>
     <item>
       <title>20歳になりました。</title>
       <link>https://inthebloom.github.io/post/20th-birthday/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/20th-birthday/</guid>
-      <description>せっかく20歳になったので、なんか書きます 本日2024年3月1日は私の誕生日です。こんな私でも20歳になってしまいました。 日本では 明治時代からの名残 (？)から20歳を子供から大人に変化する節目とするそうです。 なんてことでしょう、いつの間にか大人になってしまいました。</description>
+      <description></description>
     </item>
     <item>
       <title>Ubuntuが死んだのでDebianをインストールする</title>
       <link>https://inthebloom.github.io/post/debian-install/</link>
       <pubDate>Tue, 13 Feb 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/debian-install/</guid>
-      <description>はじめに 2023年の2月あたりからおよそ1年間にわたりUbuntu22.</description>
+      <description></description>
     </item>
     <item>
       <title>2023年お疲れ様でした。</title>
       <link>https://inthebloom.github.io/post/2023-final/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/2023-final/</guid>
-      <description>2023年12月31日 今年も大晦日と呼ばれるこの日がやってきました。 折角この場があるので、何か書きます。 それぞれの章は独立しており、関連性はありません。 なので突拍子もないことが書いてあるかもしれません。 ご了承くださいな。</description>
+      <description></description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>2023-02 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2023-02/</link>
     <description>Recent content in 2023-02 on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2023-02/index.xml" rel="self" type="application/rss+xml" />
@@ -13,21 +13,21 @@
       <link>https://inthebloom.github.io/post/abc291/</link>
       <pubDate>Sun, 26 Feb 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc291/</guid>
-      <description>はじめに 今週も AtCoder Beginners Contest 291 に参加してきましたので、軽く参加記録です。</description>
+      <description></description>
     </item>
     <item>
       <title>ABC290参加記録</title>
       <link>https://inthebloom.github.io/post/abc290/</link>
       <pubDate>Tue, 21 Feb 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc290/</guid>
-      <description>ABC290参加した。 お久しぶりです。最近AtCoderコンテストの参加記録をサボりがちなので、流石にエントリを生成します。</description>
+      <description></description>
     </item>
     <item>
       <title>精説ARC155A</title>
       <link>https://inthebloom.github.io/post/arc155a/</link>
       <pubDate>Tue, 07 Feb 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/arc155a/</guid>
-      <description>はじめに 先日1月29日に AtCoder Regular Contest 155 がありました。ARCのA問題は，ARCがA~Fの6問体制になったARC104から現在に至るまでdifficultyの最大値は緑でした。しかし，今回のA問題は水色でした。</description>
+      <description></description>
     </item>
   </channel>
 </rss>
