@@ -3,7 +3,7 @@ title: End of 2025
 # description: 
 
 date: 2025-12-31
-# lastmod: yyyy-mm-dd
+lastmod: 2026-01-02
 # hidedate: true
 
 # ogimage: https://hoge/fuga/piyo.img
@@ -94,6 +94,8 @@ NHKで毎年元旦にやってるやつです。今年も楽しみ。
 ちなみに私もむかーしMMAの説明会？的なものに参加したことがありまして、nafmoさんのことを一方的に知っていた時期が長かったので、ここ1年くらいで関わるようになってちょっと感慨深い。
 nafmoさんはUEC競プロ界隈を牽引している人なので、敬え（命令形）
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">違う人だと思ってたけど同じ人だった。びっくり。</p>&mdash; In (@UU9782wsEdANDhp) <a href="https://twitter.com/UU9782wsEdANDhp/status/1908123858424775042?ref_src=twsrc%5Etfw">April 4, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+補足: 焼きなましで有名なterry\_u16さんのことではないです。そもそもあの方UECじゃないですしお寿司。
 
 - 二郎系
 
