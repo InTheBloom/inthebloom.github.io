@@ -4,7 +4,7 @@
     <title>典型テク on InTheDayDream</title>
     <link>https://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/</link>
     <description>Recent content in 典型テク on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/index.xml" rel="self" type="application/rss+xml" />
@@ -13,105 +13,105 @@
       <link>https://inthebloom.github.io/post/subsequences-by-delimiter/</link>
       <pubDate>Tue, 03 Dec 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/subsequences-by-delimiter/</guid>
-      <description></description>
+      <description>概要 次の問題を解くアルゴリズムを考えます。</description>
     </item>
     <item>
       <title>UnionFindによる区間の統合</title>
       <link>https://inthebloom.github.io/post/unifying-segments-with-unionfind/</link>
       <pubDate>Tue, 19 Nov 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/unifying-segments-with-unionfind/</guid>
-      <description></description>
+      <description>概要 $N$個の区間を考えて、$i$個目の区間を$[i, i + 1)$とします。 $O(N)$くらいが許されるとき、隣り合う区間を統合するクエリをUnionFindで処理することができます。 より具体的には、次の操作をならし$O(\alpha (n))$時間で行うことができます。</description>
     </item>
     <item>
       <title>[覚書] 陽なDAG上のdpを楽に処理する</title>
       <link>https://inthebloom.github.io/post/dp-in-explicit-dag/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/dp-in-explicit-dag/</guid>
-      <description></description>
+      <description>定義 本稿におけるDAGとは、次のことを指します。</description>
     </item>
     <item>
       <title>[メモ] Functional Graph上のシミュレーション</title>
       <link>https://inthebloom.github.io/post/functional-graph-simulating/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/functional-graph-simulating/</guid>
-      <description></description>
+      <description>概要 本稿において、$N$頂点$N$辺からなる有向グラフであって、すべての頂点の出次数が1であるグラフをfunctional graphと呼ぶ。</description>
     </item>
     <item>
       <title>三井住友信託銀行プログラミングコンテスト2019F - Interval Running</title>
       <link>https://inthebloom.github.io/post/sumitb2019f/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/sumitb2019f/</guid>
-      <description></description>
+      <description>問題概要 問題文 高橋くんと青木くんが同じ方向に向かって走っている。</description>
     </item>
     <item>
       <title>ABC35D - トレジャーハント</title>
       <link>https://inthebloom.github.io/post/abc35d/</link>
       <pubDate>Tue, 12 Mar 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc35d/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク 問題文 $1$から$N$の番号が割り振られた$N$個の町があり、$M$本の道がこれらの町を結んでいる。 $i$番目の道を用いることで$a _ i$番目の町から$b _ i$番目の町へと移動できるが、逆はできない。</description>
     </item>
     <item>
       <title>尺取り法備忘録</title>
       <link>https://inthebloom.github.io/post/two-pointer-approach/</link>
       <pubDate>Thu, 22 Feb 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/two-pointer-approach/</guid>
-      <description></description>
+      <description>尺取り法、してますか？ 条件を満たす列に対して</description>
     </item>
     <item>
       <title>No.2616 中央番目の中央値</title>
       <link>https://inthebloom.github.io/post/yukicoder2616/</link>
       <pubDate>Sat, 27 Jan 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/yukicoder2616/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク 長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</description>
     </item>
     <item>
       <title>列をいくつかの連続部分列へ分解する小技</title>
       <link>https://inthebloom.github.io/post/split-into-continuous-subsequences/</link>
       <pubDate>Wed, 13 Dec 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/split-into-continuous-subsequences/</guid>
-      <description></description>
+      <description>問題 数列$A$の連続部分列を、$i, j \in [1, N]$かつ$i \leq j$なる$i, j$を選択し、 $A$の$i$項目から$j$項目までを順番を変えずに取り出したものとし、$B_{i, j}$と表記することとする。</description>
     </item>
     <item>
       <title>ABC190F - Shift and Inversions</title>
       <link>https://inthebloom.github.io/post/abc190f/</link>
       <pubDate>Wed, 01 Nov 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc190f/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク $0$から$N-1$までの整数をちょうど一つづつ含む数列$A$が与えられる。 $k \in \mathbb{Z}$に対して、数列$B$を次のように定める。 $$ \begin{equation*} B \coloneqq \{b_i\}_{i=0}^{N-1}, ~ b_i = a_{i+k ~ \mathrm{mod} ~ N} \end{equation*} $$ $k = 0, 1, 2, \dots , N-1$のそれぞれに対して、$B$の転倒数を求めよ。</description>
     </item>
     <item>
       <title>ABC235E、あるいはクエリ並列処理</title>
       <link>https://inthebloom.github.io/post/abc235e/</link>
       <pubDate>Tue, 31 Oct 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc235e/</guid>
-      <description></description>
+      <description>問題概要 問題 辺の重みがすべて異なる無向連結グラフ$G$が与えられる。 さらに、クエリ$i$で$G$中のどの辺とも異なる重みをもつ辺$(u_i, v_i, w_i)$が与えられる。 クエリ$i$で与えられた辺を$G$に追加したグラフ$G&amp;rsquo;$を考える。 すべての$i$に対して、辺$(u_i, v_i, w_i)$は$G&amp;rsquo;$の最小全域木に含まれるか判定せよ。</description>
     </item>
     <item>
       <title>Functional Graphのサイクル検出をいい感じに</title>
       <link>https://inthebloom.github.io/post/functional-graph-cycle/</link>
       <pubDate>Fri, 13 Oct 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/functional-graph-cycle/</guid>
-      <description></description>
+      <description>はじめに グラフ表現に帰着できる問題を考察していると、Functional Graphと呼ばれるグラフのサイクル検出に帰着する場合があります。 本稿では、Functional Graphのサイクル検出の比較的簡単な実装を紹介します。</description>
     </item>
     <item>
       <title>割れるし割りたいのに割れない数を割る方法</title>
       <link>https://inthebloom.github.io/post/mod-division-tech/</link>
       <pubDate>Thu, 05 Oct 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/mod-division-tech/</guid>
-      <description></description>
+      <description>状況設定 $x, ~ y, ~ z \in \mathbb N$ $x\%y = 0$ $1 &amp;lt; \mathrm{gcd}(y, z)$ $x$は陽に求められないほど大きく、$y$、$z$は常識的な大きさ 問題 $xy^{-1}$を$z$で割った非負最小剰余を求めよ。</description>
     </item>
     <item>
       <title>ABC202D - aab aba baa</title>
       <link>https://inthebloom.github.io/post/abc202d/</link>
       <pubDate>Sun, 24 Sep 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc202d/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク A個のaとB個のbからなる文字列であって、辞書順でK番目のものを求めよ。</description>
     </item>
     <item>
       <title>unstableをstableにする小技</title>
       <link>https://inthebloom.github.io/post/sorttech/</link>
       <pubDate>Mon, 03 Jul 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/sorttech/</guid>
-      <description></description>
+      <description>はじめに 先日(2023/7/1)の ABC308 のC問題にややこしいソート問題が出ました。 本稿はその問題を簡潔に解く実装のアイディアの紹介です。</description>
     </item>
   </channel>
 </rss>

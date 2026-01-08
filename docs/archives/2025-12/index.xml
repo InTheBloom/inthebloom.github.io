@@ -4,7 +4,7 @@
     <title>2025-12 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2025-12/</link>
     <description>Recent content in 2025-12 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 02 Jan 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2025-12/index.xml" rel="self" type="application/rss+xml" />
@@ -13,21 +13,21 @@
       <link>https://inthebloom.github.io/post/2025-final/</link>
       <pubDate>Wed, 31 Dec 2025 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/2025-final/</guid>
-      <description></description>
+      <description>まえがき 毎年恒例の年末エントリ。 今年で3年目です。 2023年版と2024年版を見たことある人はこのブログのプロ名乗っていいですよ。</description>
     </item>
     <item>
       <title>最近知ったスライド最小値関連のアルゴリズムをご紹介</title>
       <link>https://inthebloom.github.io/post/uecpg-advent2025-2/</link>
       <pubDate>Sat, 13 Dec 2025 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/uecpg-advent2025-2/</guid>
-      <description></description>
+      <description>はじめに 本エントリは 電通大プログラミング教室 Advent Calendar 2025 の13日目です。</description>
     </item>
     <item>
       <title>gVimのススメ &#43; 私のVim操作</title>
       <link>https://inthebloom.github.io/post/uecpg-advent2025/</link>
       <pubDate>Mon, 08 Dec 2025 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/uecpg-advent2025/</guid>
-      <description></description>
+      <description>はじめに 本エントリは 電通大プログラミング教室 Advent Calendar 2025 の8日目です。 少々用事がありまして公開がクソ遅くなりました。JSTで8日中なのでセーフという説にかけます。</description>
     </item>
   </channel>
 </rss>
