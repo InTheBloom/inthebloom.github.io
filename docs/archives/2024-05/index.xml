@@ -4,7 +4,7 @@
     <title>2024-05 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2024-05/</link>
     <description>Recent content in 2024-05 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Mon, 27 May 2024 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2024-05/index.xml" rel="self" type="application/rss+xml" />
@@ -13,21 +13,21 @@
       <link>https://inthebloom.github.io/post/dp-in-explicit-dag/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/dp-in-explicit-dag/</guid>
-      <description></description>
+      <description>定義 本稿におけるDAGとは、次のことを指します。</description>
     </item>
     <item>
       <title>No.2758 RDQ</title>
       <link>https://inthebloom.github.io/post/yukicoder2758/</link>
       <pubDate>Sat, 18 May 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/yukicoder2758/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク 問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$が与えられる。次の$Q$個の質問に答えよ。</description>
     </item>
     <item>
       <title>ABC352参加記録</title>
       <link>https://inthebloom.github.io/post/abc352/</link>
       <pubDate>Mon, 06 May 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc352/</guid>
-      <description></description>
+      <description>はじめに いくつかの理由でしばらく更新していませんでしたが、久しぶりに更新することにしました。</description>
     </item>
   </channel>
 </rss>

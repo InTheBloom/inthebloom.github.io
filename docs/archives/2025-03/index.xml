@@ -4,7 +4,7 @@
     <title>2025-03 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2025-03/</link>
     <description>Recent content in 2025-03 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2025-03/index.xml" rel="self" type="application/rss+xml" />
@@ -13,21 +13,21 @@
       <link>https://inthebloom.github.io/post/slicing-co-routine/</link>
       <pubDate>Fri, 21 Mar 2025 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/slicing-co-routine/</guid>
-      <description></description>
+      <description>はじめに このエントリの内容は誤りを含む可能性が高いです。ご注意ください。 指摘等は歓迎しますので、 twitter までお願いします。</description>
     </item>
     <item>
       <title>めぐる式二分探索亜種を使ってみませんか？</title>
       <link>https://inthebloom.github.io/post/easy-to-use-binarysearch/</link>
       <pubDate>Sun, 16 Mar 2025 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/easy-to-use-binarysearch/</guid>
-      <description></description>
+      <description>はじめに 私の中で今のところ一番しっくり来ている二分探索の抽象化を紹介します。</description>
     </item>
     <item>
       <title>ABC396 A-F</title>
       <link>https://inthebloom.github.io/post/abc396/</link>
       <pubDate>Wed, 12 Mar 2025 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc396/</guid>
-      <description></description>
+      <description>A - Triple Four 問題 問題文の通り$A _ i = A _ {i + 1} = A _ {i + 2}$を判定していけば良い。各$i$について$O(1)$個の項を見れば良いので、全体で$O(N)$時間。</description>
     </item>
   </channel>
 </rss>

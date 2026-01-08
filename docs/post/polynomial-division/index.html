@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>O(NM)時間多項式除算 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=b13c787981aa71b33eac4c42b72a6cb058db35c9">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=b13c787981aa71b33eac4c42b72a6cb058db35c9">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=b13c787981aa71b33eac4c42b72a6cb058db35c9">
+<link rel="alternate" href="/index.xml?c=b13c787981aa71b33eac4c42b72a6cb058db35c9" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="O(NM)時間多項式除算 - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/polynomial-division/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="O(NM)時間多項式除算 - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/polynomial-division/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=b13c787981aa71b33eac4c42b72a6cb058db35c9">
+<link rel="stylesheet" href="/css/color.css?c=b13c787981aa71b33eac4c42b72a6cb058db35c9">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=b13c787981aa71b33eac4c42b72a6cb058db35c9">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>O(NM)時間多項式除算</h1>
+
+<span class="sub">Published on 2026-01-09</span><br>
+<span class="sub">Last Modified 2026-01-09</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題">問題</a></li>
+    <li><a href="#解法">解法</a></li>
+    <li><a href="#実装例">実装例</a></li>
+    <li><a href="#補足">補足</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="問題">問題</h2>
+<ul>
+<li>$N$次多項式$A(x) = A _ N x ^ N + A _ {N - 1} x ^ {N - 1} + \dots + A _ 0$</li>
+<li>$M$次多項式$B(x) = B _ M x ^ M + B _ {M - 1} x ^ {M - 1} + \dots B _ 0$</li>
+<li>$N + M$次多項式$C(x) = A(x)B(x) = C _ {N + M} x ^ {N + M} + C _ {N + M - 1} x ^ {N + M - 1} + \dots + C _ 0$</li>
+</ul>
+<p>がある。$A(x), C(x)$が与えられるので、$B(x)$を求めよ。</p>
+<h2 id="解法">解法</h2>
+<p>$B _ i$を求めるときに$C _ {N + i}$を利用するとよいです。以下では$C _ {N + i}$から$B _ i$を求める具体的な手順を示します。</p>
+<p>まず、多項式の積の定義から、
+$$C _ {N + i} = \sum _ {p + q = N + i} A _ p B _ q$$です。
+展開すると、
+$$C _ {N + i} = A _ N B _ i + A _ {N - 1} B _ {i + 1} + \dots + A _ {N - M + i} B _ M$$とできることがわかります。（注: $N - M + i &lt; 0$となる場合があるため、この立式では$A _ {i &lt; 0} = 0$として扱っています。実装上では負の項にアクセスしないよう条件分岐等が必要です。）
+右辺をよく見ると、依存している項は$B _ i, B _ {i + 1}, \dots, B _ M$となっています。
+そこで、$B _ i$が関与する項以外を移項して、
+$$C _ {N + i} - A _ {N - 1} B _ {i + 1} - \dots - A _ {N - M + i} B _ M = A _ N B _ i$$とできます。
+$A _ N \neq 0$であったことから、$A _ N$で割ることができて、
+$$B _ i = \frac{C _ {N + i} - A _ {N - 1} B _ {i + 1} - \dots - A _ {N - M + i} B _ M}{A _ N}$$
+が成立します。
+$A(x), C(x)$が与えられていること、$B _ i$より高次の項にしか依存しないことを踏まえると、$B(x)$の高次の項から求めていくことができます。
+分子を計算するのに$O(N)$かかり、それを$M$回行えばよいため$O(NM)$時間です。</p>
+<h2 id="実装例">実装例</h2>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc245/tasks/abc245_d"
+  
+   target="_blank" rel="noopener">
+    ABC245D - Polynomial division
+</a>
+を解きます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> M<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> M<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> A <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> C <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 最高次の係数から順に求めていく。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// より具体的には、B[i]を求めるとき
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// C[N + i] = A[N]B[i] + A[N - 1]B[i + 1] + ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// C[N + i] - A[N - 1]B[i + 1] - ... = A[N]B[i]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// として、A[N] != 0を利用して計算する。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> B <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>M <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach_reverse</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> M <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// より高次のBの寄与を計算
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> val <span style="color:#f92672">=</span> C<span style="color:#f92672">[</span>N <span style="color:#f92672">+</span> i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">..</span> M <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> N <span style="color:#f92672">+</span> i <span style="color:#f92672">-</span> j<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                val <span style="color:#f92672">-=</span> B<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">*</span> A<span style="color:#f92672">[</span>N <span style="color:#f92672">+</span> i <span style="color:#f92672">-</span> j<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        B<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> val <span style="color:#f92672">/</span> A<span style="color:#f92672">[</span>N<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writefln<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%(%s %)&#34;</span><span style="color:#f92672">,</span> B<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">...)</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.conv <span style="color:#f92672">:</span> to<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.array <span style="color:#f92672">:</span> split<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="補足">補足</h2>
+<p>$S = \max(N, M)$として、$O(S \log S)$時間の解法が存在します。
+
+<a
+  
+    href="https://drken1215.hatenablog.com/entry/2022/03/29/190000"
+  
+   target="_blank" rel="noopener">
+    drken1215さんの解説
+</a>
+</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/2025-final/">End of 2025</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-09</div>
+  <div class="post-title"><a href="/post/polynomial-division/">O(NM)時間多項式除算</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-12-13</div>
+  <div class="post-title"><a href="/post/uecpg-advent2025-2/">最近知ったスライド最小値関連のアルゴリズムをご紹介</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-08-21</div>
+  <div class="post-title"><a href="/post/solve-extra-constraints/">ABC239EとABC372Eをより強い条件で解いてみる</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "数学"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-09</div>
+  <div class="post-title"><a href="/post/polynomial-division/">O(NM)時間多項式除算</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-02-15</div>
+  <div class="post-title"><a href="/post/geometric-progression-sum/">等比数列の和を計算する2つの対数時間アルゴリズム</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2023-11-06</div>
+  <div class="post-title"><a href="/post/abc100d/">ABC100D - Patisserie ABC</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e6%95%b0%e5%ad%a6/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-09</div>
+  <div class="post-title"><a href="/post/polynomial-division/">O(NM)時間多項式除算</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-12-13</div>
+  <div class="post-title"><a href="/post/uecpg-advent2025-2/">最近知ったスライド最小値関連のアルゴリズムをご紹介</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-07-12</div>
+  <div class="post-title"><a href="/post/range-kth-smallest-part2/">Range Kth Smallestに対するもう2つの解法</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-09</div>
+  <div class="post-title"><a href="/post/polynomial-division/">O(NM)時間多項式除算</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-09</div>
+  <div class="post-title"><a href="/post/aoj1668/">ICPC国内予選2023 Problem E - Tampered Records（改竄された史料）</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-10-29</div>
+  <div class="post-title"><a href="/post/icpc-2024-domestic-d/">ICPC模擬国内予選D 過去問の共有</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

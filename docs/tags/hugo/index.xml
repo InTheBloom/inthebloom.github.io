@@ -4,7 +4,7 @@
     <title>Hugo on InTheDayDream</title>
     <link>https://inthebloom.github.io/tags/hugo/</link>
     <description>Recent content in Hugo on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sat, 23 Sep 2023 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://inthebloom.github.io/post/hugo-setting/</link>
       <pubDate>Fri, 15 Sep 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/hugo-setting/</guid>
-      <description></description>
+      <description>手動ブログ運営はしんどい！ さて、皆様はhatenablogなどのサービスを全く介さずに、単にインターネット上の置き場所にWebページを展開したことがありますでしょうか？ 私がしばらく運営している当ブログは、github pagesを利用した完全な手動運用のサイトです。</description>
     </item>
   </channel>
 </rss>
