@@ -6,8 +6,15 @@
     <description>Recent content in Posts on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 23 Jan 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ナップサック問題の復元</title>
+      <link>https://inthebloom.github.io/post/knapsack-restoration/</link>
+      <pubDate>Fri, 23 Jan 2026 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/knapsack-restoration/</guid>
+      <description>はじめに 今回は ABC441F - Must Buy を題材にして、ナップサック問題の最適解を与える操作列を復元する手法を解説します。</description>
+    </item>
     <item>
       <title>O(NM)時間多項式除算</title>
       <link>https://inthebloom.github.io/post/polynomial-division/</link>
