@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2022-11 on InTheDayDream</title>
-    <link>https://inthebloom.github.io/archives/2022-11/</link>
+    <link>http://localhost:1313/archives/2022-11/</link>
     <description>Recent content in 2022-11 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://inthebloom.github.io/archives/2022-11/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/archives/2022-11/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC279参加してきた！</title>
-      <link>https://inthebloom.github.io/post/abc279/</link>
+      <link>http://localhost:1313/post/abc279/</link>
       <pubDate>Sun, 27 Nov 2022 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc279/</guid>
+      <guid>http://localhost:1313/post/abc279/</guid>
       <description>はじめに 今回 ABC279 に参加してきましたので，その記録です。</description>
     </item>
     <item>
       <title>ABC278に参加してみた！</title>
-      <link>https://inthebloom.github.io/post/abc278/</link>
+      <link>http://localhost:1313/post/abc278/</link>
       <pubDate>Sat, 19 Nov 2022 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc278/</guid>
+      <guid>http://localhost:1313/post/abc278/</guid>
       <description>こんにちは。 In です。この度初めて競技プログラミング，もといAtCoderに参加してみたので，その記録もかねてこの記事に残しておきます。注意: 筆者はプログラミング初心者なので競プロ的には特に参考になる点はありません。</description>
     </item>
   </channel>

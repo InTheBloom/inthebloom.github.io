@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ナップサック問題の復元 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=a04ded86752f566af137f22f85e5075d20cd90cc">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=a04ded86752f566af137f22f85e5075d20cd90cc">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=a04ded86752f566af137f22f85e5075d20cd90cc">
+<link rel="alternate" href="/index.xml?c=a04ded86752f566af137f22f85e5075d20cd90cc" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="ナップサック問題の復元 - InTheDayDream">
+<meta property="og:url" content="http://localhost:1313/post/knapsack-restoration/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="http://localhost:1313//images/knapsack-restoration/dp-final.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="ナップサック問題の復元 - InTheDayDream">
+<meta name="twitter:url" content="http://localhost:1313/post/knapsack-restoration/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="http://localhost:1313//images/knapsack-restoration/dp-final.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=a04ded86752f566af137f22f85e5075d20cd90cc">
+<link rel="stylesheet" href="/css/color.css?c=a04ded86752f566af137f22f85e5075d20cd90cc">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=a04ded86752f566af137f22f85e5075d20cd90cc">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>ナップサック問題の復元</h1>
+
+<span class="sub">Published on 2026-01-23</span><br>
+<span class="sub">Last Modified 2026-01-23</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#ナップサック問題の解法">ナップサック問題の解法</a></li>
+    <li><a href="#復元">復元</a></li>
+    <li><a href="#実装例">実装例</a></li>
+    <li><a href="#別解">別解</a></li>
+    <li><a href="#補足">補足</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="はじめに">はじめに</h2>
+<p>今回は
+<a
+  
+    href="https://atcoder.jp/contests/abc441/tasks/abc441_f"
+  
+   target="_blank" rel="noopener">
+    ABC441F - Must Buy
+</a>
+を題材にして、ナップサック問題の最適解を与える操作列を復元する手法を解説します。</p>
+<h2 id="ナップサック問題の解法">ナップサック問題の解法</h2>
+<p>ナップサック問題とは、次の問題のことです。</p>
+<blockquote>
+<p>容量が$M$のナップサックと、$N$個の物がある。
+$i$番目の物は価値が$V[i]$、大きさが$P[i]$である。
+ナップサックに入れる物を$0$個以上選び、容量制限を守りつつ価値を最大化せよ。</p>
+</blockquote>
+<p>これを解くためには、次のような部分問題を設定します。
+$$\mathrm{dp}[i][j] \coloneqq 先頭i個のものそれぞれを高々1つとり、重さがjであるとき実現できる最大価値$$
+この部分問題を$i$の昇順に更新します。
+$i = j = 0$は物をどれも選んでいない状態に該当すると考えて、$\mathrm{dp}[0][0] = 0$としておきます。
+$i = 0, 0 &lt; j$は実現不可能な状態なので、$\mathrm{dp}[0][j] = -\infty$としておきます。
+また、$0 &lt; i$の部分問題は未定なので、暫定的に$-\infty$としておきます。</p>
+<p>更新はある状態から物をナップサックに入れるか入れないかの2通りで、入れない場合を
+$$\mathrm{dp}[i + 1][j] = \max(\mathrm{dp}[i + 1][j], \mathrm{dp}[i][j])$$
+として、入れる場合を
+$$\mathrm{dp}[i + 1][j + P[i]] = \max(\mathrm{dp}[i + 1][j + P[i]], \mathrm{dp}[i][j] + V[i])$$
+として表現します。</p>
+<p>これらを行った後、$\max _ {0 \leq j \leq M}(\mathrm{dp}[N][j])$がありえる最大価値になります。</p>
+<h2 id="復元">復元</h2>
+<p>ABC441Fで求められている通り、各物に対して、</p>
+<ol>
+<li>その物を入れないで最大価値を達成することができない</li>
+<li>その物を入れて最大価値を達成することができない</li>
+<li>どちらでもない</li>
+</ol>
+<p>のいずれであるかを判定することを目標にします。
+これらの判定は、動的計画法の部分問題を頂点、遷移を辺と見て可視化すると理解しやすくなります。</p>
+<p>下図はサンプル1に対する初期のdpテーブルを示した図です。
+はじめ、$\mathrm{dp}[0][0]$だけ埋まっていて、残りは$-\infty$です。
+赤矢印はdpの遷移を表しており、右にまっすぐ進む遷移は物1をナップサックに入れないこと、右下に進む遷移は物1をナップサックに入れることに対応しています。</p>
+<p><img src="/images/knapsack-restoration/dp-init.jpg" alt="初期のdpテーブル"></p>
+<p>下図はすべての部分問題を解いた後のテーブルの様子です。
+各マスにはその条件で達成できる価値の最大値を記録してあります。
+残った矢印は「実際にmaxを更新できた遷移」です。
+（例えば、テーブルにおいて$\mathrm{dp}[i][j] &lt; \mathrm{dp}[i + 1][j]$となっている部分は右矢印がありません。これはその遷移によって最大値を取らなかったためです。）</p>
+<p><img src="/images/knapsack-restoration/dp-final.jpg" alt="最終的なdpテーブル"></p>
+<p>復元は$i$の降順に考えます。
+例えば$\mathrm{dp}[5][7]$と$\mathrm{dp}[5][6]$は$30$であり、このナップサック問題に対する最大価値となります。
+次に、矢印を1回たどってそれらのマスにたどり着けるマスを考えてみましょう。
+以下の図の赤いマスが最大価値を与えるマスで、緑のマスが有効な遷移で赤いマスにたどり着けるマスです。</p>
+<p><img src="/images/knapsack-restoration/dp-restore1.jpg" alt="最後の物による遷移"></p>
+<p>赤いマス、緑のマス、矢印の関係を考えてみます。
+まず、各マスは「先頭$i$個のものそれぞれ高々1つとり、重さが$j$であるときに実現できる最大価値」を、矢印は、物をナップサックに入れるかどうかの選択を表すのでした。
+ということは、赤いマスに矢印が伸びていないマス（緑のマス<strong>以外</strong>）はこの時点で
+「最後の物を取ろうが取らまいが、最適解にはなりえない状態」
+であることがわかります。</p>
+<p>また、緑のマスから右下に伸びる矢印以外で赤マスにたどり着けないことから、このナップサック問題のインスタンスでは
+「最後のものを取らないという選択をした場合、最適解になりえない」
+ということもわかります。
+以上より、最後の物は、最適解にたどり着くためには必ず入れる必要があることがわかります。</p>
+<p>さて、それ以前の物について考えてみましょう。
+とはいっても考え方は同じで、最終的に赤いマスに続くパスが存在するマス以外は最適解になりえないので、今度は緑のマスが目的地になります。
+下図は後ろから2番目の物による遷移のみ残した図です。
+緑のマスに行けるマス（黄色のマス）のみが最適解になりえる状態であり、さらに、物を取る遷移と取らない遷移両方が存在します。
+つまり、この物を取る最適解と取らない最適解が両方存在します。</p>
+<p><img src="/images/knapsack-restoration/dp-restore2.jpg" alt="最後の前の物による遷移"></p>
+<p>結局、この問題は「dpにおいて、状態と遷移の有向グラフを考えたとき、いくつかの頂点に対して使える辺を制限してもゴールへのパスが存在するか」を問うものだと言えそうです。
+例えばこのグラフにさらに一工夫加えて、「最大価値かつ入れた物の数が最大である選び方を1通り示す」等もできそうです。（DAGの最長経路問題に帰着。）</p>
+<h2 id="実装例">実装例</h2>
+<p>ABC441F - Must Buyに正解するプログラムを掲載します。</p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc441/submissions/72612520"
+  
+   target="_blank" rel="noopener">
+    提出（547ms/397340KiB）
+</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> M<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> M<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> P <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> V <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>P<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> V<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> dp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[][](</span>N <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> M <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#66d9ef">long</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    dp<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> M <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#66d9ef">long</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 取らない
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            dp<span style="color:#f92672">[</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> max<span style="color:#f92672">(</span>dp<span style="color:#f92672">[</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">][</span>j<span style="color:#f92672">],</span> dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 取る
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>j <span style="color:#f92672">+</span> P<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> M<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                dp<span style="color:#f92672">[</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">][</span>j <span style="color:#f92672">+</span> P<span style="color:#f92672">[</span>i<span style="color:#f92672">]]</span> <span style="color:#f92672">=</span> max<span style="color:#f92672">(</span>dp<span style="color:#f92672">[</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">][</span>j <span style="color:#f92672">+</span> P<span style="color:#f92672">[</span>i<span style="color:#f92672">]],</span> dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> V<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 最大価値
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">long</span> mVal <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> M <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        mVal <span style="color:#f92672">=</span> max<span style="color:#f92672">(</span>mVal<span style="color:#f92672">,</span> dp<span style="color:#f92672">[</span>N<span style="color:#f92672">][</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 二次元グリッドにおいて、
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 1. (i, j) -&gt; (i + 1, j)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 2. (i, j) -&gt; (i + 1, j + P[i])
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// の2本の辺を貼ったグラフだと考える。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// ただし、辺が効力を持つのは
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 1. dp[i][j] = dp[i + 1][j]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 2. dp[i][j] + V[i] = dp[i + 1][j + P[i]]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// が満たされるときのみとする。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// まず、(N, *)のうちmValを持つマスが最終到達目標。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// (N - 1, *)のうち、そのようなマスに行ける場所を列挙する。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 1の辺が伸びている場合、そのアイテムを使わずとも目標地点に行ける。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 2の辺が伸びている場合、そのアイテムを使って目標地点に行ける。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 今度は目標地点へのパスが存在する頂点が新しい目標地点になっている。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> type <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> isGoal <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span><span style="color:#f92672">[](</span>M <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> nIsGoal <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span><span style="color:#f92672">[](</span>M <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 初期の到達目標
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> M <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dp<span style="color:#f92672">[</span>N<span style="color:#f92672">][</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> mVal<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            isGoal<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach_reverse</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        nIsGoal<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> M <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#66d9ef">long</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>isGoal<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> dp<span style="color:#f92672">[</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">][</span>j<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                nIsGoal<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                type<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">|=</span> <span style="color:#ae81ff">0b01</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>j <span style="color:#f92672">+</span> P<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> M <span style="color:#f92672">&amp;&amp;</span> isGoal<span style="color:#f92672">[</span>j <span style="color:#f92672">+</span> P<span style="color:#f92672">[</span>i<span style="color:#f92672">]]</span> <span style="color:#f92672">&amp;&amp;</span> dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> V<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> dp<span style="color:#f92672">[</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">][</span>j <span style="color:#f92672">+</span> P<span style="color:#f92672">[</span>i<span style="color:#f92672">]])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                nIsGoal<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                type<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">|=</span> <span style="color:#ae81ff">0b10</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        swap<span style="color:#f92672">(</span>isGoal<span style="color:#f92672">,</span> nIsGoal<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> ans <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>type<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0b10</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">~=</span> <span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>type<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0b11</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">~=</span> <span style="color:#e6db74">&#34;B&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>type<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0b01</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">~=</span> <span style="color:#e6db74">&#34;C&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">...)</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.conv <span style="color:#f92672">:</span> to<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.array <span style="color:#f92672">:</span> split<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="別解">別解</h2>
+<p>両側からdpすることもできます。
+$$\mathrm{dp} _ 1[i][j] \coloneqq 先頭i個のものそれぞれを高々1つとり、重さがjであるとき実現できる最大価値$$
+$$\mathrm{dp} _ 2[i][j] \coloneqq 末尾i個のものそれぞれを高々1つとり、重さがjであるとき実現できる最大価値$$
+を計算し、さらに$\mathrm{dp} _ 2[i][j]$の方を$j$の昇順にchmaxすることで
+$$\mathrm{dp} _ 2[i][j] \coloneqq 末尾i個のものそれぞれを高々1つとり、重さがj以下であるとき実現できる最大価値$$
+としておきます。</p>
+<p>もの（$P[i], V[i]$）を判定するときは、$0 \leq j \leq M$に対して$\mathrm{dp} _ 1[i][j] + V[i] + \mathrm{dp} _ 2[N - i - 1][M - j - P[i]]$を計算し、いずれかが最大価値となるならば、そのものを選んで最大価値を実現する選び方が存在することがわかります。
+選ばない方もやり方はほぼ同じです。</p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc441/submissions/72542169"
+  
+   target="_blank" rel="noopener">
+    提出（902ms/789224KiB）
+</a>
+</p>
+<h2 id="補足">補足</h2>
+<p>今回はdpを埋め終わった後に辺が有効だったかどうかを逐次計算しましたが、場合によってはどちらの遷移が有効だったかを表す配列を用意したほうが良い場合があるかもしれません。
+今回の問題では判定が簡単であること、空間計算量的に有利であることから逐次計算しました。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/polynomial-division/">O(NM)時間多項式除算</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-23</div>
+  <div class="post-title"><a href="/post/knapsack-restoration/">ナップサック問題の復元</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-09</div>
+  <div class="post-title"><a href="/post/polynomial-division/">O(NM)時間多項式除算</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-12-13</div>
+  <div class="post-title"><a href="/post/uecpg-advent2025-2/">最近知ったスライド最小値関連のアルゴリズムをご紹介</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-23</div>
+  <div class="post-title"><a href="/post/knapsack-restoration/">ナップサック問題の復元</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-09</div>
+  <div class="post-title"><a href="/post/polynomial-division/">O(NM)時間多項式除算</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-12-13</div>
+  <div class="post-title"><a href="/post/uecpg-advent2025-2/">最近知ったスライド最小値関連のアルゴリズムをご紹介</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-23</div>
+  <div class="post-title"><a href="/post/knapsack-restoration/">ナップサック問題の復元</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-09</div>
+  <div class="post-title"><a href="/post/polynomial-division/">O(NM)時間多項式除算</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-04-09</div>
+  <div class="post-title"><a href="/post/aoj1668/">ICPC国内予選2023 Problem E - Tampered Records（改竄された史料）</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

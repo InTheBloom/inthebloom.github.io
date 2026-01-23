@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数学 on InTheDayDream</title>
-    <link>https://inthebloom.github.io/tags/%E6%95%B0%E5%AD%A6/</link>
+    <link>http://localhost:1313/tags/%E6%95%B0%E5%AD%A6/</link>
     <description>Recent content in 数学 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://inthebloom.github.io/tags/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>O(NM)時間多項式除算</title>
-      <link>https://inthebloom.github.io/post/polynomial-division/</link>
+      <link>http://localhost:1313/post/polynomial-division/</link>
       <pubDate>Fri, 09 Jan 2026 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/polynomial-division/</guid>
+      <guid>http://localhost:1313/post/polynomial-division/</guid>
       <description>問題 $N$次多項式$A(x) = A _ N x ^ N + A _ {N - 1} x ^ {N - 1} + \dots + A _ 0$ $M$次多項式$B(x) = B _ M x ^ M + B _ {M - 1} x ^ {M - 1} + \dots B _ 0$ $N + M$次多項式$C(x) = A(x)B(x) = C _ {N + M} x ^ {N + M} + C _ {N + M - 1} x ^ {N + M - 1} + \dots + C _ 0$ がある。$A(x), C(x)$が与えられるので、$B(x)$を求めよ。</description>
     </item>
     <item>
       <title>等比数列の和を計算する2つの対数時間アルゴリズム</title>
-      <link>https://inthebloom.github.io/post/geometric-progression-sum/</link>
+      <link>http://localhost:1313/post/geometric-progression-sum/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/geometric-progression-sum/</guid>
+      <guid>http://localhost:1313/post/geometric-progression-sum/</guid>
       <description>概要 隣り合う2つの項の比が一定である数列を、等比数列という。 より厳密には、初項$a$、公比$r$によって定まる次の数列のことを指す。</description>
     </item>
     <item>
       <title>ABC100D - Patisserie ABC</title>
-      <link>https://inthebloom.github.io/post/abc100d/</link>
+      <link>http://localhost:1313/post/abc100d/</link>
       <pubDate>Mon, 06 Nov 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/abc100d/</guid>
+      <guid>http://localhost:1313/post/abc100d/</guid>
       <description>問題概要 問題へのリンク $N$種類のケーキがある。$i$種類目のケーキは「綺麗さ」$x_i$、「おいしさ」$y_i$、「人気度」$z_i$を持っている。 このうち$M$種類のケーキを選んで食べる。ただし、同じ種類のケーキを2つとることはできない。</description>
     </item>
     <item>
       <title>割れるし割りたいのに割れない数を割る方法</title>
-      <link>https://inthebloom.github.io/post/mod-division-tech/</link>
+      <link>http://localhost:1313/post/mod-division-tech/</link>
       <pubDate>Thu, 05 Oct 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/mod-division-tech/</guid>
+      <guid>http://localhost:1313/post/mod-division-tech/</guid>
       <description>状況設定 $x, ~ y, ~ z \in \mathbb N$ $x\%y = 0$ $1 &amp;lt; \mathrm{gcd}(y, z)$ $x$は陽に求められないほど大きく、$y$、$z$は常識的な大きさ 問題 $xy^{-1}$を$z$で割った非負最小剰余を求めよ。</description>
     </item>
     <item>
       <title>繰り返し二乗法について</title>
-      <link>https://inthebloom.github.io/post/modpow/</link>
+      <link>http://localhost:1313/post/modpow/</link>
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/modpow/</guid>
+      <guid>http://localhost:1313/post/modpow/</guid>
       <description>はじめに この度私のライブラリに冪乗の余りを求める、いわゆるmodPow関数を追加しました。 丁度いい機会ということで、本稿ではmodpowの仕組みを説明し、詳細な実装方法と実装例を示します。 数学をガバっていたらすみません。</description>
     </item>
   </channel>
