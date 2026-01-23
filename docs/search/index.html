@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
+
+
 
 
 
@@ -12,33 +14,33 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=92be074b41a30dd4956d25b52aabc37abb63c33e">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=92be074b41a30dd4956d25b52aabc37abb63c33e">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=92be074b41a30dd4956d25b52aabc37abb63c33e">
-<link rel="alternate" href="/index.xml?c=92be074b41a30dd4956d25b52aabc37abb63c33e" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=e462f2bb26328c4f47bcfa7dcc5dd629f1cdbbe8">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=e462f2bb26328c4f47bcfa7dcc5dd629f1cdbbe8">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=e462f2bb26328c4f47bcfa7dcc5dd629f1cdbbe8">
+<link rel="alternate" href="/index.xml?c=e462f2bb26328c4f47bcfa7dcc5dd629f1cdbbe8" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="サイト内全文検索 - InTheDayDream">
-<meta property="og:url" content="http://localhost:1313/search/">
+<meta property="og:url" content="https://inthebloom.github.io/search/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="InTheDayDream">
 <meta property="og:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@UU9782wsEdANDhp">
 <meta name="twitter:creator" content="@UU9782wsEdANDhp">
 <meta name="twitter:title" content="サイト内全文検索 - InTheDayDream">
-<meta name="twitter:url" content="http://localhost:1313/search/">
+<meta name="twitter:url" content="https://inthebloom.github.io/search/">
 <meta name="twitter:description" content="">
 
-<meta property="og:image" content="http://localhost:1313//images/featured_image.jpg">
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=92be074b41a30dd4956d25b52aabc37abb63c33e">
-<link rel="stylesheet" href="/css/color.css?c=92be074b41a30dd4956d25b52aabc37abb63c33e">
+<link rel="stylesheet" href="/css/main.css?c=e462f2bb26328c4f47bcfa7dcc5dd629f1cdbbe8">
+<link rel="stylesheet" href="/css/color.css?c=e462f2bb26328c4f47bcfa7dcc5dd629f1cdbbe8">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=92be074b41a30dd4956d25b52aabc37abb63c33e">
+<link rel="stylesheet" href="/css/custom.css?c=e462f2bb26328c4f47bcfa7dcc5dd629f1cdbbe8">
 
 
 
@@ -139,20 +141,26 @@ const data = [
   {
     url: "/",
     title: "InTheDayDream",
-    date: "2026-01-09T00:00:00+09:00",
+    date: "2026-01-23T00:00:00+09:00",
     body: "InTheDayDream"
+  },
+  {
+    url: "/post/",
+    title: "Posts",
+    date: "2026-01-23T00:00:00+09:00",
+    body: "Posts"
+  },
+  {
+    url: "/post/knapsack-restoration/",
+    title: "ナップサック問題の復元",
+    date: "2026-01-23T00:00:00+09:00",
+    body: "ナップサック問題の復元 はじめに 今回は ABC441F - Must Buy を題材にして、ナップサック問題の最適解を与える操作列を復元する手法を解説します。 ナップサック問題の解法 ナップサック問題とは、次の問題のことです。 容量が$M$のナップサックと、$N$個の物がある。 $i$番目の物は価値が$V[i]$、大きさが$P[i]$である。 ナップサックに入れる物を$0$個以上選び、容量制限を守りつつ価値を最大化せよ。 これを解くためには、次のような部分問題を設定します。 $$\\mathrm{dp}[i][j] \\coloneqq 先頭i個のものそれぞれを高々1つとり、重さがjであるとき実現できる最大価値$$ この部分問題を$i$の昇順に更新します。 $i = j = 0$は物をどれも選んでいない状態に該当すると考えて、$\\mathrm{dp}[0][0] = 0$としておきます。 $i = 0, 0 \u0026lt; j$は実現不可能な状態なので、$\\mathrm{dp}[0][j] = -\\infty$としておきます。 また、$0 \u0026lt; i$の部分問題は未定なので、暫定的に$-\\infty$としておきます。 更新はある状態から物をナップサックに入れるか入れないかの2通りで、入れない場合を $$\\mathrm{dp}[i + 1][j] = \\max(\\mathrm{dp}[i + 1][j], \\mathrm{dp}[i][j])$$ として、入れる場合を $$\\mathrm{dp}[i + 1][j + P[i]] = \\max(\\mathrm{dp}[i + 1][j + P[i]], \\mathrm{dp}[i][j] + V[i])$$ として表現します。 これらを行った後、$\\max _ {0 \\leq j \\leq M}(\\mathrm{dp}[N][j])$がありえる最大価値になります。 復元 ABC441Fで求められている通り、各物に対して、 その物を入れないで最大価値を達成することができない その物を入れて最大価値を達成することができない どちらでもない のいずれであるかを判定することを目標にします。 これらの判定は、動的計画法の部分問題を頂点、遷移を辺と見て可視化すると理解しやすくなります。 下図はサンプル1に対する初期のdpテーブルを示した図です。 はじめ、$\\mathrm{dp}[0][0]$だけ埋まっていて、残りは$-\\infty$です。 赤矢印はdpの遷移を表しており、右にまっすぐ進む遷移は物1をナップサックに入れないこと、右下に進む遷移は物1をナップサックに入れることに対応しています。 下図はすべての部分問題を解いた後のテーブルの様子です。 各マスにはその条件で達成できる価値の最大値を記録してあります。 残った矢印は「実際にmaxを更新できた遷移」です。 （例えば、テーブルにおいて$\\mathrm{dp}[i][j] \u0026lt; \\mathrm{dp}[i + 1][j]$となっている部分は右矢印がありません。これはその遷移によって最大値を取らなかったためです。） 復元は$i$の降順に考えます。 例えば$\\mathrm{dp}[5][7]$と$\\mathrm{dp}[5][6]$は$30$であり、このナップサック問題に対する最大価値となります。 次に、矢印を1回たどってそれらのマスにたどり着けるマスを考えてみましょう。 以下の図の赤いマスが最大価値を与えるマスで、緑のマスが有効な遷移で赤いマスにたどり着けるマスです。 赤いマス、緑のマス、矢印の関係を考えてみます。 まず、各マスは「先頭$i$個のものそれぞれ高々1つとり、重さが$j$であるときに実現できる最大価値」を、矢印は、物をナップサックに入れるかどうかの選択を表すのでした。 ということは、赤いマスに矢印が伸びていないマス（緑のマス以外）はこの時点で 「最後の物を取ろうが取らまいが、最適解にはなりえない状態」 であることがわかります。 また、緑のマスから右下に伸びる矢印以外で赤マスにたどり着けないことから、このナップサック問題のインスタンスでは 「最後のものを取らないという選択をした場合、最適解になりえない」 ということもわかります。 以上より、最後の物は、最適解にたどり着くためには必ず入れる必要があることがわかります。 さて、それ以前の物について考えてみましょう。 とはいっても考え方は同じで、最終的に赤いマスに続くパスが存在するマス以外は最適解になりえないので、今度は緑のマスが目的地になります。 下図は後ろから2番目の物による遷移のみ残した図です。 緑のマスに行けるマス（黄色のマス）のみが最適解になりえる状態であり、さらに、物を取る遷移と取らない遷移両方が存在します。 つまり、この物を取る最適解と取らない最適解が両方存在します。 結局、この問題は「dpにおいて、状態と遷移の有向グラフを考えたとき、いくつかの頂点に対して使える辺を制限してもゴールへのパスが存在するか」を問うものだと言えそうです。 例えばこのグラフにさらに一工夫加えて、「最大価値かつ入れた物の数が最大である選び方を1通り示す」等もできそうです。（DAGの最長経路問題に帰着。） 実装例 ABC441F - Must Buyに正解するプログラムを掲載します。 提出（547ms/397340KiB） import std; void main () { int N, M; readln.read(N, M); auto P = new int[](N); auto V = new int[](N); foreach (i; 0 .. N) { readln.read(P[i], V[i]); } auto dp = new long[][](N + 1, M + 1); foreach (i; 0 .. N + 1) { dp[i][] = -long.max; } dp[0][0] = 0; foreach (i; 0 .. N) { foreach (j; 0 .. M + 1) { if (dp[i][j] == -long.max) { continue; } // 取らない dp[i + 1][j] = max(dp[i + 1][j], dp[i][j]); // 取る if (j + P[i] \u0026lt;= M) { dp[i + 1][j + P[i]] = max(dp[i + 1][j + P[i]], dp[i][j] + V[i]); } } } // 最大価値 long mVal = 0; foreach (i; 0 .. M + 1) { mVal = max(mVal, dp[N][i]); } // 二次元グリッドにおいて、 // 1. (i, j) -\u0026gt; (i + 1, j) // 2. (i, j) -\u0026gt; (i + 1, j + P[i]) // の2本の辺を貼ったグラフだと考える。 // ただし、辺が効力を持つのは // 1. dp[i][j] = dp[i + 1][j] // 2. dp[i][j] + V[i] = dp[i + 1][j + P[i]] // が満たされるときのみとする。 // まず、(N, *)のうちmValを持つマスが最終到達目標。 // (N - 1, *)のうち、そのようなマスに行ける場所を列挙する。 // 1の辺が伸びている場合、そのアイテムを使わずとも目標地点に行ける。 // 2の辺が伸びている場合、そのアイテムを使って目標地点に行ける。 // 今度は目標地点へのパスが存在する頂点が新しい目標地点になっている。 auto type = new int[](N); auto isGoal = new bool[](M + 1); auto nIsGoal = new bool[](M + 1); // 初期の到達目標 foreach (i; 0 .. M + 1) { if (dp[N][i] == mVal) { isGoal[i] = true; } } foreach_reverse (i; 0 .. N) { nIsGoal[] = false; foreach (j; 0 .. M + 1) { if (dp[i][j] == -long.max) { continue; } if (isGoal[j] \u0026amp;\u0026amp; dp[i][j] == dp[i + 1][j]) { nIsGoal[j] = true; type[i] |= 0b01; } if (j + P[i] \u0026lt;= M \u0026amp;\u0026amp; isGoal[j + P[i]] \u0026amp;\u0026amp; dp[i][j] + V[i] == dp[i + 1][j + P[i]]) { nIsGoal[j] = true; type[i] |= 0b10; } } swap(isGoal, nIsGoal); } auto ans = \u0026#34;\u0026#34;; foreach (i; 0 .. N) { if (type[i] == 0b10) { ans ~= \u0026#34;A\u0026#34;; } if (type[i] == 0b11) { ans ~= \u0026#34;B\u0026#34;; } if (type[i] == 0b01) { ans ~= \u0026#34;C\u0026#34;; } } writeln(ans); } void read (T...) (string S, ref T args) { import std.conv : to; import std.array : split; auto buf = S.split; foreach (i, ref arg; args) { arg = buf[i].to!(typeof(arg)); } } 別解 両側からdpすることもできます。 $$\\mathrm{dp} _ 1[i][j] \\coloneqq 先頭i個のものそれぞれを高々1つとり、重さがjであるとき実現できる最大価値$$ $$\\mathrm{dp} _ 2[i][j] \\coloneqq 末尾i個のものそれぞれを高々1つとり、重さがjであるとき実現できる最大価値$$ を計算し、さらに$\\mathrm{dp} _ 2[i][j]$の方を$j$の昇順にchmaxすることで $$\\mathrm{dp} _ 2[i][j] \\coloneqq 末尾i個のものそれぞれを高々1つとり、重さがj以下であるとき実現できる最大価値$$ としておきます。 もの（$P[i], V[i]$）を判定するときは、$0 \\leq j \\leq M$に対して$\\mathrm{dp} _ 1[i][j] + V[i] + \\mathrm{dp} _ 2[N - i - 1][M - j - P[i]]$を計算し、いずれかが最大価値となるならば、そのものを選んで最大価値を実現する選び方が存在することがわかります。 選ばない方もやり方はほぼ同じです。 提出（902ms/789224KiB） 補足 今回はdpを埋め終わった後に辺が有効だったかどうかを逐次計算しましたが、場合によってはどちらの遷移が有効だったかを表す配列を用意したほうが良い場合があるかもしれません。 今回の問題では判定が簡単であること、空間計算量的に有利であることから逐次計算しました。"
   },
   {
     url: "/post/polynomial-division/",
     title: "O(NM)時間多項式除算",
     date: "2026-01-09T00:00:00+09:00",
     body: "O(NM)時間多項式除算 問題 $N$次多項式$A(x) = A _ N x ^ N + A _ {N - 1} x ^ {N - 1} + \\dots + A _ 0$ $M$次多項式$B(x) = B _ M x ^ M + B _ {M - 1} x ^ {M - 1} + \\dots B _ 0$ $N + M$次多項式$C(x) = A(x)B(x) = C _ {N + M} x ^ {N + M} + C _ {N + M - 1} x ^ {N + M - 1} + \\dots + C _ 0$ がある。$A(x), C(x)$が与えられるので、$B(x)$を求めよ。 解法 $B _ i$を求めるときに$C _ {N + i}$を利用するとよいです。以下では$C _ {N + i}$から$B _ i$を求める具体的な手順を示します。 まず、多項式の積の定義から、 $$C _ {N + i} = \\sum _ {p + q = N + i} A _ p B _ q$$です。 展開すると、 $$C _ {N + i} = A _ N B _ i + A _ {N - 1} B _ {i + 1} + \\dots + A _ {N - M + i} B _ M$$とできることがわかります。（注: $N - M + i \u0026lt; 0$となる場合があるため、この立式では$A _ {i \u0026lt; 0} = 0$として扱っています。実装上では負の項にアクセスしないよう条件分岐等が必要です。） 右辺をよく見ると、依存している項は$B _ i, B _ {i + 1}, \\dots, B _ M$となっています。 そこで、$B _ i$が関与する項以外を移項して、 $$C _ {N + i} - A _ {N - 1} B _ {i + 1} - \\dots - A _ {N - M + i} B _ M = A _ N B _ i$$とできます。 $A _ N \\neq 0$であったことから、$A _ N$で割ることができて、 $$B _ i = \\frac{C _ {N + i} - A _ {N - 1} B _ {i + 1} - \\dots - A _ {N - M + i} B _ M}{A _ N}$$ が成立します。 $A(x), C(x)$が与えられていること、$B _ i$より高次の項にしか依存しないことを踏まえると、$B(x)$の高次の項から求めていくことができます。 分子を計算するのに$O(N)$かかり、それを$M$回行えばよいため$O(NM)$時間です。 実装例 ABC245D - Polynomial division を解きます。 import std; void main () { int N, M; readln.read(N, M); auto A = readln.split.to!(int[]); auto C = readln.split.to!(int[]); // 最高次の係数から順に求めていく。 // より具体的には、B[i]を求めるとき // C[N + i] = A[N]B[i] + A[N - 1]B[i + 1] + ... // C[N + i] - A[N - 1]B[i + 1] - ... = A[N]B[i] // として、A[N] != 0を利用して計算する。 auto B = new int[](M + 1); foreach_reverse (i; 0 .. M + 1) { // より高次のBの寄与を計算 int val = C[N + i]; foreach (j; i + 1 .. M + 1) { if (0 \u0026lt;= N + i - j) { val -= B[j] * A[N + i - j]; } } B[i] = val / A[N]; } writefln(\u0026#34;%(%s %)\u0026#34;, B); } void read (T...) (string S, ref T args) { import std.conv : to; import std.array : split; auto buf = S.split; foreach (i, ref arg; args) { arg = buf[i].to!(typeof(arg)); } } 補足 $S = \\max(N, M)$として、$O(S \\log S)$時間の解法が存在します。 drken1215さんの解説"
-  },
-  {
-    url: "/post/",
-    title: "Posts",
-    date: "2026-01-09T00:00:00+09:00",
-    body: "Posts"
   },
   {
     url: "/post/2025-final/",
@@ -717,12 +725,6 @@ const data = [
     title: "ABC278に参加してみた！",
     date: "2022-11-19T00:00:00+09:00",
     body: "ABC278に参加してみた！ こんにちは。 In です。この度初めて競技プログラミング，もといAtCoderに参加してみたので，その記録もかねてこの記事に残しておきます。注意: 筆者はプログラミング初心者なので競プロ的には特に参考になる点はありません。 競プロって何？ 競技プログラミングでは、参加者全員に同一の課題が出題され、より早く与えられた要求を満足するプログラムを正確に記述することを競う。コンピュータサイエンスや数学の知識を必要とする問題が多く、新卒学生の採用活動などに使われることもある[7][8]。多くのコンテストでオンラインジャッジが採用されている。また、競技プログラミングに参加する人を「競技プログラマ」または「競プロer」と呼ぶことがある。近年、プログラミング教育において、競争型学習が注目されている。特に、一定の時間内にプログラミング問題を解く競技系のコンテストは、授業中の演習形式として期待される。しかしこれらは高度であり入門的な授業にコンテストを取り入れるには、初心者向けに視野を広げる適応を考える必要がある。 Wikipedia, 競技プログラミング\rだそうです。(適当)まぁ要するに与えられた問題をプログラムで解くんですね。私が参加したのは AtCoder というサイトで行われているものです。正直私はあまり詳しくないです。 初めて参加しての感想 今回あまり下調べせずに適当に参加してみたんですけど，はっきり言ってボロボロでした。。。でも楽しかったです。まず結果から載せます。以下が今回の提出状況でした。 A問題で躓きすぎだろ！！！！！ はい。ということで，AとBだけ通すことができまして，得点は3200点中200点取れました。こんなにAがボロボロだったのにも少し訳がありまして，今回私は何の下調べもせずに参加してしまったせいで，標準入力を受け取る方法をずっと模索してたんですよね。前半の何回かのWAはそれにやられました。ちなみに，B問題はコンテスト終了8秒前に提出完了したので，ほんとに奇跡的に通すことができたって感じでした。 自分なりの解法(覚書) AとBしか通せない雑魚が何をいっちょ前にと思うかもしれませんが，せっかく考えたプログラムですので，どんな感じでやったのかを残しておこうと思います。使用言語はcで，コンパイラはClang10.0.0を使用しました。 まずはA問題です。以下が問題文です。 この問題は，配列を用意して数列を入れていき，操作の回数番目のところから出力して，0で水増しするような感じで解きました。以下コードです。 #include \u0026lt;stdio.h\u0026gt; #include \u0026lt;stdlib.h\u0026gt; int main(void) { int input = 0; int length = 0; int operation_times = 0; char sequence[100]; scanf(\u0026#34;%d %d\u0026#34;, \u0026amp;length, \u0026amp;operation_times); for(int i = 0; length \u0026gt; i; i++){ scanf(\u0026#34;%d\u0026#34;, \u0026amp;input); sequence[i] = input; } for(int i = operation_times; length \u0026gt; i; i++){ printf(\u0026#34;%d \u0026#34;, sequence[i]); } if (operation_times \u0026lt; length){ for(int i = 0; operation_times \u0026gt; i; i++){ printf(\u0026#34;0 \u0026#34;); } } else { for(int i = 0; length \u0026gt; i; i++){ printf(\u0026#34;0 \u0026#34;); } } return 0; } この問題で，最初操作の回数が数列の長さを上回るパターンを見落としていて見事にWAを食らいました。あと，前にも書きましたが標準入力の取り扱いが分からないせいで1時間くらいかかりました。 次B問題です。 この問題は，きちんと考えるのが大変だったので取り合えず全探索をしようという方針で行きました。「見間違えやすい時刻」を評価するために，〇〇時△△分を十の位，一の位に分解してから初めて「時間として許容できる組み合わせ」に到達したらループを抜けるようにしました。なお，日付をまたいでも(24時以降)いいように，24で割った余りを利用しています。以下コードです。 #include \u0026lt;stdio.h\u0026gt; #include \u0026lt;stdlib.h\u0026gt; int main(void){ int hour = 0; int min = 0; int hour_tens = 0; int hour_ones = 0; int min_tens = 0; int min_ones = 0; int hour_remain = 0; int min_remain = 0; int flag = 0; int breakflag = 0; scanf(\u0026#34;%d %d\u0026#34;, \u0026amp;hour, \u0026amp;min); for(int i = hour; 48 \u0026gt; i; i++){ hour_remain = i % 24; hour_tens = hour_remain / 10; hour_ones = hour_remain % 10; if(flag == 1){ min = 0; } for(int j = min; 60 \u0026gt; j; j++){ min_tens = j / 10; min_ones = j % 10; if(24 \u0026gt; hour_tens * 10 + min_tens \u0026amp;\u0026amp; 60 \u0026gt; hour_ones * 10 + min_ones){ printf(\u0026#34;%d %d\u0026#34;, hour_tens * 10 + hour_ones, min_tens * 10 + min_ones); breakflag = 1; break; } } flag = 1; if(breakflag == 1){ break; } } return 0; } 絶対こんなに変数いらなかっただろ ということでこれでAC通りました。もっと数学的に考察したら簡単に解けたかも？(面倒くさいからやらない) 終わりに 初めてのコンテスト参加でしたが，全体的に見て楽しかったです。これからもコンテストは出ていこうかなと思っています。やる気のある時にまたこうやって記事も書いてみたいなと思います。それでは読んでいただき，ありがとうございました。この記事に関して何かございましたら私の Twitter までどうぞ。"
-  },
-  {
-    url: "/post/dp-restoration/",
-    title: "",
-    date: "0001-01-01T00:00:00Z",
-    body: ""
   },
   {
     url: "/about/",

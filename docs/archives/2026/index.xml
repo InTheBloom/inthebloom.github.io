@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2026 on InTheDayDream</title>
-    <link>http://localhost:1313/archives/2026/</link>
+    <link>https://inthebloom.github.io/archives/2026/</link>
     <description>Recent content in 2026 on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 09 Jan 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/archives/2026/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jan 2026 00:00:00 +0900</lastBuildDate>
+    <atom:link href="https://inthebloom.github.io/archives/2026/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ナップサック問題の復元</title>
+      <link>https://inthebloom.github.io/post/knapsack-restoration/</link>
+      <pubDate>Fri, 23 Jan 2026 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/knapsack-restoration/</guid>
+      <description>はじめに 今回は ABC441F - Must Buy を題材にして、ナップサック問題の最適解を与える操作列を復元する手法を解説します。</description>
+    </item>
     <item>
       <title>O(NM)時間多項式除算</title>
-      <link>http://localhost:1313/post/polynomial-division/</link>
+      <link>https://inthebloom.github.io/post/polynomial-division/</link>
       <pubDate>Fri, 09 Jan 2026 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/polynomial-division/</guid>
+      <guid>https://inthebloom.github.io/post/polynomial-division/</guid>
       <description>問題 $N$次多項式$A(x) = A _ N x ^ N + A _ {N - 1} x ^ {N - 1} + \dots + A _ 0$ $M$次多項式$B(x) = B _ M x ^ M + B _ {M - 1} x ^ {M - 1} + \dots B _ 0$ $N + M$次多項式$C(x) = A(x)B(x) = C _ {N + M} x ^ {N + M} + C _ {N + M - 1} x ^ {N + M - 1} + \dots + C _ 0$ がある。$A(x), C(x)$が与えられるので、$B(x)$を求めよ。</description>
     </item>
   </channel>
