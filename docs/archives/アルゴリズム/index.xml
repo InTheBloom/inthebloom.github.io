@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>アルゴリズム on InTheDayDream</title>
+    <link>http://localhost:1313/archives/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/</link>
+    <description>Recent content in アルゴリズム on InTheDayDream</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Wed, 18 Feb 2026 00:00:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/archives/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>モノイド</title>
+      <link>http://localhost:1313/post/monoid-technique/</link>
+      <pubDate>Wed, 18 Feb 2026 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/post/monoid-technique/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
