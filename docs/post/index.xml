@@ -6,8 +6,15 @@
     <description>Recent content in Posts on InTheDayDream</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 23 Jan 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 18 Feb 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>非可換モノイドの逆順積の計算</title>
+      <link>https://inthebloom.github.io/post/monoid-technique/</link>
+      <pubDate>Wed, 18 Feb 2026 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/monoid-technique/</guid>
+      <description>はじめに 小ネタです。全人類知っているかもしれませんが、私は比較的最近知ったので共有します。 以下、モノイドは$(M, e, \times)$を考えます。</description>
+    </item>
     <item>
       <title>ナップサック問題の復元</title>
       <link>https://inthebloom.github.io/post/knapsack-restoration/</link>

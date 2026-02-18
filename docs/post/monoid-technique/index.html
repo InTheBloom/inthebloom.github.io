@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>非可換モノイドの逆順積の計算 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
+<link rel="alternate" href="/index.xml?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="非可換モノイドの逆順積の計算 - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/monoid-technique/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="非可換モノイドの逆順積の計算 - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/monoid-technique/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
+<link rel="stylesheet" href="/css/color.css?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>非可換モノイドの逆順積の計算</h1>
+
+<span class="sub">Published on 2026-02-18</span><br>
+<span class="sub">Last Modified 2026-02-18</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#やりかた">やりかた</a></li>
+    <li><a href="#応用例1">応用例1</a></li>
+    <li><a href="#応用例2">応用例2</a></li>
+    <li><a href="#補足">補足</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="はじめに">はじめに</h2>
+<p>小ネタです。全人類知っているかもしれませんが、私は比較的最近知ったので共有します。
+以下、モノイドは$(M, e, \times)$を考えます。</p>
+<p>モノイドはものによっては可換性を持ちません。すなわち、$a, b \in M$に対して、$a \times b \neq b \times a$になりえます。
+また、競技プログラミングにおいて、「モノイドの列$A = (A _ 0, A _ 1, \dots, A _ {N - 1})$が与えられるので、$l, r$に対して$A _ l \times A _ {l + 1} \times \dots \times A _ {r - 1}$と$A _ {r - 1} \times A _ {r - 2} \times \dots \times A _ l$を両方計算する」といったタスクに出会うことがあります。
+前者（$A _ l \times A _ {l + 1} \times \dots \times A _ {r - 1}$）はセグメント木なりsparse tableなりで簡単に計算できますが、後者は苦労することが多いです。（同じようにセグメント木を用いるとすると、逆順にのせた上でindexの変換が必要です。）</p>
+<p>本エントリでは、前者を計算するのと全く同じように後者を計算する方法を紹介します。
+なお、説明の都合上、前者の計算結果を「正順の値」、後者を「逆順の値」と呼びます。</p>
+<h2 id="やりかた">やりかた</h2>
+<p>簡単のため計算にACLのセグメント木を利用することを考えます。（インターフェースが広く知られているからACLをたとえ話に出すだけで、別のデータ構造でも動くはずです。）
+ACLにおいてはモノイドの演算を関数ポインタや関数オブジェクトとして渡しますが、そのシグネチャはモノイドの型<code>M</code>としたとき、<code>M op (M a, M b)</code>という形になり、<code>op(a, b)</code>として呼ぶことで$a \times b$を計算します。
+この<code>op</code>をテンプレートに渡したうえで<code>prod(l, r)</code>を呼ぶことで正順の値を計算できます。</p>
+<p>実は、以下のように定義される<code>op2</code>をテンプレートに渡したうえで<code>prod(l, r)</code>を呼ぶことで逆順の値を計算することができます。（初期化の際に列をreverseしたり、indexを変換する必要は全くなく、ここだけ変えます。）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>M <span style="color:#a6e22e">op2</span>(M a, M b) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> op(b, a);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>これが正しく動くことを確認しておきましょう。
+$[l, r)$に対して逆順の値を計算するとき、セグメント木ではいくつかのブロックを拾っていき、$\mathrm{op2}$で結合していきます。
+最後の1回の結合が$[l, m)$と$[m, r)$の結合であったとし、$[l, m)$と$[m, r)$に対応するブロックにはその区間の逆順の値が保存されているとします。
+このとき、
+$$\mathrm{op2}(A _ {m - 1} \times A _ {m - 2} \times \dots \times A _ l, A _ {r - 1} \times A _ {r - 2} \times \dots \times A _ m)$$
+を計算することになります。定義から、
+$$
+\mathrm{op2}(A _ {m - 1} \times A _ {m - 2} \times \dots \times A _ l, A _ {r - 1} \times A _ {r - 2} \times \dots \times A _ m) \\
+= \mathrm{op}(A _ {r - 1} \times A _ {r - 2} \times \dots \times A _ m, A _ {m - 1} \times A _ {m - 2} \times \dots \times A _ l) \\
+= A _ {r - 1} \times A _ {r - 2} \times \dots \times A _ l
+$$
+となり、$[l, m)$と$[m, r)$の逆順の値が計算できていれば、$m$をどのようにとっても$[l, r)$の逆順の値も計算できることがわかりました。
+$[l, l + 1)$に対応する逆順の値は$A _ l$なので、同様の議論により要素数が1になるまで分割を続けることで正当性がわかります。</p>
+<p>さらに、この方法はセグメント木特有のものではなく、sparse tableや累積和等の区間モノイド積を扱うデータ構造（私が知る限りは全て）に適用可能です。</p>
+<h2 id="応用例1">応用例1</h2>
+<p>連続部分文字列$S = (s _ l, s _ {l + 1}, \dots, s _ {r - 1})$を、基数$b$、法$M$として
+$$
+\sum _ {i = l} ^ {r - 1} s _ i b ^ {r - i - 1} \bmod M
+$$
+によりハッシュ化する手法は競技プログラミング界隈でRolling Hashと呼ばれています。
+ここで、各連続部分文字列に対して定まる$(ハッシュ値, b ^ {文字列長})$という値の組を考えます。
+実は、この値は単位元$(0, b ^ 0)$と結合演算
+$$
+(h _ 1, b ^ {l _ 1}) \times (h _ 2, b ^ {l _ 2}) = (h _ 1 b ^ {l _ 2} + h _ 2, b ^ {l _ 1 + l _ 2})
+$$
+によって非可換モノイドを成し、セグメント木などを利用することで1点への文字変更、任意の連続部分文字列に対するハッシュ値取得を$O(\log N)$時間で行うことができます。</p>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc331/tasks/abc331_f"
+  
+   target="_blank" rel="noopener">
+    ABC331F - Palindrome Query
+</a>
+はこのモノイドを利用することが想定解の問題です。
+回文の判定を「正順のハッシュ値と逆順のハッシュ値が等しい」で判定することができますが、ここで逆順の値が欲しくなります。</p>
+<p>本テクニックにより簡潔に解くことができます。
+結合を逆にしたセグメント木を用意して、あとはそのまま使うだけです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">alias</span> RH <span style="color:#f92672">=</span> RollingHash<span style="color:#f92672">!();</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> seg <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SegmentTree<span style="color:#f92672">!(</span>RH<span style="color:#f92672">.</span><span style="color:#a6e22e">Hash</span><span style="color:#f92672">,</span> <span style="color:#f92672">(</span>RH<span style="color:#f92672">.</span><span style="color:#a6e22e">Hash</span> a<span style="color:#f92672">,</span> RH<span style="color:#f92672">.</span><span style="color:#a6e22e">Hash</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">=&gt;</span> RH<span style="color:#f92672">.</span><span style="color:#a6e22e">concat</span><span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> b<span style="color:#f92672">),</span> <span style="color:#f92672">()</span> <span style="color:#f92672">=&gt;</span> RH<span style="color:#f92672">.</span><span style="color:#a6e22e">Hash</span><span style="color:#f92672">())(</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> segR <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SegmentTree<span style="color:#f92672">!(</span>RH<span style="color:#f92672">.</span><span style="color:#a6e22e">Hash</span><span style="color:#f92672">,</span> <span style="color:#f92672">(</span>RH<span style="color:#f92672">.</span><span style="color:#a6e22e">Hash</span> a<span style="color:#f92672">,</span> RH<span style="color:#f92672">.</span><span style="color:#a6e22e">Hash</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">=&gt;</span> RH<span style="color:#f92672">.</span><span style="color:#a6e22e">concat</span><span style="color:#f92672">(</span>b<span style="color:#f92672">,</span> a<span style="color:#f92672">),</span> <span style="color:#f92672">()</span> <span style="color:#f92672">=&gt;</span> RH<span style="color:#f92672">.</span><span style="color:#a6e22e">Hash</span><span style="color:#f92672">())(</span>N<span style="color:#f92672">);</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span>ans <span style="color:#f92672">~=</span> seg<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span>L<span style="color:#f92672">,</span> R<span style="color:#f92672">).</span><span style="color:#a6e22e">value</span> <span style="color:#f92672">==</span> segR<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span>L<span style="color:#f92672">,</span> R<span style="color:#f92672">).</span><span style="color:#a6e22e">value</span><span style="color:#f92672">;</span>
+</span></span></code></pre></div><p>
+<a
+  
+    href="https://atcoder.jp/contests/abc331/submissions/71784182"
+  
+   target="_blank" rel="noopener">
+    解答例（DMD 2.111.0）
+</a>
+</p>
+<h2 id="応用例2">応用例2</h2>
+<p>Heavy Light Decompositionで非可換モノイドを扱う際、index変換無しで集計できます。
+$u \rightarrow v$パスを扱うとき、必ず$u$側が逆順の値、$v$側が正順の値を扱うことになるので、そのように集計すればよいです。</p>
+<p>Library Checkerの
+<a
+  
+    href="https://judge.yosupo.jp/submission/338095"
+  
+   target="_blank" rel="noopener">
+    Vertex Set Path Composite
+</a>
+が良い練習になります。（ライブラリさえ整備してしまえばやるだけです。）
+$t = 1$クエリには次のように答えます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> u <span style="color:#f92672">=</span> input<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> input<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> input<span style="color:#f92672">[</span><span style="color:#ae81ff">3</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>T uProd <span style="color:#f92672">=</span> e<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>T vProd <span style="color:#f92672">=</span> e<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>top<span style="color:#f92672">[</span>u<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> top<span style="color:#f92672">[</span>v<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>depth<span style="color:#f92672">[</span>top<span style="color:#f92672">[</span>u<span style="color:#f92672">]]</span> <span style="color:#f92672">&lt;</span> depth<span style="color:#f92672">[</span>top<span style="color:#f92672">[</span>v<span style="color:#f92672">]])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        vProd <span style="color:#f92672">=</span> op<span style="color:#f92672">(</span>seg<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span>place<span style="color:#f92672">[</span>top<span style="color:#f92672">[</span>v<span style="color:#f92672">]],</span> place<span style="color:#f92672">[</span>v<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">),</span> vProd<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        v <span style="color:#f92672">=</span> parent<span style="color:#f92672">[</span>top<span style="color:#f92672">[</span>v<span style="color:#f92672">]];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        uProd <span style="color:#f92672">=</span> op<span style="color:#f92672">(</span>uProd<span style="color:#f92672">,</span> segR<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span>place<span style="color:#f92672">[</span>top<span style="color:#f92672">[</span>u<span style="color:#f92672">]],</span> place<span style="color:#f92672">[</span>u<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        u <span style="color:#f92672">=</span> parent<span style="color:#f92672">[</span>top<span style="color:#f92672">[</span>u<span style="color:#f92672">]];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>depth<span style="color:#f92672">[</span>u<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> depth<span style="color:#f92672">[</span>v<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    vProd <span style="color:#f92672">=</span> op<span style="color:#f92672">(</span>seg<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span>place<span style="color:#f92672">[</span>u<span style="color:#f92672">],</span> place<span style="color:#f92672">[</span>v<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">),</span> vProd<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    uProd <span style="color:#f92672">=</span> op<span style="color:#f92672">(</span>uProd<span style="color:#f92672">,</span> segR<span style="color:#f92672">.</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">(</span>place<span style="color:#f92672">[</span>v<span style="color:#f92672">],</span> place<span style="color:#f92672">[</span>u<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>T pathProd <span style="color:#f92672">=</span> op<span style="color:#f92672">(</span>uProd<span style="color:#f92672">,</span> vProd<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>
+<a
+  
+    href="https://judge.yosupo.jp/submission/338095"
+  
+   target="_blank" rel="noopener">
+    解答例
+</a>
+</p>
+<h2 id="補足">補足</h2>
+<ul>
+<li>機械的に変換できる</li>
+<li>index変換を考えなくてよい</li>
+</ul>
+<p>という利点はありますが、定数倍を詰めに行くならセグメント木2本よりもモノイドを太らせた方が良いかもしれません。</p>
+<p>私が最初にこれを知ったきっかけはLCに提出されている誰かのHLDだったはずですが、誰のHLDだったか忘れました。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/">アルゴリズム</a>
+	
+	<a class="post-tag" href="/tags/%E5%85%B8%E5%9E%8B%E3%83%86%E3%82%AF/">典型テク</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/knapsack-restoration/">ナップサック問題の復元</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-02-18</div>
+  <div class="post-title"><a href="/post/monoid-technique/">非可換モノイドの逆順積の計算</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-23</div>
+  <div class="post-title"><a href="/post/knapsack-restoration/">ナップサック問題の復元</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-09</div>
+  <div class="post-title"><a href="/post/polynomial-division/">O(NM)時間多項式除算</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "アルゴリズム"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-02-18</div>
+  <div class="post-title"><a href="/post/monoid-technique/">非可換モノイドの逆順積の計算</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-23</div>
+  <div class="post-title"><a href="/post/knapsack-restoration/">ナップサック問題の復元</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-09</div>
+  <div class="post-title"><a href="/post/polynomial-division/">O(NM)時間多項式除算</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e3%82%a2%e3%83%ab%e3%82%b4%e3%83%aa%e3%82%ba%e3%83%a0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "典型テク"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-02-18</div>
+  <div class="post-title"><a href="/post/monoid-technique/">非可換モノイドの逆順積の計算</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-12-03</div>
+  <div class="post-title"><a href="/post/subsequences-by-delimiter/">区切り文字による連続部分列の切り出し</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-11-19</div>
+  <div class="post-title"><a href="/post/unifying-segments-with-unionfind/">UnionFindによる区間の統合</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e5%85%b8%e5%9e%8b%e3%83%86%e3%82%af/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
