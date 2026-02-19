@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
-<link rel="alternate" href="/index.xml?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
+<link rel="alternate" href="/index.xml?c=72dc3686c6774238b92030b1f9bd76e8c746610b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="サイト内全文検索 - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/search/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
-<link rel="stylesheet" href="/css/color.css?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
+<link rel="stylesheet" href="/css/main.css?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
+<link rel="stylesheet" href="/css/color.css?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=8807d040e65c6f803fbc782a5bcb6f9cf6d8d6ac">
+<link rel="stylesheet" href="/css/custom.css?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
 
 
 
@@ -139,15 +139,21 @@
 
 const data = [
   {
+    url: "/post/awc0008d/",
+    title: "AWC0008D - 果樹園の収穫 O(N(logN + logF))時間解法",
+    date: "2026-02-19T00:00:00+09:00",
+    body: "AWC0008D - 果樹園の収穫 O(N(logN + logF))時間解法 はじめに AWC0008D - 果樹園の収穫 を$O(N(\\log N + \\log (\\max F _ i)))$時間で解きます。要は$M \\leq 10 ^ 9$でも解ける解法ということです。 解説で言及されているので新規性はないです。 問題概要 $N$本の木がある。木$i$は$k$回目の収穫では$\\max(F _ i - (k - 1) \\times D _ i, 0)$個の果物が取れる。 $M$回以下の収穫で得られる果物の最大値を求めよ。 $1 \\leq N \\leq 2 \\times 10 ^ 5$ $1 \\leq M \\leq 2 \\times 10 ^ 5$ $1 \\leq F _ i \\leq 10 ^ 9$ $1 \\leq D _ i \\leq 10 ^ 9$ O((M + N)logN)時間解法 木$i$の収穫量の変化は他の木と独立なので、今収穫量が最大のものを選び続けるという貪欲が正当性を持ちます。 証明としては、「収穫量が最大のものを選ばない時があれば、最大のものを選ぶようにすることでスコアを改善することができる」ということを厳密に書けばよいはずです。 よって、最大ヒープに$(F _ i, i)$を入れて、 最大をとって足す $D _ i$を引く ヒープに戻す ということを$M$回やると解けます。 O(N(logN + logF))時間解法 最大のものを選び続ければよいということは、$M$回の操作が終わった後、とびぬけて大きい値は収穫によって均されて、収穫量はどれもある程度同じ値になっているはずです。（元の収穫量が非常に小さかったり、$D$が非常に大きかったりするとそこだけ凹んだようになりますが。） そこで、収穫終了後の収穫量の最大値がいくつになるかを考えてみます。 二分探索を行います。 収穫量の最大値が$x$未満になると決め打ちした際、必要な収穫回数の最小値がわかりますから、これが$M$以下になる最大値を探すことができます。 これがわかれば、収穫量が大体その値になるまでは一気に収穫を進めることができるため、元の解法のように$M$回実際に操作する必要がなくなります。 さて、$M$回の操作をこの大体の目安で消費しきれない場合がありますが、そのような場合、実は余った操作回数は$N$回以下になります。 これは、$f(x) = 収穫量がx以上のものは収穫するとき、収穫回数の最小値は何回か$としたとき、$f(x + 1)$と$f(x)$の差を考えるとわかります。 $f(x + 1)$より$f(x)$が$N + 1$以上多いとき、鳩の巣原理から収穫回数が2回以上増えた木が存在します。 しかし$f$の定義を考えると、$f(x + 1)$の時点で全ての木の収穫量は$x$以下になっているはずです。 $1 \\leq D _ i$であることから、1回の収穫で必ず$x$未満を達成できるため、2回以上収穫したというのはありえません。 $f$の値は$N$以下の変化しかしないため、余った操作回数も必ず$N$以下になります。 この2つを組み合わせて、次の解法を得ます。 二分探索により、$M$回の収穫を最適に行った後の最大収穫量$x$を求める 収穫量が$x$以下になるまでは一気に収穫を行う 余った収穫回数を最大ヒープで消化する 時間計算量は二分探索が$O(N \\log (\\max F _ i))$でヒープを用いる部分が$O(N \\log N)$です。 実装 この手の二分探索としては実装がやや難しいです。 気を付けるべきポイントはいくつかあります。 二分探索の判定問題の立て方によってlo側かhi側の値が存在しなくなることがある 本来収穫量が0未満にならないが、判定問題を解く際には収穫量に負を許容したほうがよい（「$x$以上は収穫する」という判定問題だと0から下がらなくなるのは面倒） 一気に収穫を行う際、基本的には等差数列の総和を考えれば良いが、最後の1回は収穫量が0になる分を考慮しないといけないケースがあるので、最後の数回はwhileとかでやると安全 といった感じです。 私は$O(1)$算数部分で苦戦して1時間くらいかかりました。 私の判定問題は$f(x) = x以上とれる木を全部取るとして、収穫回数がM以下になるか$だったのですが、この際ある木に必要な収穫回数を $$ F _ i - k \\times D _ i \u0026lt; x $$ を満たす最小の$k$として考えました。これを$k$について解くと、 $$ \\frac{F _ i - x}{D _ i} \u0026lt; k $$ となります。ここまでは良いのですが、実装上は$F _ i - x \u0026lt; 0$かどうかに気を配らないと事故ります。 $F _ i - x \u0026lt; 0$であれば$k = 0$でよくて、そうでない場合は$k$が整数なことから $$ \\left\\lfloor \\frac{F _ i - x}{D _ i} \\right\\rfloor + 1 \\leq k $$ とできます。 残りの注意点は等差数列の総和くらいですが、制約上longならまあ余裕なので long calc (long f, long d, long c) { // 初項f、公差d、項数cの等差数列の和 long l = f + d * (c - 1); return (f + l) * c / 2; } という感じでやりました。 最後に解答例を一部抜粋で掲載します。 import std; void main () { int N, M; readln.read(N, M); auto F = new int[](N); auto D = new int[](N); foreach (i; 0 .. N) { readln.read(F[i], D[i]); } long calc (long f, long d, long c) { // 初項f、公差d、項数cの等差数列の和 long l = f + d * (c - 1); return (f + l) * c / 2; } bool f (int x) { // x個以上取れる木を全部取るとして、収穫回数がM以下になるか？ long took = 0; foreach (i; 0 .. N) { // F[i] - k * D[i] \u0026lt; x // となる最小のk // F[i] - x \u0026lt; k * D[i] // (F[i] - x) / D[i] \u0026lt; k long v = (1L * F[i] - x) / D[i] + 1; v = max(0L, v); if (F[i] - x \u0026lt; 0) { v = 0; } took += v; } return took \u0026lt;= M; } auto ret = bsearch!(f)(10 ^^ 9 + 10, 0); long ans = 0; long use = 0; // 負になることを許容して、F[i] \u0026lt; ret.valueとなるまで取る foreach (i; 0 .. N) { long v = (1L * F[i] - ret.value) / D[i] + 1; if (F[i] - ret.value \u0026lt; 0) { v = 0; } // ちょっとバッファを持たせる v = max(0L, v - 5); ans += calc(F[i], -D[i], v); F[i] -= v * D[i]; use += v; // 端数 while (ret.value \u0026lt;= F[i]) { ans += F[i]; F[i] -= D[i]; use++; } } // 残りはpqで調整 auto pq = BinaryHeap!(Tuple!(long, int)[], \u0026#34;a[0] \u0026lt; b[0]\u0026#34;)([]); foreach (i; 0 .. N) { pq.insert(tuple(1L * F[i], i)); } while (use \u0026lt; M) { auto v = pq.front(); pq.removeFront(); use++; if (0 \u0026lt;= v[0]) { ans += v[0]; } v[0] -= D[v[1]]; pq.insert(v); } writeln(ans); } 解答例（DMD 2.111.0） 補足 ほぼ これ と同じです。 拡張制約なら実装難易度も加味して1600↑はありそう。"
+  },
+  {
     url: "/",
     title: "InTheDayDream",
-    date: "2026-02-18T00:00:00+09:00",
+    date: "2026-02-19T00:00:00+09:00",
     body: "InTheDayDream"
   },
   {
     url: "/post/",
     title: "Posts",
-    date: "2026-02-18T00:00:00+09:00",
+    date: "2026-02-19T00:00:00+09:00",
     body: "Posts"
   },
   {

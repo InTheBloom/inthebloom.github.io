@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法 - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
+<link rel="alternate" href="/index.xml?c=72dc3686c6774238b92030b1f9bd76e8c746610b" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法 - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/awc0008d/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法 - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/awc0008d/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
+<link rel="stylesheet" href="/css/color.css?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=72dc3686c6774238b92030b1f9bd76e8c746610b">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法</h1>
+
+<span class="sub">Published on 2026-02-19</span><br>
+<span class="sub">Last Modified 2026-02-19</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#問題概要">問題概要</a></li>
+    <li><a href="#om--nlogn時間解法">O((M + N)logN)時間解法</a></li>
+    <li><a href="#onlogn--logf時間解法">O(N(logN + logF))時間解法</a></li>
+    <li><a href="#実装">実装</a></li>
+    <li><a href="#補足">補足</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="はじめに">はじめに</h2>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/awc0008/tasks/awc0008_d"
+  
+   target="_blank" rel="noopener">
+    AWC0008D - 果樹園の収穫
+</a>
+を$O(N(\log N + \log (\max F _ i)))$時間で解きます。要は$M \leq 10 ^ 9$でも解ける解法ということです。
+解説で言及されているので新規性はないです。</p>
+<h2 id="問題概要">問題概要</h2>
+<p>$N$本の木がある。木$i$は$k$回目の収穫では$\max(F _ i - (k - 1) \times D _ i, 0)$個の果物が取れる。
+$M$回以下の収穫で得られる果物の最大値を求めよ。</p>
+<ul>
+<li>$1 \leq N \leq 2 \times 10 ^ 5$</li>
+<li>$1 \leq M \leq 2 \times 10 ^ 5$</li>
+<li>$1 \leq F _ i \leq 10 ^ 9$</li>
+<li>$1 \leq D _ i \leq 10 ^ 9$</li>
+</ul>
+<h2 id="om--nlogn時間解法">O((M + N)logN)時間解法</h2>
+<p>木$i$の収穫量の変化は他の木と独立なので、今収穫量が最大のものを選び続けるという貪欲が正当性を持ちます。
+証明としては、「収穫量が最大のものを選ばない時があれば、最大のものを選ぶようにすることでスコアを改善することができる」ということを厳密に書けばよいはずです。</p>
+<p>よって、最大ヒープに$(F _ i, i)$を入れて、</p>
+<ol>
+<li>最大をとって足す</li>
+<li>$D _ i$を引く</li>
+<li>ヒープに戻す</li>
+</ol>
+<p>ということを$M$回やると解けます。</p>
+<h2 id="onlogn--logf時間解法">O(N(logN + logF))時間解法</h2>
+<p>最大のものを選び続ければよいということは、$M$回の操作が終わった後、とびぬけて大きい値は収穫によって均されて、収穫量はどれもある程度同じ値になっているはずです。（元の収穫量が非常に小さかったり、$D$が非常に大きかったりするとそこだけ凹んだようになりますが。）
+そこで、収穫終了後の収穫量の最大値がいくつになるかを考えてみます。</p>
+<p>二分探索を行います。
+収穫量の最大値が$x$未満になると決め打ちした際、必要な収穫回数の最小値がわかりますから、これが$M$以下になる最大値を探すことができます。
+これがわかれば、収穫量が大体その値になるまでは一気に収穫を進めることができるため、元の解法のように$M$回実際に操作する必要がなくなります。</p>
+<p>さて、$M$回の操作をこの大体の目安で消費しきれない場合がありますが、そのような場合、実は余った操作回数は$N$回以下になります。</p>
+<p>これは、$f(x) = 収穫量がx以上のものは収穫するとき、収穫回数の最小値は何回か$としたとき、$f(x + 1)$と$f(x)$の差を考えるとわかります。
+$f(x + 1)$より$f(x)$が$N + 1$以上多いとき、鳩の巣原理から収穫回数が2回以上増えた木が存在します。
+しかし$f$の定義を考えると、$f(x + 1)$の時点で全ての木の収穫量は$x$以下になっているはずです。
+$1 \leq D _ i$であることから、1回の収穫で必ず$x$未満を達成できるため、2回以上収穫したというのはありえません。
+$f$の値は$N$以下の変化しかしないため、余った操作回数も必ず$N$以下になります。</p>
+<p>この2つを組み合わせて、次の解法を得ます。</p>
+<ol>
+<li>二分探索により、$M$回の収穫を最適に行った後の最大収穫量$x$を求める</li>
+<li>収穫量が$x$以下になるまでは一気に収穫を行う</li>
+<li>余った収穫回数を最大ヒープで消化する</li>
+</ol>
+<p>時間計算量は二分探索が$O(N \log (\max F _ i))$でヒープを用いる部分が$O(N \log N)$です。</p>
+<h2 id="実装">実装</h2>
+<p>この手の二分探索としては実装がやや難しいです。
+気を付けるべきポイントはいくつかあります。</p>
+<ol>
+<li>二分探索の判定問題の立て方によってlo側かhi側の値が存在しなくなることがある</li>
+<li>本来収穫量が0未満にならないが、判定問題を解く際には収穫量に負を許容したほうがよい（「$x$以上は収穫する」という判定問題だと0から下がらなくなるのは面倒）</li>
+<li>一気に収穫を行う際、基本的には等差数列の総和を考えれば良いが、最後の1回は収穫量が0になる分を考慮しないといけないケースがあるので、最後の数回は<code>while</code>とかでやると安全</li>
+</ol>
+<p>といった感じです。
+私は$O(1)$算数部分で苦戦して1時間くらいかかりました。
+私の判定問題は$f(x) = x以上とれる木を全部取るとして、収穫回数がM以下になるか$だったのですが、この際ある木に必要な収穫回数を
+$$
+F _ i - k \times D _ i &lt; x
+$$
+を満たす最小の$k$として考えました。これを$k$について解くと、
+$$
+\frac{F _ i - x}{D _ i} &lt; k
+$$
+となります。ここまでは良いのですが、実装上は$F _ i - x &lt; 0$かどうかに気を配らないと事故ります。
+$F _ i - x &lt; 0$であれば$k = 0$でよくて、そうでない場合は$k$が整数なことから
+$$
+\left\lfloor \frac{F _ i - x}{D _ i} \right\rfloor + 1 \leq k
+$$
+とできます。</p>
+<p>残りの注意点は等差数列の総和くらいですが、制約上<code>long</code>ならまあ余裕なので</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">calc</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> f<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> d<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> c<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 初項f、公差d、項数cの等差数列の和
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">long</span> l <span style="color:#f92672">=</span> f <span style="color:#f92672">+</span> d <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>c <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>f <span style="color:#f92672">+</span> l<span style="color:#f92672">)</span> <span style="color:#f92672">*</span> c <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>という感じでやりました。</p>
+<p>最後に解答例を一部抜粋で掲載します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> M<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> M<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> F <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> D <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>F<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> D<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">calc</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> f<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> d<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> c<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 初項f、公差d、項数cの等差数列の和
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">long</span> l <span style="color:#f92672">=</span> f <span style="color:#f92672">+</span> d <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>c <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>f <span style="color:#f92672">+</span> l<span style="color:#f92672">)</span> <span style="color:#f92672">*</span> c <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// x個以上取れる木を全部取るとして、収穫回数がM以下になるか？
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">long</span> took <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// F[i] - k * D[i] &lt; x
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">// となる最小のk
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">// F[i] - x &lt; k * D[i]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">// (F[i] - x) / D[i] &lt; k
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1L</span> <span style="color:#f92672">*</span> F<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">-</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">/</span> D<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            v <span style="color:#f92672">=</span> max<span style="color:#f92672">(</span><span style="color:#ae81ff">0L</span><span style="color:#f92672">,</span> v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>F<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">-</span> x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                v <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            took <span style="color:#f92672">+=</span> v<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> took <span style="color:#f92672">&lt;=</span> M<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> ret <span style="color:#f92672">=</span> bsearch<span style="color:#f92672">!(</span>f<span style="color:#f92672">)(</span><span style="color:#ae81ff">10</span> <span style="color:#f92672">^^</span> <span style="color:#ae81ff">9</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> use <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 負になることを許容して、F[i] &lt; ret.valueとなるまで取る
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1L</span> <span style="color:#f92672">*</span> F<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">-</span> ret<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">)</span> <span style="color:#f92672">/</span> D<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>F<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">-</span> ret<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            v <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ちょっとバッファを持たせる
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        v <span style="color:#f92672">=</span> max<span style="color:#f92672">(</span><span style="color:#ae81ff">0L</span><span style="color:#f92672">,</span> v <span style="color:#f92672">-</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> calc<span style="color:#f92672">(</span>F<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> <span style="color:#f92672">-</span>D<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        F<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">-=</span> v <span style="color:#f92672">*</span> D<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        use <span style="color:#f92672">+=</span> v<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 端数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>ret<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span> <span style="color:#f92672">&lt;=</span> F<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">+=</span> F<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>            F<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">-=</span> D<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>            use<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 残りはpqで調整
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> pq <span style="color:#f92672">=</span> BinaryHeap<span style="color:#f92672">!(</span>Tuple<span style="color:#f92672">!(</span><span style="color:#66d9ef">long</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">)[],</span> <span style="color:#e6db74">&#34;a[0] &lt; b[0]&#34;</span><span style="color:#f92672">)([]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        pq<span style="color:#f92672">.</span><span style="color:#a6e22e">insert</span><span style="color:#f92672">(</span>tuple<span style="color:#f92672">(</span><span style="color:#ae81ff">1L</span> <span style="color:#f92672">*</span> F<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> i<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>use <span style="color:#f92672">&lt;</span> M<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> v <span style="color:#f92672">=</span> pq<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        pq<span style="color:#f92672">.</span><span style="color:#a6e22e">removeFront</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        use<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> v<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">+=</span> v<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        v<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">-=</span> D<span style="color:#f92672">[</span>v<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]];</span>
+</span></span><span style="display:flex;"><span>        pq<span style="color:#f92672">.</span><span style="color:#a6e22e">insert</span><span style="color:#f92672">(</span>v<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>
+<a
+  
+    href="https://atcoder.jp/contests/awc0008/submissions/73408956"
+  
+   target="_blank" rel="noopener">
+    解答例（DMD 2.111.0）
+</a>
+</p>
+<h2 id="補足">補足</h2>
+<p>ほぼ
+<a
+  
+    href="https://atcoder.jp/contests/abc389/tasks/abc389_e"
+  
+   target="_blank" rel="noopener">
+    これ
+</a>
+と同じです。
+拡張制約なら実装難易度も加味して1600↑はありそう。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/monoid-technique/">非可換モノイドの逆順積の計算</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-02-19</div>
+  <div class="post-title"><a href="/post/awc0008d/">AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-02-18</div>
+  <div class="post-title"><a href="/post/monoid-technique/">非可換モノイドの逆順積の計算</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-23</div>
+  <div class="post-title"><a href="/post/knapsack-restoration/">ナップサック問題の復元</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-02-19</div>
+  <div class="post-title"><a href="/post/awc0008d/">AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-23</div>
+  <div class="post-title"><a href="/post/knapsack-restoration/">ナップサック問題の復元</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-09</div>
+  <div class="post-title"><a href="/post/polynomial-division/">O(NM)時間多項式除算</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>
