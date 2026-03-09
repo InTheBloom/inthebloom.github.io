@@ -4,7 +4,7 @@
     <title>2023-12 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2023-12/</link>
     <description>Recent content in 2023-12 on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 31 Dec 2023 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2023-12/index.xml" rel="self" type="application/rss+xml" />
@@ -13,35 +13,35 @@
       <link>https://inthebloom.github.io/post/2023-final/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/2023-final/</guid>
-      <description>2023年12月31日 今年も大晦日と呼ばれるこの日がやってきました。 折角この場があるので、何か書きます。 それぞれの章は独立しており、関連性はありません。 なので突拍子もないことが書いてあるかもしれません。 ご了承くださいな。</description>
+      <description></description>
     </item>
     <item>
       <title>ABC290E - Make it Palindrome</title>
       <link>https://inthebloom.github.io/post/abc290e/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc290e/</guid>
-      <description>問題概要 問題へのリンク 文字列$X$に対して、$f(X) = $($X$を回分にするために変更する必要のある要素の個数の最小値)と定める。 長さ$N$の数列$A$が与えられるので、$A$のすべての連続部分列の集合$X$として、 $\sum_{x \in X} f(x)$を求めよ。</description>
+      <description></description>
     </item>
     <item>
       <title>ABC221E - LEQ</title>
       <link>https://inthebloom.github.io/post/abc221e/</link>
       <pubDate>Sat, 16 Dec 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc221e/</guid>
-      <description>問題概要 問題へのリンク 長さ$N$の整数列$A = (A_1, A_2, \dots , A_N)$が与えらえる。 $A$の長さ$2$以上の部分列であって、次の条件を満たすものをの総数を$998244353$で割ったあまりを求めよ。</description>
+      <description></description>
     </item>
     <item>
       <title>列をいくつかの連続部分列へ分解する小技</title>
       <link>https://inthebloom.github.io/post/split-into-continuous-subsequences/</link>
       <pubDate>Wed, 13 Dec 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/split-into-continuous-subsequences/</guid>
-      <description>問題 数列$A$の連続部分列を、$i, j \in [1, N]$かつ$i \leq j$なる$i, j$を選択し、 $A$の$i$項目から$j$項目までを順番を変えずに取り出したものとし、$B_{i, j}$と表記することとする。</description>
+      <description></description>
     </item>
     <item>
       <title>ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目</title>
       <link>https://inthebloom.github.io/post/uec-advent2023/</link>
       <pubDate>Tue, 05 Dec 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/uec-advent2023/</guid>
-      <description>まえがき この記事は、 電通大生による電通大生のためのUEC Advent Calendar 2023 の6日目担当です。</description>
+      <description></description>
     </item>
   </channel>
 </rss>
