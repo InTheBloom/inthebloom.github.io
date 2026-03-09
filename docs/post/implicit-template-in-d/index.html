@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>[D言語] (a, b) =&gt; b &lt; aについて - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=da0a1e1bfed92d6988ba5b6db64d7ef6b29b0938">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=da0a1e1bfed92d6988ba5b6db64d7ef6b29b0938">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=da0a1e1bfed92d6988ba5b6db64d7ef6b29b0938">
+<link rel="alternate" href="/index.xml?c=da0a1e1bfed92d6988ba5b6db64d7ef6b29b0938" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="[D言語] (a, b) =&gt; b &lt; aについて - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/implicit-template-in-d/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="[D言語] (a, b) =&gt; b &lt; aについて - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/implicit-template-in-d/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=da0a1e1bfed92d6988ba5b6db64d7ef6b29b0938">
+<link rel="stylesheet" href="/css/color.css?c=da0a1e1bfed92d6988ba5b6db64d7ef6b29b0938">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=da0a1e1bfed92d6988ba5b6db64d7ef6b29b0938">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>[D言語] (a, b) =&gt; b &lt; aについて</h1>
+
+<span class="sub">Published on 2026-03-09</span><br>
+<span class="sub">Last Modified 2026-03-09</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#前提">前提</a></li>
+    <li><a href="#問題">問題</a></li>
+    <li><a href="#正解">正解</a></li>
+    <li><a href="#余談1">余談1</a></li>
+    <li><a href="#余談2">余談2</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="前提">前提</h2>
+<p>API Documentationはversion 2.112.0を参照しています。
+なお、私の手元環境はDebian GNU/Linux 12 (bookworm) 64bit + dmd v2.108.1です。</p>
+<h2 id="問題">問題</h2>
+<p><code>std.algorithm.sorting.sort</code>を利用するとき、例えば降順ソートだと</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span>A<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">!((</span>a<span style="color:#f92672">,</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">=&gt;</span> b <span style="color:#f92672">&lt;</span> a<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>と書くことがあると思います。
+ところで、<code>(a, b) =&gt; b &lt; a</code>って一体何なのでしょうか？</p>
+<h2 id="正解">正解</h2>
+<p>
+<a
+  
+    href="https://dlang.org/spec/expression.html"
+  
+   target="_blank" rel="noopener">
+    Expressions
+</a>
+に答えが書いていました。</p>
+<p>11.19.8.3 Function Literal Templatesによると、</p>
+<blockquote>
+<p>A function literal will be a template when it has either:（関数リテラルは、いずれかの場合にテンプレートになります。）</p>
+<ul>
+<li>An unspecified parameter type and no context to infer it from.（指定されていないパラメータ型で、それを推測するためのコンテキストがありません。）</li>
+<li>An auto ref parameter.（ 自動参照パラメータ。)</li>
+</ul>
+</blockquote>
+<p>だそうです。
+つまり、正解は「<code>(a, b) =&gt; b &lt; a</code>は関数テンプレート」でした。
+なので、脱糖すると</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    A<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">!(</span>comp<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#a6e22e">comp</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">comp</span> <span style="color:#f92672">(</span>T a<span style="color:#f92672">,</span> T b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> b <span style="color:#f92672">&lt;</span> a<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>に近いことが起こっているのだと推測できます。
+なるほど〜</p>
+<h2 id="余談1">余談1</h2>
+<p><code>sort</code>のシグネチャは
+<a
+  
+    href="https://dlang.org/library/std/algorithm/sorting/sort.html"
+  
+   target="_blank" rel="noopener">
+    ドキュメント
+</a>
+によると</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span>SortedRange<span style="color:#f92672">!(</span>Range<span style="color:#f92672">,</span>less<span style="color:#f92672">)</span> sort<span style="color:#f92672">(</span><span style="color:#66d9ef">alias</span> less<span style="color:#f92672">,</span> SwapStrategy ss <span style="color:#f92672">=</span> SwapStrategy<span style="color:#f92672">.</span><span style="color:#a6e22e">unstable</span><span style="color:#f92672">,</span> Range<span style="color:#f92672">)(</span>
+</span></span><span style="display:flex;"><span>  Range r
+</span></span><span style="display:flex;"><span><span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>となっています。
+今まで使ったことなかったのですが、<code>SortedRange!(Range,less)</code>がめちゃくちゃ便利かもしれないことに気が付きました。
+細かい仕様は
+<a
+  
+    href="https://dlang.org/library/std/range/sorted_range.html"
+  
+   target="_blank" rel="noopener">
+    ここ
+</a>
+に記載されていますが、競技プログラミング的には</p>
+<ul>
+<li><code>contains</code></li>
+<li><code>trisect</code></li>
+</ul>
+<p>が使えると嬉しい場面が多そうです。
+ただ、indexを触りたいときにひと工夫必要そうなので肝心なときに役に立たない気もしています。</p>
+<h2 id="余談2">余談2</h2>
+<p>競技プログラミングでハードラックとダンスっちまったときにD言語のドキュメントに目を通していますが、基本的によ〜く読まないとよくわからない機能が多くて困っています。
+他の言語に比べて、どこまでがライブラリ実装されていて、どこからランタイム機能になるのか難しい機能が多い印象です。</p>
+<p>結局<code>alias</code>がどこまでできて何ができないのかとかはよくわかっていません。
+あとはメタプログラミングの文脈での<code>tuple</code>（<code>AliasSeq</code>？）もよくわかりません。
+とりあえず<code>std.typecons: Tuple</code>とは全く異なるのはわかりますが、<code>AliasSeq</code>を用いたメタプログラミングは自力で組み立てられません。
+（というのを書いているときに<code>std.typecons</code>のドキュメントを見に行ったのですが、そんなことできたんかい！みたいな機能が提供されていて、D言語練度の低さを思い知りました。）</p>
+<p>なんというか、Dを使いこなすためにはプログラミングの作法や機能を知っていないといけないように感じて、
+<a
+  
+    href="https://dlang-ja-dokutoku-b1ce36c99e10c96adf0310979a9f2e5f51a136791c046.gitlab.io/overview.html"
+  
+   target="_blank" rel="noopener">
+    最初のプログラミング言語としては、PythonやJavaScriptの方が適している。
+</a>
+という記述はもっともだなと思いました。
+（ただ、Pythonは型の意識が身につきにくいし、JavaScriptは至るところで非同期が絡んでくるから最初の言語として適しているか？とも思いますが&hellip;）</p>
+<p><img src="/images/implicit-template-in-d/quote.png" alt="引用のスクリーンショット"></p>
+<p>競技プログラミングばっかりやっていたら全然プログラミングうまくならないのでなんか別のことにも手を出したいですね。
+技術書とかいうの読んでみたいです。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/d/">D</a>
+	
+	<a class="post-tag" href="/tags/%E3%83%88%E3%83%AA%E3%83%93%E3%82%A2/">トリビア</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/awc0008d/">AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "トリビア"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-03-09</div>
+  <div class="post-title"><a href="/post/implicit-template-in-d/">[D言語] (a, b) =&gt; b &lt; aについて</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2025-03-21</div>
+  <div class="post-title"><a href="/post/slicing-co-routine/">co-routineをスライスする</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2024-11-09</div>
+  <div class="post-title"><a href="/post/apple-emoji-on-mintty/">失われしappleスタイルのemojiを召喚 on mintty</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href="/tags/">other tags</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

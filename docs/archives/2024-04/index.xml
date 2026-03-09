@@ -4,7 +4,7 @@
     <title>2024-04 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2024-04/</link>
     <description>Recent content in 2024-04 on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Mon, 15 Apr 2024 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2024-04/index.xml" rel="self" type="application/rss+xml" />
@@ -13,28 +13,28 @@
       <link>https://inthebloom.github.io/post/functional-graph-simulating/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/functional-graph-simulating/</guid>
-      <description>概要 本稿において、$N$頂点$N$辺からなる有向グラフであって、すべての頂点の出次数が1であるグラフをfunctional graphと呼ぶ。</description>
+      <description></description>
     </item>
     <item>
       <title>ABC247F - Cards</title>
       <link>https://inthebloom.github.io/post/abc247f/</link>
       <pubDate>Wed, 10 Apr 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc247f/</guid>
-      <description>問題概要 問題へのリンク 問題文 $1$から$N$の番号がついた$N$枚のカードがあり、カード$i$の表には$P _ i$が、裏には$Q _ i$が書かれている。 ただし、$P = (P _ 1, \dots, P _ N)$及び$Q = (Q _ 1, \dots, Q _ N)$はそれぞれ$(1, \dots, N)$の置換である。</description>
+      <description></description>
     </item>
     <item>
       <title>ABC247E - Max Min</title>
       <link>https://inthebloom.github.io/post/abc247e/</link>
       <pubDate>Mon, 08 Apr 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc247e/</guid>
-      <description>問題概要 問題へのリンク 問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$及び整数$X, Y$が与えられる。次の条件をすべて満たす整数の組$(L, R)$の個数を求めよ。</description>
+      <description></description>
     </item>
     <item>
       <title>MMA Contest 018参加記録 &#43; 怪文書</title>
       <link>https://inthebloom.github.io/post/mmacontest018/</link>
       <pubDate>Wed, 03 Apr 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/mmacontest018/</guid>
-      <description>オンサイトに行ってきました。 MMA Contest 018 - connpass 電気通信大学のサークル、MMAによるプログラミングコンテストが3月31日に開催されました。 電気通信大学内にオンサイト会場が確保されていたため、私も現地に行って参加してきました。 本エントリはその記録になります。</description>
+      <description></description>
     </item>
   </channel>
 </rss>
