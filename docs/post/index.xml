@@ -6,8 +6,15 @@
     <description>Recent content in Posts on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>個数制限ナップサックを01ナップサックに帰着するときのアレ</title>
+      <link>https://inthebloom.github.io/post/knapsack-with-limit/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/knapsack-with-limit/</guid>
+      <description></description>
+    </item>
     <item>
       <title>[D言語] (a, b) =&gt; b &lt; aについて</title>
       <link>https://inthebloom.github.io/post/implicit-template-in-d/</link>
