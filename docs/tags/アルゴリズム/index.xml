@@ -6,8 +6,15 @@
     <description>Recent content in アルゴリズム on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 18 Feb 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>個数制限ナップサックを01ナップサックに帰着するときのアレ</title>
+      <link>https://inthebloom.github.io/post/knapsack-with-limit/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/knapsack-with-limit/</guid>
+      <description></description>
+    </item>
     <item>
       <title>非可換モノイドの逆順積の計算</title>
       <link>https://inthebloom.github.io/post/monoid-technique/</link>
