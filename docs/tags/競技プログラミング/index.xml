@@ -6,8 +6,15 @@
     <description>Recent content in 競技プログラミング on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>個数制限ナップサックを01ナップサックに帰着するときのアレ</title>
+      <link>https://inthebloom.github.io/post/knapsack-with-limit/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/knapsack-with-limit/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法</title>
       <link>https://inthebloom.github.io/post/awc0008d/</link>
