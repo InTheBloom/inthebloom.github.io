@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2026-04 on InTheDayDream</title>
+    <link>https://inthebloom.github.io/archives/2026-04/</link>
+    <description>Recent content in 2026-04 on InTheDayDream</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 11 Apr 2026 00:00:00 +0900</lastBuildDate>
+    <atom:link href="https://inthebloom.github.io/archives/2026-04/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2種の篩によるLPF配列、GPF配列の計算</title>
+      <link>https://inthebloom.github.io/post/calculate-lpf-and-mpf/</link>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/calculate-lpf-and-mpf/</guid>
+      <description>はじめに $2 \leq x$を満たす整数$x$に対して、$x$の 最小素因数（least prime factor） とは、$x$の素因数のうち最小のものを指します。 同様に、$x$の 最大素因数（greatest prime factor） とは、$x$の素因数のうち最大のものを指します。 （※名称はOEISに沿って設定しました。 lpfのページ gpfのページ ）</description>
+    </item>
+  </channel>
+</rss>

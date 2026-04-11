@@ -4,7 +4,7 @@
     <title>2023-07 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2023-07/</link>
     <description>Recent content in 2023-07 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2023-07/index.xml" rel="self" type="application/rss+xml" />
@@ -13,21 +13,21 @@
       <link>https://inthebloom.github.io/post/abc310/</link>
       <pubDate>Mon, 17 Jul 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc310/</guid>
-      <description></description>
+      <description>はじめに 本稿は、2023/7/15に開催された ABC310 の参加記録となっています。</description>
     </item>
     <item>
       <title>ABC309参加記録</title>
       <link>https://inthebloom.github.io/post/abc309/</link>
       <pubDate>Thu, 13 Jul 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc309/</guid>
-      <description></description>
+      <description>始めに 本稿は2023/7/8に開催された、 ABC309 の参加記録です。</description>
     </item>
     <item>
       <title>unstableをstableにする小技</title>
       <link>https://inthebloom.github.io/post/sorttech/</link>
       <pubDate>Mon, 03 Jul 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/sorttech/</guid>
-      <description></description>
+      <description>はじめに 先日(2023/7/1)の ABC308 のC問題にややこしいソート問題が出ました。 本稿はその問題を簡潔に解く実装のアイディアの紹介です。</description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>2025-08 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2025-08/</link>
     <description>Recent content in 2025-08 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 21 Aug 2025 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2025-08/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://inthebloom.github.io/post/solve-extra-constraints/</link>
       <pubDate>Thu, 21 Aug 2025 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/solve-extra-constraints/</guid>
-      <description></description>
+      <description>ABC372E - K-th Largest Connected Components 問題 問題文（概略） $N$頂点のグラフがあり、頂点$i$には数$i$が書かれている。 以下の２つのクエリを処理。</description>
     </item>
   </channel>
 </rss>

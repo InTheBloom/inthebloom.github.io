@@ -4,7 +4,7 @@
     <title>2026-02 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2026-02/</link>
     <description>Recent content in 2026-02 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2026-02/index.xml" rel="self" type="application/rss+xml" />
@@ -13,14 +13,14 @@
       <link>https://inthebloom.github.io/post/awc0008d/</link>
       <pubDate>Thu, 19 Feb 2026 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/awc0008d/</guid>
-      <description></description>
+      <description>はじめに AWC0008D - 果樹園の収穫 を$O(N(\log N + \log (\max F _ i)))$時間で解きます。要は$M \leq 10 ^ 9$でも解ける解法ということです。 解説で言及されているので新規性はないです。</description>
     </item>
     <item>
       <title>非可換モノイドの逆順積の計算</title>
       <link>https://inthebloom.github.io/post/monoid-technique/</link>
       <pubDate>Wed, 18 Feb 2026 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/monoid-technique/</guid>
-      <description></description>
+      <description>はじめに 小ネタです。全人類知っているかもしれませんが、私は比較的最近知ったので共有します。 以下、モノイドは$(M, e, \times)$を考えます。</description>
     </item>
   </channel>
 </rss>

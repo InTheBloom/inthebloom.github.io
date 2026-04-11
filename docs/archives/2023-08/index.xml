@@ -4,7 +4,7 @@
     <title>2023-08 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2023-08/</link>
     <description>Recent content in 2023-08 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2023-08/index.xml" rel="self" type="application/rss+xml" />
@@ -13,14 +13,14 @@
       <link>https://inthebloom.github.io/post/abc315/</link>
       <pubDate>Thu, 24 Aug 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc315/</guid>
-      <description></description>
+      <description>はじめに 本稿は2023/8/19に行われた ABC315 の参加記録です。</description>
     </item>
     <item>
       <title>繰り返し二乗法について</title>
       <link>https://inthebloom.github.io/post/modpow/</link>
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/modpow/</guid>
-      <description></description>
+      <description>はじめに この度私のライブラリに冪乗の余りを求める、いわゆるmodPow関数を追加しました。 丁度いい機会ということで、本稿ではmodpowの仕組みを説明し、詳細な実装方法と実装例を示します。 数学をガバっていたらすみません。</description>
     </item>
   </channel>
 </rss>

@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=7967cfafd7bcf68bd9130842e699e14a5a79045f">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=7967cfafd7bcf68bd9130842e699e14a5a79045f">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=7967cfafd7bcf68bd9130842e699e14a5a79045f">
-<link rel="alternate" href="/index.xml?c=7967cfafd7bcf68bd9130842e699e14a5a79045f" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=883a2e4c56b259a7a7497233bb89319630486cf3">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=883a2e4c56b259a7a7497233bb89319630486cf3">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=883a2e4c56b259a7a7497233bb89319630486cf3">
+<link rel="alternate" href="/index.xml?c=883a2e4c56b259a7a7497233bb89319630486cf3" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="サイト内全文検索 - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/search/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=7967cfafd7bcf68bd9130842e699e14a5a79045f">
-<link rel="stylesheet" href="/css/color.css?c=7967cfafd7bcf68bd9130842e699e14a5a79045f">
+<link rel="stylesheet" href="/css/main.css?c=883a2e4c56b259a7a7497233bb89319630486cf3">
+<link rel="stylesheet" href="/css/color.css?c=883a2e4c56b259a7a7497233bb89319630486cf3">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=7967cfafd7bcf68bd9130842e699e14a5a79045f">
+<link rel="stylesheet" href="/css/custom.css?c=883a2e4c56b259a7a7497233bb89319630486cf3">
 
 
 
@@ -139,15 +139,21 @@
 
 const data = [
   {
+    url: "/post/calculate-lpf-and-mpf/",
+    title: "2種の篩によるLPF配列、GPF配列の計算",
+    date: "2026-04-11T00:00:00+09:00",
+    body: "2種の篩によるLPF配列、GPF配列の計算 はじめに $2 \\leq x$を満たす整数$x$に対して、$x$の 最小素因数（least prime factor） とは、$x$の素因数のうち最小のものを指します。 同様に、$x$の 最大素因数（greatest prime factor） とは、$x$の素因数のうち最大のものを指します。 （※名称はOEISに沿って設定しました。 lpfのページ gpfのページ ） 本エントリでは、上限値$N$を入力として受け取り、$2 \\leq x \\leq N$に対するlpfおよびgpfをすべて計算し、配列として返却するアルゴリズムを紹介します。 1. エラトステネスの篩によるアルゴリズム エラトステネスの篩とは、$N$以下の素数を列挙するアルゴリズムの一つです。 任意の合成数$m$は$m$未満の素因数を持つことを利用して、発見した素数でそれより大きな合成数を「ふるい落として」いきます。 この際、実はある合成数を最初にふるい落とす最初の素数が最小素因数、ふるい落とす最後の素数が最大素因数になっています。（これはアルゴリズムの動作を考えれば明らかです。） よって、それぞれをふるい落とされた際に記録することで計算することができます。 計算量はエラトステネスの篩と同じで、$O(N \\log \\log N)$時間ですが、各数1bitでは済まないため空間計算量が増えることには注意が必要です。 int[] buildLpfArrayEratosthenes (int N) { // エラトステネスの篩LPF配列 auto ret = new int[](N + 1); foreach (i; 2 .. N + 1) { if (0 \u0026lt; ret[i]) { continue; } int cur = i; while (cur \u0026lt;= N) { if (ret[cur] == 0) { ret[cur] = i; } cur += i; } } return ret; } int[] buildGpfArrayEratosthenes (int N) { // エラトステネスの篩GPF配列 auto ret = new int[](N + 1); foreach (i; 2 .. N + 1) { if (0 \u0026lt; ret[i]) { continue; } int cur = i; while (cur \u0026lt;= N) { ret[cur] = i; cur += i; } } return ret; } 2. 線形篩によるアルゴリズム 2-1. 最小素因数による線形篩 エラトステネスの篩では、1つの合成数が複数回篩われることがあります。 例えば、$30 = 2 \\times 3 \\times 5$は各素因数から1回ずつ篩われます。 そこで、最小素因数のみから篩うようにしたものが線形篩です。 各数1回しか篩われないため、$O(N)$時間で動作します。 もう少し詳しく説明します。 ある合成数$m$が最小素因数$p$をもち、$m = pn$と表されるとしましょう。 エラトステネスの篩では$p$が素数とわかった時点で$m$をふるいに行きますが、線形篩ではこれはできません。 なぜなら$n$側が$p$未満の素因数を持つか判定できないからです。 そこで、逆に$n$側に来た際に$p$でふるいます。これは上手くいきます。 なぜなら$p$は最小素因数であるため$p \\leq n$であり、$n$にたどり着いた時点で出現した素数のリストを保持していれば条件を満たす$p$が全てわかるからです。 このアルゴリズムを用いると、自然に最小素因数を計算することができます。 単に自身を篩った素因数を記録すればよいからです。 int[] buildLpfArrayLinear (int N) { // 線形篩LPF配列 auto ret = new int[](N + 1); auto primes = new int[](0); foreach (i; 2 .. N + 1) { // iは素数 if (ret[i] == 0) { ret[i] = i; primes ~= i; } foreach (p; primes) { if (N \u0026lt; 1L * p * i || ret[i] \u0026lt; p) { break; } ret[p * i] = p; } } return ret; } 2-2. 最大素因数による線形篩 実は、最大素因数による線形篩を作ることができ、これを用いると、先ほどのアルゴリズム同様に自然に最大素因数を計算することができます。 線形篩 - 37zigenのHP で紹介されている内容を私なりに説明したものです。 最小素因数による篩と同様に、最大素因数$p$を用いて$n = pm$と表される合成数を考えます。 このとき、最小素因数篩は$m$側から$p$を見てふるいました。 しかし、今回は$m \\leq p$である可能性があり、「大きいものから素数を確定させていく」のようなことをする必要があり、難しいです。（一応最小素因数による篩を用いると$O(N)$時間で素数を列挙できるため、やろうと思えばできます。しかし、本末転倒感があります。） 実は、小さいものから素数を確定させていきつつ、上手く最大素因数で篩う方法があります。 それは、$p$側から$m$側を見る方法と$m$側から$p$側を見る方法をハイブリッドで用いることです。 具体的には、$m \u0026lt; p$の場合は$p$側から、$p \\leq m$の場合は$m$側からふるいます。 まず、$m \u0026lt; p$の場合を考えます。そもそも$p$未満の数が$p$より大きな素因数を持つはずがないため、単に$p$未満の全ての数を$m$としてふるえばよいです。 次に$p \\leq m$の場合を考えます。 まず、$m$以下の素数は全て列挙できているとします。 $m$の最大素因数を$q$として、$q$以上の素数すべてを$p$として用いればよいです。 ここまではアイデアの説明であって、あまり正当性が理解できていないと思うので、もう少し補足で説明します。 この2つのふるいを$2$以上$r$以下の小さい数から行ったとすると、$r + 1$が合成数であるならば必ず篩えていて、素数なら篩われていません。なぜなら、 $r + 1$が素数: その数自身以外の素因数を持たないため、篩われない $r + 1$が合成数: $r + 1 = pm$とする。$m \u0026lt; p$なら$p$を素数として確定した際に篩われ、$p \\leq m$なら$m$に来たときに篩われる。 からです。 あとは、適切に初期状態を定めることができれば、帰納的に正しさがわかります。 初期状態はまだ2に到達していない状態ということなので、 篩われているかを表す長さ$N$の配列を全て篩われていない状態にする 見つかった素数の配列を空にしておく にセットしておけばOKです。 int[] buildGpfArrayLinear (int N) { // 線形篩GPF配列 auto idx = new int[](N + 1); idx[] = -1; auto primes = new int[](0); foreach (i; 2 .. N + 1) { if (idx[i] == -1) { idx[i] = cast(int)(primes.length); primes ~= i; // 素数pに対してgpf(x) \u0026lt;= pかつx \u0026lt; pなる数xに対する合成数pxの列挙（今回、素数はi） foreach (x; 2 .. i) { if (N \u0026lt; 1L * i * x) { break; } idx[i * x] = idx[i]; } } // 素数pに対してgpf(x) \u0026lt;= pかつp \u0026lt;= xなる数xに対する合成数pxの列挙（今回、xはi） foreach (cidx; idx[i] .. cast(int)(primes.length)) { int p = primes[idx[i]]; int cp = primes[cidx]; if (N \u0026lt; 1L * i * cp) { break; } idx[i * cp] = cidx; } } auto ret = new int[](N + 1); foreach (i; 2 .. N + 1) { ret[i] = primes[idx[i]]; } return ret; } 応用: 素因数分解、約数列挙 最小素因数や最大素因数である必要はありませんが、$2 \\leq x \\leq N$に対する素因数がそれぞれ1つずつわかっている場合、この範囲の数をクエリ$O(\\log N)$時間で素因数分解できます。 これは素因数が2以上であるから、素因数を1つ分離するごとに値が少なくとも$1 / 2$になるからです。 最小素因数を用意するメリットとして、 素因数分解を \u0026lt;O(n), O(log(n)/log(log(n)))\u0026gt; で行う - えびちゃんの日記 で紹介されているように、重複する素因数をひとまとめにして高速化することができる点が挙げられます。 また、たま～に最小素因数を要求する動的計画法があったりします。（どれか忘れたけどECRに出てたと思う。） また、素因数分解ができるということは、各素因数を何個選択したか？をdfsで列挙することにより、$O(\\log N + 約数の個数)$時間で約数列挙が可能です。 これがどれだけ効くかわかりませんが、試し割の$O(\\sqrt N)$時間より早いことを期待して私は使っています。（オブジェクト生成の時間とか考えたらなんなら遅いかも。測定してないのでシラン。）"
+  },
+  {
     url: "/",
     title: "InTheDayDream",
-    date: "2026-03-12T00:00:00+09:00",
+    date: "2026-04-11T00:00:00+09:00",
     body: "InTheDayDream"
   },
   {
     url: "/post/",
     title: "Posts",
-    date: "2026-03-12T00:00:00+09:00",
+    date: "2026-04-11T00:00:00+09:00",
     body: "Posts"
   },
   {

@@ -4,7 +4,7 @@
     <title>2024 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2024/</link>
     <description>Recent content in 2024 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 02 Jan 2025 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2024/index.xml" rel="self" type="application/rss+xml" />
@@ -13,231 +13,231 @@
       <link>https://inthebloom.github.io/post/uec-advent2024/</link>
       <pubDate>Thu, 12 Dec 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/uec-advent2024/</guid>
-      <description></description>
+      <description>まえがき こんにちは、 InTheBloom です。 今年もUECアドカレの季節がやってきましたね。Twitterでカレンダーが生えたのを観測したので、これ幸いと枠をいただきました。これで3年目になります。</description>
     </item>
     <item>
       <title>区切り文字による連続部分列の切り出し</title>
       <link>https://inthebloom.github.io/post/subsequences-by-delimiter/</link>
       <pubDate>Tue, 03 Dec 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/subsequences-by-delimiter/</guid>
-      <description></description>
+      <description>概要 次の問題を解くアルゴリズムを考えます。</description>
     </item>
     <item>
       <title>AtCoder Algorithm 1600達成！</title>
       <link>https://inthebloom.github.io/post/reached-1600/</link>
       <pubDate>Fri, 22 Nov 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/reached-1600/</guid>
-      <description></description>
+      <description>喜び 2024-11-22のABC381でついにrating 1600+を達成しました！ 競技プログラミングを始めた頃、自分がここまでこれるとは思っていませんでした。嬉しいです！</description>
     </item>
     <item>
       <title>UnionFindによる区間の統合</title>
       <link>https://inthebloom.github.io/post/unifying-segments-with-unionfind/</link>
       <pubDate>Tue, 19 Nov 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/unifying-segments-with-unionfind/</guid>
-      <description></description>
+      <description>概要 $N$個の区間を考えて、$i$個目の区間を$[i, i + 1)$とします。 $O(N)$くらいが許されるとき、隣り合う区間を統合するクエリをUnionFindで処理することができます。 より具体的には、次の操作をならし$O(\alpha (n))$時間で行うことができます。</description>
     </item>
     <item>
       <title>失われしappleスタイルのemojiを召喚 on mintty</title>
       <link>https://inthebloom.github.io/post/apple-emoji-on-mintty/</link>
       <pubDate>Sat, 09 Nov 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/apple-emoji-on-mintty/</guid>
-      <description></description>
+      <description>はじめに mintty という端末エミュレータがあります。 msysやcygwinやgitbashにくっついてインストールされるようで、私のwindows環境にもいつの間にかありました。 私は基本的にターミナル暮らしをしており、最近はgitbashにくっついてきたminttyを常用しています。</description>
     </item>
     <item>
       <title>ICPC模擬国内予選D 過去問の共有</title>
       <link>https://inthebloom.github.io/post/icpc-2024-domestic-d/</link>
       <pubDate>Tue, 29 Oct 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/icpc-2024-domestic-d/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク 問題文 JAG大学ICPC学科には$N$人の学生が在籍しており、それぞれの学生には$1$から$N$までの番号がついている。また、学生の交友関係が$M$個存在する。$i$番目の交友関係は、学生$a _ i$と$b _ i$が友達であり、互いに連絡できることを表す。</description>
     </item>
     <item>
       <title>Functional GraphでK回進むクエリ in &lt;O(NlogN), O(logN)&gt;</title>
       <link>https://inthebloom.github.io/post/functional-graph-logn-simulation/</link>
       <pubDate>Sat, 19 Oct 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/functional-graph-logn-simulation/</guid>
-      <description></description>
+      <description>概要 次の問題を$\langle O(N\log N), O(\log N) \rangle$で解くアルゴリズムを紹介します。</description>
     </item>
     <item>
       <title>比較的シンプルなクイックソートとマージソートの実装</title>
       <link>https://inthebloom.github.io/post/simple-nlogn-sort/</link>
       <pubDate>Thu, 10 Oct 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/simple-nlogn-sort/</guid>
-      <description></description>
+      <description>はじめに 比較的頭を壊しにくいクイックソートとマージソートの実装方針を共有します。 オーダーも悪化しません。定数倍はわかりませんが、最適実装に比べて高々2倍とかだと思います。(適当) 実装例はすべてC++です。</description>
     </item>
     <item>
       <title>ABC288D - Range Add Query</title>
       <link>https://inthebloom.github.io/post/abc288d/</link>
       <pubDate>Tue, 10 Sep 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc288d/</guid>
-      <description></description>
+      <description>想定解法と全然異なる怪しい解法で通したので書きます。</description>
     </item>
     <item>
       <title>Range Kth Smallestに対する4つの解法と2つの実装例</title>
       <link>https://inthebloom.github.io/post/range-kth-smallest/</link>
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/range-kth-smallest/</guid>
-      <description></description>
+      <description>問題 $N$要素の数列$A$が与えられる。$Q$個のクエリに解答せよ。</description>
     </item>
     <item>
       <title>暗黙のコピーコンストラクタにご注意を</title>
       <link>https://inthebloom.github.io/post/cpp-copy-constructor/</link>
       <pubDate>Sat, 17 Aug 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/cpp-copy-constructor/</guid>
-      <description></description>
+      <description>Hackで落とされた&amp;hellip; Educational Codeforces Round 169 (Rated for Div.</description>
     </item>
     <item>
       <title>UECCPバーチャルコンテストを発起し、完走した</title>
       <link>https://inthebloom.github.io/post/ueccp-2024-first-half/</link>
       <pubDate>Thu, 08 Aug 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/ueccp-2024-first-half/</guid>
-      <description></description>
+      <description>UECCPバーチャルコンテストについて 私が電通大競プログラミングサークルに呼びかけて、4月から8月までAtCoder Problemsを利用したバーチャルコンテストを週1回開催しました。 某H先生のご厚意により、競プロサークルで利用できる教室があったため、そこをオンサイト会場(笑)として利用しました。 4月22日から8月5日まで合計13回開催しました。</description>
     </item>
     <item>
       <title>[覚書] 陽なDAG上のdpを楽に処理する</title>
       <link>https://inthebloom.github.io/post/dp-in-explicit-dag/</link>
       <pubDate>Mon, 27 May 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/dp-in-explicit-dag/</guid>
-      <description></description>
+      <description>定義 本稿におけるDAGとは、次のことを指します。</description>
     </item>
     <item>
       <title>No.2758 RDQ</title>
       <link>https://inthebloom.github.io/post/yukicoder2758/</link>
       <pubDate>Sat, 18 May 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/yukicoder2758/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク 問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$が与えられる。次の$Q$個の質問に答えよ。</description>
     </item>
     <item>
       <title>ABC352参加記録</title>
       <link>https://inthebloom.github.io/post/abc352/</link>
       <pubDate>Mon, 06 May 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc352/</guid>
-      <description></description>
+      <description>はじめに いくつかの理由でしばらく更新していませんでしたが、久しぶりに更新することにしました。</description>
     </item>
     <item>
       <title>[メモ] Functional Graph上のシミュレーション</title>
       <link>https://inthebloom.github.io/post/functional-graph-simulating/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/functional-graph-simulating/</guid>
-      <description></description>
+      <description>概要 本稿において、$N$頂点$N$辺からなる有向グラフであって、すべての頂点の出次数が1であるグラフをfunctional graphと呼ぶ。</description>
     </item>
     <item>
       <title>ABC247F - Cards</title>
       <link>https://inthebloom.github.io/post/abc247f/</link>
       <pubDate>Wed, 10 Apr 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc247f/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク 問題文 $1$から$N$の番号がついた$N$枚のカードがあり、カード$i$の表には$P _ i$が、裏には$Q _ i$が書かれている。 ただし、$P = (P _ 1, \dots, P _ N)$及び$Q = (Q _ 1, \dots, Q _ N)$はそれぞれ$(1, \dots, N)$の置換である。</description>
     </item>
     <item>
       <title>ABC247E - Max Min</title>
       <link>https://inthebloom.github.io/post/abc247e/</link>
       <pubDate>Mon, 08 Apr 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc247e/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク 問題文 長さ$N$の数列$A = (A _ 1, A _ 2, \dots, A _ N)$及び整数$X, Y$が与えられる。次の条件をすべて満たす整数の組$(L, R)$の個数を求めよ。</description>
     </item>
     <item>
       <title>MMA Contest 018参加記録 &#43; 怪文書</title>
       <link>https://inthebloom.github.io/post/mmacontest018/</link>
       <pubDate>Wed, 03 Apr 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/mmacontest018/</guid>
-      <description></description>
+      <description>オンサイトに行ってきました。 MMA Contest 018 - connpass 電気通信大学のサークル、MMAによるプログラミングコンテストが3月31日に開催されました。 電気通信大学内にオンサイト会場が確保されていたため、私も現地に行って参加してきました。 本エントリはその記録になります。</description>
     </item>
     <item>
       <title>ABC345参加記録</title>
       <link>https://inthebloom.github.io/post/abc345/</link>
       <pubDate>Fri, 29 Mar 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc345/</guid>
-      <description></description>
+      <description>はじめに 珍しくいくつかやることがあったのと、数日体調を崩していたため参加記録をサボっていました。 2週間遅刻ですが書きます。</description>
     </item>
     <item>
       <title>ABC346参加記録</title>
       <link>https://inthebloom.github.io/post/abc346/</link>
       <pubDate>Fri, 29 Mar 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc346/</guid>
-      <description></description>
+      <description>はじめに 前回のエントリ 同様に、更新できていませんでしたが更新します。</description>
     </item>
     <item>
       <title>三井住友信託銀行プログラミングコンテスト2019F - Interval Running</title>
       <link>https://inthebloom.github.io/post/sumitb2019f/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/sumitb2019f/</guid>
-      <description></description>
+      <description>問題概要 問題文 高橋くんと青木くんが同じ方向に向かって走っている。</description>
     </item>
     <item>
       <title>ABC35D - トレジャーハント</title>
       <link>https://inthebloom.github.io/post/abc35d/</link>
       <pubDate>Tue, 12 Mar 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc35d/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク 問題文 $1$から$N$の番号が割り振られた$N$個の町があり、$M$本の道がこれらの町を結んでいる。 $i$番目の道を用いることで$a _ i$番目の町から$b _ i$番目の町へと移動できるが、逆はできない。</description>
     </item>
     <item>
       <title>ABC344 (upsolved)</title>
       <link>https://inthebloom.github.io/post/abc344/</link>
       <pubDate>Mon, 11 Mar 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc344/</guid>
-      <description></description>
+      <description>贖罪 寝過ごしでABCポカしてしまった。信じられない。。</description>
     </item>
     <item>
       <title>MMA Contest 016 (upsolved)</title>
       <link>https://inthebloom.github.io/post/mmacontest016/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/mmacontest016/</guid>
-      <description></description>
+      <description>はじめに 来るMMA Contest 018に備えて MMA Contest 016 のupsolveを行いました。 問題の振り返りをします。</description>
     </item>
     <item>
       <title>20歳になりました。</title>
       <link>https://inthebloom.github.io/post/20th-birthday/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/20th-birthday/</guid>
-      <description></description>
+      <description>せっかく20歳になったので、なんか書きます 本日2024年3月1日は私の誕生日です。こんな私でも20歳になってしまいました。 日本では 明治時代からの名残 (？)から20歳を子供から大人に変化する節目とするそうです。 なんてことでしょう、いつの間にか大人になってしまいました。</description>
     </item>
     <item>
       <title>天下一プログラマーコンテスト2015予選B - 天下一リテラル</title>
       <link>https://inthebloom.github.io/post/tenka1_2015_qualbb/</link>
       <pubDate>Wed, 28 Feb 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/tenka1_2015_qualbb/</guid>
-      <description></description>
+      <description>問題概要 問題</description>
     </item>
     <item>
       <title>ABC74D - Restoring Road Network</title>
       <link>https://inthebloom.github.io/post/abc74d/</link>
       <pubDate>Tue, 27 Feb 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc74d/</guid>
-      <description></description>
+      <description>問題 問題へのリンク 問題</description>
     </item>
     <item>
       <title>尺取り法備忘録</title>
       <link>https://inthebloom.github.io/post/two-pointer-approach/</link>
       <pubDate>Thu, 22 Feb 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/two-pointer-approach/</guid>
-      <description></description>
+      <description>尺取り法、してますか？ 条件を満たす列に対して</description>
     </item>
     <item>
       <title>等比数列の和を計算する2つの対数時間アルゴリズム</title>
       <link>https://inthebloom.github.io/post/geometric-progression-sum/</link>
       <pubDate>Thu, 15 Feb 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/geometric-progression-sum/</guid>
-      <description></description>
+      <description>概要 隣り合う2つの項の比が一定である数列を、等比数列という。 より厳密には、初項$a$、公比$r$によって定まる次の数列のことを指す。</description>
     </item>
     <item>
       <title>Ubuntuが死んだのでDebianをインストールする</title>
       <link>https://inthebloom.github.io/post/debian-install/</link>
       <pubDate>Tue, 13 Feb 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/debian-install/</guid>
-      <description></description>
+      <description>はじめに 2023年の2月あたりからおよそ1年間にわたりUbuntu22.</description>
     </item>
     <item>
       <title>No.2616 中央番目の中央値</title>
       <link>https://inthebloom.github.io/post/yukicoder2616/</link>
       <pubDate>Sat, 27 Jan 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/yukicoder2616/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク 長さ$N$の順列$P = (P_1, \cdots , P_N)$が与えられる。$P$の部分列$p$であって、以下の条件をすべて満たすものの総数を$998244353$で割ったあまりを求めよ。</description>
     </item>
     <item>
       <title>ABC167E - Colorful Blocks</title>
       <link>https://inthebloom.github.io/post/abc167e/</link>
       <pubDate>Wed, 03 Jan 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/abc167e/</guid>
-      <description></description>
+      <description>問題概要 問題へのリンク $N$個の横一列に並んだブロック列に色を塗る。 色は整数で表され、$1$から$M$までの$M$種類ある。 必ずしもすべての色を使う必要はない。 隣り合うブロックが同じ色である箇所が$K$以下の色の塗り方の総数を$998244353$で割ったあまりを求めよ。</description>
     </item>
   </channel>
 </rss>

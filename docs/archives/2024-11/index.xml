@@ -4,7 +4,7 @@
     <title>2024-11 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2024-11/</link>
     <description>Recent content in 2024-11 on InTheDayDream</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 22 Nov 2024 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2024-11/index.xml" rel="self" type="application/rss+xml" />
@@ -13,21 +13,21 @@
       <link>https://inthebloom.github.io/post/reached-1600/</link>
       <pubDate>Fri, 22 Nov 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/reached-1600/</guid>
-      <description></description>
+      <description>喜び 2024-11-22のABC381でついにrating 1600+を達成しました！ 競技プログラミングを始めた頃、自分がここまでこれるとは思っていませんでした。嬉しいです！</description>
     </item>
     <item>
       <title>UnionFindによる区間の統合</title>
       <link>https://inthebloom.github.io/post/unifying-segments-with-unionfind/</link>
       <pubDate>Tue, 19 Nov 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/unifying-segments-with-unionfind/</guid>
-      <description></description>
+      <description>概要 $N$個の区間を考えて、$i$個目の区間を$[i, i + 1)$とします。 $O(N)$くらいが許されるとき、隣り合う区間を統合するクエリをUnionFindで処理することができます。 より具体的には、次の操作をならし$O(\alpha (n))$時間で行うことができます。</description>
     </item>
     <item>
       <title>失われしappleスタイルのemojiを召喚 on mintty</title>
       <link>https://inthebloom.github.io/post/apple-emoji-on-mintty/</link>
       <pubDate>Sat, 09 Nov 2024 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/apple-emoji-on-mintty/</guid>
-      <description></description>
+      <description>はじめに mintty という端末エミュレータがあります。 msysやcygwinやgitbashにくっついてインストールされるようで、私のwindows環境にもいつの間にかありました。 私は基本的にターミナル暮らしをしており、最近はgitbashにくっついてきたminttyを常用しています。</description>
     </item>
   </channel>
 </rss>
