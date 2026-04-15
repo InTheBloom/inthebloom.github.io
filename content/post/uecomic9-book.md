@@ -6,7 +6,7 @@ date: 2026-04-15
 # lastmod: yyyy-mm-dd
 # hidedate: true
 
-# ogimage: https://hoge/fuga/piyo.img
+ogimage: /images/uecomic9-book/ogimage.png
 
 tags:
   - 競技プログラミング
