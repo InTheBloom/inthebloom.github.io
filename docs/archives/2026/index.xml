@@ -4,58 +4,65 @@
     <title>2026 on InTheDayDream</title>
     <link>https://inthebloom.github.io/archives/2026/</link>
     <description>Recent content in 2026 on InTheDayDream</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 11 Apr 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/archives/2026/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>本を書いて、去年の11月にUEComic9で頒布した</title>
+      <link>https://inthebloom.github.io/post/uecomic9-book/</link>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/uecomic9-book/</guid>
+      <description></description>
+    </item>
     <item>
       <title>2種の篩によるLPF配列、GPF配列の計算</title>
       <link>https://inthebloom.github.io/post/calculate-lpf-and-mpf/</link>
       <pubDate>Sat, 11 Apr 2026 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/calculate-lpf-and-mpf/</guid>
-      <description>はじめに $2 \leq x$を満たす整数$x$に対して、$x$の 最小素因数（least prime factor） とは、$x$の素因数のうち最小のものを指します。 同様に、$x$の 最大素因数（greatest prime factor） とは、$x$の素因数のうち最大のものを指します。 （※名称はOEISに沿って設定しました。 lpfのページ gpfのページ ）</description>
+      <description></description>
     </item>
     <item>
       <title>個数制限ナップサックを01ナップサックに帰着するときのアレ</title>
       <link>https://inthebloom.github.io/post/knapsack-with-limit/</link>
       <pubDate>Thu, 12 Mar 2026 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/knapsack-with-limit/</guid>
-      <description>個数制限付きナップサック問題 $N$種類の物がある。$i$種類目の物は重さ$w _ i$、価値$v _ i$、個数$c _ i$個である。 ナップサックの容量を$V$とするとき、容量制限を守った上でナップサックに入れる物を選び、合計価値を最大化せよ。</description>
+      <description></description>
     </item>
     <item>
       <title>[D言語] (a, b) =&gt; b &lt; aについて</title>
       <link>https://inthebloom.github.io/post/implicit-template-in-d/</link>
       <pubDate>Mon, 09 Mar 2026 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/implicit-template-in-d/</guid>
-      <description>前提 API Documentationはversion 2.</description>
+      <description></description>
     </item>
     <item>
       <title>AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法</title>
       <link>https://inthebloom.github.io/post/awc0008d/</link>
       <pubDate>Thu, 19 Feb 2026 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/awc0008d/</guid>
-      <description>はじめに AWC0008D - 果樹園の収穫 を$O(N(\log N + \log (\max F _ i)))$時間で解きます。要は$M \leq 10 ^ 9$でも解ける解法ということです。 解説で言及されているので新規性はないです。</description>
+      <description></description>
     </item>
     <item>
       <title>非可換モノイドの逆順積の計算</title>
       <link>https://inthebloom.github.io/post/monoid-technique/</link>
       <pubDate>Wed, 18 Feb 2026 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/monoid-technique/</guid>
-      <description>はじめに 小ネタです。全人類知っているかもしれませんが、私は比較的最近知ったので共有します。 以下、モノイドは$(M, e, \times)$を考えます。</description>
+      <description></description>
     </item>
     <item>
       <title>ナップサック問題の復元</title>
       <link>https://inthebloom.github.io/post/knapsack-restoration/</link>
       <pubDate>Fri, 23 Jan 2026 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/knapsack-restoration/</guid>
-      <description>はじめに 今回は ABC441F - Must Buy を題材にして、ナップサック問題の最適解を与える操作列を復元する手法を解説します。</description>
+      <description></description>
     </item>
     <item>
       <title>O(NM)時間多項式除算</title>
       <link>https://inthebloom.github.io/post/polynomial-division/</link>
       <pubDate>Fri, 09 Jan 2026 00:00:00 +0900</pubDate>
       <guid>https://inthebloom.github.io/post/polynomial-division/</guid>
-      <description>問題 $N$次多項式$A(x) = A _ N x ^ N + A _ {N - 1} x ^ {N - 1} + \dots + A _ 0$ $M$次多項式$B(x) = B _ M x ^ M + B _ {M - 1} x ^ {M - 1} + \dots B _ 0$ $N + M$次多項式$C(x) = A(x)B(x) = C _ {N + M} x ^ {N + M} + C _ {N + M - 1} x ^ {N + M - 1} + \dots + C _ 0$ がある。$A(x), C(x)$が与えられるので、$B(x)$を求めよ。</description>
+      <description></description>
     </item>
   </channel>
 </rss>
