@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="天下一プログラマーコンテスト2015予選B - 天下一リテラル - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/tenka1_2015_qualbb/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -140,7 +140,7 @@
     EBNF
 </a>
 に従う。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-EBNF" data-lang="EBNF"><span style="display:flex;"><span><span style="color:#66d9ef">DICT </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{&#34;</span> , <span style="color:#66d9ef">EXPR </span>, <span style="color:#e6db74">&#34;:&#34;</span> , <span style="color:#66d9ef">EXPR </span>, { <span style="color:#e6db74">&#34;,&#34;</span> , <span style="color:#66d9ef">EXPR </span>, <span style="color:#e6db74">&#34;:&#34;</span> , <span style="color:#66d9ef">EXPR </span>} , <span style="color:#e6db74">&#34;}&#34;</span> | <span style="color:#e6db74">&#34;{}&#34;</span> ;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-EBNF" data-lang="EBNF"><span style="display:flex;"><span><span style="color:#66d9ef">DICT </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{&#34;</span> , <span style="color:#66d9ef">EXPR </span>, <span style="color:#e6db74">&#34;:&#34;</span> , <span style="color:#66d9ef">EXPR </span>, { <span style="color:#e6db74">&#34;,&#34;</span> , <span style="color:#66d9ef">EXPR </span>, <span style="color:#e6db74">&#34;:&#34;</span> , <span style="color:#66d9ef">EXPR </span>} , <span style="color:#e6db74">&#34;}&#34;</span> | <span style="color:#e6db74">&#34;{}&#34;</span> ;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">SET  </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{&#34;</span> , <span style="color:#66d9ef">EXPR </span>, { <span style="color:#e6db74">&#34;,&#34;</span> , <span style="color:#66d9ef">EXPR </span>} , <span style="color:#e6db74">&#34;}&#34;</span> ;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">EXPR </span><span style="color:#f92672">=</span> <span style="color:#66d9ef">DICT </span>| <span style="color:#66d9ef">SET </span>| <span style="color:#66d9ef">INTEGER </span>;
 </span></span></code></pre></div><p>集合型か辞書型のリテラル$S$が与えられる。型を判定せよ。</p>
@@ -152,7 +152,7 @@
 <h2 id="解法">解法</h2>
 <p>このような構文解析は<code>EXPR</code>を受け取り、型を判定するオラクルが存在すると仮定して考えると良いです。
 まず、エイヤと関数だけ作ってしまいましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> HNW_TYPE <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> HNW_TYPE <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    DICT<span style="color:#f92672">,</span>
 </span></span><span style="display:flex;"><span>    SET<span style="color:#f92672">,</span>
 </span></span><span style="display:flex;"><span>    INTEGER<span style="color:#f92672">,</span>
@@ -162,43 +162,43 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> HNW_TYPE <span style="color:#a6e22e">analize_expr</span> <span style="color:#f92672">(</span>string s<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> <span style="color:#66d9ef">int</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>まず、<code>INTEGER</code>に関しては定義に再帰的なものが含まれていないため、これを処理します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">&lt;=</span> s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;9&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">&lt;=</span> s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;9&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">&lt;=</span> s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;9&#39;</span><span style="color:#f92672">)</span> i<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">INTEGER</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>別に数値をパースする必要はないので、読み飛ばしてしまいましょう。</p>
 <p><code>DICT</code>/<code>SET</code>のパースをしましょう。<code>DICT</code>/<code>SET</code>は必ず<code>{</code>から始まるので、ここを見つけるところからスタートです。
 さらに、<code>DICT</code>のみ空なブラケットが許されるので、これは先に判定してしまいましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;{&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;{&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    i<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;}&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// 空のDICTのリテラル
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        i<span style="color:#f92672">++;</span>
+</span></span></span><span style="display:flex;"><span>        i<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">DICT</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>次に何らかの<code>EXPR</code>が来ますが、これは今作っている関数に丸投げします。
 現時点でこの関数に<code>EXPR</code>を処理する能力はないですが、ばっちり処理してくれるということにします。
 そのあとには<code>DICT</code>であれば<code>:</code>が来て、<code>SET</code>であれば<code>,</code>か<code>}</code>が来ます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">UNDECIDED</span><span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">UNDECIDED</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> end_of_expr <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// any EXPR
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    analize_expr<span style="color:#f92672">(</span>s<span style="color:#f92672">,</span> i<span style="color:#f92672">);</span>
+</span></span></span><span style="display:flex;"><span>    analize_expr<span style="color:#f92672">(</span>s<span style="color:#f92672">,</span> i<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;:&#39;</span><span style="color:#f92672">:</span> <span style="color:#75715e">// DICT
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            i<span style="color:#f92672">++;</span>
+</span></span></span><span style="display:flex;"><span>            i<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>            analize_expr<span style="color:#f92672">(</span>s<span style="color:#f92672">,</span> i<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>            res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">DICT</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;,&#39;</span><span style="color:#f92672">:</span> <span style="color:#75715e">// SET
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">SET</span><span style="color:#f92672">;</span>
+</span></span></span><span style="display:flex;"><span>            res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">SET</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;}&#39;</span><span style="color:#f92672">:</span> <span style="color:#75715e">// SET
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">SET</span><span style="color:#f92672">;</span>
+</span></span></span><span style="display:flex;"><span>            res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">SET</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        default:
@@ -206,7 +206,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 後ろの余計なものを処理
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;,&#39;</span><span style="color:#f92672">:</span>
 </span></span><span style="display:flex;"><span>            i<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
@@ -224,7 +224,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>これでよさそうです。今までのものをつなげましょう。</p>
 <h2 id="実装">実装</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> HNW_TYPE <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> HNW_TYPE <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    DICT<span style="color:#f92672">,</span>
 </span></span><span style="display:flex;"><span>    SET<span style="color:#f92672">,</span>
 </span></span><span style="display:flex;"><span>    INTEGER<span style="color:#f92672">,</span>
@@ -240,7 +240,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;{&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        i<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;}&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#75715e">// 空のDICTのリテラル
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            i<span style="color:#f92672">++;</span>
+</span></span></span><span style="display:flex;"><span>            i<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">DICT</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
@@ -250,21 +250,21 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// any EXPR
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        analize_expr<span style="color:#f92672">(</span>s<span style="color:#f92672">,</span> i<span style="color:#f92672">);</span>
+</span></span></span><span style="display:flex;"><span>        analize_expr<span style="color:#f92672">(</span>s<span style="color:#f92672">,</span> i<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;:&#39;</span><span style="color:#f92672">:</span> <span style="color:#75715e">// DICT
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                i<span style="color:#f92672">++;</span>
+</span></span></span><span style="display:flex;"><span>                i<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>                analize_expr<span style="color:#f92672">(</span>s<span style="color:#f92672">,</span> i<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>                res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">DICT</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;,&#39;</span><span style="color:#f92672">:</span> <span style="color:#75715e">// SET
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">SET</span><span style="color:#f92672">;</span>
+</span></span></span><span style="display:flex;"><span>                res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">SET</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;}&#39;</span><span style="color:#f92672">:</span> <span style="color:#75715e">// SET
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">SET</span><span style="color:#f92672">;</span>
+</span></span></span><span style="display:flex;"><span>                res <span style="color:#f92672">=</span> HNW_TYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">SET</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            default:
@@ -272,7 +272,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 後ろの余計なものを処理
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;,&#39;</span><span style="color:#f92672">:</span>
 </span></span><span style="display:flex;"><span>                i<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>

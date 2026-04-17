@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="Functional GraphでK回進むクエリ in &lt;O(NlogN), O(logN)&gt; - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/functional-graph-logn-simulation/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -174,7 +174,7 @@
 <h2 id="実装">実装</h2>
 <p><code>next[i]</code>を頂点$i$から1回進んだ先とします。</p>
 <p>サイクル検出はいろいろやり方があると思います。次に示すコードはあくまで一例です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> vis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> vis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>vis<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -185,19 +185,19 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>vis<span style="color:#f92672">[</span>cur<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        vis<span style="color:#f92672">[</span>cur<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>        work <span style="color:#f92672">~=</span> cur<span style="color:#f92672">;</span> <span style="color:#75715e">// push_backです。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        cur <span style="color:#f92672">=</span> next<span style="color:#f92672">[</span>cur<span style="color:#f92672">];</span>
+</span></span></span><span style="display:flex;"><span>        cur <span style="color:#f92672">=</span> next<span style="color:#f92672">[</span>cur<span style="color:#f92672">];</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>idx<span style="color:#f92672">,</span> v<span style="color:#f92672">;</span> work<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>v <span style="color:#f92672">==</span> cur<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e">// work[idx..]にサイクルが入っているので、なんやかんやする。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>ダブリングは次のような感じです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#75715e">// ダブリング構築: O(NlogN)時間
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#75715e">// ダブリング構築: O(NlogN)時間
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    doubling<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">][</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> next<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max_table_size</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -221,7 +221,7 @@
     ABC367E - Permute K times (LDC 1.32.2 / 70ms)
 </a>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">;</span>
@@ -307,7 +307,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ループを検出: O(N)時間
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">auto</span> vis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> vis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> work <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>N<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> latest <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
@@ -343,7 +343,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ダブリング構築: O(NlogN)時間
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>            doubling<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">][</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> next<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max_table_size</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -363,7 +363,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ダブリングしながらループに入った時点でreturn
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">foreach_reverse</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max_table_size</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach_reverse</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max_table_size</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>roop_start<span style="color:#f92672">[</span>fr<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
@@ -431,14 +431,14 @@
 <p>それと、ダブリングは書き方次第で速度が大きく変わるようで、いろいろとテクニックがあるようです。
 一番わかりやすいのは頂点を2次元目にするテクで、<code>dp[i][x]</code>を<code>dp[x][i]</code>にするだけで2倍くらい早くなります。
 さらに、オフラインクエリで良いなら、</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> cur <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">BIT</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> <span style="color:#f92672">(</span>K <span style="color:#f92672">&amp;</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1L</span> <span style="color:#f92672">&lt;&lt;</span> i<span style="color:#f92672">)))</span> cur <span style="color:#f92672">=</span> dp<span style="color:#f92672">[</span>j<span style="color:#f92672">][</span>cur<span style="color:#f92672">];</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>ではなく、</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> ans <span style="color:#f92672">=</span> iota<span style="color:#f92672">(</span>N<span style="color:#f92672">).</span><span style="color:#a6e22e">array</span><span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> ans <span style="color:#f92672">=</span> iota<span style="color:#f92672">(</span>N<span style="color:#f92672">).</span><span style="color:#a6e22e">array</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">BIT</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>j<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">N</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> <span style="color:#f92672">(</span>K <span style="color:#f92672">&amp;</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1L</span> <span style="color:#f92672">&lt;&lt;</span> i<span style="color:#f92672">)))</span> ans<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> dp<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>ans<span style="color:#f92672">[</span>j<span style="color:#f92672">]];</span>

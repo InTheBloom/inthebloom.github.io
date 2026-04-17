@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ミスりにくい二分探索 [UEC Advent Calendar 2023] 6日目 - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/uec-advent2023/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io/https://res.cloudinary.com/dqoqdn2sk/image/upload/v1701781533/pictures/uecadvent2023/ogp_rxkpup.png">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -259,7 +259,7 @@ $$
 <blockquote class="twitter-tweet" data-media-max-width="560"><p lang="ja" dir="ltr">【めぐるのアルゴリズム講座】<br>二分探索（整数）の書き方<br>難しさ：４ <a href="https://t.co/LGLbkS0D7l">pic.twitter.com/LGLbkS0D7l</a></p>&mdash; 因幡めぐる@競技プログラミング (@meguru_comp) <a href="https://twitter.com/meguru_comp/status/697008509376835584?ref_src=twsrc%5Etfw">February 9, 2016</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>これをベースにやっていきます。</p>
 <p>まず、めぐる式二分探索とは、次のような実装です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">long</span> ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> ng <span style="color:#f92672">=</span> x<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">long</span> ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> ng <span style="color:#f92672">=</span> x<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> abs<span style="color:#f92672">(</span>ok<span style="color:#f92672">-</span>ng<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> mid <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ok<span style="color:#f92672">+</span>ng<span style="color:#f92672">)</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>f<span style="color:#f92672">(</span>mid<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
@@ -324,9 +324,9 @@ $$</p>
 </div>
 <p>とすれば、$f$として満たすべき性質を満足します。
 よって、次のような解答ができます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ask<span style="color:#f92672">(</span>x<span style="color:#f92672">);</span> <span style="color:#75715e">// ask: long -&gt; bool を暗黙に仮定
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">long</span> ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> ng <span style="color:#f92672">=</span> <span style="color:#ae81ff">10L</span><span style="color:#f92672">^^</span><span style="color:#ae81ff">18</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
@@ -377,7 +377,7 @@ $$</p>
 $i = N$であれば$B = \emptyset$を判定できます。</p>
 <p>なぜ範囲外に対しても値を定義しているかというと、$A$の要素がすべて$x$未満であったり、すべて$x$以上であることがあり得るからです。
 この工夫をしないと、変な場合分けをする必要が出てきます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>N <span style="color:#f92672">&lt;=</span> i<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">&lt;=</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
@@ -433,7 +433,7 @@ $$
 $$
 で求めることができます。
 プログラム的には、</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">long</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">long</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>x <span style="color:#f92672">&lt;=</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> sum <span style="color:#f92672">+=</span> B<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
@@ -456,7 +456,7 @@ f(x) =
 \end{equation*}
 $$</p>
 <p>解答は以下の通りです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> core.stdc.stdio<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
@@ -540,7 +540,7 @@ $$
 <p>これらの考察から、二分探索できそうな感じがします。</p>
 <p>実際に$P(X)$及び$Q(X)$を1回求めるのに$O(N)$時間しか必要としないため、うまくいきそうです！</p>
 <p>解答例を示します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> core.stdc.stdio<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>

@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="めぐる式二分探索亜種を使ってみませんか？ - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/easy-to-use-binarysearch/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -134,7 +134,7 @@
 <li>二分探索を毎回べた書きしている。</li>
 <li>以下のような二分探索関数を使用していて、不満がある。よくわからないoff-by-oneで苦しんだことがある。添字バトルで敗北したことがある。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ll <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ll <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>ll bsearch (T cond, ll ok, ll ng) {
@@ -158,7 +158,7 @@
 <p>例えば、昇順に並んだ長さ$N$の配列$A$において$b$以下である最大の要素がどこにあるか探すとします。
 $A = (2, 5, 10, 15, 47), b = 20$のとき、$A _ 3 = 15$かつ$A _ 4 = 47$なので、答えは$3$です。</p>
 <p>この問題を解くために以下のようなc++コードを書いたとします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">solve</span> (std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> A, <span style="color:#66d9ef">int</span> b) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">solve</span> (std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> A, <span style="color:#66d9ef">int</span> b) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, ng <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(A.size());
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> abs(ok <span style="color:#f92672">-</span> ng)) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (ok <span style="color:#f92672">+</span> ng) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
@@ -172,24 +172,24 @@ $A = (2, 5, 10, 15, 47), b = 20$のとき、$A _ 3 = 15$かつ$A _ 4 = 47$なの
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ok;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>さっそく使ってみます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
 </span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A{<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">47</span>};
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> solve(A, b) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>; <span style="color:#75715e">// 出力: 3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>うまく動いていそうです。では次のケースではどうでしょうか？</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
 </span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A{<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">47</span>};
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> solve(A, b) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>; <span style="color:#75715e">// 出力: 0
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>$A _ 0 = 2, b = 1$なのでこれは誤りで、解なしが正しいです。
 めぐる式二分探索では、指定範囲に<code>true</code>区間が存在しない場合に<code>ok</code>が動かないまま反復終了してしまい、<code>cond(ok)</code>のみが<code>true</code>であるケースと区別することができません。これが<code>cond(ok)</code>が<code>true</code>を仮定していることの弊害です。</p>
 <p>この問題を解決するために、判定問題を拡張して無理やり<code>true</code>区間を生み出すことがよく行われています。
 例えば、次のような感じです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">solve_correct</span> (std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> A, <span style="color:#66d9ef">int</span> b) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">solve_correct</span> (std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> A, <span style="color:#66d9ef">int</span> b) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ok <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, ng <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(A.size());
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;</span> abs(ok <span style="color:#f92672">-</span> ng)) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (ok <span style="color:#f92672">+</span> ng) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
@@ -204,12 +204,12 @@ $A = (2, 5, 10, 15, 47), b = 20$のとき、$A _ 3 = 15$かつ$A _ 4 = 47$なの
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><code>ok = -1</code>に変更しました。イメージとしては$A$を勝手に拡張して$A _ {-1} = -\infty$としている感じです。
 修正した二分探索において<code>-1</code>が帰ってきたときは解なしがわかります。アルゴリズムの動作を考えると、実際に$A _ {-1}$にアクセスすることはないことに注意してください。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
 </span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A{<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">47</span>};
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> solve_correct(A, b) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>; <span style="color:#75715e">// 出力: -1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>このように、めぐる式二分探索を利用するときは「<code>true</code>となる区間が存在するか」や「返却値の意味が何か」に注意が必要です。</p>
 <ol start="2">
 <li>区間を開区間指定している。</li>
@@ -226,7 +226,7 @@ $A = (2, 5, 10, 15, 47), b = 20$のとき、$A _ 3 = 15$かつ$A _ 4 = 47$なの
 <p>私が今使用している、D言語による実装例を紹介します。</p>
 <p>まずは二分探索結果を表す構造体です。
 メンバ関数<code>empty()</code>と<code>value()</code>を持っていて、<code>true</code>区間が存在しない場合に<code>value</code>にアクセスしようとすると例外がスローされます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">BsearchResult</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">BsearchResult</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.format<span style="color:#f92672">:</span> format<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">bool</span> has_value <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
@@ -258,7 +258,7 @@ $A = (2, 5, 10, 15, 47), b = 20$のとき、$A _ 3 = 15$かつ$A _ 4 = 47$なの
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">};</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>本命の二分探索（の抜粋）です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span>BsearchResult<span style="color:#f92672">!</span>T <span style="color:#a6e22e">bsearch</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">alias</span> func<span style="color:#f92672">,</span> T<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>T l<span style="color:#f92672">,</span> T r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span>BsearchResult<span style="color:#f92672">!</span>T <span style="color:#a6e22e">bsearch</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">alias</span> func<span style="color:#f92672">,</span> T<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>T l<span style="color:#f92672">,</span> T r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    T L <span style="color:#f92672">=</span> l<span style="color:#f92672">,</span> R <span style="color:#f92672">=</span> r<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">==</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>

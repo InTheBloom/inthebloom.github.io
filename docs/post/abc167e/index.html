@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ABC167E - Colorful Blocks - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/abc167e/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -161,7 +161,7 @@ $dp[i][j] = (iブロック目まで塗って、隣り合うブロックが同じ
 <li>$dp[i+1][j+1] = dp[i][j]$</li>
 </ul>
 <p>とすることで、$O(NK)$で解くことができる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> M<span style="color:#f92672">,</span> K<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> M<span style="color:#f92672">,</span> K<span style="color:#f92672">);</span>
@@ -224,7 +224,7 @@ $$</p>
 <p>通りであり、解はこれを$0 \leq x \leq K$の範囲で合計したものになる。
 適切な前計算の元、一つ固定した$x$に対して$O(\log N)$で求められるため、問題を$O(N \log N)$で解くことが出来た。</p>
 <h2 id="実装例">実装例</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> M<span style="color:#f92672">,</span> K<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> M<span style="color:#f92672">,</span> K<span style="color:#f92672">);</span>
@@ -232,11 +232,11 @@ $$</p>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> M<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> K<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">/*</span>
-</span></span><span style="display:flex;"><span>       前から順番に色を塗っていくことを考える<span style="color:#960050;background-color:#1e0010">。</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">1</span>通りの現状維持<span style="color:#f92672">(</span>同じ色<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> or M<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>通りの色変え<span style="color:#f92672">(</span>同じ色維持<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>       をN<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>回迫られるという考え方で行く<span style="color:#960050;background-color:#1e0010">。</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">*/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       前から順番に色を塗っていくことを考える。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       1通りの現状維持(同じ色+1) or M-1通りの色変え(同じ色維持)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       をN-1回迫られるという考え方で行く。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">long</span> MOD <span style="color:#f92672">=</span> <span style="color:#ae81ff">998244353</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>

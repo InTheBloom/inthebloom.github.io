@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="InTheDayDreamをhugoに移行するためにやったことたち - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/hugo-setting/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -191,13 +191,13 @@ jekyllはちょっと動かしてみたいなーってだけでなんだか色�
 Windowsの方などは<code>hugo_extended_0.118.2_windows-amd64.zip</code>っていうやつをパクってきたらいいと思います。(2023/09/15)
 Linuxなどの方は、ディストリビューションのパッケージとして公開してくれてるやつを引っ張ってきても良いと思います。</p>
 <p>私はUbuntu 22.04.3 LTS (64bit)ですので、aptからパクってくることもできます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
 </span></span><span style="display:flex;"><span>sudo apt install hugo
 </span></span></code></pre></div><p>ただ、なんか微妙に古かったので、さっきのリンクからパッケージをパクってきて、それをaptに渡しました。</p>
 <p><code>hugo_extended_0.118.2_linux-arm64.deb</code>をダウンロード</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install path/to/hugo_extended_0.118.2_linux-arm64.deb
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install path/to/hugo_extended_0.118.2_linux-arm64.deb
 </span></span></code></pre></div><p>インストールできない？<span style="text-decoration: line-through">俺もわからん</span></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo version
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo version
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># -&gt; hugo v0.118.2-da7983ac4b94d97d776d7c2405040de97e95c03d+extended linux/amd64 BuildDate=2023-08-31T11:23:51Z VendorInfo=gohugoio</span>
 </span></span></code></pre></div><p>だそうです。</p>
 <p>使い方は次のリンクをさっと見ていきましょう。ちなみに私は細かい使い方とか難しいことは何も分かっていません。</p>
@@ -284,7 +284,7 @@ Linuxなどの方は、ディストリビューションのパッケージとし
 を選択します。
 主な選定理由はタグやカテゴリなどの便利機能をサポートしつつ、シンプルで使いやすそうだからです。</p>
 <p>さて、今まで構築していたリポジトリをローカルにコピーしておいて、破壊しましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp -r ./ path/to/archive/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp -r ./ path/to/archive/
 </span></span><span style="display:flex;"><span>rm *
 </span></span><span style="display:flex;"><span>hugo new site . --force
 </span></span><span style="display:flex;"><span>
@@ -303,7 +303,7 @@ Linuxなどの方は、ディストリビューションのパッケージとし
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>See documentation at https://gohugo.io/.
 </span></span></code></pre></div><p>次に、テーマをインストールします。よく分かってないですが、とりあえず書いてあるとおりに進めます。(なんだよsubmoduleって)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add https://github.com/michimani/simplog.git ./themes/simplog
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add https://github.com/michimani/simplog.git ./themes/simplog
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 以下実際のログ</span>
 </span></span><span style="display:flex;"><span>Cloning into <span style="color:#e6db74">&#39;/home/in/dev/git/myblog/themes/simplog&#39;</span>...
@@ -319,7 +319,7 @@ Linuxなどの方は、ディストリビューションのパッケージとし
 <p>まず、ルート直下にある<code>hugo.toml</code>を設定します。(hugoのバージョンによっては<code>config.toml</code>がデフォだったりする)
 私の設定を貼り付けておきますが、このあたりはテーマに依存する項目も多いですから、いろんな情報を見てみると良さそうです。</p>
 <p>あと、一応注意喚起ですが、私は雰囲気で設定したので多分いくつかおかしいです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#39;http://inthebloom.github.io/&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#39;http://inthebloom.github.io/&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#39;ja&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">DefaultContentLanguage</span> = <span style="color:#e6db74">&#34;ja&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;InTheDayDream&#34;</span>
@@ -400,7 +400,7 @@ Linuxなどの方は、ディストリビューションのパッケージとし
 <h3 id="カスタムcssstaticcsscustomcss">カスタムcss(static/css/custom.css)</h3>
 <p>cssは気に入らないものをオーバーライドしましょう。
 ブラウザの調査機能などを使うと比較的簡単にどれを変えればよいかわかります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">img</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">img</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">width</span>: <span style="color:#66d9ef">auto</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#66d9ef">auto</span>;
@@ -427,7 +427,7 @@ Linuxなどの方は、ディストリビューションのパッケージとし
 </span></span></code></pre></div><h3 id="テンプレートのオーバーライドlayouts">テンプレートのオーバーライド(layouts/)</h3>
 <p>テーマに用意されているテンプレートもいじりましょう。
 <code>themes/</code>以下の<code>layouts</code>ではなく、ルート以下の<code>layouts</code>に同様のファイルを用意してあげることで、差異があったら優先的に使ってくれます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp -r themes/simplog/layouts/* ./layouts/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp -r themes/simplog/layouts/* ./layouts/
 </span></span></code></pre></div><h4 id="katexの設定">KaTeXの設定</h4>
 <p>
 <a
@@ -441,31 +441,31 @@ Linuxなどの方は、ディストリビューションのパッケージとし
 要はCDNからKaTeXを読み込んで、JSでロード時に変換しているっぽい？
 詳しいことはたくさん記事が存在するから各自でやりましょう。</p>
 <p>まず諸々の設定を入れ込んだpartialを作成しよう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch layouts/partials/math.html
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch layouts/partials/math.html
 </span></span></code></pre></div><p>中身はこれ</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">defer</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">defer</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
 </span></span><span style="display:flex;"><span>    document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;DOMContentLoaded&#34;</span>, <span style="color:#66d9ef">function</span>() {
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">renderMathInElement</span>(document.<span style="color:#a6e22e">body</span>, {
 </span></span><span style="display:flex;"><span>          <span style="color:#75715e">// customised options
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#75715e">// • auto-render specific keys, e.g.:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#a6e22e">delimiters</span><span style="color:#f92672">:</span> [
+</span></span></span><span style="display:flex;"><span>          <span style="color:#75715e">// • auto-render specific keys, e.g.:
+</span></span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">delimiters</span><span style="color:#f92672">:</span> [
 </span></span><span style="display:flex;"><span>              {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;$$&#39;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;$$&#39;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>},
 </span></span><span style="display:flex;"><span>              {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;$&#39;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;$&#39;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>},
 </span></span><span style="display:flex;"><span>              <span style="color:#75715e">// {left: &#39;\\(&#39;, right: &#39;\\)&#39;, display: false},
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>              <span style="color:#75715e">// {left: &#39;\\[&#39;, right: &#39;\\]&#39;, display: true}
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          ],
+</span></span></span><span style="display:flex;"><span>              <span style="color:#75715e">// {left: &#39;\\[&#39;, right: &#39;\\]&#39;, display: true}
+</span></span></span><span style="display:flex;"><span>          ],
 </span></span><span style="display:flex;"><span>          <span style="color:#75715e">// • rendering keys, e.g.:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#a6e22e">throwOnError</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
+</span></span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">throwOnError</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
 </span></span><span style="display:flex;"><span>        });
 </span></span><span style="display:flex;"><span>    });
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
 </span></span></code></pre></div><p>各ページで読み込むための設定をしよう。
 フロントマター(各記事先頭の設定)や、<code>hugo.toml</code>で記述したパラメータを参照してオンオフを切り替えるようにした。
 <code>layouts/partials/header.html</code>あたりにでも埋め込もう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- KaTeX Settings --&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- KaTeX Settings --&gt;</span>
 </span></span><span style="display:flex;"><span>{{ if or .Params.math .Site.Params.math }}
 </span></span><span style="display:flex;"><span>{{ partial &#34;math.html&#34;}}
 </span></span><span style="display:flex;"><span>{{ end }}
@@ -477,12 +477,12 @@ Linuxなどの方は、ディストリビューションのパッケージとし
 <p>記事の先頭にTOC(Table Of Contents)を設置してくれる機能がある。しかし、simplogのデフォルトはあまりにもわかりにくいと感じるので、改造する。
 TOCは<code>layouts/_default/single.html</code>をいじれば良さそう。
 これが元</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--TOC--&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--TOC--&gt;</span>
 </span></span><span style="display:flex;"><span>{{ if eq .Site.Params.Enabled.Toc true }}                                                                                
 </span></span><span style="display:flex;"><span>{{.TableOfContents}}
 </span></span><span style="display:flex;"><span>{{ end }}
 </span></span></code></pre></div><p>改造後</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--TOC--&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--TOC--&gt;</span>
 </span></span><span style="display:flex;"><span>{{ if and .Site.Params.Enabled.Toc (not (eq .Params.Toc false)) }}
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;font-size: 1.3em;&#34;</span>&gt;Table Of Contents&lt;/<span style="color:#f92672">p</span>&gt;
@@ -495,13 +495,13 @@ TOCは<code>layouts/_default/single.html</code>をいじれば良さそう。
 いじるファイルは同様に<code>layouts/_default/single.html</code>
 あと、ついでに公開日のところをいじる。</p>
 <p>before</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--Title--&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--Title--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">h2</span>&gt;{{.Title}}&lt;/<span style="color:#f92672">h2</span>&gt;
 </span></span><span style="display:flex;"><span>{{ if or (not .Params.hideDate) (eq .Params.hideDate false) }}
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sub&#34;</span>&gt;{{.Date.Format &#34;2006-01-02&#34;}}&lt;/<span style="color:#f92672">span</span>&gt;&lt;<span style="color:#f92672">br</span>&gt;
 </span></span><span style="display:flex;"><span>{{ end }}
 </span></span></code></pre></div><p>after</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--Title--&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--Title--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">h1</span>&gt;{{.Title}}&lt;/<span style="color:#f92672">h1</span>&gt;
 </span></span><span style="display:flex;"><span>{{ if or (not .Params.hideDate) (eq .Params.hideDate false) }}
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sub&#34;</span>&gt;Published on {{.Date.Format &#34;2006-01-02&#34;}}&lt;/<span style="color:#f92672">span</span>&gt;&lt;<span style="color:#f92672">br</span>&gt;
@@ -515,11 +515,11 @@ TOCは<code>layouts/_default/single.html</code>をいじれば良さそう。
 デフォルトでは相対パスで検索しているようなので、ここを絶対パスを使うようにしてみます。
 <code>layouts/partials/head.html</code>をいじります。</p>
 <p>before</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $site.BaseURL }}{{ . }}&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $site.BaseURL }}{{ . }}&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $site.BaseURL }}{{ . }}&#34;</span>&gt;                                                          
 </span></span></code></pre></div><p>after</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ . }}&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ . }}&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;og:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ . }}&#34;</span>&gt;
 </span></span></code></pre></div><p>これで、メタデータで<code>ogimage: path/to/image</code>で指定できます。ただし絶対パスが必要になるので、外部のURLを指定すべきです。
@@ -528,7 +528,7 @@ TOCは<code>layouts/_default/single.html</code>をいじれば良さそう。
 <h3 id="faviconを用意する">faviconを用意する</h3>
 <p>ブラウザなどでサイト名の横に表示されるちっちゃい画像のことをファビコンと呼ぶ。
 これを用意する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;apple-touch-icon&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;180x180&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ relURL &#34;</span><span style="color:#a6e22e">images</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">apple-touch-icon</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">png</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}?</span><span style="color:#a6e22e">c</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{$cacheHashBase}}&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;apple-touch-icon&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;180x180&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ relURL &#34;</span><span style="color:#a6e22e">images</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">apple-touch-icon</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">png</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}?</span><span style="color:#a6e22e">c</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{$cacheHashBase}}&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;32x32&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ relURL &#34;</span><span style="color:#a6e22e">images</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">favicon</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">png</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}?</span><span style="color:#a6e22e">c</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{$cacheHashBase}}&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/png&#34;</span> <span style="color:#a6e22e">sizes</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;16x16&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ relURL &#34;</span><span style="color:#a6e22e">images</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">favicon-16x16</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">png</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">}}?</span><span style="color:#a6e22e">c</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{$cacheHashBase}}&#34;</span>&gt;
 </span></span></code></pre></div><p><code>layouts/partials/head.html</code>にこのような記述があった。この名前とサイズで用意しよう。
@@ -541,7 +541,7 @@ TOCは<code>layouts/_default/single.html</code>をいじれば良さそう。
 ビルドするときは<code>hugo</code>を実行すれば<code>public/</code>に静的サイトが作成されます。</p>
 <p>適当にpushしときましょう。</p>
 <p>メタデータのテンプレートはこんなかんじかな？</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#ae81ff">title</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">date</span>: <span style="color:#ae81ff">yyyy-mm-dd</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># lastmod: yyyy-mm-dd</span>
@@ -561,7 +561,7 @@ TOCは<code>layouts/_default/single.html</code>をいじれば良さそう。
 記事作成でメタ情報の追加が面倒くさそうだなと思ったので、分類をタグのみに絞ることにした。</p>
 <p>まず、<code>hugo.toml</code>の内容を修正する。
 具体的には、次の内容を消す</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e"># [taxonomies]にある</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e"># [taxonomies]にある</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">category</span> = <span style="color:#e6db74">&#34;categories&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># [menu]にある</span>
@@ -572,7 +572,7 @@ TOCは<code>layouts/_default/single.html</code>をいじれば良さそう。
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">4</span>
 </span></span></code></pre></div><p>すると、上のメニューバーが一枠開くので、CSSを修正する。
 <code>/static/css/custom.css</code>を次のように修正する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* #main-menu-nav-itemsにある */</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* #main-menu-nav-itemsにある */</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/* 次を消す */</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">grid-template-columns</span><span style="color:#f92672">:</span> <span style="color:#f92672">repeat</span><span style="color:#f92672">(</span><span style="color:#f92672">5</span><span style="color:#f92672">,</span> <span style="color:#f92672">20</span><span style="color:#f92672">%);</span>
 </span></span><span style="display:flex;"><span>
@@ -592,7 +592,7 @@ TOCは<code>layouts/_default/single.html</code>をいじれば良さそう。
 この機能があれば過去記事とかから情報を検索できてすごく便利だなと思ったので、導入することにした。</p>
 <p>ほとんど上のコードをパクり、<code>/layouts/shortcodes/search.html</code>としてファイルを作成し、<code>search.md</code>というファイルでショートコードを取り込むことにした。
 内容は省略するとして、<code>search.md</code>の内容を載せておく。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span>title: サイト内全文検索
 </span></span><span style="display:flex;"><span>hidedate: true
 </span></span><span style="display:flex;"><span>toc: false
@@ -603,12 +603,12 @@ TOCは<code>layouts/_default/single.html</code>をいじれば良さそう。
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>本ページは検索の対象外になっています。
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- searchのショートコードを入れる(ここに入れるとここでも無限再帰になってしまう。) --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;!-- searchのショートコードを入れる(ここに入れるとここでも無限再帰になってしまう。) --&gt;
 </span></span></code></pre></div><p><code>_build: {list: never}</code>というのをすると、一覧系のページに表示されなくなるらしい。これをしないとビルドのときに無限再帰になってしまう。</p>
 <p>さて、これで上のメニューバーに検索を入れたくなった。
 CSSを再度修正し、先程消したカテゴリの分を作る。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">grid-template-columns</span><span style="color:#f92672">:</span> <span style="color:#f92672">repeat</span><span style="color:#f92672">(</span><span style="color:#f92672">5</span><span style="color:#f92672">,</span> <span style="color:#f92672">20</span><span style="color:#f92672">%);</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>  [[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">grid-template-columns</span><span style="color:#f92672">:</span> <span style="color:#f92672">repeat</span><span style="color:#f92672">(</span><span style="color:#f92672">5</span><span style="color:#f92672">,</span> <span style="color:#f92672">20</span><span style="color:#f92672">%);</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>  [[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">identifier</span> = <span style="color:#e6db74">&#34;search&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;Search&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/search/&#34;</span>
@@ -628,14 +628,14 @@ CSSを再度修正し、先程消したカテゴリの分を作る。</p>
 <p>便利な機能として、関連タグの記事を下の自動リンクしてくれる機能があるが、その見た目があまり良くなかった。
 ので、改造する。
 <code>/layouts/partials/related-tag-posts.html</code>を次のように修正する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 次を削除 --&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 次を削除 --&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">h4</span>&gt;Other posts tagged by &#34;{{ $t }}&#34;&lt;/<span style="color:#f92672">h3</span>&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 次を追加 --&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">h4</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;font-size: 1.3em;&#34;</span>&gt;Other posts tagged by &#34;{{ $t }}&#34;&lt;/<span style="color:#f92672">h4</span>&gt;
 </span></span></code></pre></div><p>これ修正して気づいたが、オリジナルのコード閉じタグ間違ってない？</p>
 <p>それと同時にCSSに次のものを追加する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">related-tag-category-list</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">related-tag-category-list</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">em</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>これで幅と可読性がいい感じになった。</p>
@@ -659,11 +659,11 @@ CSSを再度修正し、先程消したカテゴリの分を作る。</p>
     これ
 </a>
 を参考にして、次のコマンドを打ったらうまくいきました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule init
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule init
 </span></span><span style="display:flex;"><span>git submodule update
 </span></span></code></pre></div><h3 id="フロントマターのテンプレート">フロントマターのテンプレート</h3>
 <p>最後に改訂版フロントマターのテンプレートを載せておく。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#ae81ff">hogehoge</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># description: hogehoge</span>
 </span></span><span style="display:flex;"><span>

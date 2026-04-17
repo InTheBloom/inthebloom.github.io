@@ -6,8 +6,15 @@
     <description>Recent content on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[D言語] 配列を縮めたり伸ばしたりするのはやめたほうがいい</title>
+      <link>https://inthebloom.github.io/post/d-array-length/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/d-array-length/</guid>
+      <description></description>
+    </item>
     <item>
       <title>本を書いて、去年の11月にUEComic9で頒布した</title>
       <link>https://inthebloom.github.io/post/uecomic9-book/</link>

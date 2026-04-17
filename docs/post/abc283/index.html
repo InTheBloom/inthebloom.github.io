@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ABC283参加記録！ - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/abc283/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io/https://res.cloudinary.com/dqoqdn2sk/image/upload/v1672368342/pictures/abc283/ogp_nnig4o.png">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -100,10 +100,10 @@
     <li><a href="#今週の成績発表のコーナー">今週の成績発表のコーナー</a></li>
     <li><a href="#各問題と解法">各問題と解法</a>
       <ul>
-        <li><a href="#a---powerhttpsatcoderjpcontestsabc283tasksabc283_a"><a href="https://atcoder.jp/contests/abc283/tasks/abc283_a">A - Power</a></a></li>
-        <li><a href="#b---first-query-problemhttpsatcoderjpcontestsabc283tasksabc283_b"><a href="https://atcoder.jp/contests/abc283/tasks/abc283_b">B - First Query Problem</a></a></li>
-        <li><a href="#c---cash-registerhttpsatcoderjpcontestsabc283tasksabc283_c"><a href="https://atcoder.jp/contests/abc283/tasks/abc283_c">C - Cash Register</a></a></li>
-        <li><a href="#d---scopehttpsatcoderjpcontestsabc283tasksabc283_d"><a href="https://atcoder.jp/contests/abc283/tasks/abc283_d">D - Scope</a></a></li>
+        <li><a href="#a---power">A - Power</a></li>
+        <li><a href="#b---first-query-problem">B - First Query Problem</a></li>
+        <li><a href="#c---cash-register">C - Cash Register</a></li>
+        <li><a href="#d---scope">D - Scope</a></li>
       </ul>
     </li>
     <li><a href="#終わりに">終わりに</a></li>
@@ -164,7 +164,7 @@ style="max-height: 300px;" alt="コラ画像" />
 <p>茶色まで折り返し地点といった感じでなかなかいいんじゃないでしょうか？今回は結構早解きに成功したので，3完ですがそこそこの順位になりました。<span style="text-decoration: line-through;">ペナルティも食らってないし</span></p>
 <h2 id="各問題と解法">各問題と解法</h2>
 <p>いつも通り自分が解いた問題の説明を載せていきたいと思います。まずはA問題です。</p>
-<h3 id="a---powerhttpsatcoderjpcontestsabc283tasksabc283_a">
+<h3 id="a---power">
 <a
   
     href="https://atcoder.jp/contests/abc283/tasks/abc283_a"
@@ -180,8 +180,8 @@ style="max-height: 300px;" alt="コラ画像" />
 A<sup>B</sup>=A×A×&hellip;×A (AがB個掛け算されている)
 というものです。</p>
 <p>この問題の制約下では，A<sup>B</sup>の最小値はA=B=1の時1で，最大値はA=B=9の時387420489となります。これは<code>int</code>の範囲内に収まります。また，計算回数も9回程度に収まることが分かるので，定義通り計算して出力したらOKであることが分かります。以下にAC通ったコードを載せます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a, b;
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%i %i&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b);
@@ -195,7 +195,7 @@ A<sup>B</sup>=A×A×&hellip;×A (AがB個掛け算されている)
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>このA問題はここ最近の中では簡単な問題だと思います。というかほとんどの言語が組み込みで冪乗計算の機能を備えているので，簡単に解けた人が多いんじゃないかと思います。</p>
-<h3 id="b---first-query-problemhttpsatcoderjpcontestsabc283tasksabc283_b">
+<h3 id="b---first-query-problem">
 <a
   
     href="https://atcoder.jp/contests/abc283/tasks/abc283_b"
@@ -209,8 +209,8 @@ A<sup>B</sup>=A×A×&hellip;×A (AがB個掛け算されている)
 <p>この問題はAtCoderによくあるタイプのクエリを処理する奴ですね。この手の問題は工夫したら真面目にクエリを処理しなくてもいい場合があります。したがって，まずは条件をよく見ることが大切です。</p>
 <p>問題文を見ると，クエリの件数の制約や，行う必要のある操作の制約がかなり緩いことが分かります。まず第一引数が<code>1</code>であるようなクエリは，受け取った数列を配列などに保持するだけでO(1)で行うことができます。また，第一引数が<code>2</code>であるようなクエリに対しても同様です。一つしか値を操作しないので軽いですね。操作回数も10<sup>5</sup>が上限となっており，愚直に処理しても十分間に合いそうです。</p>
 <p>もしかしたら何らかの最適化があるのかもしれませんが，私は書いてある通りに実装して通りました。以下コードです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n, q;
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%i&#34;</span>, <span style="color:#f92672">&amp;</span>n);
@@ -223,9 +223,9 @@ A<sup>B</sup>=A×A×&hellip;×A (AがB個掛け算されている)
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%i&#34;</span>, <span style="color:#f92672">&amp;</span>q);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> temp; <span style="color:#75715e">//クエリ種類
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> k; <span style="color:#75715e">// インデックス
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> num; <span style="color:#75715e">// すり替え数字
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; q <span style="color:#f92672">&gt;</span> i; i<span style="color:#f92672">++</span>) {
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> k; <span style="color:#75715e">// インデックス
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> num; <span style="color:#75715e">// すり替え数字
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; q <span style="color:#f92672">&gt;</span> i; i<span style="color:#f92672">++</span>) {
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%i&#34;</span>, <span style="color:#f92672">&amp;</span>temp);
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%i&#34;</span>, <span style="color:#f92672">&amp;</span>k);
 </span></span><span style="display:flex;"><span>
@@ -240,7 +240,7 @@ A<sup>B</sup>=A×A×&hellip;×A (AがB個掛け算されている)
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>クエリの種類によって与えられる引数の数が変わるのに注意です。私の実装ではシンプルに<code>if</code>文で分岐してあります。あと完全に余談なのですが，うえのコードでは実行時で確定していない変数を用いて配列を宣言するというC言語(C99以降?)の機能を使っているのですが，便利だけど罪悪感があります(笑)</p>
-<h3 id="c---cash-registerhttpsatcoderjpcontestsabc283tasksabc283_c">
+<h3 id="c---cash-register">
 <a
   
     href="https://atcoder.jp/contests/abc283/tasks/abc283_c"
@@ -262,8 +262,8 @@ style="max-height: 200px;" alt="テニスの王子様コラ画像" />
 <p>詳細は省きますが、具体例をいくつか考えることで「数字のキーを押す」ということと「現在表示されている数字の末尾に押した数字を追加する」ということが(一回目の入力を除いて)完全に一対一に対応していることに気づきます。すなわち、「<code>0</code>が二つ並んでいる」という状態を<em>除く</em>と、<em>追加される数字に関係なく</em>「キーを押す回数」=「数字の桁数」ということがわかります。</p>
 <p>したがって、入力を文字列として受け取り、前述した「<code>0</code>が二つ並んでいる」状況のときのみを別処理になるようにして、あとは桁数をカウントするだけで良いです。</p>
 <p>文字列として扱う理由は値が大きすぎてC言語組み込みのあらゆる整数型に収まらないからというのと、単純に各桁の数値を確認するだけなら配列としてアクセスしたほうが有利だからです。例えば整数型として格納できたとすると、各桁を取り出すためには割り算や剰余演算くらいしか手がないです。剰余を取る操作などは明らかに配列へのアクセスより遅く、今回の条件ではあまり意味がありません。以下はACコードです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> s[<span style="color:#ae81ff">100002</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>};
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, s);
@@ -285,7 +285,7 @@ style="max-height: 200px;" alt="テニスの王子様コラ画像" />
 </span></span></code></pre></div><p>まず配列を100002以上で宣言します。これは、10<sup>100000</sup>=10...0(0が100000個並んでいる)で100001ブロック消費して、さらに文字列として処理しているので終端文字<code>\0</code>の分が必要だからです。</p>
 <p>前述の連続した<code>0</code>の処理は、二つ並んだものを見つけたら配列の参照カウントをインクリメントする処理に分岐させるようにしています。これで一回で二文字打ったということと等価になります。</p>
 <p>見ての通り計算量的には各桁を見て回るだけなのでO(1)の処理を桁数だけ行うことになります。与えられた数字の桁数は最大で100001なので、余裕で間に合います。</p>
-<h3 id="d---scopehttpsatcoderjpcontestsabc283tasksabc283_d">
+<h3 id="d---scope">
 <a
   
     href="https://atcoder.jp/contests/abc283/tasks/abc283_d"
@@ -313,14 +313,14 @@ style="max-height: 200px;" alt="テニスの王子様コラ画像" />
 <p>次に出会う<code>)</code>は最後の文字です。ここからさかのぼってみていくと，<code>(</code>に出会う前に<code>)</code>と出会ってしまうことが分かります。したがって，その他の<code>)</code>に出会わなければ2つの<code>(</code>が見つかった場所までが条件を満たす範囲になるはずです。もしこれが本当に正しいのか気になる人は，ほかの良い文字列のパターンなどに適用して確認してみてください。</p>
 <p>このような操作を思いつくのは結構大変かもしれません。(実際，私はコンテスト中は間違った方針で進めてしまっていました。)個人的には，まずは「良い数列」の様々なパターンなどを書き出してみて，実際に自分がこの判定をするときにどのような部分に着目するかなどを考えるといいかもしれません。厳密に正しいという証明を出すのは難しくても，発見的手法が威力を発揮する場面は多いと思います。</p>
 <p>それでは見つけ出した方法を愚直に実装してみましょう。私は<code>()</code>の数をカウントするのではなく，一番深いネストの<code>()</code>を終えたら<code>()</code>を違う文字で置き換えてしまうという方法をとりました。この操作によって，常に最初に見つかった<code>(</code>で止めればよくなります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> s[<span style="color:#ae81ff">300001</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>};
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, s);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> ascii[<span style="color:#ae81ff">123</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>}; <span style="color:#75715e">// アルファベット小文字はa-&gt;97からz-&gt;122だからそれぞれのインデックスに対応させる。1がたってたら使用済み
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; s[i] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>; i<span style="color:#f92672">++</span>) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;(&#39;</span>) {
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">continue</span>;
@@ -402,9 +402,9 @@ style="max-height: 200px;" alt="テニスの王子様コラ画像" />
 </ol>
 <p>以上から，例えば<code>((abc)abe)</code>は，一回目のボール取り出しをした後は<code>(    abe)</code>として扱っても良いということになります。</p>
 <p>これを繰り返すことで，<em>一回見た部分を今後見ない</em>という改善策が見つかります。これを実装しましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> (<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)<span style="color:#a6e22e">calloc</span>(<span style="color:#ae81ff">300001</span>, <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">char</span>));
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%s&#34;</span>, s);
@@ -412,7 +412,7 @@ style="max-height: 200px;" alt="テニスの王子様コラ画像" />
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(; s[len] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>; len<span style="color:#f92672">++</span>) {}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> ascii[<span style="color:#ae81ff">123</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>}; <span style="color:#75715e">// アルファベット小文字はa-&gt;97からz-&gt;122だからそれぞれのインデックスに対応させる。1がたってたら使用済み
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>s1 <span style="color:#f92672">=</span> NULL;
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>s1 <span style="color:#f92672">=</span> NULL;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; s[i] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>; i<span style="color:#f92672">++</span>) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(s[i] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;(&#39;</span>) {
@@ -428,7 +428,7 @@ style="max-height: 200px;" alt="テニスの王子様コラ画像" />
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            s1 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>)<span style="color:#a6e22e">calloc</span>(len <span style="color:#f92672">-</span> j, <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">char</span>)); <span style="color:#75715e">// 新しい配列の宣言+代入
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">-</span> j <span style="color:#f92672">&gt;</span> k; k<span style="color:#f92672">++</span>) {
+</span></span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">-</span> j <span style="color:#f92672">&gt;</span> k; k<span style="color:#f92672">++</span>) {
 </span></span><span style="display:flex;"><span>                s1[k] <span style="color:#f92672">=</span> s[k];
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, k1 <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> j; len <span style="color:#f92672">&gt;</span> k; k<span style="color:#f92672">++</span>, k1<span style="color:#f92672">++</span>) {

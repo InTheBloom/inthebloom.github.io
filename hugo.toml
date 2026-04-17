@@ -1,5 +1,5 @@
 baseURL = 'https://inthebloom.github.io'
-languageCode = 'ja'
+languageCode = "ja"
 DefaultContentLanguage = "ja"
 title = "InTheDayDream"
 description = "InTheDayDream: InTheBloom's Website"
@@ -8,6 +8,7 @@ publishDir = "docs"
 
 theme = "simplog"
 pagination.pagerSize = 15
+hasCJKLanguage = true
 summarylength = 0
 enableInlineShortcodes = true
 ignoreErrors = ["error-remote-getjson"]
@@ -62,7 +63,7 @@ disqusShortname = ""
   [services.instagram]
     disableInlineCSS = true
 
-  [services.twitter]
+  [services.x]
     disableInlineCSS = true
 
 [params]

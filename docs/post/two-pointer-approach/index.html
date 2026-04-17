@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="尺取り法備忘録 - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/two-pointer-approach/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -189,7 +189,7 @@
 <p>このように、左端が$2$になるような連続部分列で条件を満たすようなものは存在しません。すなわち空な区間が出てきてしまいます。
 これは右半開区間なら$[2, 2)$と表現できますが、閉区間だときれいに表現できなくなり、場合分けが増えます。</p>
 <p>さて、実装しましょう。以下の実装では次のようなものが上の方にあると仮定してください。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ll <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> N, Q; cin <span style="color:#f92672">&gt;&gt;</span> N <span style="color:#f92672">&gt;&gt;</span> Q;
@@ -197,8 +197,8 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; i<span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> A[i];
 </span></span></code></pre></div><p>まずは左端に関するループですから、それを作ります。
 それと、現在の総和を保持する変数が必要です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
+</span></span></span><span style="display:flex;"><span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>ll sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
@@ -210,8 +210,8 @@
 初期状態で$[0, 0)$の空区間を示していることに注意してください。
 このとき総和が$0$なので、整合性が取れています。</p>
 <p>限界まで右に伸ばします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
+</span></span></span><span style="display:flex;"><span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>ll sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
@@ -219,7 +219,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 右に伸ばす
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span> sum <span style="color:#f92672">+</span> A[r]) <span style="color:#66d9ef">break</span>;
 </span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> A[r];
 </span></span><span style="display:flex;"><span>        r<span style="color:#f92672">++</span>;
@@ -230,8 +230,8 @@
 </span></span></code></pre></div><p>右は開区間なので、<code>A[r]</code>はまだ含まれていない要素ということなります。これを足しても<code>x</code>を超えなければ足し、超えるなら<code>break</code>します。
 また、そもそも<code>r</code>は上限があるので、それも<code>while</code>の条件に入れています。</p>
 <p>答えを加算します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
+</span></span></span><span style="display:flex;"><span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>ll sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
@@ -239,21 +239,21 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 右に伸ばす
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span> sum <span style="color:#f92672">+</span> A[r]) <span style="color:#66d9ef">break</span>;
 </span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> A[r];
 </span></span><span style="display:flex;"><span>        r<span style="color:#f92672">++</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 答えを加算
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ans <span style="color:#f92672">+=</span> r <span style="color:#f92672">-</span> l;
+</span></span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">+=</span> r <span style="color:#f92672">-</span> l;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    l<span style="color:#f92672">++</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>区間の左側が$l$であるとき、右側として$[l, r)$のどこからとっても条件を満たします。なので、<code>r - l</code>を足します。</p>
 <p>左側を進めます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
+</span></span></span><span style="display:flex;"><span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>ll sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
@@ -261,17 +261,17 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 右に伸ばす
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span> sum <span style="color:#f92672">+</span> A[r]) <span style="color:#66d9ef">break</span>;
 </span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> A[r];
 </span></span><span style="display:flex;"><span>        r<span style="color:#f92672">++</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 答えを加算
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ans <span style="color:#f92672">+=</span> r <span style="color:#f92672">-</span> l;
+</span></span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">+=</span> r <span style="color:#f92672">-</span> l;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 次から含まれなくなる要素を削る
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">&lt;</span> r) sum <span style="color:#f92672">-=</span> A[l];
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">&lt;</span> r) sum <span style="color:#f92672">-=</span> A[l];
 </span></span><span style="display:flex;"><span>    l<span style="color:#f92672">++</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>左端を進めるということは、一番左の要素を含めなくするということです。
@@ -281,28 +281,28 @@
 具体的には、$r$を伸ばした結果$[l, r)$が空($l = r$)であるとき、その次のステップで$r &lt; l$になります。</p>
 <p>これは都合が悪いため、最初に正規化を入れます。
 <strong>忘れやすいので注意が必要です。</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// クエリ入力
+</span></span></span><span style="display:flex;"><span>ll x; cin <span style="color:#f92672">&gt;&gt;</span> x;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>ll sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;</span> N) {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// rの正規化
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (r <span style="color:#f92672">&lt;</span> l) r <span style="color:#f92672">=</span> l;
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (r <span style="color:#f92672">&lt;</span> l) r <span style="color:#f92672">=</span> l;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 右に伸ばす
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (r <span style="color:#f92672">&lt;</span> N) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span> sum <span style="color:#f92672">+</span> A[r]) <span style="color:#66d9ef">break</span>;
 </span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> A[r];
 </span></span><span style="display:flex;"><span>        r<span style="color:#f92672">++</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 答えを加算
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ans <span style="color:#f92672">+=</span> r <span style="color:#f92672">-</span> l;
+</span></span></span><span style="display:flex;"><span>    ans <span style="color:#f92672">+=</span> r <span style="color:#f92672">-</span> l;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 次から含まれなくなる要素を削る
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">&lt;</span> r) sum <span style="color:#f92672">-=</span> A[l];
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">&lt;</span> r) sum <span style="color:#f92672">-=</span> A[l];
 </span></span><span style="display:flex;"><span>    l<span style="color:#f92672">++</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>これで完成です。お疲れ様でした。</p>
@@ -328,7 +328,7 @@ $a_l, a_{l+1}, \dots, a_r$が狭義単調増加となるような$(l, r)$の数�
 まず、長さ1の列は狭義単調増加なので、空列について考えなくてよくなります。
 さらに、「総和」のようなものがないので、左端を進める際に気にすることが無いです。
 よって、次のような尺取りができます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
@@ -339,18 +339,18 @@ $a_l, a_{l+1}, \dots, a_r$が狭義単調増加となるような$(l, r)$の数�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 空列はありえないので、なくても大丈夫
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">&lt;</span> l<span style="color:#f92672">)</span> r <span style="color:#f92672">=</span> l<span style="color:#f92672">;</span>
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">&lt;</span> l<span style="color:#f92672">)</span> r <span style="color:#f92672">=</span> l<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e">// l == rのときはとりあえず一つ右に進める
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> r <span style="color:#f92672">&amp;&amp;</span> a<span style="color:#f92672">[</span>r<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> a<span style="color:#f92672">[</span>r<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">])</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> r <span style="color:#f92672">&amp;&amp;</span> a<span style="color:#f92672">[</span>r<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> a<span style="color:#f92672">[</span>r<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">])</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>            r<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">+=</span> r <span style="color:#f92672">-</span> l<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 左端を進める際にやることは無い
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        l<span style="color:#f92672">++;</span>
+</span></span></span><span style="display:flex;"><span>        l<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    writeln<span style="color:#f92672">(</span>ans<span style="color:#f92672">);</span>
@@ -381,7 +381,7 @@ $a_l, a_{l+1}, \dots, a_r$が狭義単調増加となるような$(l, r)$の数�
 最初にそれを判定してしまいましょう。</p>
 <p>$0$が含まれないとき、連続部分列が右に伸びるほど総積は増えるので、尺取りの条件を満たします。
 空な区間/左側の処理どちらもありえるので、丁寧に処理しましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> K<span style="color:#f92672">;</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> K<span style="color:#f92672">);</span>
@@ -393,7 +393,7 @@ $a_l, a_{l+1}, \dots, a_r$が狭義単調増加となるような$(l, r)$の数�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> K<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> S<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 0を含むか？
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">;</span> S<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>s<span style="color:#f92672">;</span> S<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>s <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>            writeln<span style="color:#f92672">(</span>N<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
@@ -401,16 +401,16 @@ $a_l, a_{l+1}, \dots, a_r$が狭義単調増加となるような$(l, r)$の数�
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 右半開区間
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> v <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 区間がおかしい場合は空な区間で初期化
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">&lt;</span> l<span style="color:#f92672">)</span> r <span style="color:#f92672">=</span> l<span style="color:#f92672">;</span>
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">&lt;</span> l<span style="color:#f92672">)</span> r <span style="color:#f92672">=</span> l<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 可能な限り右を伸ばす
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>r <span style="color:#f92672">&lt;</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>K <span style="color:#f92672">&lt;</span> v <span style="color:#f92672">*</span> S<span style="color:#f92672">[</span>r<span style="color:#f92672">])</span> <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>            v <span style="color:#f92672">*=</span> S<span style="color:#f92672">[</span>r<span style="color:#f92672">];</span>
 </span></span><span style="display:flex;"><span>            r<span style="color:#f92672">++;</span>
@@ -419,7 +419,7 @@ $a_l, a_{l+1}, \dots, a_r$が狭義単調増加となるような$(l, r)$の数�
 </span></span><span style="display:flex;"><span>        ans <span style="color:#f92672">=</span> max<span style="color:#f92672">(</span>ans<span style="color:#f92672">,</span> r <span style="color:#f92672">-</span> l<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 逆操作が必要ならして、左を一つ進める
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> r<span style="color:#f92672">)</span> v <span style="color:#f92672">/=</span> S<span style="color:#f92672">[</span>l<span style="color:#f92672">];</span>
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>l <span style="color:#f92672">&lt;</span> r<span style="color:#f92672">)</span> v <span style="color:#f92672">/=</span> S<span style="color:#f92672">[</span>l<span style="color:#f92672">];</span>
 </span></span><span style="display:flex;"><span>        l<span style="color:#f92672">++;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>

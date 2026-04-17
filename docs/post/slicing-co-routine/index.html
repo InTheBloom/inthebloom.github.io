@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="co-routineをスライスする - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/slicing-co-routine/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -123,7 +123,7 @@
 <p>あなたがゲームを作っているとします。
 もし30fpsで動作しているとすると、プログラムは1/30秒ごとに入力の監視や画面更新などをしないといけません。
 つまり、次のような感じになると思います。（pygame風疑似コード）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>running <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>running <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> running:
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> event <span style="color:#f92672">in</span> engine<span style="color:#f92672">.</span>get_event():
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 入力などの処理</span>
@@ -143,14 +143,14 @@
 マネージャーは平行処理ライブラリなどに隠蔽されて直接触れることはほぼありませんが、多くの場合「この仕事も管理下に置いて」という指令を出すことにより間接的に触れることができます。</p>
 <p>言語によって細かい仕様は異なりますが、<code>async</code>や<code>await</code>キーワードはこの仕事の依頼や終わった仕事の結果を回収するために用いられます。
 大抵、<code>async</code>は仕事を追加する動作に対応し、<code>await</code>は結果が帰ってくるまで待つ動作に対応することが多いです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span> () {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span> () {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>javascriptを例にしてみます。<code>async</code>を用いて定義されたco-routineの<code>f</code>は、呼び出された時点で平行処理仕事リストに追加され、<code>Promise</code>という型の値が返ります。
 この値は仕事がどうなったかを表現します。仕事がすべて完了した時点で、いつの間にか返り値の「結果」の欄が書き換わります。
 この例では即座に「結果」に0がセットされるでしょう。</p>
 <p>返り値が帰ってきた時点で仕事が完了しているかどうかはわからず、仕事が終わった時に値を書き換えるという形で通知されるというわけです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">g</span> () {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">g</span> () {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ret</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">f</span>();
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ret</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
 </span></span><span style="display:flex;"><span>}
@@ -168,7 +168,7 @@
 処理の「切れ目」とはどこのことでしょうか？</p>
 <p>これは言語仕様に依存しますが、多くは<code>await</code>を呼んだタイミングです。
 次のサンプルを見てみましょう。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span> () {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span> () {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`from f: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">i</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
 </span></span><span style="display:flex;"><span>    }
@@ -184,7 +184,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">g</span>();
 </span></span></code></pre></div><p>内部に<code>for</code>ループを持つ<code>async</code>関数二つを用意して、両方ほぼ同時に起動しました。
 結果は以下の通りです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>from f: 0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>from f: 0
 </span></span><span style="display:flex;"><span>from f: 1
 </span></span><span style="display:flex;"><span>from f: 2
 </span></span><span style="display:flex;"><span>from f: 3
@@ -207,7 +207,7 @@
 </span></span></code></pre></div><p>せっかく細切れにして少しずつ処理してやろうとしたのに、順次実行されているように見えます。
 <code>async</code>のうまみが死んでますね。</p>
 <p>では次のコードはどうなるでしょうか？</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">do_nothing</span> () {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">do_nothing</span> () {
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span> () {
@@ -228,7 +228,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">g</span>();
 </span></span></code></pre></div><p><code>undefined</code>が返るだけの何もしない<code>async</code>関数<code>do_nothing</code>を<code>await</code>するコードが挿入されました。
 結果は以下の通りです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>from f: 0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>from f: 0
 </span></span><span style="display:flex;"><span>from g: 0
 </span></span><span style="display:flex;"><span>from f: 1
 </span></span><span style="display:flex;"><span>from g: 1
@@ -359,6 +359,12 @@
         <ul class="post-list">
           
           <li class="post-item">
+  <div class="post-date sub">2026-04-17</div>
+  <div class="post-title"><a href="/post/d-array-length/">[D言語] 配列を縮めたり伸ばしたりするのはやめたほうがいい</a></div>
+  
+</li>
+          
+          <li class="post-item">
   <div class="post-date sub">2026-03-12</div>
   <div class="post-title"><a href="/post/knapsack-with-limit/">個数制限ナップサックを01ナップサックに帰着するときのアレ</a></div>
   
@@ -367,12 +373,6 @@
           <li class="post-item">
   <div class="post-date sub">2026-03-09</div>
   <div class="post-title"><a href="/post/implicit-template-in-d/">[D言語] (a, b) =&gt; b &lt; aについて</a></div>
-  
-</li>
-          
-          <li class="post-item">
-  <div class="post-date sub">2025-03-21</div>
-  <div class="post-title"><a href="/post/slicing-co-routine/">co-routineをスライスする</a></div>
   
 </li>
           

@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ICPC国内予選2023 Problem E - Tampered Records（改竄された史料） - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/aoj1668/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -204,10 +204,10 @@ $n \leq 6000$個の数のペア$(x _ i, y _ i)$が与えられる。
     AC提出
 </a>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;utility&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">int</span> iINF <span style="color:#f92672">=</span> <span style="color:#ae81ff">1&#39;000&#39;000&#39;000</span>;
@@ -231,7 +231,7 @@ $n \leq 6000$個の数のペア$(x _ i, y _ i)$が与えられる。
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// dp[i][j] := 昇順にi個処理して、変更j回をしたとき、作れる最も小さいスコア
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        vector<span style="color:#f92672">&lt;</span>pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> dp(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>), ndp(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span></span><span style="display:flex;"><span>        vector<span style="color:#f92672">&lt;</span>pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> dp(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>), ndp(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
 </span></span><span style="display:flex;"><span>            dp[i] <span style="color:#f92672">=</span> make_pair(iINF, iINF);
 </span></span><span style="display:flex;"><span>        }
@@ -247,7 +247,7 @@ $n \leq 6000$個の数のペア$(x _ i, y _ i)$が与えられる。
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">auto</span> cur <span style="color:#f92672">=</span> make_pair(x[i], y[i]);
 </span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 変更0回
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (cmp(dp[j], cur) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (cmp(dp[j], cur) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
 </span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (cmp(cur, ndp[j]) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
 </span></span><span style="display:flex;"><span>                        ndp[j] <span style="color:#f92672">=</span> cur;
 </span></span><span style="display:flex;"><span>                    }
@@ -255,10 +255,10 @@ $n \leq 6000$個の数のペア$(x _ i, y _ i)$が与えられる。
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (j <span style="color:#f92672">==</span> n) <span style="color:#66d9ef">continue</span>;
 </span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 変更1回
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// どちらを変更するかで分ける。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>                <span style="color:#75715e">// どちらを変更するかで分ける。
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 午前の部
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (x[i] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
+</span></span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (x[i] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(dp[j], make_pair(<span style="color:#ae81ff">0</span>, y[i])) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(make_pair(<span style="color:#ae81ff">0</span>, y[i]), ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
 </span></span><span style="display:flex;"><span>                    ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> make_pair(<span style="color:#ae81ff">0</span>, y[i]);
@@ -270,7 +270,7 @@ $n \leq 6000$個の数のペア$(x _ i, y _ i)$が与えられる。
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 午後の部
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (y[i] <span style="color:#f92672">!=</span> dp[j].second
+</span></span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (y[i] <span style="color:#f92672">!=</span> dp[j].second
 </span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(dp[j], make_pair(x[i], dp[j].second)) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> cmp(make_pair(x[i], dp[j].second), ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
 </span></span><span style="display:flex;"><span>                    ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> make_pair(x[i], dp[j].second);
@@ -284,8 +284,8 @@ $n \leq 6000$個の数のペア$(x _ i, y _ i)$が与えられる。
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (j <span style="color:#f92672">==</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">continue</span>;
 </span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 変更2回
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#75715e">// この場合は前とピッタリ合わせればok
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (dp[j].first <span style="color:#f92672">!=</span> x[i] <span style="color:#f92672">&amp;&amp;</span> dp[j].second <span style="color:#f92672">!=</span> y[i]) {
+</span></span></span><span style="display:flex;"><span>                <span style="color:#75715e">// この場合は前とピッタリ合わせればok
+</span></span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (dp[j].first <span style="color:#f92672">!=</span> x[i] <span style="color:#f92672">&amp;&amp;</span> dp[j].second <span style="color:#f92672">!=</span> y[i]) {
 </span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (cmp(dp[j], ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>]) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
 </span></span><span style="display:flex;"><span>                        ndp[j <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> dp[j];
 </span></span><span style="display:flex;"><span>                    }

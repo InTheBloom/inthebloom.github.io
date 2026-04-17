@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ICPC国内予選2025（Chofu Mai） - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/icpc2025/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/icpc2025/chofumai.png">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -280,11 +280,11 @@ competitive-verifierとjekyllを使ったが、如何せん細かい仕様につ
 <p>後者は<code>std::vector</code>をラップし、<code>std::source_location</code>を利用した<code>class sv</code>（<strong>s</strong>ave <strong>v</strong>ectorの意）を作り、導入した。</p>
 <p>結局本番で利用したテンプレートは以下のようになった。</p>
 <p>まずは<code>class sv</code>を紹介する。細かい部分はわからないので、AIに実装してもらい、それを私が実際に使ってテストした。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;source_location&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">sv</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static_assert</span>(<span style="color:#f92672">!</span>std<span style="color:#f92672">::</span>is_same_v<span style="color:#f92672">&lt;</span>T, <span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;</span>,
@@ -296,7 +296,7 @@ competitive-verifierとjekyllを使ったが、如何せん細かい仕様につ
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">explicit</span> <span style="color:#a6e22e">sv</span>(std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;&amp;&amp;</span> v) <span style="color:#f92672">:</span> std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span>(std<span style="color:#f92672">::</span>move(v)) {}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#ifdef CHOFUMAI
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    T<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span>[](size_t index) {
+</span></span></span><span style="display:flex;"><span>    T<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span>[](size_t index) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (index <span style="color:#f92672">&gt;=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>size()) {
 </span></span><span style="display:flex;"><span>            handle_bounds_error(index, std<span style="color:#f92672">::</span>source_location<span style="color:#f92672">::</span>current());
 </span></span><span style="display:flex;"><span>        }
@@ -353,7 +353,7 @@ competitive-verifierとjekyllを使ったが、如何せん細かい仕様につ
 </span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>exit(<span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#else
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    T<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span>[](size_t index) {
+</span></span></span><span style="display:flex;"><span>    T<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span>[](size_t index) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (index <span style="color:#f92672">&gt;=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>size()) {
 </span></span><span style="display:flex;"><span>            handle_bounds_error(index);
 </span></span><span style="display:flex;"><span>        }
@@ -398,14 +398,14 @@ competitive-verifierとjekyllを使ったが、如何せん細かい仕様につ
 </span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>exit(<span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> copy() <span style="color:#66d9ef">const</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">this</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>};
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
 </span></span><span style="display:flex;"><span>    sv<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> v(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>);
@@ -413,7 +413,7 @@ competitive-verifierとjekyllを使ったが、如何せん細かい仕様につ
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> v[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;&lt;</span> v[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;&lt;</span> endl;
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">//v[-1];
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    v[<span style="color:#ae81ff">5</span>];
+</span></span></span><span style="display:flex;"><span>    v[<span style="color:#ae81ff">5</span>];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    sv<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> y(move(x));
 </span></span><span style="display:flex;"><span>    sv<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> p, q;
@@ -423,8 +423,8 @@ competitive-verifierとjekyllを使ったが、如何せん細かい仕様につ
 </span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> vv[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;&lt;</span> endl;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>テンプレは以下である。<code>g++ -std=c++20 -I path/to/cpp-dump -D CHOFUMAI</code>といったコンパイルオプションでデバッグ機能が利用できる。他のテンプレートに比べてユニークな機能があると自負している。是非手元で動かしてみてほしい。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include&lt;bits/stdc++.h&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#ifdef CHOFUMAI
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cpp-dump.hpp&gt;</span><span style="color:#75715e">
@@ -434,7 +434,7 @@ competitive-verifierとjekyllを使ったが、如何せん細かい仕様につ
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    std::cerr &lt;&lt; &#34;\n╔══════════════════════════════════════╗\n&#34; \
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">              &lt;&lt;   &#34;║             START PROGRAM            ║\n&#34; \
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">              &lt;&lt;   &#34;╚══════════════════════════════════════╝\n&#34;;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#define END() \
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    std::cerr &lt;&lt; &#34;\n╔══════════════════════════════════════╗\n&#34; \
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">              &lt;&lt;   &#34;║              END PROGRAM             ║\n&#34; \
@@ -447,7 +447,7 @@ competitive-verifierとjekyllを使ったが、如何せん細かい仕様につ
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define END()
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define SLEEP()
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ll <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ull <span style="color:#f92672">=</span> <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ld <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">double</span>;
@@ -473,21 +473,21 @@ competitive-verifierとjekyllを使ったが、如何せん細かい仕様につ
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#define FOR(i, a, b) for(int i = (a); i &lt; (b); ++i)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define REP(i, n) FOR(i, 0, n)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// repマクロ（REPではなく...笑）
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define rep(i, n) FOR(i, 0, n)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define rep(i, n) FOR(i, 0, n)
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#define EACH(e, v) for(auto &amp;e : v)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define RITR(it, v) for(auto it = (v).rbegin(); it != (v).rend(); ++it)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define ALL(v) v.begin(),v.end()
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span>ll<span style="color:#f92672">&gt;</span> x8<span style="color:#f92672">=</span>{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>},y8<span style="color:#f92672">=</span>{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>};
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> dx4[<span style="color:#ae81ff">4</span>]<span style="color:#f92672">=</span>{<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>}, dy4[<span style="color:#ae81ff">4</span>]<span style="color:#f92672">=</span>{<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>};
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> libs {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ライブラリペタリゾーン
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>} <span style="color:#75715e">// namespace libs
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>} <span style="color:#75715e">// namespace libs
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> libs;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">solver</span> () {
@@ -500,7 +500,7 @@ competitive-verifierとjekyllを使ったが、如何せん細かい仕様につ
 </span></span><span style="display:flex;"><span>    ios_base<span style="color:#f92672">::</span>sync_with_stdio(<span style="color:#ae81ff">0</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 浮動小数点のアレ
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> fixed <span style="color:#f92672">&lt;&lt;</span> setprecision(<span style="color:#ae81ff">20</span>);
+</span></span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> fixed <span style="color:#f92672">&lt;&lt;</span> setprecision(<span style="color:#ae81ff">20</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    SLEEP();
 </span></span><span style="display:flex;"><span>    START();
