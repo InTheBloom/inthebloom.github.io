@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ABC270E - Apple Baskets on Circle - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/abc270e/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -172,7 +172,7 @@ $x$周しても$A_i$における大小関係は逆転しない($A_i &lt; A_j$が
 <p><code>Remaining</code>はその時点で$0$個以上のりんごが入っているかごの数である。
 また、現時点で最小のりんごの数を得るために優先度付きキューを利用している。
 これは上で説明した大小関係が保存されることを利用している。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> K<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> K<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> Remaining <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>a<span style="color:#f92672">;</span> A<span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> a<span style="color:#f92672">)</span> Remaining<span style="color:#f92672">++;</span>
@@ -187,7 +187,7 @@ $x$周しても$A_i$における大小関係は逆転しない($A_i &lt; A_j$が
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>K <span style="color:#f92672">&lt;=</span> sum <span style="color:#f92672">+</span> Remaining<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#75715e">// 一周とれば終了
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
+</span></span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>sum <span style="color:#f92672">&lt;</span> K<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> sum<span style="color:#f92672">++,</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">]--;</span>
 </span></span><span style="display:flex;"><span>                    i<span style="color:#f92672">++;</span>
@@ -196,7 +196,7 @@ $x$周しても$A_i$における大小関係は逆転しない($A_i &lt; A_j$が
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>sum <span style="color:#f92672">+</span> Remaining <span style="color:#f92672">&lt;</span> K<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#75715e">// A[idx]が最小なので、これを上限にして、できるだけとる
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">long</span> take <span style="color:#f92672">=</span> min<span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>idx<span style="color:#f92672">],</span> <span style="color:#f92672">(</span>K<span style="color:#f92672">-</span>sum<span style="color:#f92672">)/</span>Remaining<span style="color:#f92672">);</span>
+</span></span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">long</span> take <span style="color:#f92672">=</span> min<span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>idx<span style="color:#f92672">],</span> <span style="color:#f92672">(</span>K<span style="color:#f92672">-</span>sum<span style="color:#f92672">)/</span>Remaining<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>                sum <span style="color:#f92672">+=</span> Remaining<span style="color:#f92672">*</span>take<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">ref</span> a<span style="color:#f92672">;</span> A<span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> a<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>                    a <span style="color:#f92672">-=</span> take<span style="color:#f92672">;</span>
@@ -207,7 +207,7 @@ $x$周しても$A_i$における大小関係は逆転しない($A_i &lt; A_j$が
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// output
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">A</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> write<span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> A<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">));</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">A</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> write<span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> A<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">));</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>この解法は確かに正しい解を得るが、実は$\text{worst} ~ O(N^2)$となっている。(筆者はこれに気づかずに2TLEした。)
 例えば$A_i = i$であって、$K = \sum A_i$であるときがこのケースに当たる。
@@ -222,11 +222,11 @@ $x$個に満たないかごからは$A_i$個までしかとれないので、$\s
 <p>最後の一周は素直にシミュレートすればよいので、これで解ける。
 時間計算量は$O(N \log{} (\max{} A_i))$である。</p>
 <p>以下にD言語による実装例を載せる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve2</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> K<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-D" data-lang="D"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve2</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> K<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// A[i]からとれるならX個とるとするとき、その総和がKを超えるかどうかで二分探索
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 二分探索: f(x) := sum( min(x, A[i]) ) に対して、f(ok) &lt;= K &lt; f(ng)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// ok &lt;- [0, max(A)]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 二分探索: f(x) := sum( min(x, A[i]) ) に対して、f(ok) &lt;= K &lt; f(ng)
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ok &lt;- [0, max(A)]
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>a<span style="color:#f92672">;</span> A<span style="color:#f92672">)</span> sum <span style="color:#f92672">+=</span> min<span style="color:#f92672">(</span>x<span style="color:#f92672">,</span> a<span style="color:#f92672">);</span>
@@ -246,10 +246,10 @@ $x$個に満たないかごからは$A_i$個までしかとれないので、$\s
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 少なくとも(とれるなら)ok個とってよい。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">ref</span> a<span style="color:#f92672">;</span> A<span style="color:#f92672">)</span> sum <span style="color:#f92672">+=</span> min<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> ok<span style="color:#f92672">),</span> a <span style="color:#f92672">-=</span> min<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> ok<span style="color:#f92672">);</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">ref</span> a<span style="color:#f92672">;</span> A<span style="color:#f92672">)</span> sum <span style="color:#f92672">+=</span> min<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> ok<span style="color:#f92672">),</span> a <span style="color:#f92672">-=</span> min<span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> ok<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 端数を一周して合わせる
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">{</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>sum <span style="color:#f92672">&lt;</span> K<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span> sum<span style="color:#f92672">++,</span> A<span style="color:#f92672">[</span>i<span style="color:#f92672">]--;</span>
@@ -258,7 +258,7 @@ $x$個に満たないかごからは$A_i$個までしかとれないので、$\s
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// output
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">A</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> write<span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> A<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">));</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0.</span><span style="color:#f92672">.</span><span style="color:#a6e22e">A</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span> write<span style="color:#f92672">(</span>A<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> A<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">));</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h2 id="振り返り">振り返り</h2>
 <p>解法2は解法1をさらにまとめた形だということもできるだろう。

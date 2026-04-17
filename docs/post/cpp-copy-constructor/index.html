@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="暗黙のコピーコンストラクタにご注意を - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/cpp-copy-constructor/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -122,12 +122,12 @@
 <p>落ちたコードを掲載します。
 目的の街にいくために必要な中継のポータルは高々1つになるので、ポータルの色を決め打ちして<code>upper_bound</code>で探しています。
 これで8通りの色それぞれに2回<code>upper_bound</code>をすればよく、十分間に合うという感じです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;map&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> ll <span style="color:#f92672">=</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>;
 </span></span><span style="display:flex;"><span>
@@ -136,8 +136,8 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> () {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n, q; cin <span style="color:#f92672">&gt;&gt;</span> n <span style="color:#f92672">&gt;&gt;</span> q;
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 中継は高々1回
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 中継のポータルを決め打ちして探索することで8 * 2 * logくらいでみつかる。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 中継のポータルを決め打ちして探索することで8 * 2 * logくらいでみつかる。
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> portal(n);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) cin <span style="color:#f92672">&gt;&gt;</span> portal[i];
 </span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> ord(<span style="color:#ae81ff">128</span>);
@@ -159,7 +159,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> iINF;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 中継ポータルを決め打ちする
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c1 : portal[x]) {
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c1 : portal[x]) {
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c2 : portal[y]) {
 </span></span><span style="display:flex;"><span>                string key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
 </span></span><span style="display:flex;"><span>                key <span style="color:#f92672">+=</span> c1;
@@ -168,7 +168,7 @@
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">auto</span> vec <span style="color:#f92672">=</span> mp[key];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                { <span style="color:#75715e">// xの左
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> upper_bound(vec.begin(), vec.end(), x);
+</span></span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> upper_bound(vec.begin(), vec.end(), x);
 </span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (it <span style="color:#f92672">!=</span> vec.end()) {
 </span></span><span style="display:flex;"><span>                        ans <span style="color:#f92672">=</span> min(ans, abs(x <span style="color:#f92672">-</span> <span style="color:#f92672">*</span>it) <span style="color:#f92672">+</span> abs(<span style="color:#f92672">*</span>it <span style="color:#f92672">-</span> y));
 </span></span><span style="display:flex;"><span>                    }
@@ -180,7 +180,7 @@
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                { <span style="color:#75715e">// yより右
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> upper_bound(vec.begin(), vec.end(), y);
+</span></span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> upper_bound(vec.begin(), vec.end(), y);
 </span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (it <span style="color:#f92672">!=</span> vec.end()) {
 </span></span><span style="display:flex;"><span>                        ans <span style="color:#f92672">=</span> min(ans, abs(x <span style="color:#f92672">-</span> <span style="color:#f92672">*</span>it) <span style="color:#f92672">+</span> abs(<span style="color:#f92672">*</span>it <span style="color:#f92672">-</span> y));
 </span></span><span style="display:flex;"><span>                    }
@@ -204,8 +204,8 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>TLEを引き起こしている場所は次の部分でした。(抜粋)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// 中継ポータルを決め打ちする
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c1 : portal[x]) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// 中継ポータルを決め打ちする
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c1 : portal[x]) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> c2 : portal[y]) {
 </span></span><span style="display:flex;"><span>        string key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
 </span></span><span style="display:flex;"><span>        key <span style="color:#f92672">+=</span> c1;
@@ -228,7 +228,7 @@
 </a>
 によると、<code>auto vec = mp[key];</code>はコピーコンストラクタが呼ばれてしまうようです。
 これを回避するためには、参照を利用するとよいです。すなわち、<code>std::vector&lt;int&gt;&amp;</code>で受けます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> vec <span style="color:#f92672">=</span> mp[key];
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&amp;</span> vec <span style="color:#f92672">=</span> mp[key];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> vec <span style="color:#f92672">=</span> mp[key]; <span style="color:#75715e">// こうしても良い
 </span></span></span></code></pre></div><h2 id="まとめ">まとめ</h2>
 <p>色々見ている限り、C++では構造体やクラスなどは何も指定しなければコピーが走る傾向にあるようです。

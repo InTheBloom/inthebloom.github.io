@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ABC290参加記録 - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/abc290/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io/https://res.cloudinary.com/dqoqdn2sk/image/upload/v1676940117/pictures/abc290/ogp_t3dazz.png">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -100,10 +100,10 @@
     <li><a href="#成績とか">成績とか</a></li>
     <li><a href="#問題と解法">問題と解法</a>
       <ul>
-        <li><a href="#a---contest-resulthttpsatcoderjpcontestsabc290tasksabc290_a"><a href="https://atcoder.jp/contests/abc290/tasks/abc290_a">A - Contest Result</a></a></li>
-        <li><a href="#b---qual-bhttpsatcoderjpcontestsabc290tasksabc290_b"><a href="https://atcoder.jp/contests/abc290/tasks/abc290_b">B - Qual B</a></a></li>
-        <li><a href="#c---max-mexhttpsatcoderjpcontestsabc290tasksabc290_c"><a href="https://atcoder.jp/contests/abc290/tasks/abc290_c">C - Max MEX</a></a></li>
-        <li><a href="#d---markinghttpsatcoderjpcontestsabc290tasksabc290_d"><a href="https://atcoder.jp/contests/abc290/tasks/abc290_d">D - Marking</a></a></li>
+        <li><a href="#a---contest-result">A - Contest Result</a></li>
+        <li><a href="#b---qual-b">B - Qual B</a></li>
+        <li><a href="#c---max-mex">C - Max MEX</a></li>
+        <li><a href="#d---marking">D - Marking</a></li>
       </ul>
     </li>
     <li><a href="#終わりに">終わりに</a></li>
@@ -144,7 +144,7 @@ Beginner Contest
     前回の記事
 </a>
 のようなスタイルで記事を立てようかなと思っているので、あまり深入りはしないことにします。</p>
-<h3 id="a---contest-resulthttpsatcoderjpcontestsabc290tasksabc290_a">
+<h3 id="a---contest-result">
 <a
   
     href="https://atcoder.jp/contests/abc290/tasks/abc290_a"
@@ -158,8 +158,8 @@ Beginner Contest
 <p>すぬけくんの解いた問題番号は配点のあとに渡されるので、一旦配点はすべて記録しておく必要があります。*✙最強のデータ構造✙*である配列を用いれば一発です。ただしアクセスするインデックスは一つずれますから気をつけましょう。</p>
 <p>C言語的なことを言うとしたら、制約からすぬけくんの総得点は<code>int</code>で大丈夫だし、何なら配点は<code>char</code>で収まります。</p>
 <p>以下ACコードです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">void</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n, m;
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%i %i&#34;</span>, <span style="color:#f92672">&amp;</span>n, <span style="color:#f92672">&amp;</span>m);
@@ -179,7 +179,7 @@ Beginner Contest
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%i&#34;</span>, ans);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="b---qual-bhttpsatcoderjpcontestsabc290tasksabc290_b">
+</span></span></code></pre></div><h3 id="b---qual-b">
 <a
   
     href="https://atcoder.jp/contests/abc290/tasks/abc290_b"
@@ -193,8 +193,8 @@ Beginner Contest
 <p>予選コンテストにちなんだ問題でしょうか？意外とAtCoderの問題って遊び心のあるものが多いような気がします。</p>
 <p>さて、予選を突破するための条件は、「決勝希望者であり、希望者のの中で上位K人である」ことなので、単に上から<code>o</code>のついている人をK人分だけ<code>o</code>にして、あとは<code>x</code>にするとオーケーです。</p>
 <p>以下ACコードです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">void</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n, k;
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%i %i&#34;</span>, <span style="color:#f92672">&amp;</span>n, <span style="color:#f92672">&amp;</span>k);
@@ -222,7 +222,7 @@ Beginner Contest
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="c---max-mexhttpsatcoderjpcontestsabc290tasksabc290_c">
+</span></span></code></pre></div><h3 id="c---max-mex">
 <a
   
     href="https://atcoder.jp/contests/abc290/tasks/abc290_c"
@@ -240,8 +240,8 @@ Beginner Contest
 <p>最大値がそれより小さくなるケースは、「0~K-1に至る途中の数のどれかが一つでも欠けている」というものになります。</p>
 <p>以上より、数列Aに0~K-1までの数字がすべて含まれているときに答えはKになり、それ以外のときは「欠けている」最小の数字が答えになります。</p>
 <p>以下ACコードです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">void</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n, k;
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scanf</span>(<span style="color:#e6db74">&#34;%i %i&#34;</span>, <span style="color:#f92672">&amp;</span>n, <span style="color:#f92672">&amp;</span>k);
@@ -266,7 +266,7 @@ Beginner Contest
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>余談ですが、ARC156にもMEX関連の問題が出ていましたね(全く解けませんでした)</p>
-<h3 id="d---markinghttpsatcoderjpcontestsabc290tasksabc290_d">
+<h3 id="d---marking">
 <a
   
     href="https://atcoder.jp/contests/abc290/tasks/abc290_d"

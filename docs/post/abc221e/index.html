@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="ABC221E - LEQ - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/post/abc221e/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -190,7 +190,7 @@ $$</p>
 <p>終点が$A_x$であるときの解を求めるには、$A_x$の圧縮先を$x$とするとき、セグメントツリーの$[0, x]$の合計値に$2^{x}$をかけることで得られる。</p>
 <p>以上より、全体$O(N \log N)$で解を求めることができる。</p>
 <h2 id="実装例">実装例</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!</span><span style="color:#66d9ef">int</span><span style="color:#f92672">;</span>
@@ -200,18 +200,18 @@ $$</p>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">/*</span>
-</span></span><span style="display:flex;"><span>       解説AC<span style="color:#f92672">:</span> 先に部分列の頭と尻尾を決め打ちする<span style="color:#960050;background-color:#1e0010">。</span>
-</span></span><span style="display:flex;"><span>       この時<span style="color:#960050;background-color:#1e0010">、</span>i <span style="color:#f92672">&lt;</span> j かつ A_i <span style="color:#f92672">&lt;=</span> A_jである<span style="color:#960050;background-color:#1e0010">。</span>
-</span></span><span style="display:flex;"><span>       このような部分列は2<span style="color:#f92672">^{</span>j<span style="color:#f92672">-</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">}</span>個存在し<span style="color:#960050;background-color:#1e0010">、</span>すべて条件を満たす<span style="color:#960050;background-color:#1e0010">。</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">2</span><span style="color:#f92672">^{</span>j<span style="color:#f92672">-</span>i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">}</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">^{</span>j<span style="color:#f92672">}</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">^{</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">}</span>であるから<span style="color:#960050;background-color:#1e0010">、</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>       jを一つ固定して考える<span style="color:#960050;background-color:#1e0010">。</span>尻尾がA_jであって<span style="color:#960050;background-color:#1e0010">、</span>条件を満たす部分列は2<span style="color:#f92672">^{</span>j<span style="color:#f92672">}</span> <span style="color:#f92672">/</span> sum<span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> i <span style="color:#f92672">&lt;</span> j かつ A_i <span style="color:#f92672">&lt;=</span> A_j<span style="color:#f92672">)</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">^{</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">}</span>通り<span style="color:#960050;background-color:#1e0010">。</span>
-</span></span><span style="display:flex;"><span>       これは座圧 <span style="color:#f92672">+</span> 動的区間和取得ができればO<span style="color:#f92672">(</span>log N<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>       具体的には<span style="color:#960050;background-color:#1e0010">、</span>Aを座圧して列Bを作り<span style="color:#960050;background-color:#1e0010">、</span>前からj<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>までで1<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">^{</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">}</span>の計算結果を列のしかるべきところに入れる<span style="color:#960050;background-color:#1e0010">。</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>       すべてのjに対して同じことを行うと<span style="color:#960050;background-color:#1e0010">、</span>O<span style="color:#f92672">(</span>N log N<span style="color:#f92672">)</span>に落ちる
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">*/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       解説AC: 先に部分列の頭と尻尾を決め打ちする。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       この時、i &lt; j かつ A_i &lt;= A_jである。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       このような部分列は2^{j-i-1}個存在し、すべて条件を満たす。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       2^{j-i-1} = 2^{j} / 2^{i+1}であるから、
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       jを一つ固定して考える。尻尾がA_jであって、条件を満たす部分列は2^{j} / sum(1 &lt;= i &lt; j かつ A_i &lt;= A_j) 2^{i+1}通り。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       これは座圧 + 動的区間和取得ができればO(log N)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       具体的には、Aを座圧して列Bを作り、前からj-1までで1/2^{i+1}の計算結果を列のしかるべきところに入れる。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       すべてのjに対して同じことを行うと、O(N log N)に落ちる
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">long</span> MOD <span style="color:#f92672">=</span> <span style="color:#ae81ff">998244353</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 座圧 */</span>

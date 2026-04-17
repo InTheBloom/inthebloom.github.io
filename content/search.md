@@ -2,7 +2,7 @@
 title: サイト内全文検索
 hidedate: true
 toc: false
-_build: { list: never }
+build: { list: never }
 ---
 
 サイト内の文章からインクリメント検索が可能です。

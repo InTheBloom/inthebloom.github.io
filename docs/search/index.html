@@ -14,10 +14,10 @@
 
 <meta name="author" content="">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="alternate" href="/index.xml?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc" type="application/rss+xml" title="RSS" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="alternate" href="/index.xml?c=5c75364b333ee845932f1b5d7a96524e4b12409b" type="application/rss+xml" title="RSS" />
 <meta property="og:title" content="サイト内全文検索 - InTheDayDream">
 <meta property="og:url" content="https://inthebloom.github.io/search/">
 <meta property="og:type" content="article">
@@ -36,11 +36,11 @@
 <meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
 
 
-<link rel="stylesheet" href="/css/main.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
-<link rel="stylesheet" href="/css/color.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/main.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
+<link rel="stylesheet" href="/css/color.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
-<link rel="stylesheet" href="/css/custom.css?c=c4bca56be9f8a6a4acf91ead8294a6fa40f729cc">
+<link rel="stylesheet" href="/css/custom.css?c=5c75364b333ee845932f1b5d7a96524e4b12409b">
 
 
 
@@ -139,15 +139,21 @@
 
 const data = [
   {
+    url: "/post/d-array-length/",
+    title: "[D言語] 配列を縮めたり伸ばしたりするのはやめたほうがいい",
+    date: "2026-04-17T00:00:00+09:00",
+    body: "[D言語] 配列を縮めたり伸ばしたりするのはやめたほうがいい 要約 T[]をstackのように縮めたり伸ばしたりを行うのはやめたほうがいい。 末尾要素にしか興味がない: 面倒くさがらずにstd.container.dlistを使うべき。 末尾要素以外も触る: 長めの配列を用意して、どこまで使っているかをもう一つの変数で管理すべき。 前提: Dの配列 DにおいてT[]は 派生データ型 であり、言語側により提供されます。 そしてこれは追加情報を持つC pointerのようなふるまいをします。 T[]の値Aがあったとして、 A.lengthで現在の長さを取得でき、さらにA.lengthを経由して配列長を変更できます。 A.capacityで再確保無しで末尾を伸ばせる限界のサイズを取得できます。 A ~= vで型Tの値vを末尾に追加できます。この際A.length \u0026lt; A.capacityであればメモリの再確保は発生しません。 末尾要素にはA[$ - 1]で簡単にアクセスできます。（$はA.lengthの糖衣構文だと言っていい。） 問題 以上で説明した性質により、 追加の変数を管理せずに 標準ライブラリに依存せずに 簡単にstackを実現できます。 次のような感じです。 void main () { int[] stack; stack ~= 1; stack ~= 2; writeln(stack[$ - 1]); // \u0026#34;2\u0026#34; stack.length--; // stack = stack[0 .. $ - 1]でもOK writeln(stack[$ - 1]); // \u0026#34;1\u0026#34; } このような書き方は非常に簡潔で、競技プログラミングで重宝します。（していました） しかし、このようなコードは書くべきではありません。 これはcapacityの変化を見ると明らかです。 次のプログラムを参照してください。 wandbox import std; void main () { int[] A; info(A); // array: [] // ptr: null // capacity: 0 A ~= 1; info(A); // array: [1] // ptr: 7099580D0000 // capacity: 3 A ~= 2; A ~= 3; A ~= 4; info(A); // array: [1, 2, 3, 4] // ptr: 7099580D1000 // capacity: 7 A.length--; info(A); // array: [1, 2, 3] // ptr: 7099580D1000 // capacity: 0 // ↑ptrが変化していないのにかかわらず、capacityが0になっている！ // 次回の末尾追加でメモリの再確保が走る。 A ~= 4; info(A); // array: [1, 2, 3, 4] // ptr: 7099580D1020 // capacity: 7 // ↑メモリの再確保が行われて、ptrが変化した！ } void info (int[] A) { writeln(\u0026#34;array: \u0026#34;, A); writeln(\u0026#34;ptr: \u0026#34;, A.ptr); writeln(\u0026#34;capacity: \u0026#34;, A.capacity); writeln(); } 注目すべきはA.length--を行ったときのcapacityの変化です。 一見、lengthを変える行為はcapacityに変化を与えないように思えますが、D言語ではcapacityが0に変わってしまいます。 これにより、プログラマはstackとしての償却$O(1)$時間を期待している一方、実際には$\\Theta (\\text{length})$時間かかってしまいます。 なぜこんなことになるのか？ （ここからは私の想像です。） これはあるT[]の値が指すメモリをそれ以外のT[]が参照している可能性を考慮してだと思います。 例えば、次のコードのような場合が該当します。 import std; void main () { int[] A = [1, 2, 3, 4]; auto B = A[]; // AとBは同じメモリを指す。 assert(A.ptr == B.ptr); assert(A.length == B.length); A.length--; // AとBは以前同じメモリを指す。 assert(A.ptr == B.ptr); A ~= 5; // このとき、Aが再確保されないとしたら、B[3]は上書きされることになる。 // よって、この時Aが再確保され、別のメモリを指すようになる。 assert(A.ptr != B.ptr); assert(A[3] == 5); assert(B[3] == 4); } Aの長さを減らした後に追加した場合、別の変数に指されている可能性がある領域を書き換えることになり、「追加」であるはずの~のセマンティクスに反する挙動をすることになります。 よって、長さが減少する場合はcapacityを0にする処置が行われるのだと思います。 調査結果 実験をして挙動を確かめようかなと思っていましたが、Dのドキュメントにしっかり明記されていました。 https://dlang.org/spec/arrays.html#capacity-reserve 要約すると、 動的配列のスライスA[x .. y]は、末尾位置が一致しない（A[0 .. $ - 1]など）場合、capacityが0になる。 動的配列の長さが減少した場合、capacityが0になる。 同じ未使用領域をcapacityとしてもつ動的配列が複数あった場合、（おそらくGCによって）最初にその未使用領域を使用した変数以外のcapacityが0なる。正確には、未使用領域の最初の部分が自分の操作以外により未使用でなくなった場合0になる。 なるほど。 GCが相当すごいことをやっていて、重いと言われる理由がよくわかりました。 終わりに このsubmission がTLEで落ちたことによりこの書き方が悪いと気が付きました。 ありがとうAWC ところで、そもそも「今使っている量」みたいなのを追加で管理したくないからこういうことをやっていたのですが、代替案って何かありませんか？ こういう処理はよく出てきがちなのでいい方法を知りたいです。"
+  },
+  {
     url: "/",
     title: "InTheDayDream",
-    date: "2026-04-15T00:00:00+09:00",
+    date: "2026-04-17T00:00:00+09:00",
     body: "InTheDayDream"
   },
   {
     url: "/post/",
     title: "Posts",
-    date: "2026-04-15T00:00:00+09:00",
+    date: "2026-04-17T00:00:00+09:00",
     body: "Posts"
   },
   {

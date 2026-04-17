@@ -6,8 +6,15 @@
     <description>Recent content in トリビア on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/%E3%83%88%E3%83%AA%E3%83%93%E3%82%A2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[D言語] 配列を縮めたり伸ばしたりするのはやめたほうがいい</title>
+      <link>https://inthebloom.github.io/post/d-array-length/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/d-array-length/</guid>
+      <description></description>
+    </item>
     <item>
       <title>個数制限ナップサックを01ナップサックに帰着するときのアレ</title>
       <link>https://inthebloom.github.io/post/knapsack-with-limit/</link>
