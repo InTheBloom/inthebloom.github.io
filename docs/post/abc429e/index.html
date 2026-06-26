@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ABC429E - Hit and Away - InTheDayDream</title>
+<meta name="description" content="">
+
+<meta name="author" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?c=eb0242885eb58a4ae8659f3d1caf41d69947a928">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?c=eb0242885eb58a4ae8659f3d1caf41d69947a928">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?c=eb0242885eb58a4ae8659f3d1caf41d69947a928">
+<link rel="alternate" href="/index.xml?c=eb0242885eb58a4ae8659f3d1caf41d69947a928" type="application/rss+xml" title="RSS" />
+<meta property="og:title" content="ABC429E - Hit and Away - InTheDayDream">
+<meta property="og:url" content="https://inthebloom.github.io/post/abc429e/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="InTheDayDream">
+<meta property="og:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@UU9782wsEdANDhp">
+<meta name="twitter:creator" content="@UU9782wsEdANDhp">
+<meta name="twitter:title" content="ABC429E - Hit and Away - InTheDayDream">
+<meta name="twitter:url" content="https://inthebloom.github.io/post/abc429e/">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="https://inthebloom.github.io//images/featured_image.jpg">
+
+
+<link rel="stylesheet" href="/css/main.css?c=eb0242885eb58a4ae8659f3d1caf41d69947a928">
+<link rel="stylesheet" href="/css/color.css?c=eb0242885eb58a4ae8659f3d1caf41d69947a928">
+
+
+<link rel="stylesheet" href="/css/custom.css?c=eb0242885eb58a4ae8659f3d1caf41d69947a928">
+
+
+
+</head>
+
+<body class="theme-default">
+
+
+
+
+
+<link rel="stylesheet" href="/katex/katex.min.css">
+<script defer src="/katex/katex.min.js"></script>
+<script defer src="/katex/contrib/auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              
+              
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+<div id="content-header" class="title">
+  
+  <a class="site-title" href="/">InTheDayDream</a>
+  
+  <span class="site-sub-title"></span>
+
+  
+
+  <div id="main-menu-nav">
+    <div id="main-menu-nav-items">
+      
+        <div class="nav-item"><a href="/">Home</a></div>
+      
+        <div class="nav-item"><a href="/tags/">Tags</a></div>
+      
+        <div class="nav-item"><a href="/archives/">Archives</a></div>
+      
+        <div class="nav-item"><a href="/about/">About</a></div>
+      
+        <div class="nav-item"><a href="/search/">Search</a></div>
+      
+    </div>
+  </div>
+</div>
+<div id="content" class="main">
+
+
+
+
+<h1>ABC429E - Hit and Away</h1>
+
+<span class="sub">Published on 2026-06-27</span><br>
+<span class="sub">Last Modified 2026-06-27</span>
+
+
+
+
+
+
+<div style="padding: 0em 1em; margin-bottom: 5em; margin-top: 0.7em;">
+    <p style="font-size: 1.3em;">Table Of Contents</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題概要">問題概要</a></li>
+    <li><a href="#解法">解法</a></li>
+    <li><a href="#実装例">実装例</a></li>
+    <li><a href="#考察">考察</a></li>
+    <li><a href="#蛇足">蛇足</a></li>
+  </ul>
+</nav>
+</div>
+
+
+
+<h2 id="問題概要">問題概要</h2>
+<p>
+<a
+  
+    href="https://atcoder.jp/contests/abc429/tasks/abc429_e"
+  
+   target="_blank" rel="noopener">
+    問題リンク
+</a>
+</p>
+<p>$N$頂点$M$辺の単純連結無向グラフ$G$がある。
+$G$の各頂点は安全か危険かのどちらかの状態である。
+$G$の危険な頂点それぞれについて、次の値を求めよ。</p>
+<blockquote>
+<p>危険な頂点を$v$とする。
+相異なる安全な頂点$p, q$を任意にとって、$p$から出発し、$v$を通り、$q$に移動するのにかかる時間の最小値（辺の移動は全てコスト1）</p>
+</blockquote>
+<ul>
+<li>$N \leq 2 \times 10 ^ 5$</li>
+<li>$M \leq 2 \times 10 ^ 5$</li>
+<li>安全な頂点が少なくとも2つ存在</li>
+<li>危険な頂点が少なくとも1つ存在</li>
+</ul>
+<h2 id="解法">解法</h2>
+<p>危険な頂点1つに対して考える。このとき、出発地点、終着地点としてとるべきなのは危険な頂点から1番近い頂点と2番目に近い頂点なので、明らかに危険な頂点からBFSすると解ける。が、これは$O(N(N + M))$時間かかるため間に合わない。
+よって、各危険な頂点に距離昇順top2がどの頂点であるかをもっと上手く伝える必要がある。</p>
+<p>自分はここでハマってしまったが、おそらく通常のBFSの実装イメージに囚われていると解けない。</p>
+<p><img src="/images/abc429e/graph1.png" alt="graph1"></p>
+<p>上図はサンプル1を図示したものである。
+斜線が引かれた頂点3, 4が危険な頂点で、それ以外が安全な頂点になっている。</p>
+<p>イメージとしては、危険な頂点には深さ2のくぼみがあり、安全な頂点から一斉に流れ出したそれぞれ違う色の水のうち、どれがくぼみを埋めるか。という感じになる。</p>
+<p><img src="/images/abc429e/graph2.png" alt="graph2"></p>
+<p>例えば1秒後のグラフは少し見にくいが、このようになる。
+流れ出した水は隣接頂点へと到達し、この時点で頂点3のくぼみは頂点1と2から流れてきた水で埋められている。</p>
+<p>イメージの話は以上で、もう少し細かいことを考える必要がある。
+まず、各くぼみには2以下の水しか入らないことから、ある頂点に最初にたどり着いた2つの水以外を考えなくてよいことがわかる。なぜなら、あとから追いついてきた水があったとしても、先行している2人によってどのくぼみも先に埋められてしまうため、意味がないからである。</p>
+<p>あとは、今までの話はあたかも危険な頂点にしかくぼみがないかのように言っていたが、上記の議論を考えると、「くぼみを埋めることができた水が次に進む権利を得る」と考えると良さそうだ。
+また、どこから来た水であるか（水が何色であるか）という情報も伝播しないと、安全な頂点の始点と終点が相異なるという条件が満たせなくなってしまうので注意が必要である。</p>
+<p>だから、通常のグラフ探索が$\mathrm{dist}[i] = \text{$i$に到達する最短距離}$のような情報を管理するのに対して、今回の問題では$\mathrm{info}[i] = \text{現在$i$に到達した水のうち、最初の2つ}$のような情報を管理することになる。
+まあ、これ以上は実装を見た方が早いと思うので、実装例を示す。</p>
+<h2 id="実装例">実装例</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-d" data-lang="d"><span style="display:flex;"><span><span style="color:#f92672">import</span> std<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> N<span style="color:#f92672">,</span> M<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>N<span style="color:#f92672">,</span> M<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> U <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>M<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> V <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span>M<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> M<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        readln<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>U<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> V<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+</span></span><span style="display:flex;"><span>        U<span style="color:#f92672">[</span>i<span style="color:#f92672">]--,</span> V<span style="color:#f92672">[</span>i<span style="color:#f92672">]--;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    string S <span style="color:#f92672">=</span> readln<span style="color:#f92672">.</span><span style="color:#a6e22e">chomp</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> graph <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> M<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        graph<span style="color:#f92672">[</span>U<span style="color:#f92672">[</span>i<span style="color:#f92672">]]</span> <span style="color:#f92672">~=</span> V<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        graph<span style="color:#f92672">[</span>V<span style="color:#f92672">[</span>i<span style="color:#f92672">]]</span> <span style="color:#f92672">~=</span> U<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> q <span style="color:#f92672">=</span> DList<span style="color:#f92672">!(</span>Tuple<span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">))();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">alias</span> Info <span style="color:#f92672">=</span> Tuple<span style="color:#f92672">!(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> top2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Tuple<span style="color:#f92672">!(</span>Info<span style="color:#f92672">,</span> Info<span style="color:#f92672">)[](</span>N<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    top2<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> tuple<span style="color:#f92672">(</span>Info<span style="color:#f92672">(-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">),</span> Info<span style="color:#f92672">(-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>S<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;S&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            top2<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> tuple<span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            q<span style="color:#f92672">.</span><span style="color:#a6e22e">insertBack</span><span style="color:#f92672">(</span>tuple<span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> i<span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>q<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> pos <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">front</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        q<span style="color:#f92672">.</span><span style="color:#a6e22e">removeFront</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>to<span style="color:#f92672">;</span> graph<span style="color:#f92672">[</span>pos<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>top2<span style="color:#f92672">[</span>to<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>top2<span style="color:#f92672">[</span>to<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                top2<span style="color:#f92672">[</span>to<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> Info<span style="color:#f92672">(</span>pos<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">],</span> pos<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                q<span style="color:#f92672">.</span><span style="color:#a6e22e">insertBack</span><span style="color:#f92672">(</span>tuple<span style="color:#f92672">(</span>to<span style="color:#f92672">,</span> pos<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">],</span> pos<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>top2<span style="color:#f92672">[</span>to<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> top2<span style="color:#f92672">[</span>to<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> pos<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                top2<span style="color:#f92672">[</span>to<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> Info<span style="color:#f92672">(</span>pos<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">],</span> pos<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                q<span style="color:#f92672">.</span><span style="color:#a6e22e">insertBack</span><span style="color:#f92672">(</span>tuple<span style="color:#f92672">(</span>to<span style="color:#f92672">,</span> pos<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">],</span> pos<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> ans <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[](</span><span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> N<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>S<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;D&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">~=</span> top2<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span><span style="color:#ae81ff">0</span><span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> top2<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">][</span><span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    writefln<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%(%s\n%)&#34;</span><span style="color:#f92672">,</span> ans<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">...)</span> <span style="color:#f92672">(</span>string S<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> T args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.conv <span style="color:#f92672">:</span> to<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> std.array <span style="color:#f92672">:</span> split<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> buf <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> <span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> <span style="color:#66d9ef">ref</span> arg<span style="color:#f92672">;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> buf<span style="color:#f92672">[</span>i<span style="color:#f92672">].</span><span style="color:#a6e22e">to</span><span style="color:#f92672">!(</span><span style="color:#66d9ef">typeof</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>
+<a
+  
+    href="https://atcoder.jp/contests/abc429/submissions/76906022"
+  
+   target="_blank" rel="noopener">
+    D言語/218ms
+</a>
+</p>
+<p>各頂点に2色の水しか来ないことを考えると計算量が抑えられる。
+通常のBFSが頂点を1回、辺を2回以下しか見ないこと同様に、このBFSでは頂点を2回、辺を4回以下しか見ない。
+だから時間計算量は$O(N + M)$時間である。</p>
+<h2 id="考察">考察</h2>
+<p>この問題ではどの頂点から来た値かを保持しながら伝播していく。逆に言うと、通常の最短経路問題は普通のグラフ探索であれば保持できるはずの情報を捨てているのだということに気づいた。
+さらに、最短経路問題では単一の「最短距離」のみを保持するが故、「先に到達した2つ」のようにフレキシブルに調節できるということを知らず知らずのうちに思考から除外していた。</p>
+<p>そういう点で面白い問題だったと思う。一般に、DFS系のグラフ探索がパスを生成しているようなものであるのに対し、BFS系のグラフ探索というのは波が広がっているようなものなのだと言えそうだ。それを到達された側の頂点でどう扱うかには幾分の自由度があり、例えば今回のように、1辺に2波までは流せるといった設定にすることも可能だという点が発見だった。</p>
+<h2 id="蛇足">蛇足</h2>
+<p>1ヵ月に1回は更新したいと思っていたが、気がついたら2ヵ月経っていた。
+新しい競プロネタはあるっちゃあるものの、なかなかまとめるのが大変なテーマばかりがあるというのと、AWCに忙殺されているというのがあり、精力的に更新できるかはわからない。</p>
+<p>というか、最近は人間と話すことがそれなりに多いこともあり、文章にまとめたい欲がそがれているフシはありそうだ。
+まあやる気が出たらぼちぼち更新するので適当に見守って貰えるとありがたい。</p>
+<p>あと、おにまいアンソロジー8巻が出るらしいので、人々は買おう。</p>
+
+
+
+
+
+
+<hr class="block-separater">
+
+
+
+
+<div class="content-footer-item">
+	Tags for this post:
+	
+	<a class="post-tag" href="/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">競技プログラミング</a>
+	
+	<a class="post-tag" href="/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/">一問解説</a>
+	
+</div>
+
+
+
+
+
+
+
+<div class="content-footer-item neighbor">
+	
+	<div class="prev-post">Prev: <a href="/post/d-array-length/">[D言語] 配列を縮めたり伸ばしたりするのはやめたほうがいい</a></div>
+	
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "競技プログラミング"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-06-27</div>
+  <div class="post-title"><a href="/post/abc429e/">ABC429E - Hit and Away</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-04-15</div>
+  <div class="post-title"><a href="/post/uecomic9-book/">本を書いて、去年の11月にUEComic9で頒布した</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-04-11</div>
+  <div class="post-title"><a href="/post/calculate-lpf-and-mpf/">2種の篩によるLPF配列、GPF配列の計算</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e7%ab%b6%e6%8a%80%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+    
+    
+    
+    <div class="related-tag-category-list">
+        <h4 style="font-size: 1.3em;">Other posts tagged by "一問解説"</h4>
+        <ul class="post-list">
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-06-27</div>
+  <div class="post-title"><a href="/post/abc429e/">ABC429E - Hit and Away</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-02-19</div>
+  <div class="post-title"><a href="/post/awc0008d/">AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法</a></div>
+  
+</li>
+          
+          <li class="post-item">
+  <div class="post-date sub">2026-01-23</div>
+  <div class="post-title"><a href="/post/knapsack-restoration/">ナップサック問題の復元</a></div>
+  
+</li>
+          
+        </ul>
+        <div class="more-area">
+          
+          <a class="more" href='/tags/%e4%b8%80%e5%95%8f%e8%a7%a3%e8%aa%ac/'>more ...</a>
+          
+      </div>
+        </div>
+    
+
+
+
+
+<script src="/js/single.js"></script>
+
+
+
+
+
+	</div><div id="content-footer" class="sub">
+  
+  <div class="credit">
+    Power by <a href="https://gohugo.io">Hugo</a> /
+    Theme <a href="https://github.com/michimani/simplog/">simplog</a> by <a href="https://github.com/michimani/">michimani</a>
+  </div>
+</div></body>
+
+</html>

@@ -6,8 +6,15 @@
     <description>Recent content in 一問解説 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="https://inthebloom.github.io/tags/%E4%B8%80%E5%95%8F%E8%A7%A3%E8%AA%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ABC429E - Hit and Away</title>
+      <link>https://inthebloom.github.io/post/abc429e/</link>
+      <pubDate>Sat, 27 Jun 2026 00:00:00 +0900</pubDate>
+      <guid>https://inthebloom.github.io/post/abc429e/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法</title>
       <link>https://inthebloom.github.io/post/awc0008d/</link>
