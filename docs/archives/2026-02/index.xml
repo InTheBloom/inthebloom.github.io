@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2026-02 on InTheDayDream</title>
-    <link>https://inthebloom.github.io/archives/2026-02/</link>
+    <link>http://localhost:1313/archives/2026-02/</link>
     <description>Recent content in 2026-02 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://inthebloom.github.io/archives/2026-02/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/archives/2026-02/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWC0008D - 果樹園の収穫 O(N(logN &#43; logF))時間解法</title>
-      <link>https://inthebloom.github.io/post/awc0008d/</link>
+      <link>http://localhost:1313/post/awc0008d/</link>
       <pubDate>Thu, 19 Feb 2026 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/awc0008d/</guid>
+      <guid>http://localhost:1313/post/awc0008d/</guid>
       <description></description>
     </item>
     <item>
       <title>非可換モノイドの逆順積の計算</title>
-      <link>https://inthebloom.github.io/post/monoid-technique/</link>
+      <link>http://localhost:1313/post/monoid-technique/</link>
       <pubDate>Wed, 18 Feb 2026 00:00:00 +0900</pubDate>
-      <guid>https://inthebloom.github.io/post/monoid-technique/</guid>
+      <guid>http://localhost:1313/post/monoid-technique/</guid>
       <description></description>
     </item>
   </channel>
