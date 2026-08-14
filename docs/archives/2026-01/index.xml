@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2026-01 on InTheDayDream</title>
-    <link>http://localhost:1313/archives/2026-01/</link>
+    <link>https://inthebloom.github.io/archives/2026-01/</link>
     <description>Recent content in 2026-01 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 23 Jan 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/archives/2026-01/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/archives/2026-01/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ナップサック問題の復元</title>
-      <link>http://localhost:1313/post/knapsack-restoration/</link>
+      <link>https://inthebloom.github.io/post/knapsack-restoration/</link>
       <pubDate>Fri, 23 Jan 2026 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/knapsack-restoration/</guid>
+      <guid>https://inthebloom.github.io/post/knapsack-restoration/</guid>
       <description></description>
     </item>
     <item>
       <title>O(NM)時間多項式除算</title>
-      <link>http://localhost:1313/post/polynomial-division/</link>
+      <link>https://inthebloom.github.io/post/polynomial-division/</link>
       <pubDate>Fri, 09 Jan 2026 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/polynomial-division/</guid>
+      <guid>https://inthebloom.github.io/post/polynomial-division/</guid>
       <description></description>
     </item>
   </channel>

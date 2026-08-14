@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2026-04 on InTheDayDream</title>
-    <link>http://localhost:1313/archives/2026-04/</link>
+    <link>https://inthebloom.github.io/archives/2026-04/</link>
     <description>Recent content in 2026-04 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/archives/2026-04/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/archives/2026-04/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[D言語] 配列を縮めたり伸ばしたりするのはやめたほうがいい</title>
-      <link>http://localhost:1313/post/d-array-length/</link>
+      <link>https://inthebloom.github.io/post/d-array-length/</link>
       <pubDate>Fri, 17 Apr 2026 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/d-array-length/</guid>
+      <guid>https://inthebloom.github.io/post/d-array-length/</guid>
       <description></description>
     </item>
     <item>
       <title>本を書いて、去年の11月にUEComic9で頒布した</title>
-      <link>http://localhost:1313/post/uecomic9-book/</link>
+      <link>https://inthebloom.github.io/post/uecomic9-book/</link>
       <pubDate>Wed, 15 Apr 2026 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/uecomic9-book/</guid>
+      <guid>https://inthebloom.github.io/post/uecomic9-book/</guid>
       <description></description>
     </item>
     <item>
       <title>2種の篩によるLPF配列、GPF配列の計算</title>
-      <link>http://localhost:1313/post/calculate-lpf-and-mpf/</link>
+      <link>https://inthebloom.github.io/post/calculate-lpf-and-mpf/</link>
       <pubDate>Sat, 11 Apr 2026 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/calculate-lpf-and-mpf/</guid>
+      <guid>https://inthebloom.github.io/post/calculate-lpf-and-mpf/</guid>
       <description></description>
     </item>
   </channel>

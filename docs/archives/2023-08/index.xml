@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2023-08 on InTheDayDream</title>
-    <link>http://localhost:1313/archives/2023-08/</link>
+    <link>https://inthebloom.github.io/archives/2023-08/</link>
     <description>Recent content in 2023-08 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/archives/2023-08/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/archives/2023-08/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC315参加記録</title>
-      <link>http://localhost:1313/post/abc315/</link>
+      <link>https://inthebloom.github.io/post/abc315/</link>
       <pubDate>Thu, 24 Aug 2023 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/abc315/</guid>
+      <guid>https://inthebloom.github.io/post/abc315/</guid>
       <description></description>
     </item>
     <item>
       <title>繰り返し二乗法について</title>
-      <link>http://localhost:1313/post/modpow/</link>
+      <link>https://inthebloom.github.io/post/modpow/</link>
       <pubDate>Sat, 05 Aug 2023 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/modpow/</guid>
+      <guid>https://inthebloom.github.io/post/modpow/</guid>
       <description></description>
     </item>
   </channel>

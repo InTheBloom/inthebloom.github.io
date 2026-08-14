@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on InTheDayDream</title>
-    <link>http://localhost:1313/tags/python/</link>
+    <link>https://inthebloom.github.io/tags/python/</link>
     <description>Recent content in Python on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>co-routineをスライスする</title>
-      <link>http://localhost:1313/post/slicing-co-routine/</link>
+      <link>https://inthebloom.github.io/post/slicing-co-routine/</link>
       <pubDate>Fri, 21 Mar 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/slicing-co-routine/</guid>
+      <guid>https://inthebloom.github.io/post/slicing-co-routine/</guid>
       <description></description>
     </item>
   </channel>

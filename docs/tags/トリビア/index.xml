@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>トリビア on InTheDayDream</title>
-    <link>http://localhost:1313/tags/%E3%83%88%E3%83%AA%E3%83%93%E3%82%A2/</link>
+    <link>https://inthebloom.github.io/tags/%E3%83%88%E3%83%AA%E3%83%93%E3%82%A2/</link>
     <description>Recent content in トリビア on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%E3%83%88%E3%83%AA%E3%83%93%E3%82%A2/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/tags/%E3%83%88%E3%83%AA%E3%83%93%E3%82%A2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[D言語] 配列を縮めたり伸ばしたりするのはやめたほうがいい</title>
-      <link>http://localhost:1313/post/d-array-length/</link>
+      <link>https://inthebloom.github.io/post/d-array-length/</link>
       <pubDate>Fri, 17 Apr 2026 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/d-array-length/</guid>
+      <guid>https://inthebloom.github.io/post/d-array-length/</guid>
       <description></description>
     </item>
     <item>
       <title>個数制限ナップサックを01ナップサックに帰着するときのアレ</title>
-      <link>http://localhost:1313/post/knapsack-with-limit/</link>
+      <link>https://inthebloom.github.io/post/knapsack-with-limit/</link>
       <pubDate>Thu, 12 Mar 2026 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/knapsack-with-limit/</guid>
+      <guid>https://inthebloom.github.io/post/knapsack-with-limit/</guid>
       <description></description>
     </item>
     <item>
       <title>[D言語] (a, b) =&gt; b &lt; aについて</title>
-      <link>http://localhost:1313/post/implicit-template-in-d/</link>
+      <link>https://inthebloom.github.io/post/implicit-template-in-d/</link>
       <pubDate>Mon, 09 Mar 2026 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/implicit-template-in-d/</guid>
+      <guid>https://inthebloom.github.io/post/implicit-template-in-d/</guid>
       <description></description>
     </item>
     <item>
       <title>co-routineをスライスする</title>
-      <link>http://localhost:1313/post/slicing-co-routine/</link>
+      <link>https://inthebloom.github.io/post/slicing-co-routine/</link>
       <pubDate>Fri, 21 Mar 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/slicing-co-routine/</guid>
+      <guid>https://inthebloom.github.io/post/slicing-co-routine/</guid>
       <description></description>
     </item>
     <item>
       <title>失われしappleスタイルのemojiを召喚 on mintty</title>
-      <link>http://localhost:1313/post/apple-emoji-on-mintty/</link>
+      <link>https://inthebloom.github.io/post/apple-emoji-on-mintty/</link>
       <pubDate>Sat, 09 Nov 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/apple-emoji-on-mintty/</guid>
+      <guid>https://inthebloom.github.io/post/apple-emoji-on-mintty/</guid>
       <description></description>
     </item>
   </channel>

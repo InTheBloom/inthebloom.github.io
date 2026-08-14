@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2024-03 on InTheDayDream</title>
-    <link>http://localhost:1313/archives/2024-03/</link>
+    <link>https://inthebloom.github.io/archives/2024-03/</link>
     <description>Recent content in 2024-03 on InTheDayDream</description>
     <generator>Hugo</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 29 Mar 2024 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/archives/2024-03/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://inthebloom.github.io/archives/2024-03/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ABC345参加記録</title>
-      <link>http://localhost:1313/post/abc345/</link>
+      <link>https://inthebloom.github.io/post/abc345/</link>
       <pubDate>Fri, 29 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/abc345/</guid>
+      <guid>https://inthebloom.github.io/post/abc345/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC346参加記録</title>
-      <link>http://localhost:1313/post/abc346/</link>
+      <link>https://inthebloom.github.io/post/abc346/</link>
       <pubDate>Fri, 29 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/abc346/</guid>
+      <guid>https://inthebloom.github.io/post/abc346/</guid>
       <description></description>
     </item>
     <item>
       <title>三井住友信託銀行プログラミングコンテスト2019F - Interval Running</title>
-      <link>http://localhost:1313/post/sumitb2019f/</link>
+      <link>https://inthebloom.github.io/post/sumitb2019f/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/sumitb2019f/</guid>
+      <guid>https://inthebloom.github.io/post/sumitb2019f/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC35D - トレジャーハント</title>
-      <link>http://localhost:1313/post/abc35d/</link>
+      <link>https://inthebloom.github.io/post/abc35d/</link>
       <pubDate>Tue, 12 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/abc35d/</guid>
+      <guid>https://inthebloom.github.io/post/abc35d/</guid>
       <description></description>
     </item>
     <item>
       <title>ABC344 (upsolved)</title>
-      <link>http://localhost:1313/post/abc344/</link>
+      <link>https://inthebloom.github.io/post/abc344/</link>
       <pubDate>Mon, 11 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/abc344/</guid>
+      <guid>https://inthebloom.github.io/post/abc344/</guid>
       <description></description>
     </item>
     <item>
       <title>MMA Contest 016 (upsolved)</title>
-      <link>http://localhost:1313/post/mmacontest016/</link>
+      <link>https://inthebloom.github.io/post/mmacontest016/</link>
       <pubDate>Wed, 06 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/mmacontest016/</guid>
+      <guid>https://inthebloom.github.io/post/mmacontest016/</guid>
       <description></description>
     </item>
     <item>
       <title>20歳になりました。</title>
-      <link>http://localhost:1313/post/20th-birthday/</link>
+      <link>https://inthebloom.github.io/post/20th-birthday/</link>
       <pubDate>Fri, 01 Mar 2024 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/post/20th-birthday/</guid>
+      <guid>https://inthebloom.github.io/post/20th-birthday/</guid>
       <description></description>
     </item>
   </channel>
