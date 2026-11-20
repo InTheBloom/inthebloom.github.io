@@ -6,7 +6,7 @@ date: 2026-11-20
 # lastmod: yyyy-mm-dd
 # hidedate: true
 
-ogimage: /images/uecomic10-announcement/ogp.img
+ogimage: /images/uecomic10-announcement/ogp.png
 
 tags:
   - announcement
